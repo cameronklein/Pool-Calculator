@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6246"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Container View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ContainerViewController" customModule="Pool_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fuf-mP-8hi" userLabel="Bottom Bar">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <color key="backgroundColor" red="0.71372549019607845" green="0.71372549019607845" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="iJd-QM-XHv"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEx-F8-Q7z" userLabel="Button One">
+                                <rect key="frame" x="16" y="544" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.13725490200000001" green="0.43137254899999999" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="780-iW-hpd"/>
+                                    <constraint firstAttribute="height" constant="40" id="bmd-3n-Oa5"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBH-B4-gBj" userLabel="Button Three">
+                                <rect key="frame" x="472" y="544" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.13725490200000001" green="0.43137254899999999" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Pdp-BI-ulc"/>
+                                    <constraint firstAttribute="height" constant="40" id="aga-XV-afG"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rqg-LH-5Aw" userLabel="Button Four">
+                                <rect key="frame" x="552" y="544" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.13725490200000001" green="0.43137254899999999" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="h7Z-dF-ZEX"/>
+                                    <constraint firstAttribute="width" constant="40" id="s9x-ob-XT7"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFV-I4-UL4" userLabel="Button Two">
+                                <rect key="frame" x="96" y="544" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.13725490200000001" green="0.43137254899999999" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="BO2-3m-DzP"/>
+                                    <constraint firstAttribute="width" constant="40" id="SrK-oj-jff"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Rqg-LH-5Aw" firstAttribute="leading" secondItem="xBH-B4-gBj" secondAttribute="trailing" constant="40" id="Bk5-ea-gty"/>
+                            <constraint firstItem="Fuf-mP-8hi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FQk-oy-pYs"/>
+                            <constraint firstItem="VFV-I4-UL4" firstAttribute="leading" secondItem="dEx-F8-Q7z" secondAttribute="trailing" constant="40" id="I5F-B7-8qc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dEx-F8-Q7z" secondAttribute="bottom" constant="16" id="OL8-SI-POY"/>
+                            <constraint firstAttribute="bottom" secondItem="VFV-I4-UL4" secondAttribute="bottom" constant="16" id="PRh-fw-a23"/>
+                            <constraint firstItem="dEx-F8-Q7z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="W69-Yd-4UE"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xBH-B4-gBj" secondAttribute="bottom" constant="16" id="YLf-35-14w"/>
+                            <constraint firstAttribute="trailing" secondItem="Fuf-mP-8hi" secondAttribute="trailing" id="ZNh-gW-XZ2"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Rqg-LH-5Aw" secondAttribute="bottom" constant="16" id="aXV-Oz-wyC"/>
+                            <constraint firstAttribute="bottom" secondItem="Fuf-mP-8hi" secondAttribute="bottom" id="dl8-GU-cOg"/>
+                            <constraint firstAttribute="trailing" secondItem="Rqg-LH-5Aw" secondAttribute="trailing" constant="8" id="vgv-I2-yS8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bottomBar" destination="Fuf-mP-8hi" id="gIo-jq-Gl0"/>
+                        <outlet property="buttonFour" destination="Rqg-LH-5Aw" id="HOK-3B-viH"/>
+                        <outlet property="buttonOne" destination="dEx-F8-Q7z" id="msY-wm-mKO"/>
+                        <outlet property="buttonThree" destination="xBH-B4-gBj" id="2U7-Vd-rCP"/>
+                        <outlet property="buttonTwo" destination="VFV-I4-UL4" id="g77-xJ-C8J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
