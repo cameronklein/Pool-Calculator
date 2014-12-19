@@ -19,6 +19,8 @@
 		7E5B2AAA1A43B6E600B39BDE /* ReadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5B2AA81A43B6E600B39BDE /* ReadingCell.swift */; };
 		7E5B2AAB1A43B6E600B39BDE /* ReadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E5B2AA91A43B6E600B39BDE /* ReadingCell.xib */; };
 		7E5B2AB01A43BDCC00B39BDE /* ReadingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5B2AAF1A43BDCC00B39BDE /* ReadingType.swift */; };
+		7EC7975E1A44110700BFCAAD /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC7975C1A44110700BFCAAD /* HistoryViewController.swift */; };
+		7EC7975F1A44110700BFCAAD /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		7E5B2AA81A43B6E600B39BDE /* ReadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingCell.swift; sourceTree = "<group>"; };
 		7E5B2AA91A43B6E600B39BDE /* ReadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadingCell.xib; sourceTree = "<group>"; };
 		7E5B2AAF1A43BDCC00B39BDE /* ReadingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingType.swift; sourceTree = "<group>"; };
+		7EC7975C1A44110700BFCAAD /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,15 +93,16 @@
 		7E37C2D91A43AA7100432E34 /* Pool Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				7EC7975C1A44110700BFCAAD /* HistoryViewController.swift */,
+				7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */,
 				7E37C2E11A43AA7100432E34 /* ContainerViewController.swift */,
 				7E5B2AAE1A43B97000B39BDE /* NewReadingViewController */,
-				7E5B2AAD1A43B95C00B39BDE /* ReadingCell */,
 				7E5B2AAC1A43B95700B39BDE /* MODEL */,
-				7E37C2E61A43AA7100432E34 /* Images.xcassets */,
 				7E37C2E81A43AA7100432E34 /* LaunchScreen.xib */,
 				7E37C2DC1A43AA7100432E34 /* AppDelegate.swift */,
 				7E37C2E31A43AA7100432E34 /* Main.storyboard */,
 				7E37C2DE1A43AA7100432E34 /* Pool_Calculator.xcdatamodeld */,
+				7E37C2E61A43AA7100432E34 /* Images.xcassets */,
 				7E37C2DA1A43AA7100432E34 /* Supporting Files */,
 			);
 			path = "Pool Calculator";
@@ -139,6 +144,8 @@
 		7E5B2AAD1A43B95C00B39BDE /* ReadingCell */ = {
 			isa = PBXGroup;
 			children = (
+				7E5B2AA81A43B6E600B39BDE /* ReadingCell.swift */,
+				7E5B2AA91A43B6E600B39BDE /* ReadingCell.xib */,
 			);
 			name = ReadingCell;
 			sourceTree = "<group>";
@@ -148,8 +155,7 @@
 			children = (
 				7E5B2AA41A43B2DE00B39BDE /* NewReadingViewController.swift */,
 				7E5B2AA51A43B2DE00B39BDE /* NewReadingViewController.xib */,
-				7E5B2AA81A43B6E600B39BDE /* ReadingCell.swift */,
-				7E5B2AA91A43B6E600B39BDE /* ReadingCell.xib */,
+				7E5B2AAD1A43B95C00B39BDE /* ReadingCell */,
 			);
 			name = NewReadingViewController;
 			sourceTree = "<group>";
@@ -239,6 +245,7 @@
 				7E37C2EA1A43AA7100432E34 /* LaunchScreen.xib in Resources */,
 				7E37C2E71A43AA7100432E34 /* Images.xcassets in Resources */,
 				7E5B2AAB1A43B6E600B39BDE /* ReadingCell.xib in Resources */,
+				7EC7975F1A44110700BFCAAD /* HistoryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +268,7 @@
 				7E37C2E21A43AA7100432E34 /* ContainerViewController.swift in Sources */,
 				7E37C2DD1A43AA7100432E34 /* AppDelegate.swift in Sources */,
 				7E5B2AB01A43BDCC00B39BDE /* ReadingType.swift in Sources */,
+				7EC7975E1A44110700BFCAAD /* HistoryViewController.swift in Sources */,
 				7E37C2E01A43AA7100432E34 /* Pool_Calculator.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,13 +16,15 @@ class ContainerViewController: UIViewController {
   @IBOutlet weak var buttonThree: UIView!
   @IBOutlet weak var buttonFour: UIView!
   
+  var currentViewController : UIViewController!
+  var newReadingVC : NewReadingViewController!
+  var historyVC : HistoryViewController!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    let newReadingVC = NewReadingViewController(nibName: "NewReadingViewController", bundle: NSBundle.mainBundle())
-    newReadingVC.view.frame = self.view.bounds
-    self.addChildViewController(newReadingVC)
-    self.view.insertSubview(newReadingVC.view, belowSubview: bottomBar)
-    newReadingVC.didMoveToParentViewController(self)
+    setupViewControllers()
+    switchToNewReadingView()
+
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -33,6 +35,13 @@ class ContainerViewController: UIViewController {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     
+  }
+  
+  func setupViewControllers(){
+    newReadingVC = NewReadingViewController(nibName: "NewReadingViewController", bundle: NSBundle.mainBundle())
+    newReadingVC.view.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - bottomBar.frame.height)
+    historyVC = HistoryViewController(nibName: "HistoryViewController", bundle: NSBundle.mainBundle())
+    newReadingVC.view.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - bottomBar.frame.height)
   }
   
   func setupButtons() {
@@ -50,10 +59,43 @@ class ContainerViewController: UIViewController {
   }
 
   func didTapButton(sender: UITapGestureRecognizer) {
-    if let button = sender.view {
-      println(button.description + " tapped!")
+    switch sender.view!{
+    case buttonOne:
+      switchToNewReadingView()
+    case buttonTwo:
+      switchToHistoryView()
+    case buttonThree:
+      switchToCalculatorView()
+    case buttonFour:
+      switchToSettingsView()
+    default:
+    println("This should not happen.")
     }
   }
 
+  func switchToNewReadingView() {
+    if currentViewController != nil {
+      currentViewController.removeFromParentViewController()
+    }
+    self.addChildViewController(newReadingVC)
+    self.view.insertSubview(newReadingVC.view, belowSubview: bottomBar)
+    currentViewController = newReadingVC
+  }
+  
+  func switchToHistoryView() {
+    currentViewController.removeFromParentViewController()
+    self.addChildViewController(historyVC)
+    self.view.insertSubview(historyVC.view, belowSubview: bottomBar)
+    currentViewController = historyVC
+  }
+  
+  func switchToCalculatorView() {
+    
+  }
+  
+  func switchToSettingsView() {
+    
+  }
+  
 }
 
