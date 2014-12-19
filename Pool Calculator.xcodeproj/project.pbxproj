@@ -21,6 +21,8 @@
 		7E5B2AB01A43BDCC00B39BDE /* ReadingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5B2AAF1A43BDCC00B39BDE /* ReadingType.swift */; };
 		7EC7975E1A44110700BFCAAD /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC7975C1A44110700BFCAAD /* HistoryViewController.swift */; };
 		7EC7975F1A44110700BFCAAD /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */; };
+		7EC797621A441C7600BFCAAD /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC797601A441C7600BFCAAD /* HistoryCell.swift */; };
+		7EC797631A441C7600BFCAAD /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC797611A441C7600BFCAAD /* HistoryCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		7E5B2AAF1A43BDCC00B39BDE /* ReadingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingType.swift; sourceTree = "<group>"; };
 		7EC7975C1A44110700BFCAAD /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
+		7EC797601A441C7600BFCAAD /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		7EC797611A441C7600BFCAAD /* HistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				7EC7975C1A44110700BFCAAD /* HistoryViewController.swift */,
+				7EC797601A441C7600BFCAAD /* HistoryCell.swift */,
+				7EC797611A441C7600BFCAAD /* HistoryCell.xib */,
 				7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */,
 				7E37C2E11A43AA7100432E34 /* ContainerViewController.swift */,
 				7E5B2AAE1A43B97000B39BDE /* NewReadingViewController */,
@@ -241,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E5B2AA71A43B2DE00B39BDE /* NewReadingViewController.xib in Resources */,
+				7EC797631A441C7600BFCAAD /* HistoryCell.xib in Resources */,
 				7E37C2E51A43AA7100432E34 /* Main.storyboard in Resources */,
 				7E37C2EA1A43AA7100432E34 /* LaunchScreen.xib in Resources */,
 				7E37C2E71A43AA7100432E34 /* Images.xcassets in Resources */,
@@ -269,6 +276,7 @@
 				7E37C2DD1A43AA7100432E34 /* AppDelegate.swift in Sources */,
 				7E5B2AB01A43BDCC00B39BDE /* ReadingType.swift in Sources */,
 				7EC7975E1A44110700BFCAAD /* HistoryViewController.swift in Sources */,
+				7EC797621A441C7600BFCAAD /* HistoryCell.swift in Sources */,
 				7E37C2E01A43AA7100432E34 /* Pool_Calculator.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
