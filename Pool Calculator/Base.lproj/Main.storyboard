@@ -44,6 +44,15 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoX-FZ-iDk">
+                                        <rect key="frame" x="277" y="7" width="46" height="30"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didPressSubmit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WBc-8V-Rax"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -52,6 +61,8 @@
                                     <constraint firstAttribute="bottom" secondItem="SrK-aP-Mx6" secondAttribute="bottom" constant="4" id="LfQ-RV-zD7"/>
                                     <constraint firstAttribute="bottom" secondItem="5Kq-7f-w7l" secondAttribute="bottom" constant="4" id="ajV-iU-q7P"/>
                                     <constraint firstAttribute="height" constant="44" id="iJd-QM-XHv"/>
+                                    <constraint firstAttribute="centerY" secondItem="uoX-FZ-iDk" secondAttribute="centerY" id="onK-Ad-uIQ"/>
+                                    <constraint firstAttribute="centerX" secondItem="uoX-FZ-iDk" secondAttribute="centerX" id="yae-Ek-qAA"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEx-F8-Q7z" userLabel="Button One">

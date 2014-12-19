@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(Reading)
 class Reading: NSManagedObject {
 
     @NSManaged var freeChlorine: NSNumber

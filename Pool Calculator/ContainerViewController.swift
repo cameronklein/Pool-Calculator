@@ -96,6 +96,8 @@ class ContainerViewController: UIViewController {
   func switchToSettingsView() {
     
   }
+  @IBAction func didPressSubmit(sender: AnyObject) {
+
   
 }
 

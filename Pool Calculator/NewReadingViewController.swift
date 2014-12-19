@@ -7,16 +7,24 @@
 //
 
 import UIKit
+import CoreData
 
 class NewReadingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var topBar: UIView!
-  var cells = [ReadingCell]()
-
+  var freeChlorine : Double?
+  var combinedChlorine : Double?
+  var totalChlorine : Double?
+  var pH : Double?
+  var totalAlkalinity: Double?
+  var calciumHardness: Double?
+  var readings = [Double?]()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.registerNib(UINib(nibName: "ReadingCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "CELL");
+    readings = [freeChlorine, combinedChlorine, totalChlorine, pH, totalAlkalinity, calciumHardness]
   }
 
   override func didReceiveMemoryWarning() {
@@ -37,23 +45,28 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    if cells.count <= indexPath.row {
-      let cell = tableView.dequeueReusableCellWithIdentifier("CELL") as ReadingCell
-      
-      cell.readingType = ReadingType.getType(Chemical(rawValue: indexPath.row)!)
-      cell.title.text = cell.readingType?.name
-      cell.readingValue.text = "--"
-      
-      cell.selectionStyle = UITableViewCellSelectionStyle.None
-      let panner = UIPanGestureRecognizer()
-      panner.addTarget(self, action: "didPanCell:")
-      panner.delegate = self
-      cell.addGestureRecognizer(panner)
-      cells.append(cell)
-      return cell
+    let cell = tableView.dequeueReusableCellWithIdentifier("CELL") as ReadingCell
+    
+    cell.readingType = ReadingType.getType(Chemical(rawValue: indexPath.row)!)
+    cell.title.text = cell.readingType?.name
+    if let readingValue = readings[indexPath.row] {
+      switch indexPath.row{
+      case 0...3:
+        cell.readingValue.text = String(format: "%.1f", readingValue)
+      default:
+        cell.readingValue.text = String(format: "%.0f", readingValue)
+      }
     } else {
-      return cells[indexPath.row]
+      cell.readingValue.text = "--"
     }
+  
+    cell.selectionStyle = UITableViewCellSelectionStyle.None
+    let panner = UIPanGestureRecognizer()
+    panner.addTarget(self, action: "didPanCell:")
+    panner.delegate = self
+    cell.addGestureRecognizer(panner)
+    return cell
+
   }
   
   // MARK: - Gesture Recognizer Methods
@@ -86,7 +99,6 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
     }
   }
   
-  
   // MARK: - <UIGestureRecognizerDelegate>
   
   func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -97,6 +109,35 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
     return true
   }
   
-  
+  func addReading(){
+    let appDel = UIApplication.sharedApplication().delegate as AppDelegate
+    let context = appDel.managedObjectContext
+    let reminder = NSEntityDescription.insertNewObjectForEntityForName("Reading", inManagedObjectContext: context!) as Reading
+    if freeChlorine != nil {
+      reminder.freeChlorine = NSNumber(double: freeChlorine!)
+    }
+    if combinedChlorine != nil {
+      reminder.combinedChlorine = NSNumber(double: combinedChlorine!)
+    }
+    if totalChlorine != nil {
+      reminder.totalChlorine = NSNumber(double: totalChlorine!)
+    }
+    if pH != nil {
+      reminder.pH = NSNumber(double: pH!)
+    }
+    if totalAlkalinity != nil {
+      reminder.totalAlkalinity = NSNumber(double: totalAlkalinity!)
+    }
+    if calciumHardness != nil {
+      reminder.calciumHardness = NSNumber(double: calciumHardness!)
+    }
 
+    var error : NSError?
+    context?.save(&error)
+    if error != nil {
+      println(error?.localizedDescription)
+    }
+
+  }
+  
 }

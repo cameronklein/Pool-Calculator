@@ -99,12 +99,9 @@
 		7E37C2D91A43AA7100432E34 /* Pool Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				7EC7975C1A44110700BFCAAD /* HistoryViewController.swift */,
-				7EC797601A441C7600BFCAAD /* HistoryCell.swift */,
-				7EC797611A441C7600BFCAAD /* HistoryCell.xib */,
-				7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */,
 				7E37C2E11A43AA7100432E34 /* ContainerViewController.swift */,
 				7E5B2AAE1A43B97000B39BDE /* NewReadingViewController */,
+				7EC7976A1A4424F100BFCAAD /* HistoryViewController */,
 				7E5B2AAC1A43B95700B39BDE /* MODEL */,
 				7E37C2E81A43AA7100432E34 /* LaunchScreen.xib */,
 				7E37C2DC1A43AA7100432E34 /* AppDelegate.swift */,
@@ -167,6 +164,25 @@
 				7E5B2AAD1A43B95C00B39BDE /* ReadingCell */,
 			);
 			name = NewReadingViewController;
+			sourceTree = "<group>";
+		};
+		7EC7976A1A4424F100BFCAAD /* HistoryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7EC7975C1A44110700BFCAAD /* HistoryViewController.swift */,
+				7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */,
+				7EC7976B1A4424FC00BFCAAD /* HistoryCell */,
+			);
+			name = HistoryViewController;
+			sourceTree = "<group>";
+		};
+		7EC7976B1A4424FC00BFCAAD /* HistoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				7EC797601A441C7600BFCAAD /* HistoryCell.swift */,
+				7EC797611A441C7600BFCAAD /* HistoryCell.xib */,
+			);
+			name = HistoryCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
