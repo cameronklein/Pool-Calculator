@@ -23,6 +23,7 @@
 		7EC7975F1A44110700BFCAAD /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */; };
 		7EC797621A441C7600BFCAAD /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC797601A441C7600BFCAAD /* HistoryCell.swift */; };
 		7EC797631A441C7600BFCAAD /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC797611A441C7600BFCAAD /* HistoryCell.xib */; };
+		7EC797691A4421D200BFCAAD /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC797681A4421D200BFCAAD /* Reading.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
 		7EC797601A441C7600BFCAAD /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		7EC797611A441C7600BFCAAD /* HistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
+		7EC797681A4421D200BFCAAD /* Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		7E5B2AAC1A43B95700B39BDE /* MODEL */ = {
 			isa = PBXGroup;
 			children = (
+				7EC797681A4421D200BFCAAD /* Reading.swift */,
 				7E5B2AAF1A43BDCC00B39BDE /* ReadingType.swift */,
 			);
 			name = MODEL;
@@ -272,6 +275,7 @@
 			files = (
 				7E5B2AA61A43B2DE00B39BDE /* NewReadingViewController.swift in Sources */,
 				7E5B2AAA1A43B6E600B39BDE /* ReadingCell.swift in Sources */,
+				7EC797691A4421D200BFCAAD /* Reading.swift in Sources */,
 				7E37C2E21A43AA7100432E34 /* ContainerViewController.swift in Sources */,
 				7E37C2DD1A43AA7100432E34 /* AppDelegate.swift in Sources */,
 				7E5B2AB01A43BDCC00B39BDE /* ReadingType.swift in Sources */,
