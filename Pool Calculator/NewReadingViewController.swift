@@ -22,7 +22,7 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
 
   }
   
-  //MARK: - UITableView Data Source
+  //MARK: - <UITableViewDataSource>
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 6
@@ -43,6 +43,8 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
     
     return cell
   }
+  
+  // MARK: - Gesture Recognizer Methods
   
   func didPanCell(sender: UIPanGestureRecognizer) {
     if sender.state == .Changed {
@@ -74,10 +76,13 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
     }
   }
   
+  
+  // MARK: - <UIGestureRecognizerDelegate>
+  
   func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
       if let panner = gestureRecognizer as? UIPanGestureRecognizer {
-        let velocity = panner.translationInView(panner.view!)
-        return velocity.y < velocity.x
+        let velocity = panner.velocityInView(panner.view!)
+        return abs(velocity.y) < abs(velocity.x)
       }
     return true
   }

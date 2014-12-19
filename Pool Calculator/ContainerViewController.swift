@@ -40,8 +40,8 @@ class ContainerViewController: UIViewController {
     for button in buttons {
       button.layer.cornerRadius = button.frame.height/2
       button.layer.shadowColor = UIColor.blackColor().CGColor
-      button.layer.shadowOffset = CGSize(width: 0, height: 5)
-      button.layer.shadowOpacity = 0.7
+      button.layer.shadowOffset = CGSize(width: 0, height: 3)
+      button.layer.shadowOpacity = 0.5
       button.layer.shadowRadius = 3
       let tapper = UITapGestureRecognizer()
       tapper.addTarget(self, action: "didTapButton:")
