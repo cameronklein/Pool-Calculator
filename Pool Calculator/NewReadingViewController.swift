@@ -13,18 +13,12 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var topBar: UIView!
-  var freeChlorine : Double?
-  var combinedChlorine : Double?
-  var totalChlorine : Double?
-  var pH : Double?
-  var totalAlkalinity: Double?
-  var calciumHardness: Double?
   var readings = [Double?]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.registerNib(UINib(nibName: "ReadingCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "CELL");
-    readings = [freeChlorine, combinedChlorine, totalChlorine, pH, totalAlkalinity, calciumHardness]
+    readings = [nil, nil, nil, nil, nil, nil]
   }
 
   override func didReceiveMemoryWarning() {
@@ -87,6 +81,7 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
         newValue = type.maxValue + 0.0001
         isTooHigh = true
       }
+      readings[tableView.indexPathForCell(cell)!.row] = newValue
       if type.maxValue == 500 {
         cell.readingValue.text = String(format: "%.0f", Double(newValue))
       } else {
@@ -112,26 +107,44 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
   func addReading(){
     let appDel = UIApplication.sharedApplication().delegate as AppDelegate
     let context = appDel.managedObjectContext
-    let reminder = NSEntityDescription.insertNewObjectForEntityForName("Reading", inManagedObjectContext: context!) as Reading
-    if freeChlorine != nil {
-      reminder.freeChlorine = NSNumber(double: freeChlorine!)
+    let reading = NSEntityDescription.insertNewObjectForEntityForName("Reading", inManagedObjectContext: context!) as Reading
+    if readings[0] != nil {
+      reading.freeChlorine = NSNumber(double: readings[0]!)
+    } else {
+      reading.freeChlorine = -1
     }
-    if combinedChlorine != nil {
-      reminder.combinedChlorine = NSNumber(double: combinedChlorine!)
+    if readings[1] != nil {
+      reading.combinedChlorine = NSNumber(double: readings[1]!)
     }
-    if totalChlorine != nil {
-      reminder.totalChlorine = NSNumber(double: totalChlorine!)
+    else {
+      reading.combinedChlorine = -1
     }
-    if pH != nil {
-      reminder.pH = NSNumber(double: pH!)
+    if readings[2] != nil {
+      reading.totalChlorine = NSNumber(double: readings[2]!)
     }
-    if totalAlkalinity != nil {
-      reminder.totalAlkalinity = NSNumber(double: totalAlkalinity!)
+    else {
+      reading.totalChlorine = -1
     }
-    if calciumHardness != nil {
-      reminder.calciumHardness = NSNumber(double: calciumHardness!)
+    if readings[3] != nil {
+      reading.pH = NSNumber(double: readings[4]!)
+    }
+    else {
+      reading.pH = -1
+    }
+    if readings[4] != nil {
+      reading.totalAlkalinity = NSNumber(double: readings[4]!)
+    }
+    else {
+      reading.totalAlkalinity = -1
+    }
+    if readings[5] != nil {
+      reading.calciumHardness = NSNumber(double: readings[5]!)
+    }
+    else {
+      reading.calciumHardness = -1
     }
 
+    reading.timestamp = NSDate()
     var error : NSError?
     context?.save(&error)
     if error != nil {

@@ -41,7 +41,7 @@ class ContainerViewController: UIViewController {
     newReadingVC = NewReadingViewController(nibName: "NewReadingViewController", bundle: NSBundle.mainBundle())
     newReadingVC.view.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - bottomBar.frame.height)
     historyVC = HistoryViewController(nibName: "HistoryViewController", bundle: NSBundle.mainBundle())
-    newReadingVC.view.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - bottomBar.frame.height)
+    historyVC.view.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - bottomBar.frame.height)
   }
   
   func setupButtons() {
@@ -98,6 +98,8 @@ class ContainerViewController: UIViewController {
   }
   @IBAction func didPressSubmit(sender: AnyObject) {
 
-  
+  newReadingVC.addReading()
+  }
+
 }
 
