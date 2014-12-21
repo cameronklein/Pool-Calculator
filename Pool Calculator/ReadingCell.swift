@@ -12,6 +12,8 @@ class ReadingCell: UITableViewCell {
 
   @IBOutlet weak var title: UILabel!
   @IBOutlet weak var readingValue: UILabel!
+  @IBOutlet weak var cancelLabel: UILabel!
+
   var readingType : ReadingType?
   
   override func awakeFromNib() {

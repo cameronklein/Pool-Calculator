@@ -48,21 +48,22 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
     cell.readingType = ReadingType.getType(Chemical(rawValue: indexPath.row)!)
     cell.title.text = cell.readingType?.name
     if let readingValue = readings[indexPath.row] {
-      switch indexPath.row{
-      case 0...3:
-        cell.readingValue.text = String(format: "%.1f", readingValue)
-      default:
-        cell.readingValue.text = String(format: "%.0f", readingValue)
-      }
+      cell.readingValue.text = String(format: cell.readingType!.stringFormat, readingValue)
     } else {
       cell.readingValue.text = "--"
     }
   
     cell.selectionStyle = UITableViewCellSelectionStyle.None
+    
     let panner = UIPanGestureRecognizer()
     panner.addTarget(self, action: "didPanCell:")
     panner.delegate = self
     cell.addGestureRecognizer(panner)
+    
+    let tapper = UITapGestureRecognizer()
+    tapper.addTarget(self, action: "didTapCancel:")
+    cell.cancelLabel.addGestureRecognizer(tapper)
+    
     return cell
 
   }
@@ -94,12 +95,8 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
           isTooHigh = true
         }
         
-        if type.maxValue == 500 {
-          cell.readingValue.text = String(format: "%.0f", Double(newValue))
-        } else {
-          cell.readingValue.text = String(format: "%.1f", Double(newValue))
-        }
-        
+        cell.readingValue.text = String(format: type.stringFormat, Double(newValue))
+
         if isTooHigh {
           cell.readingValue.text! = cell.readingValue.text! + "+"
         }
@@ -109,6 +106,14 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
         return ()
       }
     }
+  }
+  
+  func didTapCancel(sender: UITapGestureRecognizer) {
+    println("Found tap!")
+    if let cell = sender.view?.superview?.superview as? ReadingCell {
+      println("Found cell!")
+    }
+    
   }
   
   // MARK: - <UIGestureRecognizerDelegate>

@@ -15,6 +15,7 @@ class ContainerViewController: UIViewController {
   @IBOutlet weak var buttonTwo: UIView!
   @IBOutlet weak var buttonThree: UIView!
   @IBOutlet weak var buttonFour: UIView!
+  @IBOutlet weak var headerLabel: UILabel!
   
   var currentViewController : UIViewController!
   var newReadingVC : NewReadingViewController!
@@ -74,6 +75,7 @@ class ContainerViewController: UIViewController {
   }
 
   func switchToNewReadingView() {
+    changeHeaderLabelTo("New Reading")
     if currentViewController != nil {
       currentViewController.removeFromParentViewController()
     }
@@ -83,6 +85,7 @@ class ContainerViewController: UIViewController {
   }
   
   func switchToHistoryView() {
+    changeHeaderLabelTo("History")
     currentViewController.removeFromParentViewController()
     self.addChildViewController(historyVC)
     self.view.insertSubview(historyVC.view, belowSubview: bottomBar)
@@ -100,6 +103,18 @@ class ContainerViewController: UIViewController {
 
   newReadingVC.addReading()
   }
-
+  
+  func changeHeaderLabelTo(text: String) {
+    UIView.transitionWithView(headerLabel,
+      duration: 0.5,
+      options: .TransitionFlipFromBottom,
+      animations: { () -> Void in
+      self.headerLabel.text = text
+    }) { (success) -> Void in
+      return ()
+    }
+    
+  }
+  
 }
 
