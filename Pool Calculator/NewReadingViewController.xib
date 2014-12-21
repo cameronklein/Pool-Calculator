@@ -27,9 +27,19 @@
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iv4-Nc-vHQ" userLabel="Top Bar">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Reading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRQ-Ot-DpX">
+                            <rect key="frame" x="244" y="27" width="113" height="25"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
                     <color key="backgroundColor" red="0.0" green="0.47450980392156861" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="fRQ-Ot-DpX" secondAttribute="bottom" constant="8" id="LW9-Ji-c63"/>
                         <constraint firstAttribute="height" constant="60" id="djR-Ru-6Xi"/>
+                        <constraint firstAttribute="centerX" secondItem="fRQ-Ot-DpX" secondAttribute="centerX" id="g9B-i2-R9O"/>
                     </constraints>
                 </view>
             </subviews>

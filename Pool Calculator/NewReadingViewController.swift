@@ -11,6 +11,8 @@ import CoreData
 
 class NewReadingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
   
+  var headerText = "New Reading"
+  
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var topBar: UIView!
   var readings = [Double?]()
@@ -53,7 +55,9 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
       cell.readingValue.text = "--"
     }
   
-    cell.selectionStyle = UITableViewCellSelectionStyle.None
+    cell.selectionStyle = .None
+    
+    cell.cancelLabel.transform = CGAffineTransformMakeScale(1.4, 1)
     
     let panner = UIPanGestureRecognizer()
     panner.addTarget(self, action: "didPanCell:")
@@ -72,19 +76,26 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
   
   func didPanCell(sender: UIPanGestureRecognizer) {
     if let cell = sender.view as? ReadingCell {
+      
       switch sender.state {
+        
       case .Began:
         if let value = readings[tableView.indexPathForCell(cell)!.row] {
           oldValue = value
         } else {
           oldValue = 0.0
         }
+        
       case .Changed:
         let type = cell.readingType!
         let translation = sender.translationInView(cell)
         let ratio = translation.x / cell.frame.width
         let delta = type.maxValue - type.minValue
         newValue = oldValue + type.minValue + Double(ratio) * Double(delta)
+        
+        if type.maxValue == 500 {
+          newValue = newValue - newValue % 10
+        }
         
         var isTooHigh = false
         
@@ -100,8 +111,10 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
         if isTooHigh {
           cell.readingValue.text! = cell.readingValue.text! + "+"
         }
+        
       case .Ended:
         readings[tableView.indexPathForCell(cell)!.row] = newValue
+        
       default:
         return ()
       }

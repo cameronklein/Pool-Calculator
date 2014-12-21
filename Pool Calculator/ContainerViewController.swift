@@ -24,8 +24,7 @@ class ContainerViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupViewControllers()
-    switchToNewReadingView()
-
+    switchViewControllerTo(newReadingVC)
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -62,9 +61,9 @@ class ContainerViewController: UIViewController {
   func didTapButton(sender: UITapGestureRecognizer) {
     switch sender.view!{
     case buttonOne:
-      switchToNewReadingView()
+      switchViewControllerTo(newReadingVC)
     case buttonTwo:
-      switchToHistoryView()
+      switchViewControllerTo(historyVC)
     case buttonThree:
       switchToCalculatorView()
     case buttonFour:
@@ -72,24 +71,6 @@ class ContainerViewController: UIViewController {
     default:
     println("This should not happen.")
     }
-  }
-
-  func switchToNewReadingView() {
-    changeHeaderLabelTo("New Reading")
-    if currentViewController != nil {
-      currentViewController.removeFromParentViewController()
-    }
-    self.addChildViewController(newReadingVC)
-    self.view.insertSubview(newReadingVC.view, belowSubview: bottomBar)
-    currentViewController = newReadingVC
-  }
-  
-  func switchToHistoryView() {
-    changeHeaderLabelTo("History")
-    currentViewController.removeFromParentViewController()
-    self.addChildViewController(historyVC)
-    self.view.insertSubview(historyVC.view, belowSubview: bottomBar)
-    currentViewController = historyVC
   }
   
   func switchToCalculatorView() {
@@ -99,6 +80,24 @@ class ContainerViewController: UIViewController {
   func switchToSettingsView() {
     
   }
+  
+  func switchViewControllerTo(destination: UIViewController) {
+    if currentViewController != destination {
+      self.addChildViewController(destination)
+      destination.view.alpha = 0
+      self.view.insertSubview(destination.view, belowSubview: bottomBar)
+      UIView.animateWithDuration(0.1, animations: { () -> Void in
+        destination.view.alpha = 1
+        }) { (success) -> Void in
+          if self.currentViewController != nil {
+            self.currentViewController.removeFromParentViewController()
+          }
+      }
+      currentViewController = destination
+    }
+
+  }
+  
   @IBAction func didPressSubmit(sender: AnyObject) {
 
   newReadingVC.addReading()

@@ -107,19 +107,9 @@
                                     <constraint firstAttribute="width" constant="50" id="SrK-oj-jff"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="New Reading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbO-PW-00o" userLabel="header Label">
-                                <rect key="frame" x="241" y="28" width="120" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="L1N-DP-qCf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bbO-PW-00o" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="28" id="8SC-Qd-TfH"/>
                             <constraint firstItem="NSG-sH-Ty4" firstAttribute="centerX" secondItem="VFV-I4-UL4" secondAttribute="centerX" id="98y-Ge-OvW"/>
                             <constraint firstItem="Rqg-LH-5Aw" firstAttribute="leading" secondItem="xBH-B4-gBj" secondAttribute="trailing" constant="40" id="Bk5-ea-gty"/>
                             <constraint firstItem="Fuf-mP-8hi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FQk-oy-pYs"/>
@@ -133,7 +123,6 @@
                             <constraint firstAttribute="trailing" secondItem="Fuf-mP-8hi" secondAttribute="trailing" id="ZNh-gW-XZ2"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Rqg-LH-5Aw" secondAttribute="bottom" constant="24" id="aXV-Oz-wyC"/>
                             <constraint firstAttribute="bottom" secondItem="Fuf-mP-8hi" secondAttribute="bottom" id="dl8-GU-cOg"/>
-                            <constraint firstAttribute="centerX" secondItem="bbO-PW-00o" secondAttribute="centerX" id="nDv-aO-RoZ"/>
                             <constraint firstItem="SrK-aP-Mx6" firstAttribute="centerX" secondItem="dEx-F8-Q7z" secondAttribute="centerX" id="px7-FH-0VD"/>
                             <constraint firstAttribute="trailing" secondItem="Rqg-LH-5Aw" secondAttribute="trailing" constant="16" id="vgv-I2-yS8"/>
                         </constraints>
@@ -144,7 +133,6 @@
                         <outlet property="buttonOne" destination="dEx-F8-Q7z" id="msY-wm-mKO"/>
                         <outlet property="buttonThree" destination="xBH-B4-gBj" id="2U7-Vd-rCP"/>
                         <outlet property="buttonTwo" destination="VFV-I4-UL4" id="g77-xJ-C8J"/>
-                        <outlet property="headerLabel" destination="bbO-PW-00o" id="VIP-Od-igp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -110,9 +110,19 @@ Cl2</string>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ym-yX-btC" userLabel="Top Bar">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLE-m9-KYU">
+                            <rect key="frame" x="270" y="27" width="60" height="25"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
                     <color key="backgroundColor" red="0.0" green="0.59215686274509804" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="cLE-m9-KYU" secondAttribute="bottom" constant="8" id="3Si-Z8-c71"/>
                         <constraint firstAttribute="height" constant="60" id="dav-5e-Dn5"/>
+                        <constraint firstAttribute="centerX" secondItem="cLE-m9-KYU" secondAttribute="centerX" id="dsI-9H-VAG"/>
                     </constraints>
                 </view>
             </subviews>

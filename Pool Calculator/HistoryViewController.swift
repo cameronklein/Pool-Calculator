@@ -11,6 +11,8 @@ import CoreData
 
 class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
+  var headerText = "History"
+  
   @IBOutlet weak var topBar: UIView!
   @IBOutlet weak var tableView: UITableView!
   
@@ -44,8 +46,10 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    
     let cell = tableView.dequeueReusableCellWithIdentifier("CELL") as HistoryCell
     let reading = self.fetchController.fetchedObjects![indexPath.row] as Reading
+    
     if reading.freeChlorine.doubleValue >= 0 {
       cell.freeChlorineLabel.text = String(format: "%.1f", reading.freeChlorine.doubleValue)
     } else {
@@ -76,8 +80,12 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     } else {
       cell.calciumHardnessLabel.text = "--"
     }
+    
     cell.timeLabel.text = dateFormatter.stringFromDate(reading.timestamp)
     cell.selectionStyle = .None
+    
+    cell.widthConstraint.constant = cell.frame.width
+    
     return cell
   }
   

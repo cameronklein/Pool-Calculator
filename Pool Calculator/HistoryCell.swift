@@ -17,6 +17,7 @@ class HistoryCell: UITableViewCell {
   @IBOutlet weak var totalAlkalinityLabel: UILabel!
   @IBOutlet weak var calciumHardnessLabel: UILabel!
   @IBOutlet weak var timeLabel: UILabel!
+  @IBOutlet weak var widthConstraint: NSLayoutConstraint!
   
 
   override func awakeFromNib() {
