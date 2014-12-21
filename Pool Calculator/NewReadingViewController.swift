@@ -14,6 +14,8 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var topBar: UIView!
   var readings = [Double?]()
+  var oldValue : Double!
+  var newValue : Double!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -69,29 +71,42 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
   
   func didPanCell(sender: UIPanGestureRecognizer) {
     if let cell = sender.view as? ReadingCell {
-      let type = cell.readingType!
-      let translation = sender.locationInView(cell)
-      let ratio = (translation.x / (cell.frame.width - 100)) - (50 / cell.frame.width)
-      let delta = type.maxValue - type.minValue
-      var newValue = type.minValue + Double(ratio) * Double(delta)
-      
-      var isTooHigh = false
-      
-      if newValue < type.minValue{
-        newValue = type.minValue
-      } else if Double(newValue) > type.maxValue {
-        newValue = type.maxValue + 0.0001
-        isTooHigh = true
-      }
-      readings[tableView.indexPathForCell(cell)!.row] = newValue
-      if type.maxValue == 500 {
-        cell.readingValue.text = String(format: "%.0f", Double(newValue))
-      } else {
-        cell.readingValue.text = String(format: "%.1f", Double(newValue))
-      }
-
-      if isTooHigh {
-        cell.readingValue.text! = cell.readingValue.text! + "+"
+      switch sender.state {
+      case .Began:
+        if let value = readings[tableView.indexPathForCell(cell)!.row] {
+          oldValue = value
+        } else {
+          oldValue = 0.0
+        }
+      case .Changed:
+        let type = cell.readingType!
+        let translation = sender.translationInView(cell)
+        let ratio = translation.x / cell.frame.width
+        let delta = type.maxValue - type.minValue
+        newValue = oldValue + type.minValue + Double(ratio) * Double(delta)
+        
+        var isTooHigh = false
+        
+        if newValue < type.minValue {
+          newValue = type.minValue
+        } else if Double(newValue) > type.maxValue {
+          newValue = type.maxValue + 0.0001
+          isTooHigh = true
+        }
+        
+        if type.maxValue == 500 {
+          cell.readingValue.text = String(format: "%.0f", Double(newValue))
+        } else {
+          cell.readingValue.text = String(format: "%.1f", Double(newValue))
+        }
+        
+        if isTooHigh {
+          cell.readingValue.text! = cell.readingValue.text! + "+"
+        }
+      case .Ended:
+        readings[tableView.indexPathForCell(cell)!.row] = newValue
+      default:
+        return ()
       }
     }
   }
