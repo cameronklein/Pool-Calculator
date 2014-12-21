@@ -19,6 +19,8 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
     super.viewDidLoad()
     tableView.registerNib(UINib(nibName: "ReadingCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "CELL");
     readings = [nil, nil, nil, nil, nil, nil]
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 60.0
   }
 
   override func didReceiveMemoryWarning() {
