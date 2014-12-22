@@ -65,6 +65,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let sections = self.fetchController.sections {
       if let sectionInfo = sections[section] as? NSFetchedResultsSectionInfo {
+        println("Number of rows in section \(section): \(sectionInfo.numberOfObjects)")
         return sectionInfo.numberOfObjects
       }
     }
@@ -168,8 +169,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     case .Delete:
       tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
     case .Insert:
-      println("Did Change Row Called")
-      tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
+      if let thisPath = indexPath {
+        tableView.insertRowsAtIndexPaths([thisPath], withRowAnimation: .Automatic)
+      }
     default:
       return ()
     }

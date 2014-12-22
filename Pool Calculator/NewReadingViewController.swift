@@ -52,14 +52,17 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
     if let readingValue = readings[indexPath.row] {
       cell.readingValue.text = String(format: cell.readingType!.stringFormat, readingValue)
       cell.cancelLabel.alpha = 1
+      cell.cancelLabel.transform = CGAffineTransformMakeScale(1.4, 1)
     } else {
       cell.readingValue.text = "--"
       cell.cancelLabel.alpha = 0
+      cell.cancelLabel.transform = CGAffineTransformMakeScale(0.01, 1)
     }
   
     cell.selectionStyle = .None
     
-    cell.cancelLabel.transform = CGAffineTransformMakeScale(1.4, 1)
+    
+    
     
     let panner = UIPanGestureRecognizer()
     panner.addTarget(self, action: "didPanCell:")
@@ -115,8 +118,9 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
           cell.readingValue.text! = cell.readingValue.text! + "+"
         }
         
-        UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+        UIView.animateWithDuration(0.4, delay: 0.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
           cell.cancelLabel.alpha = 1
+          cell.cancelLabel.transform = CGAffineTransformMakeScale(1.4, 1)
         }, completion: { (success) -> Void in
           return ()
         })
@@ -133,9 +137,9 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
   func didTapCancel(sender: UITapGestureRecognizer) {
     if let cell = sender.view?.superview?.superview as? ReadingCell {
       readings[tableView.indexPathForCell(cell)!.row] = nil
-      UIView.animateWithDuration(0.3, delay: 0.0, options: .AllowUserInteraction, animations: { () -> Void in
-        cell.readingValue.text = "--"
+      UIView.animateWithDuration(0.4, delay: 0.0, options: .AllowUserInteraction, animations: { () -> Void in
         sender.view?.alpha = 0
+        sender.view?.transform = CGAffineTransformMakeScale(0.01, 1)
       }, completion: { (success) -> Void in
         return ()
       })
@@ -164,6 +168,7 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
     let appDel = UIApplication.sharedApplication().delegate as AppDelegate
     let context = appDel.managedObjectContext
     let reading = NSEntityDescription.insertNewObjectForEntityForName("Reading", inManagedObjectContext: context!) as Reading
+    
     if readings[0] != nil {
       reading.freeChlorine = NSNumber(double: readings[0]!)
     } else {
@@ -182,7 +187,7 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
       reading.totalChlorine = -1
     }
     if readings[3] != nil {
-      reading.pH = NSNumber(double: readings[4]!)
+      reading.pH = NSNumber(double: readings[3]!)
     }
     else {
       reading.pH = -1

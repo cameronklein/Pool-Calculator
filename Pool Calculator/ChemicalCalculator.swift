@@ -27,6 +27,9 @@ class ChemicalCalculator {
   let sodiumBiCarb = 2.24
   let sodiumSesquicarbonate = 2.0
   
+  //Raise pH
+  let sodaAshForPH = 6.56
+  
   //Lower TA
   let muriaticAcid = 2.6
   let sodiumBisulfate = 3.36
@@ -49,11 +52,20 @@ class ChemicalCalculator {
     if amount > 0 {
       return raiseChlorineBy(amount)
     } else if amount < 0 {
-      return "Poop"
+      return lowerChlorineBy(-amount)
     } else {
       return "Do Nothing"
     }
-    return "Oh billy"
+  }
+  
+  func changePHBy(amount: Double) -> String {
+    if amount > 0 {
+      return raisePHBy(amount)
+    } else if amount < 0 {
+      return lowerPHBy(-amount)
+    } else {
+      return "Do Nothing"
+    }
   }
   
   func raiseChlorineBy(amount : Double) -> String {
@@ -62,7 +74,37 @@ class ChemicalCalculator {
     let result = amount * calciumHypochlorite * gallonsMultiplier
     let formattedResult = String(format: "%.0f", result)
     
-    return formattedResult + " ounces of Calcium Hypochlorite"
+    return formattedResult + " ounces of\nCalcium Hypochlorite"
+    
+  }
+  
+  func lowerChlorineBy(amount : Double) -> String {
+    
+    let gallonsMultiplier = poolGallons / 10000
+    let result = amount * sodiumThio * gallonsMultiplier
+    let formattedResult = String(format: "%.0f", result)
+    
+    return formattedResult + " ounces of\nSodium Thiosulfate"
+    
+  }
+  
+  func raisePHBy(amount : Double) -> String {
+    
+    let gallonsMultiplier = poolGallons / 10000
+    let result = amount * sodaAshForPH * gallonsMultiplier
+    let formattedResult = String(format: "%.0f", result)
+    
+    return formattedResult + " ounces of\nSoda Ash"
+    
+  }
+  
+  func lowerPHBy(amount : Double) -> String {
+    
+    let gallonsMultiplier = poolGallons / 10000
+    let result = amount * sodiumThio * gallonsMultiplier
+    let formattedResult = String(format: "%.0f", result)
+    
+    return formattedResult + " ounces of\nSodium Thiosulfate"
     
   }
   

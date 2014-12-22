@@ -14,16 +14,25 @@ class CalculatorViewController: UIViewController {
   @IBOutlet weak var desiredView: UIView!
   @IBOutlet weak var currentView: UIView!
   @IBOutlet weak var resultLabel: UILabel!
+  @IBOutlet weak var chlorineButton: UIButton!
+  @IBOutlet weak var pHButton: UIButton!
+  @IBOutlet weak var totalAlkalinityButton: UIButton!
+  @IBOutlet weak var calciumHardnessButton: UIButton!
+  @IBOutlet weak var cynuricAcidButton: UIButton!
+  @IBOutlet weak var otherButton: UIButton!
+  @IBOutlet weak var topScrollView: UIScrollView!
+  
   var type : ReadingType = ReadingType.getType(.FreeChlorine)
   var currentValue: Double = 2.5
   var desiredValue : Double = 2.5
   var oldValue: Double!
   var newValue: Double!
   var calculator = ChemicalCalculator(gallons: 10000)
+  var currentSelectionBar : UIView?
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    addSelectionBarTo(chlorineButton)
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -94,14 +103,31 @@ class CalculatorViewController: UIViewController {
     switch type.name {
       
     case "Free Chlorine":
-      println("Switch called")
       return calculator.changeChlorineBy(desiredValue - currentValue)
     default:
-      println("Switch called")
       return "Oops"
     }
 
   }
   
+  
+  @IBAction func didPressChemicalButton(sender: UIButton) {
+    addSelectionBarTo(sender)
+    
+  }
+  
+  func addSelectionBarTo(button: UIButton) {
+    currentSelectionBar?.removeFromSuperview()
+    
+    let barX = button.frame.origin.x
+    let barY = button.frame.origin.y + button.frame.height - 6
+    let barWidth = button.frame.width
+    let barHeight : CGFloat = 2
+    let selectionBar = UIView()
+    selectionBar.frame = CGRect(x: barX, y: barY, width: barWidth, height: barHeight)
+    selectionBar.backgroundColor = UIColor.whiteColor()
+    topScrollView.addSubview(selectionBar)
+    currentSelectionBar = selectionBar
+  }
 
 }
