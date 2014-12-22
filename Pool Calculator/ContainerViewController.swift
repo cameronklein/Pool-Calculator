@@ -20,6 +20,7 @@ class ContainerViewController: UIViewController {
   var currentViewController : UIViewController!
   var newReadingVC : NewReadingViewController!
   var historyVC : HistoryViewController!
+  var calculatorVC : CalculatorViewController!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -38,10 +39,14 @@ class ContainerViewController: UIViewController {
   }
   
   func setupViewControllers(){
+    let vcFrame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - bottomBar.frame.height)
+    
     newReadingVC = NewReadingViewController(nibName: "NewReadingViewController", bundle: NSBundle.mainBundle())
-    newReadingVC.view.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - bottomBar.frame.height)
+    newReadingVC.view.frame = vcFrame
     historyVC = HistoryViewController(nibName: "HistoryViewController", bundle: NSBundle.mainBundle())
-    historyVC.view.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - bottomBar.frame.height)
+    historyVC.view.frame = vcFrame
+    calculatorVC = CalculatorViewController(nibName: "CalculatorViewController", bundle: NSBundle.mainBundle())
+    calculatorVC.view.frame = vcFrame
   }
   
   func setupButtons() {
@@ -65,7 +70,7 @@ class ContainerViewController: UIViewController {
     case buttonTwo:
       switchViewControllerTo(historyVC)
     case buttonThree:
-      switchToCalculatorView()
+      switchViewControllerTo(calculatorVC)
     case buttonFour:
       switchToSettingsView()
     default:

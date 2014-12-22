@@ -24,6 +24,9 @@
 		7EC797621A441C7600BFCAAD /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC797601A441C7600BFCAAD /* HistoryCell.swift */; };
 		7EC797631A441C7600BFCAAD /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC797611A441C7600BFCAAD /* HistoryCell.xib */; };
 		7EC797691A4421D200BFCAAD /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC797681A4421D200BFCAAD /* Reading.swift */; };
+		7EEB64431A47CADC0063EF4F /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB64411A47CADC0063EF4F /* CalculatorViewController.swift */; };
+		7EEB64441A47CADC0063EF4F /* CalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EEB64421A47CADC0063EF4F /* CalculatorViewController.xib */; };
+		7EEB64471A47DFF00063EF4F /* ChemicalCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB64461A47DFF00063EF4F /* ChemicalCalculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,9 @@
 		7EC797601A441C7600BFCAAD /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		7EC797611A441C7600BFCAAD /* HistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
 		7EC797681A4421D200BFCAAD /* Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
+		7EEB64411A47CADC0063EF4F /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
+		7EEB64421A47CADC0063EF4F /* CalculatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalculatorViewController.xib; sourceTree = "<group>"; };
+		7EEB64461A47DFF00063EF4F /* ChemicalCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemicalCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				7E37C2E11A43AA7100432E34 /* ContainerViewController.swift */,
+				7EEB64461A47DFF00063EF4F /* ChemicalCalculator.swift */,
 				7E5B2AAE1A43B97000B39BDE /* NewReadingViewController */,
 				7EC7976A1A4424F100BFCAAD /* HistoryViewController */,
+				7EEB64451A47CAF30063EF4F /* CalculatorViewController */,
 				7E5B2AAC1A43B95700B39BDE /* MODEL */,
 				7E37C2E81A43AA7100432E34 /* LaunchScreen.xib */,
 				7E37C2DC1A43AA7100432E34 /* AppDelegate.swift */,
@@ -183,6 +191,15 @@
 				7EC797611A441C7600BFCAAD /* HistoryCell.xib */,
 			);
 			name = HistoryCell;
+			sourceTree = "<group>";
+		};
+		7EEB64451A47CAF30063EF4F /* CalculatorViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7EEB64411A47CADC0063EF4F /* CalculatorViewController.swift */,
+				7EEB64421A47CADC0063EF4F /* CalculatorViewController.xib */,
+			);
+			name = CalculatorViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +289,7 @@
 				7E37C2EA1A43AA7100432E34 /* LaunchScreen.xib in Resources */,
 				7E37C2E71A43AA7100432E34 /* Images.xcassets in Resources */,
 				7E5B2AAB1A43B6E600B39BDE /* ReadingCell.xib in Resources */,
+				7EEB64441A47CADC0063EF4F /* CalculatorViewController.xib in Resources */,
 				7EC7975F1A44110700BFCAAD /* HistoryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,11 +308,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EEB64431A47CADC0063EF4F /* CalculatorViewController.swift in Sources */,
 				7E5B2AA61A43B2DE00B39BDE /* NewReadingViewController.swift in Sources */,
 				7E5B2AAA1A43B6E600B39BDE /* ReadingCell.swift in Sources */,
 				7EC797691A4421D200BFCAAD /* Reading.swift in Sources */,
 				7E37C2E21A43AA7100432E34 /* ContainerViewController.swift in Sources */,
 				7E37C2DD1A43AA7100432E34 /* AppDelegate.swift in Sources */,
+				7EEB64471A47DFF00063EF4F /* ChemicalCalculator.swift in Sources */,
 				7E5B2AB01A43BDCC00B39BDE /* ReadingType.swift in Sources */,
 				7EC7975E1A44110700BFCAAD /* HistoryViewController.swift in Sources */,
 				7EC797621A441C7600BFCAAD /* HistoryCell.swift in Sources */,
