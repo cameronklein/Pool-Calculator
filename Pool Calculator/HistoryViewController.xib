@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryViewController" customModule="Pool_Calculator" customModuleProvider="target">
             <connections>
+                <outlet property="graphHeight" destination="VpX-mJ-8lQ" id="DsF-S6-uQV"/>
                 <outlet property="tableView" destination="dbc-GQ-lH5" id="lJz-iZ-epQ"/>
                 <outlet property="topBar" destination="7ym-yX-btC" id="vr5-Nk-Zhx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -19,7 +20,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yRa-b1-2oY">
                     <rect key="frame" x="0.0" y="60" width="600" height="540"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgm-Hs-AwD">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgm-Hs-AwD" userLabel="Table Header">
                             <rect key="frame" x="0.0" y="216" width="600" height="44"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ber-rD-6eh">
@@ -72,7 +73,7 @@ Cl2</string>
                                 <constraint firstAttribute="centerY" secondItem="Ber-rD-6eh" secondAttribute="centerY" id="nP2-AI-xtc"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yya-wg-1Hy">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yya-wg-1Hy" userLabel="Graph">
                             <rect key="frame" x="16" y="16" width="568" height="200"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>

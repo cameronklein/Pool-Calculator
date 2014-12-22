@@ -51,8 +51,10 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
     cell.title.text = cell.readingType?.name
     if let readingValue = readings[indexPath.row] {
       cell.readingValue.text = String(format: cell.readingType!.stringFormat, readingValue)
+      cell.cancelLabel.alpha = 1
     } else {
       cell.readingValue.text = "--"
+      cell.cancelLabel.alpha = 0
     }
   
     cell.selectionStyle = .None
@@ -66,6 +68,7 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
     
     let tapper = UITapGestureRecognizer()
     tapper.addTarget(self, action: "didTapCancel:")
+    tapper.delegate = self
     cell.cancelLabel.addGestureRecognizer(tapper)
     
     return cell
@@ -112,6 +115,12 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
           cell.readingValue.text! = cell.readingValue.text! + "+"
         }
         
+        UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+          cell.cancelLabel.alpha = 1
+        }, completion: { (success) -> Void in
+          return ()
+        })
+        
       case .Ended:
         readings[tableView.indexPathForCell(cell)!.row] = newValue
         
@@ -122,9 +131,19 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
   }
   
   func didTapCancel(sender: UITapGestureRecognizer) {
-    println("Found tap!")
     if let cell = sender.view?.superview?.superview as? ReadingCell {
-      println("Found cell!")
+      readings[tableView.indexPathForCell(cell)!.row] = nil
+      UIView.animateWithDuration(0.3, delay: 0.0, options: .AllowUserInteraction, animations: { () -> Void in
+        cell.readingValue.text = "--"
+        sender.view?.alpha = 0
+      }, completion: { (success) -> Void in
+        return ()
+      })
+      UIView.transitionWithView(cell.readingValue, duration: 0.3, options: .TransitionCrossDissolve | .AllowUserInteraction, animations: { () -> Void in
+        cell.readingValue.text = "--"
+      }, completion: { (success) -> Void in
+        return ()
+      })
     }
     
   }
@@ -138,6 +157,8 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
       }
     return true
   }
+
+  // MARK: - Helper Methods
   
   func addReading(){
     let appDel = UIApplication.sharedApplication().delegate as AppDelegate
@@ -178,8 +199,13 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
     else {
       reading.calciumHardness = -1
     }
-
-    reading.timestamp = NSDate()
+    var date = NSDate()
+    //date = date.dateByAddingTimeInterval(60*60*24)
+    reading.timestamp = date
+    let calendar = NSCalendar.currentCalendar()
+    let offset = NSTimeZone.systemTimeZone().secondsFromGMTForDate(date)
+    let dateForDay = date.dateByAddingTimeInterval(Double(offset))
+    reading.day = calendar.ordinalityOfUnit(NSCalendarUnit.CalendarUnitDay, inUnit: NSCalendarUnit.CalendarUnitEra, forDate: dateForDay)
     var error : NSError?
     context?.save(&error)
     if error != nil {

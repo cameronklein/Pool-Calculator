@@ -3,6 +3,7 @@
     <entity name="Reading" representedClassName="Reading" syncable="YES">
         <attribute name="calciumHardness" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="combinedChlorine" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="day" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="freeChlorine" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="pH" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
@@ -10,6 +11,6 @@
         <attribute name="totalChlorine" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Reading" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="Reading" positionX="-63" positionY="-18" width="128" height="165"/>
     </elements>
 </model>
