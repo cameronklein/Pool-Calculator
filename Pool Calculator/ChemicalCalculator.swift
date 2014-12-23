@@ -54,7 +54,7 @@ class ChemicalCalculator {
     } else if amount < 0 {
       return lowerChlorineBy(-amount)
     } else {
-      return "Do Nothing"
+      return "Nothing"
     }
   }
   
@@ -64,7 +64,7 @@ class ChemicalCalculator {
     } else if amount < 0 {
       return lowerPHBy(-amount)
     } else {
-      return "Do Nothing"
+      return "Nothing"
     }
   }
   

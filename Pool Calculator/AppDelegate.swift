@@ -16,7 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    // Override point for customization after application launch.
+
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    if userDefaults.valueForKey("First Launch") == nil {
+      println("First Launch!")
+      userDefaults.setBool(false, forKey: kUserSettingsCalculatorMode)
+      userDefaults.setBool(true, forKey: "First Launch")
+    }
+    
+    
     return true
   }
 

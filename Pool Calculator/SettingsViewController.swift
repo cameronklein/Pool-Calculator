@@ -8,12 +8,17 @@
 
 import UIKit
 
+
+  let kUserSettingsCalculatorMode = "Calculator Mode"
+
+
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   @IBOutlet weak var topBar: UIView!
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var headeLabel: UILabel!
   @IBOutlet weak var backButton: UIButton!
+  @IBOutlet weak var calculatorModeSwitch: UISwitch!
   
   var settings : Array<(String,Array<String>)>!
   var navigationStack : [UIViewController]!
@@ -26,6 +31,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     settings = [("Pool Info",group1),("Display",group2),("About",group3)]
     tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CELL")
     navigationStack = [self]
+
+    calculatorModeSwitch.on = NSUserDefaults.standardUserDefaults().boolForKey(kUserSettingsCalculatorMode)
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -55,9 +62,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     cell.textLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 18.0)
     cell.textLabel?.textColor = UIColor.whiteColor()
     cell.backgroundColor = UIColor.clearColor()
-    cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     cell.selectionStyle = .None
     
+    switch indexPath {
+    case NSIndexPath(forRow: 1, inSection: 1):
+      cell.accessoryView = calculatorModeSwitch
+    default:
+      cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+    }
+
     return cell
   }
   
@@ -89,21 +102,50 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   }
 
   @IBAction func didPressBackButton(sender: AnyObject) {
+    let calculatorModeOn = NSUserDefaults.standardUserDefaults().boolForKey(kUserSettingsCalculatorMode)
     if let topVC = navigationStack.last {
-      navigationStack.removeLast()
-      UIView.animateWithDuration(0.4,
-        delay: 0.0,
-        usingSpringWithDamping: 0.7,
-        initialSpringVelocity: 0.4,
-        options: UIViewAnimationOptions.AllowUserInteraction,
-        animations: { () -> Void in
-          topVC.view.frame.origin = CGPoint(x: self.view.bounds.width, y: 0)
-          if self.navigationStack.last == self {
-            self.backButton.alpha = 0
-          }
-        }) { (success) -> Void in
-          return ()
+      if topVC == self{
+        if let parent = self.parentViewController as? ContainerViewController {
+          parent.switchViewControllerTo(parent.calculatorVC)
+        }
+      } else{
+        navigationStack.removeLast()
+        UIView.animateWithDuration(0.4,
+          delay: 0.0,
+          usingSpringWithDamping: 0.7,
+          initialSpringVelocity: 0.4,
+          options: UIViewAnimationOptions.AllowUserInteraction,
+          animations: { () -> Void in
+            topVC.view.frame.origin = CGPoint(x: self.view.bounds.width, y: 0)
+            if self.navigationStack.last == self && !calculatorModeOn{
+              self.backButton.alpha = 0
+            }
+          }) { (success) -> Void in
+            return ()
+        }
       }
     }
   }
+  
+  @IBAction func didSwitchCalcModeSwitch(sender: UISwitch) {
+    NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: kUserSettingsCalculatorMode)
+    NSUserDefaults.standardUserDefaults().synchronize()
+    if let parent = self.parentViewController as? ContainerViewController {
+      parent.switchToCalculatorOnlyMode(sender.on)
+    }
+    UIView.animateWithDuration(0.8,
+      delay: 0.0,
+      options: UIViewAnimationOptions.AllowUserInteraction,
+      animations: { () -> Void in
+        if sender.on {
+          self.backButton.alpha = 1
+        } else {
+          self.backButton.alpha = 0
+        }
+      }) { (success) -> Void in
+        return ()
+    }
+
+  }
+  
 }

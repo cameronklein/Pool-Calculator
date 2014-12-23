@@ -17,6 +17,10 @@ class ContainerViewController: UIViewController {
   @IBOutlet weak var buttonFour: UIView!
   @IBOutlet weak var headerLabel: UILabel!
   
+  @IBOutlet weak var buttonTwoConstraint: NSLayoutConstraint!
+  @IBOutlet weak var buttonOneConstraint: NSLayoutConstraint!
+  @IBOutlet weak var buttonThreeConstraint: NSLayoutConstraint!
+  @IBOutlet weak var buttonFourConstraint: NSLayoutConstraint!
   var currentViewController : UIViewController!
   var newReadingVC : NewReadingViewController!
   var historyVC : HistoryViewController!
@@ -97,6 +101,71 @@ class ContainerViewController: UIViewController {
       }
     }
     self.currentViewController = destination
+  }
+  
+  func switchToCalculatorOnlyMode(wantsCalcMode: Bool){
+    if wantsCalcMode {
+      UIView.animateWithDuration(0.5,
+        delay: 0.0,
+        usingSpringWithDamping: 0.7,
+        initialSpringVelocity: 0.4,
+        options: nil,
+        animations: { () -> Void in
+          self.buttonTwo.transform = CGAffineTransformMakeTranslation(-200, 0)
+          self.buttonThree.transform = CGAffineTransformMakeTranslation(200, 0)
+      }, completion: nil)
+      UIView.animateWithDuration(0.5,
+        delay: 0.3,
+        usingSpringWithDamping: 0.7,
+        initialSpringVelocity: 0.4,
+        options: nil,
+        animations: { () -> Void in
+          self.buttonOne.transform = CGAffineTransformMakeTranslation(-100, 0)
+          self.buttonFour.transform = CGAffineTransformMakeTranslation(100, 0)
+      }, completion: nil)
+      UIView.animateWithDuration(0.5,
+        delay: 0.6,
+        usingSpringWithDamping: 0.7,
+        initialSpringVelocity: 0.4,
+        options: nil,
+        animations: { () -> Void in
+          self.bottomBar.transform = CGAffineTransformMakeTranslation(0, self.bottomBar.frame.height)
+      },completion: nil)
+      
+
+  
+    } else {
+      UIView.animateWithDuration(0.5,
+        delay: 0.0,
+        usingSpringWithDamping: 0.7,
+        initialSpringVelocity: 0.4,
+        options: nil,
+        animations: { () -> Void in
+          self.bottomBar.transform = CGAffineTransformIdentity
+          
+      }, completion: nil)
+      UIView.animateWithDuration(0.5,
+            delay: 0.3,
+            usingSpringWithDamping: 0.7,
+            initialSpringVelocity: 0.4,
+            options: nil,
+            animations: { () -> Void in
+              self.buttonOne.transform = CGAffineTransformIdentity
+              self.buttonFour.transform = CGAffineTransformIdentity
+        }, completion: nil)
+      
+      UIView.animateWithDuration(0.5,
+        delay: 0.6,
+        usingSpringWithDamping: 0.7,
+        initialSpringVelocity: 0.4,
+        options: nil,
+        animations: { () -> Void in
+          self.buttonTwo.transform = CGAffineTransformIdentity
+          self.buttonThree.transform = CGAffineTransformIdentity
+      }, completion: nil)
+    }
+    
+    
   }
   
   @IBAction func didPressSubmit(sender: AnyObject) {

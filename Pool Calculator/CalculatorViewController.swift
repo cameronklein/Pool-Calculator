@@ -11,6 +11,7 @@ import CoreData
 
 class CalculatorViewController: UIViewController {
 
+  @IBOutlet weak var settingsButton: UILabel!
   @IBOutlet weak var topBar: UIView!
   @IBOutlet weak var desiredView: UIView!
   @IBOutlet weak var desiredLabel: UILabel!
@@ -41,6 +42,7 @@ class CalculatorViewController: UIViewController {
     let appDel = UIApplication.sharedApplication().delegate as AppDelegate
     context = appDel.managedObjectContext
     addSelectionBarTo(chlorineButton)
+    
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -53,6 +55,12 @@ class CalculatorViewController: UIViewController {
       let panner = UIPanGestureRecognizer()
       panner.addTarget(self, action: "didPanNumber:")
       view.addGestureRecognizer(panner)
+    }
+    
+    if NSUserDefaults.standardUserDefaults().boolForKey(kUserSettingsCalculatorMode){
+      settingsButton.alpha = 1
+    } else {
+      settingsButton.alpha = 0
     }
   }
 

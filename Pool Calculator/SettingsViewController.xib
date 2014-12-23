@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="Pool_Calculator" customModuleProvider="target">
             <connections>
                 <outlet property="backButton" destination="Cdv-Yp-mWx" id="FJh-4N-aSU"/>
+                <outlet property="calculatorModeSwitch" destination="98F-8n-HvL" id="wyj-0V-swj"/>
                 <outlet property="headeLabel" destination="7uW-Uy-g3w" id="pQ3-NN-VHJ"/>
                 <outlet property="tableView" destination="2fk-rn-yui" id="skp-IN-HJm"/>
                 <outlet property="topBar" destination="j05-Xd-e0f" id="JIy-Sl-P7d"/>
@@ -18,6 +19,12 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="98F-8n-HvL">
+                    <rect key="frame" x="274" y="285" width="51" height="31"/>
+                    <connections>
+                        <action selector="didSwitchCalcModeSwitch:" destination="-1" eventType="valueChanged" id="xVR-2x-jl6"/>
+                    </connections>
+                </switch>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="2fk-rn-yui">
                     <rect key="frame" x="0.0" y="60" width="600" height="540"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

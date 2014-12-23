@@ -185,9 +185,13 @@
                     <connections>
                         <outlet property="bottomBar" destination="Fuf-mP-8hi" id="gIo-jq-Gl0"/>
                         <outlet property="buttonFour" destination="Rqg-LH-5Aw" id="HOK-3B-viH"/>
+                        <outlet property="buttonFourConstraint" destination="vgv-I2-yS8" id="F2e-3M-Oe1"/>
                         <outlet property="buttonOne" destination="dEx-F8-Q7z" id="msY-wm-mKO"/>
+                        <outlet property="buttonOneConstraint" destination="W69-Yd-4UE" id="2SF-Gx-JTn"/>
                         <outlet property="buttonThree" destination="xBH-B4-gBj" id="2U7-Vd-rCP"/>
+                        <outlet property="buttonThreeConstraint" destination="Bk5-ea-gty" id="7xK-XB-ccd"/>
                         <outlet property="buttonTwo" destination="VFV-I4-UL4" id="g77-xJ-C8J"/>
+                        <outlet property="buttonTwoConstraint" destination="I5F-B7-8qc" id="LFO-eP-jTm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
