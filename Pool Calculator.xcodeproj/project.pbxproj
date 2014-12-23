@@ -21,6 +21,8 @@
 		7E5B2AB01A43BDCC00B39BDE /* ReadingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5B2AAF1A43BDCC00B39BDE /* ReadingType.swift */; };
 		7E9F8A6B1A492576005092B1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F8A691A492576005092B1 /* SettingsViewController.swift */; };
 		7E9F8A6C1A492576005092B1 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F8A6A1A492576005092B1 /* SettingsViewController.xib */; };
+		7E9F8A741A4A26AF005092B1 /* ChemicalsUsedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F8A721A4A26AF005092B1 /* ChemicalsUsedViewController.swift */; };
+		7E9F8A751A4A26AF005092B1 /* ChemicalsUsedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F8A731A4A26AF005092B1 /* ChemicalsUsedViewController.xib */; };
 		7EC7975E1A44110700BFCAAD /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC7975C1A44110700BFCAAD /* HistoryViewController.swift */; };
 		7EC7975F1A44110700BFCAAD /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */; };
 		7EC797621A441C7600BFCAAD /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC797601A441C7600BFCAAD /* HistoryCell.swift */; };
@@ -60,6 +62,8 @@
 		7E5B2AAF1A43BDCC00B39BDE /* ReadingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingType.swift; sourceTree = "<group>"; };
 		7E9F8A691A492576005092B1 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7E9F8A6A1A492576005092B1 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		7E9F8A721A4A26AF005092B1 /* ChemicalsUsedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemicalsUsedViewController.swift; sourceTree = "<group>"; };
+		7E9F8A731A4A26AF005092B1 /* ChemicalsUsedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChemicalsUsedViewController.xib; sourceTree = "<group>"; };
 		7EC7975C1A44110700BFCAAD /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
 		7EC797601A441C7600BFCAAD /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 			children = (
 				7E9F8A691A492576005092B1 /* SettingsViewController.swift */,
 				7E9F8A6A1A492576005092B1 /* SettingsViewController.xib */,
+				7E9F8A721A4A26AF005092B1 /* ChemicalsUsedViewController.swift */,
+				7E9F8A731A4A26AF005092B1 /* ChemicalsUsedViewController.xib */,
 			);
 			name = "-- Settings --";
 			sourceTree = "<group>";
@@ -300,6 +306,7 @@
 				7E5B2AA71A43B2DE00B39BDE /* NewReadingViewController.xib in Resources */,
 				7E9F8A6C1A492576005092B1 /* SettingsViewController.xib in Resources */,
 				7EC797631A441C7600BFCAAD /* HistoryCell.xib in Resources */,
+				7E9F8A751A4A26AF005092B1 /* ChemicalsUsedViewController.xib in Resources */,
 				7E37C2E51A43AA7100432E34 /* Main.storyboard in Resources */,
 				7E37C2EA1A43AA7100432E34 /* LaunchScreen.xib in Resources */,
 				7E37C2E71A43AA7100432E34 /* Images.xcassets in Resources */,
@@ -324,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EEB64431A47CADC0063EF4F /* CalculatorViewController.swift in Sources */,
+				7E9F8A741A4A26AF005092B1 /* ChemicalsUsedViewController.swift in Sources */,
 				7E5B2AA61A43B2DE00B39BDE /* NewReadingViewController.swift in Sources */,
 				7E5B2AAA1A43B6E600B39BDE /* ReadingCell.swift in Sources */,
 				7EC797691A4421D200BFCAAD /* Reading.swift in Sources */,

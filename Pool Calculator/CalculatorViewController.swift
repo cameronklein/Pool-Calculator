@@ -43,6 +43,10 @@ class CalculatorViewController: UIViewController {
     context = appDel.managedObjectContext
     addSelectionBarTo(chlorineButton)
     
+    let tapper = UITapGestureRecognizer()
+    tapper.addTarget(self, action: "didTapSettings:")
+    self.settingsButton.addGestureRecognizer(tapper)
+    
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -215,6 +219,14 @@ class CalculatorViewController: UIViewController {
     topBar.layer.shadowOffset = CGSize(width: 0, height: 3)
     topBar.layer.shadowOpacity = 0.5
     topBar.layer.shadowRadius = 3
+  }
+  
+  func didTapSettings(sender: UITapGestureRecognizer) {
+    if sender.state == .Ended {
+      if let parent = self.parentViewController as? ContainerViewController {
+        parent.switchViewControllerTo(parent.settingsVC, animated: true)
+      }
+    }
   }
 
 }

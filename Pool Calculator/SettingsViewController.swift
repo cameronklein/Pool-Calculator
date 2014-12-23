@@ -20,28 +20,37 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   @IBOutlet weak var backButton: UIButton!
   @IBOutlet weak var calculatorModeSwitch: UISwitch!
   
+  var unitsSwitcher: UISegmentedControl!
   var settings : Array<(String,Array<String>)>!
   var navigationStack : [UIViewController]!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     var group1 = ["Pool", "Chemicals", "Desired Values"]
-    var group2 = ["Display Options", "Calculator Only Mode"]
+    var group2 = ["Display Options", "Calculator Only Mode", "Units"]
     var group3 = ["Terms of Use", "This"]
     settings = [("Pool Info",group1),("Display",group2),("About",group3)]
     tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CELL")
     navigationStack = [self]
-
     calculatorModeSwitch.on = NSUserDefaults.standardUserDefaults().boolForKey(kUserSettingsCalculatorMode)
+    setupUnitsSwitcher()
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     addTopBarShadow()
+    
   }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
+  }
+  
+  func setupUnitsSwitcher() {
+    unitsSwitcher = UISegmentedControl()
+    unitsSwitcher.insertSegmentWithTitle("US", atIndex: 0, animated: false)
+    unitsSwitcher.insertSegmentWithTitle("Metric", atIndex: 1, animated: false)
+    unitsSwitcher.tintColor = UIColor.whiteColor()
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,6 +76,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     switch indexPath {
     case NSIndexPath(forRow: 1, inSection: 1):
       cell.accessoryView = calculatorModeSwitch
+    case NSIndexPath(forRow: 2, inSection: 1):
+      cell.accessoryView = unitsSwitcher
     default:
       cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     }
@@ -75,23 +86,29 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    let calculatorVC = CalculatorViewController(nibName: "CalculatorViewController", bundle: NSBundle.mainBundle())
-    self.addChildViewController(calculatorVC)
-    calculatorVC.view.frame = CGRect(x: self.view.bounds.width, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
-    self.view.insertSubview(calculatorVC.view, belowSubview: topBar)
+    var destination : UIViewController
+    switch indexPath {
+    case NSIndexPath(forRow: 1, inSection: 0):
+      destination = ChemicalsUsedViewController(nibName: "ChemicalsUsedViewController", bundle: NSBundle.mainBundle())
+    default:
+      return ()
+    }
+    
+    self.addChildViewController(destination)
+    destination.view.frame = CGRect(x: self.view.bounds.width, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+    self.view.insertSubview(destination.view, belowSubview: topBar)
     UIView.animateWithDuration(0.4,
       delay: 0.0,
       usingSpringWithDamping: 0.7,
       initialSpringVelocity: 0.4,
       options: UIViewAnimationOptions.AllowUserInteraction,
       animations: { () -> Void in
-        calculatorVC.view.frame.origin = CGPoint(x: 0, y: 0)
+        destination.view.frame.origin = CGPoint(x: 0, y: 0)
         self.backButton.alpha = 1
-    }) { (success) -> Void in
-      return ()
+      }) { (success) -> Void in
+        return ()
     }
-
-    navigationStack.append(calculatorVC)
+    navigationStack.append(destination)
   }
   
   func addTopBarShadow() {
@@ -106,7 +123,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     if let topVC = navigationStack.last {
       if topVC == self{
         if let parent = self.parentViewController as? ContainerViewController {
-          parent.switchViewControllerTo(parent.calculatorVC)
+          parent.switchViewControllerTo(parent.calculatorVC, animated: true)
         }
       } else{
         navigationStack.removeLast()
@@ -131,7 +148,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: kUserSettingsCalculatorMode)
     NSUserDefaults.standardUserDefaults().synchronize()
     if let parent = self.parentViewController as? ContainerViewController {
-      parent.switchToCalculatorOnlyMode(sender.on)
+      parent.switchToCalculatorOnlyMode(sender.on, animated: true)
     }
     UIView.animateWithDuration(0.8,
       delay: 0.0,

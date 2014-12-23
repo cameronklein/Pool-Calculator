@@ -30,12 +30,17 @@ class ContainerViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupViewControllers()
-    switchViewControllerTo(newReadingVC)
+    setupButtons()
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    setupButtons()
+    if NSUserDefaults.standardUserDefaults().boolForKey(kUserSettingsCalculatorMode){
+      switchToCalculatorOnlyMode(true, animated: false)
+      switchViewControllerTo(calculatorVC, animated: false)
+    } else {
+      switchViewControllerTo(newReadingVC, animated: false)
+    }
   }
 
   override func didReceiveMemoryWarning() {
@@ -73,25 +78,26 @@ class ContainerViewController: UIViewController {
   func didTapButton(sender: UITapGestureRecognizer) {
     switch sender.view!{
     case buttonOne:
-      switchViewControllerTo(newReadingVC)
+      switchViewControllerTo(newReadingVC, animated: true)
     case buttonTwo:
-      switchViewControllerTo(historyVC)
+      switchViewControllerTo(historyVC, animated: true)
     case buttonThree:
-      switchViewControllerTo(calculatorVC)
+      switchViewControllerTo(calculatorVC, animated: true)
     case buttonFour:
-      switchViewControllerTo(settingsVC)
+      switchViewControllerTo(settingsVC, animated: true)
     default:
     println("This should not happen.")
     }
   }
   
-  func switchViewControllerTo(destination: UIViewController) {
+  func switchViewControllerTo(destination: UIViewController, animated: Bool) {
     if currentViewController != destination {
       let previousViewController = currentViewController
       self.addChildViewController(destination)
       destination.view.alpha = 0
       self.view.insertSubview(destination.view, belowSubview: bottomBar)
-      UIView.animateWithDuration(0.1, animations: { () -> Void in
+      UIView.animateWithDuration(animated ? 0.1 : 0.0,
+        animations: { () -> Void in
         destination.view.alpha = 1
         }) { (success) -> Void in
           if previousViewController != nil {
@@ -103,9 +109,9 @@ class ContainerViewController: UIViewController {
     self.currentViewController = destination
   }
   
-  func switchToCalculatorOnlyMode(wantsCalcMode: Bool){
+  func switchToCalculatorOnlyMode(wantsCalcMode: Bool, animated: Bool){
     if wantsCalcMode {
-      UIView.animateWithDuration(0.5,
+      UIView.animateWithDuration(animated ? 0.5 : 0.0,
         delay: 0.0,
         usingSpringWithDamping: 0.7,
         initialSpringVelocity: 0.4,
@@ -114,8 +120,8 @@ class ContainerViewController: UIViewController {
           self.buttonTwo.transform = CGAffineTransformMakeTranslation(-200, 0)
           self.buttonThree.transform = CGAffineTransformMakeTranslation(200, 0)
       }, completion: nil)
-      UIView.animateWithDuration(0.5,
-        delay: 0.3,
+      UIView.animateWithDuration(animated ? 0.5 : 0.0,
+        delay: animated ? 0.2 : 0.0,
         usingSpringWithDamping: 0.7,
         initialSpringVelocity: 0.4,
         options: nil,
@@ -123,8 +129,8 @@ class ContainerViewController: UIViewController {
           self.buttonOne.transform = CGAffineTransformMakeTranslation(-100, 0)
           self.buttonFour.transform = CGAffineTransformMakeTranslation(100, 0)
       }, completion: nil)
-      UIView.animateWithDuration(0.5,
-        delay: 0.6,
+      UIView.animateWithDuration(animated ? 0.5 : 0.0,
+        delay: animated ? 0.4 : 0.0,
         usingSpringWithDamping: 0.7,
         initialSpringVelocity: 0.4,
         options: nil,
@@ -135,7 +141,7 @@ class ContainerViewController: UIViewController {
 
   
     } else {
-      UIView.animateWithDuration(0.5,
+      UIView.animateWithDuration(animated ? 0.5 : 0.0,
         delay: 0.0,
         usingSpringWithDamping: 0.7,
         initialSpringVelocity: 0.4,
@@ -144,8 +150,8 @@ class ContainerViewController: UIViewController {
           self.bottomBar.transform = CGAffineTransformIdentity
           
       }, completion: nil)
-      UIView.animateWithDuration(0.5,
-            delay: 0.3,
+      UIView.animateWithDuration(animated ? 0.5 : 0.0,
+            delay: animated ? 0.2 : 0.0,
             usingSpringWithDamping: 0.7,
             initialSpringVelocity: 0.4,
             options: nil,
@@ -154,8 +160,8 @@ class ContainerViewController: UIViewController {
               self.buttonFour.transform = CGAffineTransformIdentity
         }, completion: nil)
       
-      UIView.animateWithDuration(0.5,
-        delay: 0.6,
+      UIView.animateWithDuration(animated ? 0.5 : 0.0,
+        delay: animated ? 0.4 : 0.0,
         usingSpringWithDamping: 0.7,
         initialSpringVelocity: 0.4,
         options: nil,
