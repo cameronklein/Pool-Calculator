@@ -8,8 +8,10 @@
             <connections>
                 <outlet property="calciumHardnessButton" destination="yiq-aQ-5r7" id="0Zc-4w-rfW"/>
                 <outlet property="chlorineButton" destination="WfK-Ln-WCW" id="Ea0-qC-Iar"/>
+                <outlet property="currentLabel" destination="h78-HU-MQE" id="pIz-d5-0Ko"/>
                 <outlet property="currentView" destination="gJw-3l-MnE" id="QEH-t5-o40"/>
                 <outlet property="cynuricAcidButton" destination="Ep1-Gn-qSf" id="yyW-F8-fBU"/>
+                <outlet property="desiredLabel" destination="6UF-PM-V9Z" id="i0D-li-xhH"/>
                 <outlet property="desiredView" destination="Av2-LS-oLl" id="bbz-aQ-tat"/>
                 <outlet property="otherButton" destination="aM9-ll-X9K" id="dWx-Im-Gds"/>
                 <outlet property="pHButton" destination="EdO-fI-NzJ" id="8yI-l4-duo"/>
@@ -94,7 +96,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="2.5" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSL-gi-rmc">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSL-gi-rmc">
                     <rect key="frame" x="16" y="355" width="568" height="33"/>
                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="24"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

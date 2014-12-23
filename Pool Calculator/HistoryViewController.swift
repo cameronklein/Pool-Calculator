@@ -46,6 +46,11 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     var dummyView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 40.0))
     self.tableView.tableHeaderView = dummyView;
     self.tableView.contentInset = UIEdgeInsetsMake(-40.0, 0, 0, 0);
+
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    
   }
 
   override func didReceiveMemoryWarning() {
@@ -170,6 +175,10 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
       tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
     case .Insert:
       if let thisPath = indexPath {
+        println("Found index path")
+        tableView.insertRowsAtIndexPaths([thisPath], withRowAnimation: .Automatic)
+      } else if let thisPath = newIndexPath {
+        println("Found new index path")
         tableView.insertRowsAtIndexPaths([thisPath], withRowAnimation: .Automatic)
       }
     default:

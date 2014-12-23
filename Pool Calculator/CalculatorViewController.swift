@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class CalculatorViewController: UIViewController {
 
   @IBOutlet weak var topBar: UIView!
   @IBOutlet weak var desiredView: UIView!
+  @IBOutlet weak var desiredLabel: UILabel!
+  @IBOutlet weak var currentLabel: UILabel!
   @IBOutlet weak var currentView: UIView!
   @IBOutlet weak var resultLabel: UILabel!
   @IBOutlet weak var chlorineButton: UIButton!
@@ -28,30 +31,33 @@ class CalculatorViewController: UIViewController {
   var oldValue: Double!
   var newValue: Double!
   var calculator = ChemicalCalculator(gallons: 10000)
-  var currentSelectionBar : UIView?
+  var selectionBar : UIView?
+  var lastReading: Reading?
+  
+  var context : NSManagedObjectContext!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    let appDel = UIApplication.sharedApplication().delegate as AppDelegate
+    context = appDel.managedObjectContext
     addSelectionBarTo(chlorineButton)
   }
   
   override func viewWillAppear(animated: Bool) {
-    topBar.layer.shadowColor = UIColor.blackColor().CGColor
-    topBar.layer.shadowOffset = CGSize(width: 0, height: 3)
-    topBar.layer.shadowOpacity = 0.5
-    topBar.layer.shadowRadius = 3
-    
+    addTopBarShadow()
+    if getLastReading() {
+      updateCurrentReading()
+      resultLabel.text = calculateResult()
+    }
     for view in [currentView, desiredView] {
       let panner = UIPanGestureRecognizer()
       panner.addTarget(self, action: "didPanNumber:")
       view.addGestureRecognizer(panner)
     }
-    
   }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-
   }
   
   func didPanNumber(sender: UIPanGestureRecognizer) {
@@ -99,35 +105,108 @@ class CalculatorViewController: UIViewController {
     }
   }
   
+  func updateCurrentReading() {
+    var value : Double
+    switch type.name {
+    case "Free Chlorine":
+      value = lastReading!.freeChlorine.doubleValue
+    case "pH":
+      value = lastReading!.pH.doubleValue
+    case "Total Alkalinity":
+      value = lastReading!.totalAlkalinity.doubleValue
+    case "Calcium Hardness":
+      value = lastReading!.combinedChlorine.doubleValue
+    default:
+      return ()
+    }
+    value = max(value, 0.0)
+    currentLabel.text = String(format: type.stringFormat, value)
+  }
+  
+  func getLastReading() -> Bool{
+    var fetchRequest = NSFetchRequest(entityName: "Reading")
+    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
+    fetchRequest.fetchBatchSize = 1
+    
+    var error : NSError?
+    let result = context!.executeFetchRequest(fetchRequest, error: &error)
+    
+    if result?.count > 0 {
+      if let reading = result?.first as? Reading {
+        lastReading = reading
+      }
+    }
+    return lastReading != nil
+  }
+  
   func calculateResult() -> String? {
     switch type.name {
-      
     case "Free Chlorine":
       return calculator.changeChlorineBy(desiredValue - currentValue)
+    case "pH":
+      return calculator.changePHBy(desiredValue - currentValue)
+    case "Total Alkalinity":
+      return calculator.changePHBy(desiredValue - currentValue)
+    case "Calcium Hardness":
+      return calculator.changePHBy(desiredValue - currentValue)
     default:
       return "Oops"
     }
 
   }
   
-  
   @IBAction func didPressChemicalButton(sender: UIButton) {
     addSelectionBarTo(sender)
-    
+    switch sender {
+    case chlorineButton:
+      type = ReadingType.getType(Chemical.FreeChlorine)
+    case pHButton:
+      type = ReadingType.getType(Chemical.pH)
+    case totalAlkalinityButton:
+      type = ReadingType.getType(Chemical.TotalAlk)
+    case calciumHardnessButton:
+      type = ReadingType.getType(Chemical.Hardness)
+    default:
+      return ()
+    }
+    updateCurrentReading()
+    resultLabel.text = calculateResult()
   }
   
   func addSelectionBarTo(button: UIButton) {
-    currentSelectionBar?.removeFromSuperview()
+    if selectionBar == nil {
+      selectionBar = UIView()
+      let barX = button.frame.origin.x
+      let barY = button.frame.origin.y + button.frame.height - 6
+      let barWidth = button.frame.width
+      let barHeight : CGFloat = 2
+      selectionBar!.backgroundColor = UIColor.whiteColor()
+      topScrollView.addSubview(selectionBar!)
+      selectionBar!.layer.cornerRadius = 2
+    }
     
     let barX = button.frame.origin.x
     let barY = button.frame.origin.y + button.frame.height - 6
     let barWidth = button.frame.width
     let barHeight : CGFloat = 2
-    let selectionBar = UIView()
-    selectionBar.frame = CGRect(x: barX, y: barY, width: barWidth, height: barHeight)
-    selectionBar.backgroundColor = UIColor.whiteColor()
-    topScrollView.addSubview(selectionBar)
-    currentSelectionBar = selectionBar
+    
+    UIView.animateWithDuration(0.3,
+      delay: 0.0,
+      usingSpringWithDamping: 0.7,
+      initialSpringVelocity: 0.4,
+      options: .AllowUserInteraction,
+      animations: { () -> Void in
+      self.selectionBar!.frame = CGRect(x: barX, y: barY, width: barWidth, height: barHeight)
+    }) { (success) -> Void in
+      return ()
+    }
+  }
+  
+  func addTopBarShadow() {
+    topBar.layer.shadowColor = UIColor.blackColor().CGColor
+    topBar.layer.shadowOffset = CGSize(width: 0, height: 3)
+    topBar.layer.shadowOpacity = 0.5
+    topBar.layer.shadowRadius = 3
   }
 
 }
