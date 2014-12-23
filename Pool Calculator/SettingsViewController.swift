@@ -29,11 +29,13 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     var group1 = ["Pool", "Chemicals", "Desired Values"]
     var group2 = ["Display Options", "Calculator Only Mode", "Units"]
     var group3 = ["Terms of Use", "This"]
-    settings = [("Pool Info",group1),("Display",group2),("About",group3)]
+    settings = [("Facility Info",group1),("Display",group2),("About",group3)]
     tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CELL")
     navigationStack = [self]
     calculatorModeSwitch.on = NSUserDefaults.standardUserDefaults().boolForKey(kUserSettingsCalculatorMode)
     setupUnitsSwitcher()
+    
+    self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 80.0))
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -76,6 +78,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     switch indexPath {
     case NSIndexPath(forRow: 1, inSection: 1):
       cell.accessoryView = calculatorModeSwitch
+      calculatorModeSwitch.onTintColor = topBar.backgroundColor
+      calculatorModeSwitch.tintColor = topBar.backgroundColor
     case NSIndexPath(forRow: 2, inSection: 1):
       cell.accessoryView = unitsSwitcher
     default:
@@ -90,6 +94,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     switch indexPath {
     case NSIndexPath(forRow: 1, inSection: 0):
       destination = ChemicalsUsedViewController(nibName: "ChemicalsUsedViewController", bundle: NSBundle.mainBundle())
+    case NSIndexPath(forRow: 0, inSection: 1):
+      destination = DisplayOptionsViewController(nibName: "DisplayOptionsViewController", bundle: NSBundle.mainBundle())
     default:
       return ()
     }
@@ -99,8 +105,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     self.view.insertSubview(destination.view, belowSubview: topBar)
     UIView.animateWithDuration(0.4,
       delay: 0.0,
-      usingSpringWithDamping: 0.7,
-      initialSpringVelocity: 0.4,
+      usingSpringWithDamping: 0.8,
+      initialSpringVelocity: 0.5,
       options: UIViewAnimationOptions.AllowUserInteraction,
       animations: { () -> Void in
         destination.view.frame.origin = CGPoint(x: 0, y: 0)
@@ -109,6 +115,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         return ()
     }
     navigationStack.append(destination)
+  }
+  
+  func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    if let header = view as? UITableViewHeaderFooterView {
+      header.textLabel.textColor = UIColor.whiteColor()
+    }
   }
   
   func addTopBarShadow() {

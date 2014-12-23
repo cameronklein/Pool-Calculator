@@ -129,7 +129,7 @@ class ContainerViewController: UIViewController {
           self.buttonOne.transform = CGAffineTransformMakeTranslation(-100, 0)
           self.buttonFour.transform = CGAffineTransformMakeTranslation(100, 0)
       }, completion: nil)
-      UIView.animateWithDuration(animated ? 0.5 : 0.0,
+      UIView.animateWithDuration(animated ? 0.7 : 0.0,
         delay: animated ? 0.4 : 0.0,
         usingSpringWithDamping: 0.7,
         initialSpringVelocity: 0.4,
@@ -160,7 +160,7 @@ class ContainerViewController: UIViewController {
               self.buttonFour.transform = CGAffineTransformIdentity
         }, completion: nil)
       
-      UIView.animateWithDuration(animated ? 0.5 : 0.0,
+      UIView.animateWithDuration(animated ? 0.7 : 0.0,
         delay: animated ? 0.4 : 0.0,
         usingSpringWithDamping: 0.7,
         initialSpringVelocity: 0.4,

@@ -23,6 +23,8 @@
 		7E9F8A6C1A492576005092B1 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F8A6A1A492576005092B1 /* SettingsViewController.xib */; };
 		7E9F8A741A4A26AF005092B1 /* ChemicalsUsedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F8A721A4A26AF005092B1 /* ChemicalsUsedViewController.swift */; };
 		7E9F8A751A4A26AF005092B1 /* ChemicalsUsedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F8A731A4A26AF005092B1 /* ChemicalsUsedViewController.xib */; };
+		7E9F8A7A1A4A34D5005092B1 /* DisplayOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F8A781A4A34D5005092B1 /* DisplayOptionsViewController.swift */; };
+		7E9F8A7B1A4A34D5005092B1 /* DisplayOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F8A791A4A34D5005092B1 /* DisplayOptionsViewController.xib */; };
 		7EC7975E1A44110700BFCAAD /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC7975C1A44110700BFCAAD /* HistoryViewController.swift */; };
 		7EC7975F1A44110700BFCAAD /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */; };
 		7EC797621A441C7600BFCAAD /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC797601A441C7600BFCAAD /* HistoryCell.swift */; };
@@ -64,6 +66,8 @@
 		7E9F8A6A1A492576005092B1 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		7E9F8A721A4A26AF005092B1 /* ChemicalsUsedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemicalsUsedViewController.swift; sourceTree = "<group>"; };
 		7E9F8A731A4A26AF005092B1 /* ChemicalsUsedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChemicalsUsedViewController.xib; sourceTree = "<group>"; };
+		7E9F8A781A4A34D5005092B1 /* DisplayOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayOptionsViewController.swift; path = ../DisplayOptionsViewController.swift; sourceTree = "<group>"; };
+		7E9F8A791A4A34D5005092B1 /* DisplayOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DisplayOptionsViewController.xib; path = ../DisplayOptionsViewController.xib; sourceTree = "<group>"; };
 		7EC7975C1A44110700BFCAAD /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
 		7EC797601A441C7600BFCAAD /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
@@ -190,6 +194,8 @@
 				7E9F8A6A1A492576005092B1 /* SettingsViewController.xib */,
 				7E9F8A721A4A26AF005092B1 /* ChemicalsUsedViewController.swift */,
 				7E9F8A731A4A26AF005092B1 /* ChemicalsUsedViewController.xib */,
+				7E9F8A781A4A34D5005092B1 /* DisplayOptionsViewController.swift */,
+				7E9F8A791A4A34D5005092B1 /* DisplayOptionsViewController.xib */,
 			);
 			name = "-- Settings --";
 			sourceTree = "<group>";
@@ -310,6 +316,7 @@
 				7E37C2E51A43AA7100432E34 /* Main.storyboard in Resources */,
 				7E37C2EA1A43AA7100432E34 /* LaunchScreen.xib in Resources */,
 				7E37C2E71A43AA7100432E34 /* Images.xcassets in Resources */,
+				7E9F8A7B1A4A34D5005092B1 /* DisplayOptionsViewController.xib in Resources */,
 				7E5B2AAB1A43B6E600B39BDE /* ReadingCell.xib in Resources */,
 				7EEB64441A47CADC0063EF4F /* CalculatorViewController.xib in Resources */,
 				7EC7975F1A44110700BFCAAD /* HistoryViewController.xib in Resources */,
@@ -342,6 +349,7 @@
 				7EC7975E1A44110700BFCAAD /* HistoryViewController.swift in Sources */,
 				7EC797621A441C7600BFCAAD /* HistoryCell.swift in Sources */,
 				7E37C2E01A43AA7100432E34 /* Pool_Calculator.xcdatamodeld in Sources */,
+				7E9F8A7A1A4A34D5005092B1 /* DisplayOptionsViewController.swift in Sources */,
 				7E9F8A6B1A492576005092B1 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

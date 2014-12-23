@@ -25,6 +25,7 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
     readings = [nil, nil, nil, nil, nil, nil]
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 60.0
+    self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 80.0))
   }
 
   override func didReceiveMemoryWarning() {

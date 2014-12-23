@@ -1,5 +1,5 @@
 //
-//  ChemicalsUsedViewController
+//  DisplayOptionsViewController.swift
 //  Pool Calculator
 //
 //  Created by Cameron Klein on 12/23/14.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChemicalsUsedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DisplayOptionsViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -16,13 +16,11 @@ class ChemicalsUsedViewController: UIViewController, UITableViewDelegate, UITabl
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    var group1 = ("Chlorine Products", ["Chlorine Gas", "Sodium Hypochlorite"])
-    var group2 = ("pH / Total Alkalinity", ["Sodium Bicarbonate", "Soda Ash", "Muriatic Acid", "Sodium Bisulfate"])
-    var group3 = ("Calcium Hardness", ["Calcium Chloride 100%", "Calcium Chloride 77%"])
-    var group4 = ("Other",["Cynuric Acid","Sodium Thiosulfate"])
-    settings = [group1, group2, group3, group4]
+    var group1 = ("Available Readings", ["Free Chlorine", "Combined Chlorine", "Total Chlorine", "pH", "Total Alkalinity", "Calcium Hardness", "Cynuric Acid"])
+    var group2 = ("Readings Displayed in Portrait Mode", ["Free Chlorine", "Combined Chlorine", "Total Chlorine", "pH", "Total Alkalinity", "Calcium Hardness", "Cynuric Acid"])
+    settings = [group1, group2]
     tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CELL")
-
+    
     self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 80.0))
   }
   
@@ -59,7 +57,7 @@ class ChemicalsUsedViewController: UIViewController, UITableViewDelegate, UITabl
     chemSwitch.addTarget(self, action: "didFlipSwitch:", forControlEvents: .ValueChanged)
     cell.accessoryView = chemSwitch
     chemSwitch.on = NSUserDefaults.standardUserDefaults().boolForKey(title)
-
+    
     return cell
   }
   

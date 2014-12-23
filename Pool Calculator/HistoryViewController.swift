@@ -24,15 +24,16 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupFetchController()
     tableView.registerNib(UINib(nibName: "HistoryCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "CELL")
     dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
     dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
     timeFormatter.dateStyle = NSDateFormatterStyle.NoStyle
     timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-    //tableView.rowHeight = UITableViewAutomaticDimension
     tableView.rowHeight = 40.0
     
-    setupFetchController()
+    
+    self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 80.0))
 
   }
   
