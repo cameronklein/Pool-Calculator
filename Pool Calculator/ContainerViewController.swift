@@ -40,7 +40,7 @@ class ContainerViewController: UIViewController {
   }
   
   func setupViewControllers(){
-    let vcFrame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - bottomBar.frame.height)
+    let vcFrame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height /*- bottomBar.frame.height*/)
     
     newReadingVC = NewReadingViewController(nibName: "NewReadingViewController", bundle: NSBundle.mainBundle())
     newReadingVC.view.frame = vcFrame
@@ -83,24 +83,24 @@ class ContainerViewController: UIViewController {
   
   func switchViewControllerTo(destination: UIViewController) {
     if currentViewController != destination {
+      let previousViewController = currentViewController
       self.addChildViewController(destination)
       destination.view.alpha = 0
       self.view.insertSubview(destination.view, belowSubview: bottomBar)
       UIView.animateWithDuration(0.1, animations: { () -> Void in
         destination.view.alpha = 1
         }) { (success) -> Void in
-          if self.currentViewController != nil {
-            self.currentViewController.removeFromParentViewController()
+          if previousViewController != nil {
+            previousViewController.view.removeFromSuperview()
+            previousViewController.removeFromParentViewController()
           }
       }
-      currentViewController = destination
     }
-
+    self.currentViewController = destination
   }
   
   @IBAction func didPressSubmit(sender: AnyObject) {
-
-  newReadingVC.addReading()
+    newReadingVC.addReading()
   }
   
   func changeHeaderLabelTo(text: String) {

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6246"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="Pool_Calculator" customModuleProvider="target">
             <connections>
+                <outlet property="backButton" destination="Cdv-Yp-mWx" id="FJh-4N-aSU"/>
+                <outlet property="headeLabel" destination="7uW-Uy-g3w" id="pQ3-NN-VHJ"/>
+                <outlet property="tableView" destination="2fk-rn-yui" id="skp-IN-HJm"/>
                 <outlet property="topBar" destination="j05-Xd-e0f" id="JIy-Sl-P7d"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -15,12 +18,49 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="2fk-rn-yui">
+                    <rect key="frame" x="0.0" y="60" width="600" height="540"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="ZGM-fO-tHF"/>
+                        <outlet property="delegate" destination="-1" id="Pwz-Bk-YeJ"/>
+                    </connections>
+                </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j05-Xd-e0f" userLabel="Top Bar">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uW-Uy-g3w">
+                            <rect key="frame" x="266" y="27" width="68" height="25"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cdv-Yp-mWx">
+                            <rect key="frame" x="16" y="21" width="41" height="37"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                            <state key="normal" title="Back">
+                                <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="didPressBackButton:" destination="-1" eventType="touchUpInside" id="t3l-BV-Fkr"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" red="0.2196078431372549" green="0.55686274509803924" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="7uW-Uy-g3w" firstAttribute="centerY" secondItem="Cdv-Yp-mWx" secondAttribute="centerY" id="18z-qt-rV7"/>
                         <constraint firstAttribute="height" constant="60" id="CQd-On-3d5"/>
+                        <constraint firstAttribute="centerX" secondItem="7uW-Uy-g3w" secondAttribute="centerX" id="O6M-py-bhD"/>
+                        <constraint firstAttribute="bottom" secondItem="Cdv-Yp-mWx" secondAttribute="bottom" constant="8" id="c5U-Tz-Eua"/>
+                        <constraint firstItem="Cdv-Yp-mWx" firstAttribute="leading" secondItem="j05-Xd-e0f" secondAttribute="leading" constant="16" id="fWh-Cw-vSk"/>
+                        <constraint firstAttribute="bottom" secondItem="7uW-Uy-g3w" secondAttribute="bottom" constant="8" id="ohI-bg-WKF"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="c5U-Tz-Eua"/>
+                        </mask>
+                    </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -28,7 +68,12 @@
                 <constraint firstItem="j05-Xd-e0f" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4vC-dN-DXA"/>
                 <constraint firstItem="j05-Xd-e0f" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6Lg-JE-PJS"/>
                 <constraint firstAttribute="trailing" secondItem="j05-Xd-e0f" secondAttribute="trailing" id="Gu9-kb-HRT"/>
+                <constraint firstItem="2fk-rn-yui" firstAttribute="top" secondItem="j05-Xd-e0f" secondAttribute="bottom" id="NxF-wN-dDz"/>
+                <constraint firstItem="2fk-rn-yui" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QGV-c4-cfQ"/>
+                <constraint firstAttribute="trailing" secondItem="2fk-rn-yui" secondAttribute="trailing" id="Xn5-aF-Jec"/>
+                <constraint firstAttribute="bottom" secondItem="2fk-rn-yui" secondAttribute="bottom" id="oF3-bZ-rHZ"/>
             </constraints>
+            <point key="canvasLocation" x="311" y="330"/>
         </view>
     </objects>
 </document>
