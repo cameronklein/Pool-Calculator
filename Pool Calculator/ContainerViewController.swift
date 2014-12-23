@@ -21,6 +21,7 @@ class ContainerViewController: UIViewController {
   var newReadingVC : NewReadingViewController!
   var historyVC : HistoryViewController!
   var calculatorVC : CalculatorViewController!
+  var settingsVC : SettingsViewController!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,6 +48,8 @@ class ContainerViewController: UIViewController {
     historyVC.view.frame = vcFrame
     calculatorVC = CalculatorViewController(nibName: "CalculatorViewController", bundle: NSBundle.mainBundle())
     calculatorVC.view.frame = vcFrame
+    settingsVC = SettingsViewController(nibName: "SettingsViewController", bundle: NSBundle.mainBundle())
+    settingsVC.view.frame = vcFrame
   }
   
   func setupButtons() {
@@ -72,18 +75,10 @@ class ContainerViewController: UIViewController {
     case buttonThree:
       switchViewControllerTo(calculatorVC)
     case buttonFour:
-      switchToSettingsView()
+      switchViewControllerTo(settingsVC)
     default:
     println("This should not happen.")
     }
-  }
-  
-  func switchToCalculatorView() {
-    
-  }
-  
-  func switchToSettingsView() {
-    
   }
   
   func switchViewControllerTo(destination: UIViewController) {

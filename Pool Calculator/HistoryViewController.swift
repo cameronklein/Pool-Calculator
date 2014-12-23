@@ -29,8 +29,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
     timeFormatter.dateStyle = NSDateFormatterStyle.NoStyle
     timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-    tableView.rowHeight = UITableViewAutomaticDimension
-    tableView.estimatedRowHeight = 30.0
+    //tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.rowHeight = 40.0
     
     setupFetchController()
 
@@ -111,7 +111,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     let cell = tableView.dequeueReusableCellWithIdentifier("CELL") as HistoryCell
     let reading = self.fetchController.objectAtIndexPath(indexPath) as Reading
-    println(reading.timestamp)
+    
+    cell.timeLabel.center = CGPoint(x: 20, y: 20)
     
     if reading.freeChlorine.doubleValue >= 0 {
       cell.freeChlorineLabel.text = String(format: "%.1f", reading.freeChlorine.doubleValue)
