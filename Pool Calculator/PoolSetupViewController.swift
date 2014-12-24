@@ -65,6 +65,7 @@ class PoolSetupViewController: UIViewController {
 
       case .Ended:
         NSUserDefaults.standardUserDefaults().setDouble(currentValue, forKey: kUserSettingsPoolVolumeInGallons)
+        NSUserDefaults.standardUserDefaults().synchronize()
         default:
           return ()
       }

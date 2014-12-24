@@ -10,7 +10,9 @@ import Foundation
 
 class ChemicalCalculator {
   
-  var poolGallons : Double
+  var poolGallons : Double {
+    return NSUserDefaults.standardUserDefaults().doubleForKey(kUserSettingsPoolVolumeInGallons)
+  }
   //Constants are amount in oz required to treat 10,000 gallons and raise by 1ppm
   
   //Raise chlorine
@@ -43,10 +45,6 @@ class ChemicalCalculator {
   
   // Lower chlorine
   let sodiumThio = 2.6
-  
-  init(gallons:Int) {
-    self.poolGallons = Double(gallons)
-  }
   
   func changeChlorineBy(amount: Double) -> String {
     if amount > 0 {

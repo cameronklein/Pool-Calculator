@@ -26,14 +26,15 @@ class CalculatorViewController: UIViewController {
   @IBOutlet weak var otherButton: UIButton!
   @IBOutlet weak var topScrollView: UIScrollView!
   
+  var calculator = ChemicalCalculator()
   var type : ReadingType = ReadingType.getType(.FreeChlorine)
+  var lastReading: Reading?
+  
   var currentValue: Double = 2.5
   var desiredValue : Double = 2.5
   var oldValue: Double!
   var newValue: Double!
-  var calculator = ChemicalCalculator(gallons: 10000)
   var selectionBar : UIView?
-  var lastReading: Reading?
   
   var context : NSManagedObjectContext!
   
@@ -67,16 +68,13 @@ class CalculatorViewController: UIViewController {
       settingsButton.alpha = 0
     }
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-  }
   
   func didPanNumber(sender: UIPanGestureRecognizer) {
     if let view = sender.view? {
       if let numberLabel = view.subviews.first as? UILabel {
 
         switch sender.state {
+          
         case .Began:
           if sender.view == currentView {
             oldValue = currentValue
@@ -113,28 +111,62 @@ class CalculatorViewController: UIViewController {
           return ()
         }
       }
-
     }
   }
   
   func updateCurrentReading() {
-    var value : Double?
+    var value : Double
     switch type.name {
     case "Free Chlorine":
-      value = lastReading!.freeChlorine?.doubleValue
+      if let myValue = lastReading?.freeChlorine?.doubleValue {
+        value = myValue
+      } else {
+        value = NSUserDefaults.standardUserDefaults().doubleForKey(kFreeChlorineDesiredValue)
+      }
     case "pH":
-      value = lastReading!.pH?.doubleValue
+      if let myValue = lastReading?.pH?.doubleValue {
+        value = myValue
+      } else {
+        value = NSUserDefaults.standardUserDefaults().doubleForKey(kPHDesiredValue)
+      }
     case "Total Alkalinity":
-      value = lastReading!.totalAlkalinity?.doubleValue
+      if let myValue = lastReading?.totalAlkalinity?.doubleValue {
+        value = myValue
+      } else {
+        value = NSUserDefaults.standardUserDefaults().doubleForKey(kTotalAlkalinityDesiredValue)
+      }
     case "Calcium Hardness":
-      value = lastReading!.calciumHardness?.doubleValue
+      if let myValue = lastReading?.calciumHardness?.doubleValue {
+        value = myValue
+      } else {
+        value = NSUserDefaults.standardUserDefaults().doubleForKey(kCalciumHardnessDesiredValue)
+      }
+    default:
+      return ()
+    }
+    currentValue = value
+    currentLabel.text = String(format: type.stringFormat, value)
+  }
+  
+  func updateDesiredReading() {
+    var value : Double!
+    switch type.name {
+    case "Free Chlorine":
+      value = NSUserDefaults.standardUserDefaults().doubleForKey(kFreeChlorineDesiredValue)
+    case "pH":
+      value = NSUserDefaults.standardUserDefaults().doubleForKey(kPHDesiredValue)
+    case "Total Alkalinity":
+      value = NSUserDefaults.standardUserDefaults().doubleForKey(kTotalAlkalinityDesiredValue)
+    case "Calcium Hardness":
+      value = NSUserDefaults.standardUserDefaults().doubleForKey(kCalciumHardnessDesiredValue)
     default:
       return ()
     }
     if value == nil {
       value = 0.0
     }
-    currentLabel.text = String(format: type.stringFormat, value!)
+    desiredValue = value
+    desiredLabel.text = String(format: type.stringFormat, value)
   }
   
   func getLastReading() -> Bool{
@@ -166,7 +198,6 @@ class CalculatorViewController: UIViewController {
     default:
       return "Oops"
     }
-
   }
   
   @IBAction func didPressChemicalButton(sender: UIButton) {
@@ -184,6 +215,7 @@ class CalculatorViewController: UIViewController {
       return ()
     }
     updateCurrentReading()
+    updateDesiredReading()
     resultLabel.text = calculateResult()
   }
   
