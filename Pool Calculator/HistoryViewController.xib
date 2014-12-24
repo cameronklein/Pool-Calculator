@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryViewController" customModule="Pool_Calculator" customModuleProvider="target">
             <connections>
                 <outlet property="graphHeight" destination="VpX-mJ-8lQ" id="DsF-S6-uQV"/>
+                <outlet property="tableHeaderHeight" destination="fuf-6W-H21" id="Z8Y-Up-9Y1"/>
                 <outlet property="tableView" destination="dbc-GQ-lH5" id="lJz-iZ-epQ"/>
                 <outlet property="topBar" destination="7ym-yX-btC" id="vr5-Nk-Zhx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

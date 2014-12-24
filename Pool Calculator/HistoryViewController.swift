@@ -16,6 +16,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   @IBOutlet weak var topBar: UIView!
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var graphHeight: NSLayoutConstraint!
+  @IBOutlet weak var tableHeaderHeight: NSLayoutConstraint!
   
   var context : NSManagedObjectContext!
   var fetchController : NSFetchedResultsController!
@@ -42,6 +43,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     topBar.layer.shadowOpacity = 0.5
     topBar.layer.shadowRadius = 3
     graphHeight.constant = 0
+    tableHeaderHeight.constant = 0
     var dummyView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 40.0))
     self.tableView.tableHeaderView = dummyView;
     self.tableView.contentInset = UIEdgeInsetsMake(-40.0, 0, 0, 0);

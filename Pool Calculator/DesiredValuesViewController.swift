@@ -12,38 +12,49 @@ class DesiredValuesViewController: UIViewController, UITableViewDataSource, UITa
   
   @IBOutlet weak var tableView: UITableView!
   
-  var readings = [Double?]()
+  var readings = [Double]()
   var oldValue : Double!
   var newValue : Double!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.registerNib(UINib(nibName: "ReadingCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "CELL");
-    readings = [nil, nil, nil, nil, nil, nil]
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    readings.append(userDefaults.doubleForKey(kFreeChlorineDesiredValue))
+    readings.append(userDefaults.doubleForKey(kPHDesiredValue))
+    readings.append(userDefaults.doubleForKey(kTotalAlkalinityDesiredValue))
+    readings.append(userDefaults.doubleForKey(kCalciumHardnessDesiredValue))
+    
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 60.0
     self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 80.0))
   }
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 6
+    return 4
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("CELL") as ReadingCell
-    
-    cell.readingType = ReadingType.getType(Chemical(rawValue: indexPath.row)!)
-    cell.title.text = cell.readingType?.name
-    if let readingValue = readings[indexPath.row] {
-      cell.readingValue.text = String(format: cell.readingType!.stringFormat, readingValue)
-      cell.cancelLabel.alpha = 1
-      cell.cancelLabel.transform = CGAffineTransformMakeScale(1.4, 1)
-    } else {
-      cell.readingValue.text = "--"
-      cell.cancelLabel.alpha = 0
-      cell.cancelLabel.transform = CGAffineTransformMakeScale(0.01, 1)
+    var rawValue = 0
+    switch indexPath.row{
+    case 0:
+      rawValue = 0
+    case 1:
+      rawValue = 3
+    case 2:
+      rawValue = 4
+    case 3:
+      rawValue = 5
+    default:
+      rawValue = 0
     }
-    
+    cell.readingType = ReadingType.getType(Chemical(rawValue: rawValue)!)
+    cell.title.text = cell.readingType?.name
+    cell.readingValue.text = String(format: cell.readingType!.stringFormat, readings[indexPath.row] )
+    cell.backgroundColor = UIColor.clearColor()
+    cell.contentView.backgroundColor = UIColor.clearColor()
+    cell.cancelLabel.alpha = 0
     cell.selectionStyle = .None
     
     let panner = UIPanGestureRecognizer()
@@ -58,15 +69,11 @@ class DesiredValuesViewController: UIViewController, UITableViewDataSource, UITa
   func didPanCell(sender: UIPanGestureRecognizer) {
     
     if let cell = sender.view as? ReadingCell {
-      
+      let row : Int = tableView.indexPathForCell(cell)!.row
       switch sender.state {
         
       case .Began:
-        if let value = readings[tableView.indexPathForCell(cell)!.row] {
-          oldValue = value
-        } else {
-          oldValue = 0.0
-        }
+        oldValue = readings[row]
         
       case .Changed:
         let type = cell.readingType!
@@ -89,20 +96,24 @@ class DesiredValuesViewController: UIViewController, UITableViewDataSource, UITa
         }
         
         cell.readingValue.text = String(format: type.stringFormat, Double(newValue))
-        
-        if isTooHigh {
-          cell.readingValue.text! = cell.readingValue.text! + "+"
-        }
-        
-        UIView.animateWithDuration(0.4, delay: 0.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
-          cell.cancelLabel.alpha = 1
-          cell.cancelLabel.transform = CGAffineTransformMakeScale(1.4, 1)
-          }, completion: { (success) -> Void in
-            return ()
-        })
-        
+
       case .Ended:
+        var key : String
+        switch row {
+        case 0:
+          key = kFreeChlorineDesiredValue
+        case 1:
+          key = kPHDesiredValue
+        case 2:
+          key = kTotalAlkalinityDesiredValue
+        case 3:
+          key = kCalciumHardnessDesiredValue
+        default:
+          return ()
+        }
         readings[tableView.indexPathForCell(cell)!.row] = newValue
+        NSUserDefaults.standardUserDefaults().setDouble(newValue, forKey: key)
+        NSUserDefaults.standardUserDefaults().synchronize()
         
       default:
         return ()

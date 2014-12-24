@@ -9,6 +9,11 @@
 import UIKit
 import CoreData
 
+let kFreeChlorineDesiredValue = "Free Chlorine Desired Value"
+let kPHDesiredValue = "pH Desired Value"
+let kTotalAlkalinityDesiredValue = "Total Alkalinity Desired Value"
+let kCalciumHardnessDesiredValue = "Calcium Hardness Desired Value"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -20,8 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let userDefaults = NSUserDefaults.standardUserDefaults()
     if userDefaults.valueForKey("First Launch") == nil {
       println("First Launch!")
-      userDefaults.setBool(false, forKey: kUserSettingsCalculatorMode)
       userDefaults.setBool(true, forKey: "First Launch")
+      userDefaults.setBool(false, forKey: kUserSettingsCalculatorMode)
+      userDefaults.setDouble(2.0, forKey: kFreeChlorineDesiredValue)
+      userDefaults.setDouble(7.4, forKey: kPHDesiredValue)
+      userDefaults.setDouble(100, forKey: kTotalAlkalinityDesiredValue)
+      userDefaults.setDouble(200, forKey: kCalciumHardnessDesiredValue)
     }
     
     

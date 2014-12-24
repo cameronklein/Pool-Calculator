@@ -78,7 +78,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     switch indexPath {
     case NSIndexPath(forRow: 1, inSection: 1):
       cell.accessoryView = calculatorModeSwitch
-      calculatorModeSwitch.onTintColor = topBar.backgroundColor
+      calculatorModeSwitch.onTintColor = UIColor(red: 0/256, green: 150/256, blue: 136/256, alpha: 1)
       calculatorModeSwitch.tintColor = topBar.backgroundColor
     case NSIndexPath(forRow: 2, inSection: 1):
       cell.accessoryView = unitsSwitcher
@@ -94,8 +94,13 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     switch indexPath {
     case NSIndexPath(forRow: 1, inSection: 0):
       destination = ChemicalsUsedViewController(nibName: "ChemicalsUsedViewController", bundle: NSBundle.mainBundle())
+      changeHeaderLabelTo("Chemicals in Use")
+    case NSIndexPath(forRow: 2, inSection: 0):
+      destination = DesiredValuesViewController(nibName: "DesiredValuesViewController", bundle: NSBundle.mainBundle())
+      changeHeaderLabelTo("Target Values")
     case NSIndexPath(forRow: 0, inSection: 1):
       destination = DisplayOptionsViewController(nibName: "DisplayOptionsViewController", bundle: NSBundle.mainBundle())
+      changeHeaderLabelTo("Display Options")
     default:
       return ()
     }
@@ -139,6 +144,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
       } else{
         navigationStack.removeLast()
+        changeHeaderLabelTo("Settings")
         UIView.animateWithDuration(0.4,
           delay: 0.0,
           usingSpringWithDamping: 0.7,
@@ -175,6 +181,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         return ()
     }
 
+  }
+  
+  func changeHeaderLabelTo(newString: String) {
+    UIView.transitionWithView(headeLabel, duration: 0.4, options: UIViewAnimationOptions.TransitionFlipFromTop, animations: { () -> Void in
+      self.headeLabel.text = newString
+    }) { (success) -> Void in
+      return ()
+    }
   }
   
 }
