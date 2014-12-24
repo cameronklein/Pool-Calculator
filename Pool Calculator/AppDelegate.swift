@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       userDefaults.setDouble(7.4, forKey: kPHDesiredValue)
       userDefaults.setDouble(100, forKey: kTotalAlkalinityDesiredValue)
       userDefaults.setDouble(200, forKey: kCalciumHardnessDesiredValue)
+      userDefaults.setDouble(50000, forKey: kUserSettingsPoolVolumeInGallons)
     }
     
     

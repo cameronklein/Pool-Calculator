@@ -92,6 +92,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     var destination : UIViewController
     switch indexPath {
+    case NSIndexPath(forRow: 0, inSection: 0):
+      destination = PoolSetupViewController(nibName: "PoolSetupViewController", bundle: NSBundle.mainBundle())
     case NSIndexPath(forRow: 1, inSection: 0):
       destination = ChemicalsUsedViewController(nibName: "ChemicalsUsedViewController", bundle: NSBundle.mainBundle())
       changeHeaderLabelTo("Chemicals in Use")

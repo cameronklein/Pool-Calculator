@@ -103,7 +103,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     headerView.backgroundColor = UIColor.clearColor()
     label.textColor = UIColor.whiteColor()
-    label.font = UIFont(name: "AvenirNext-DemiBold", size: 14.0)
+    label.font = UIFont(name: "AvenirNext-DemiBold", size: 18.0)
     
     return headerView
   }
@@ -172,7 +172,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                 println("Found new index path: \(thisOtherPath.section),\(thisOtherPath.row)")
                 tableView.insertRowsAtIndexPaths([thisOtherPath], withRowAnimation: .Automatic)
               } else {
-                println("Neat!")
+                tableView.reloadData()
               }
             }
           }

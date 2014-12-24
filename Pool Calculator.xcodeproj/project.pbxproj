@@ -27,6 +27,9 @@
 		7E9F8A7B1A4A34D5005092B1 /* DisplayOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F8A791A4A34D5005092B1 /* DisplayOptionsViewController.xib */; };
 		7E9F8A7E1A4A6018005092B1 /* DesiredValuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F8A7C1A4A6018005092B1 /* DesiredValuesViewController.swift */; };
 		7E9F8A7F1A4A6018005092B1 /* DesiredValuesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F8A7D1A4A6018005092B1 /* DesiredValuesViewController.xib */; };
+		7E9F8A811A4A7DBA005092B1 /* Pool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F8A801A4A7DBA005092B1 /* Pool.swift */; };
+		7E9F8A841A4A7E15005092B1 /* PoolSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F8A821A4A7E15005092B1 /* PoolSetupViewController.swift */; };
+		7E9F8A851A4A7E15005092B1 /* PoolSetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F8A831A4A7E15005092B1 /* PoolSetupViewController.xib */; };
 		7EC7975E1A44110700BFCAAD /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC7975C1A44110700BFCAAD /* HistoryViewController.swift */; };
 		7EC7975F1A44110700BFCAAD /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */; };
 		7EC797621A441C7600BFCAAD /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC797601A441C7600BFCAAD /* HistoryCell.swift */; };
@@ -72,6 +75,9 @@
 		7E9F8A791A4A34D5005092B1 /* DisplayOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DisplayOptionsViewController.xib; path = ../DisplayOptionsViewController.xib; sourceTree = "<group>"; };
 		7E9F8A7C1A4A6018005092B1 /* DesiredValuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesiredValuesViewController.swift; sourceTree = "<group>"; };
 		7E9F8A7D1A4A6018005092B1 /* DesiredValuesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesiredValuesViewController.xib; sourceTree = "<group>"; };
+		7E9F8A801A4A7DBA005092B1 /* Pool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pool.swift; sourceTree = "<group>"; };
+		7E9F8A821A4A7E15005092B1 /* PoolSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoolSetupViewController.swift; sourceTree = "<group>"; };
+		7E9F8A831A4A7E15005092B1 /* PoolSetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PoolSetupViewController.xib; sourceTree = "<group>"; };
 		7EC7975C1A44110700BFCAAD /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
 		7EC797601A441C7600BFCAAD /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				7EC797681A4421D200BFCAAD /* Reading.swift */,
+				7E9F8A801A4A7DBA005092B1 /* Pool.swift */,
 				7E5B2AAF1A43BDCC00B39BDE /* ReadingType.swift */,
 			);
 			name = MODEL;
@@ -202,6 +209,8 @@
 				7E9F8A791A4A34D5005092B1 /* DisplayOptionsViewController.xib */,
 				7E9F8A7C1A4A6018005092B1 /* DesiredValuesViewController.swift */,
 				7E9F8A7D1A4A6018005092B1 /* DesiredValuesViewController.xib */,
+				7E9F8A821A4A7E15005092B1 /* PoolSetupViewController.swift */,
+				7E9F8A831A4A7E15005092B1 /* PoolSetupViewController.xib */,
 			);
 			name = "-- Settings --";
 			sourceTree = "<group>";
@@ -319,6 +328,7 @@
 				7E9F8A6C1A492576005092B1 /* SettingsViewController.xib in Resources */,
 				7EC797631A441C7600BFCAAD /* HistoryCell.xib in Resources */,
 				7E9F8A751A4A26AF005092B1 /* ChemicalsUsedViewController.xib in Resources */,
+				7E9F8A851A4A7E15005092B1 /* PoolSetupViewController.xib in Resources */,
 				7E37C2E51A43AA7100432E34 /* Main.storyboard in Resources */,
 				7E37C2EA1A43AA7100432E34 /* LaunchScreen.xib in Resources */,
 				7E37C2E71A43AA7100432E34 /* Images.xcassets in Resources */,
@@ -351,6 +361,7 @@
 				7EC797691A4421D200BFCAAD /* Reading.swift in Sources */,
 				7E37C2E21A43AA7100432E34 /* ContainerViewController.swift in Sources */,
 				7E37C2DD1A43AA7100432E34 /* AppDelegate.swift in Sources */,
+				7E9F8A841A4A7E15005092B1 /* PoolSetupViewController.swift in Sources */,
 				7EEB64471A47DFF00063EF4F /* ChemicalCalculator.swift in Sources */,
 				7E5B2AB01A43BDCC00B39BDE /* ReadingType.swift in Sources */,
 				7EC7975E1A44110700BFCAAD /* HistoryViewController.swift in Sources */,
@@ -359,6 +370,7 @@
 				7E37C2E01A43AA7100432E34 /* Pool_Calculator.xcdatamodeld in Sources */,
 				7E9F8A7A1A4A34D5005092B1 /* DisplayOptionsViewController.swift in Sources */,
 				7E9F8A6B1A492576005092B1 /* SettingsViewController.swift in Sources */,
+				7E9F8A811A4A7DBA005092B1 /* Pool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
