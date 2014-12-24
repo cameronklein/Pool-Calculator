@@ -47,6 +47,7 @@ class DisplayOptionsViewController: UIViewController {
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("CELL", forIndexPath: indexPath) as UITableViewCell
     let title = settings[indexPath.section].1[indexPath.row]
+    cell.tag = indexPath.section
     cell.textLabel?.text = title
     cell.textLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 18.0)
     cell.textLabel?.textColor = UIColor.whiteColor()
@@ -71,6 +72,12 @@ class DisplayOptionsViewController: UIViewController {
     if let cell = sender.superview as? UITableViewCell {
       if let label = cell.textLabel {
         if let chemicalName = label.text {
+          var key : String
+          if cell.tag == 0 {
+            key = "\(chemicalName) Available"
+          } else if cell.tag == 1 {
+            key = "\(chemicalName) Display"
+          }
           NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: chemicalName)
           NSUserDefaults.standardUserDefaults().synchronize()
         }

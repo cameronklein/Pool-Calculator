@@ -31,14 +31,12 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     timeFormatter.dateStyle = NSDateFormatterStyle.NoStyle
     timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
     tableView.rowHeight = 40.0
-    
-    
+
     self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 80.0))
 
   }
   
   override func viewWillAppear(animated: Bool) {
-    //tableView.reloadData()
     topBar.layer.shadowColor = UIColor.blackColor().CGColor
     topBar.layer.shadowOffset = CGSize(width: 0, height: 3)
     topBar.layer.shadowOpacity = 0.5
@@ -113,37 +111,23 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     let cell = tableView.dequeueReusableCellWithIdentifier("CELL") as HistoryCell
     let reading = self.fetchController.objectAtIndexPath(indexPath) as Reading
     
-    cell.timeLabel.center = CGPoint(x: 20, y: 20)
-    
-    if reading.freeChlorine.doubleValue >= 0 {
-      cell.freeChlorineLabel.text = String(format: "%.1f", reading.freeChlorine.doubleValue)
-    } else {
-      cell.freeChlorineLabel.text = "--"
+    if let number = reading.freeChlorine? {
+      cell.freeChlorineLabel.text = String(format: "%.1f", number.doubleValue)
     }
-    if reading.combinedChlorine.doubleValue >= 0 {
-      cell.combinedChlorineLabel.text = String(format: "%.1f", reading.combinedChlorine.doubleValue)
-    } else {
-      cell.combinedChlorineLabel.text = "--"
+    if let number = reading.combinedChlorine? {
+      cell.combinedChlorineLabel.text = String(format: "%.1f", number.doubleValue)
     }
-    if reading.totalChlorine.doubleValue >= 0 {
-      cell.totalChlorineLabel.text = String(format: "%.1f", reading.totalChlorine.doubleValue)
-    } else {
-      cell.totalChlorineLabel.text = "--"
+    if let number = reading.totalChlorine? {
+      cell.totalChlorineLabel.text = String(format: "%.1f", number.doubleValue)
     }
-    if reading.pH.doubleValue >= 0 {
-      cell.pHLabel.text = String(format: "%.1f", reading.pH.doubleValue)
-    } else {
-      cell.pHLabel.text = "--"
+    if let number = reading.pH? {
+      cell.pHLabel.text = String(format: "%.1f", number.doubleValue)
     }
-    if reading.totalAlkalinity.doubleValue >= 0 {
-      cell.totalAlkalinityLabel.text = String(reading.totalAlkalinity.integerValue)
-    } else {
-      cell.totalAlkalinityLabel.text = "--"
+    if let number = reading.totalAlkalinity? {
+      cell.totalAlkalinityLabel.text = String(number.integerValue)
     }
-    if reading.calciumHardness.doubleValue >= 0 {
-      cell.calciumHardnessLabel.text = String(reading.calciumHardness.integerValue)
-    } else {
-      cell.calciumHardnessLabel.text = "--"
+    if let number = reading.calciumHardness? {
+      cell.calciumHardnessLabel.text = String(number.integerValue)
     }
     
     cell.timeLabel.text = timeFormatter.stringFromDate(reading.timestamp)
@@ -171,18 +155,26 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   }
   
   func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-    
+    println("Did Change Object Called")
     switch type {
     case .Delete:
       tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
     case .Insert:
-      if let thisPath = indexPath {
-        println("Found index path")
-        tableView.insertRowsAtIndexPaths([thisPath], withRowAnimation: .Automatic)
-      } else if let thisPath = newIndexPath {
-        println("Found new index path")
-        tableView.insertRowsAtIndexPaths([thisPath], withRowAnimation: .Automatic)
-      }
+        if let thisPath = indexPath {
+          println("Found index path")
+          tableView.insertRowsAtIndexPaths([thisPath], withRowAnimation: .Automatic)
+        } else if let thisOtherPath = newIndexPath {
+          if let oldReading = fetchController.objectAtIndexPath(thisOtherPath) as? Reading {
+            if let newReading = anObject as? Reading {
+              if newReading.timestamp != oldReading.timestamp {
+                println("Found new index path: \(thisOtherPath.section),\(thisOtherPath.row)")
+                tableView.insertRowsAtIndexPaths([thisOtherPath], withRowAnimation: .Automatic)
+              } else {
+                println("Neat!")
+              }
+            }
+          }
+        }
     default:
       return ()
     }
@@ -193,7 +185,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     case .Delete:
       tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
     case .Insert:
-      println("Did Change Section Called")
       tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
     default:
       println("Doing nothing!")

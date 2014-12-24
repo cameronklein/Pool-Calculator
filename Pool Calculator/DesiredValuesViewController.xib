@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6246"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DesiredValuesViewController" customModule="Pool_Calculator" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="lY5-zG-Mf0" id="H9u-ZE-eRq"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="lY5-zG-Mf0">
+                    <rect key="frame" x="0.0" y="60" width="600" height="540"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="GXw-Wr-o5c"/>
+                        <outlet property="delegate" destination="-1" id="egw-3R-ZrG"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="lY5-zG-Mf0" secondAttribute="trailing" id="ME2-Cu-fhy"/>
+                <constraint firstItem="lY5-zG-Mf0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Plh-7T-vI8"/>
+                <constraint firstAttribute="bottom" secondItem="lY5-zG-Mf0" secondAttribute="bottom" id="b7H-7V-OyH"/>
+                <constraint firstItem="lY5-zG-Mf0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="gXp-Bq-cMb"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

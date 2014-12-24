@@ -118,21 +118,23 @@ class CalculatorViewController: UIViewController {
   }
   
   func updateCurrentReading() {
-    var value : Double
+    var value : Double?
     switch type.name {
     case "Free Chlorine":
-      value = lastReading!.freeChlorine.doubleValue
+      value = lastReading!.freeChlorine?.doubleValue
     case "pH":
-      value = lastReading!.pH.doubleValue
+      value = lastReading!.pH?.doubleValue
     case "Total Alkalinity":
-      value = lastReading!.totalAlkalinity.doubleValue
+      value = lastReading!.totalAlkalinity?.doubleValue
     case "Calcium Hardness":
-      value = lastReading!.combinedChlorine.doubleValue
+      value = lastReading!.calciumHardness?.doubleValue
     default:
       return ()
     }
-    value = max(value, 0.0)
-    currentLabel.text = String(format: type.stringFormat, value)
+    if value == nil {
+      value = 0.0
+    }
+    currentLabel.text = String(format: type.stringFormat, value!)
   }
   
   func getLastReading() -> Bool{
