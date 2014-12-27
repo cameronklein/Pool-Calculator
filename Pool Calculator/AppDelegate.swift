@@ -34,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       userDefaults.setDouble(50000, forKey: kUserSettingsPoolVolumeInGallons)
     }
     
+    self.window?.rootViewController = OnboardViewController(nibName: "OnboardViewController", bundle: NSBundle.mainBundle())
+    
     
     return true
   }
