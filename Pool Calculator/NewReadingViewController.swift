@@ -104,9 +104,9 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
         
         var isTooHigh = false
         
-        if newValue < type.minValue {
-          newValue = type.minValue
-        } else if Double(newValue) > type.maxValue {
+        newValue = max(newValue!, type.minValue)
+        
+        if Double(newValue) > type.maxValue {
           newValue = type.maxValue + 0.0001
           isTooHigh = true
         }
@@ -117,9 +117,13 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
           cell.readingValue.text! = cell.readingValue.text! + "+"
         }
         
-        UIView.animateWithDuration(0.4, delay: 0.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: { () -> Void in
+        UIView.animateWithDuration(0.4,
+          delay: 0.0,
+          options: UIViewAnimationOptions.AllowUserInteraction,
+          animations: { () -> Void in
           cell.cancelLabel.alpha = 1
           cell.cancelLabel.transform = CGAffineTransformMakeScale(1.4, 1)
+          cell.unitsLabel.alpha = 1
         }, completion: { (success) -> Void in
           return ()
         })
@@ -136,14 +140,12 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
   func didTapCancel(sender: UITapGestureRecognizer) {
     if let cell = sender.view?.superview?.superview as? ReadingCell {
       readings[tableView.indexPathForCell(cell)!.row] = nil
+      cell.unitsLabel.alpha = 0
+      cell.readingValue.text = "--"
       UIView.animateWithDuration(0.4, delay: 0.0, options: .AllowUserInteraction, animations: { () -> Void in
         sender.view?.alpha = 0
         sender.view?.transform = CGAffineTransformMakeScale(0.01, 1)
-      }, completion: { (success) -> Void in
-        return ()
-      })
-      UIView.transitionWithView(cell.readingValue, duration: 0.3, options: .TransitionCrossDissolve | .AllowUserInteraction, animations: { () -> Void in
-        cell.readingValue.text = "--"
+        
       }, completion: { (success) -> Void in
         return ()
       })

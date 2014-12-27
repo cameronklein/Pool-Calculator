@@ -6,13 +6,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnboardViewController" customModule="Pool_Calculator" customModuleProvider="target">
             <connections>
+                <outlet property="confirmButton" destination="KAO-fs-llO" id="DHf-ag-AHL"/>
+                <outlet property="doneButton" destination="q5h-AP-SB9" id="Fuo-19-UTI"/>
                 <outlet property="gallonsLabel" destination="5l4-nX-9vb" id="DIt-NV-jmp"/>
+                <outlet property="helpButton" destination="Ahu-95-CBC" id="dkf-5K-sms"/>
                 <outlet property="litersLabel" destination="5iQ-Fu-VlJ" id="yft-Ib-O8B"/>
                 <outlet property="paragraph1" destination="gTS-qq-2nF" id="ol7-rL-Soc"/>
                 <outlet property="paragraph2" destination="IEC-GJ-z0U" id="0qc-s8-EhF"/>
                 <outlet property="paragraph4" destination="QMx-3T-qSf" id="it4-vu-iJG"/>
                 <outlet property="paragraph5" destination="GpN-VX-LKQ" id="kAk-ZX-CMX"/>
                 <outlet property="paragraph6" destination="UhE-kh-4ot" id="y7M-QR-tJC"/>
+                <outlet property="swipeViewConstrainst" destination="DDS-qy-Nfs" id="rDe-Ts-kDz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="volumeLabel" destination="3Ls-SN-YyS" id="d2H-FX-pJp"/>
                 <outlet property="volumeWrapper" destination="gO2-e7-053" id="JWG-wL-jCP"/>
@@ -23,22 +27,22 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to Pool Operator!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTS-qq-2nF">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" misplaced="YES" text="Welcome to Pool Operator!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTS-qq-2nF">
                     <rect key="frame" x="190" y="48" width="222" height="24"/>
                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                    <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Let's set up your pool." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEC-GJ-z0U">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" misplaced="YES" text="Let's set up your pool." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEC-GJ-z0U">
                     <rect key="frame" x="214" y="88" width="173" height="24"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                    <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try swiping left and right to adjust the volume of your pool:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMx-3T-qSf">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Try swiping left and right to adjust the volume of your pool:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMx-3T-qSf">
                     <rect key="frame" x="32" y="144" width="536" height="24"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                    <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gO2-e7-053">
@@ -93,31 +97,68 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpN-VX-LKQ">
                     <rect key="frame" x="32" y="329" width="536" height="24"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                    <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All values in the app can be changed in the same way." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhE-kh-4ot">
                     <rect key="frame" x="32" y="369" width="536" height="24"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                    <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAO-fs-llO">
+                    <rect key="frame" x="368" y="425" width="64" height="36"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                    <state key="normal" title="Confirm">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="didPressConfirm:" destination="-1" eventType="touchUpInside" id="AVy-3e-8Qi"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahu-95-CBC">
+                    <rect key="frame" x="149" y="425" width="103" height="36"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                    <state key="normal" title="I don't know!">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="didPressHelp:" destination="-1" eventType="touchUpInside" id="TfX-TS-EnX"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5h-AP-SB9">
+                    <rect key="frame" x="174" y="552" width="253" height="36"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                    <state key="normal" title="Done! Take me to the calculator!">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="didPressDone:" destination="-1" eventType="touchUpInside" id="f0m-fw-xTK"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.27058823529411763" green="0.35294117647058826" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="IEC-GJ-z0U" secondAttribute="centerX" id="0I0-60-GcK"/>
                 <constraint firstItem="gTS-qq-2nF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="48" id="7OV-TE-z2L"/>
-                <constraint firstItem="gO2-e7-053" firstAttribute="top" secondItem="QMx-3T-qSf" secondAttribute="bottom" id="DDS-qy-Nfs"/>
+                <constraint firstItem="gO2-e7-053" firstAttribute="top" secondItem="QMx-3T-qSf" secondAttribute="bottom" priority="999" id="DDS-qy-Nfs"/>
                 <constraint firstAttribute="trailing" secondItem="UhE-kh-4ot" secondAttribute="trailing" constant="32" id="Fvl-Cw-Ff5"/>
                 <constraint firstAttribute="centerX" secondItem="gTS-qq-2nF" secondAttribute="centerX" id="JDe-Hm-Hnn"/>
                 <constraint firstItem="gO2-e7-053" firstAttribute="leading" secondItem="QMx-3T-qSf" secondAttribute="trailing" constant="-560" id="Jf3-9i-vcD"/>
                 <constraint firstItem="QMx-3T-qSf" firstAttribute="top" secondItem="IEC-GJ-z0U" secondAttribute="bottom" constant="32" id="KuK-Y4-U5K"/>
+                <constraint firstAttribute="centerX" secondItem="Ahu-95-CBC" secondAttribute="centerX" constant="100" id="OHE-Of-akN"/>
+                <constraint firstAttribute="centerX" secondItem="KAO-fs-llO" secondAttribute="centerX" constant="-100" id="Qfy-al-Jdz"/>
                 <constraint firstItem="IEC-GJ-z0U" firstAttribute="top" secondItem="gTS-qq-2nF" secondAttribute="bottom" constant="16" id="RdD-xr-dc8"/>
+                <constraint firstItem="Ahu-95-CBC" firstAttribute="top" secondItem="UhE-kh-4ot" secondAttribute="bottom" constant="32" id="S1Y-Ld-Pve"/>
+                <constraint firstAttribute="bottom" secondItem="q5h-AP-SB9" secondAttribute="bottom" constant="12" id="Tzs-RX-4zf"/>
                 <constraint firstItem="QMx-3T-qSf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="UUD-tv-CRh"/>
                 <constraint firstItem="gO2-e7-053" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UWO-JH-uZi"/>
+                <constraint firstItem="gO2-e7-053" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" priority="750" constant="32" id="WYA-sp-Ucf"/>
                 <constraint firstItem="UhE-kh-4ot" firstAttribute="top" secondItem="GpN-VX-LKQ" secondAttribute="bottom" constant="16" id="ctf-Id-vyb"/>
                 <constraint firstAttribute="trailing" secondItem="GpN-VX-LKQ" secondAttribute="trailing" constant="32" id="f9i-kO-PKV"/>
+                <constraint firstAttribute="centerX" secondItem="q5h-AP-SB9" secondAttribute="centerX" id="g8F-cF-Ej7"/>
                 <constraint firstAttribute="trailing" secondItem="QMx-3T-qSf" secondAttribute="trailing" constant="32" id="gLi-ii-Udy"/>
+                <constraint firstItem="KAO-fs-llO" firstAttribute="top" secondItem="UhE-kh-4ot" secondAttribute="bottom" constant="32" id="krx-Mj-VK9"/>
                 <constraint firstItem="GpN-VX-LKQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="nJ0-WG-7oz"/>
                 <constraint firstAttribute="trailing" secondItem="gO2-e7-053" secondAttribute="trailing" id="q6r-dj-M8n"/>
                 <constraint firstItem="UhE-kh-4ot" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="tZ2-KL-x3V"/>

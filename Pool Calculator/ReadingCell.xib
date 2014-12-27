@@ -32,15 +32,26 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ppm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhd-e4-rrQ">
+                        <rect key="frame" x="275" y="83" width="65" height="41"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="30"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" red="0.0" green="0.58823529409999997" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstAttribute="centerY" secondItem="Lde-JO-8yh" secondAttribute="centerY" id="4qN-HT-J0p"/>
                     <constraint firstItem="BjP-mB-EbD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Hkk-cf-yjJ"/>
+                    <constraint firstItem="Hhd-e4-rrQ" firstAttribute="leading" secondItem="Lde-JO-8yh" secondAttribute="trailing" constant="8" id="Jd2-rF-w5h"/>
                     <constraint firstItem="Lde-JO-8yh" firstAttribute="top" secondItem="BjP-mB-EbD" secondAttribute="bottom" id="Lzq-3j-HBy"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Lde-JO-8yh" secondAttribute="bottom" constant="8" id="MeS-MQ-XMA"/>
+                    <constraint firstItem="Hhd-e4-rrQ" firstAttribute="centerY" secondItem="Lde-JO-8yh" secondAttribute="centerY" constant="12" id="Nq8-qV-nWf"/>
                     <constraint firstItem="ypi-8s-9DI" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="O56-9d-HMc"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Hhd-e4-rrQ" secondAttribute="bottom" constant="39" id="Qn4-wI-gH8"/>
+                    <constraint firstItem="Hhd-e4-rrQ" firstAttribute="centerY" secondItem="Lde-JO-8yh" secondAttribute="centerY" id="Y6u-mc-Pp3"/>
                     <constraint firstItem="Lde-JO-8yh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="24" id="Zh2-IY-Bkd"/>
+                    <constraint firstItem="Hhd-e4-rrQ" firstAttribute="baseline" secondItem="Lde-JO-8yh" secondAttribute="baseline" constant="-20" id="aBN-bO-viN"/>
                     <constraint firstAttribute="centerX" secondItem="Lde-JO-8yh" secondAttribute="centerX" id="bVD-de-08x"/>
                     <constraint firstItem="BjP-mB-EbD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="iRf-B8-sLN"/>
                     <constraint firstItem="ypi-8s-9DI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="lmo-Bb-hnj"/>
@@ -49,13 +60,17 @@
                     <mask key="constraints">
                         <exclude reference="4qN-HT-J0p"/>
                         <exclude reference="Lzq-3j-HBy"/>
+                        <exclude reference="Qn4-wI-gH8"/>
+                        <exclude reference="Y6u-mc-Pp3"/>
+                        <exclude reference="aBN-bO-viN"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="cancelLabel" destination="ypi-8s-9DI" id="U2C-Zd-Ur1"/>
+                <outlet property="cancelLabel" destination="ypi-8s-9DI" id="F7p-B7-NDD"/>
                 <outlet property="readingValue" destination="Lde-JO-8yh" id="eGl-cW-v2i"/>
                 <outlet property="title" destination="BjP-mB-EbD" id="fAD-yI-X71"/>
+                <outlet property="unitsLabel" destination="Hhd-e4-rrQ" id="BPR-BQ-KfO"/>
             </connections>
             <point key="canvasLocation" x="358" y="314"/>
         </tableViewCell>

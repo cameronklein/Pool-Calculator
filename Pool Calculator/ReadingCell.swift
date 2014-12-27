@@ -13,7 +13,7 @@ class ReadingCell: UITableViewCell {
   @IBOutlet weak var title: UILabel!
   @IBOutlet weak var readingValue: UILabel!
   @IBOutlet weak var cancelLabel: UILabel!
-
+  @IBOutlet weak var unitsLabel: UILabel!
   var readingType : ReadingType?
   
   override func awakeFromNib() {
