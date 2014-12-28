@@ -8,8 +8,8 @@
 
 import UIKit
 
-
-  let kUserSettingsCalculatorMode = "Calculator Mode"
+let kUserSettingsCalculatorMode = "Calculator Mode"
+let kUserSettingsUnits = "Units"
 
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -23,16 +23,22 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   var unitsSwitcher: UISegmentedControl!
   var settings : Array<(String,Array<String>)>!
   var navigationStack : [UIViewController]!
+  var units : Unit = .Gallons
+  var metricLabel: UILabel!
+  var usLabel: UILabel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    units = Unit(rawValue: NSUserDefaults.standardUserDefaults().integerForKey(kUserSettingsUnits))!
+    calculatorModeSwitch.on = NSUserDefaults.standardUserDefaults().boolForKey(kUserSettingsCalculatorMode)
     var group1 = ["Pool", "Chemicals", "Desired Values"]
     var group2 = ["Display Options", "Calculator Only Mode", "Units"]
     var group3 = ["Terms of Use", "This"]
     settings = [("Facility Info",group1),("Display",group2),("About",group3)]
     tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CELL")
     navigationStack = [self]
-    calculatorModeSwitch.on = NSUserDefaults.standardUserDefaults().boolForKey(kUserSettingsCalculatorMode)
+   
+    
     setupUnitsSwitcher()
     
     self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 80.0))
@@ -94,38 +100,28 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    var destination : UIViewController
+
     switch indexPath {
     case NSIndexPath(forRow: 0, inSection: 0):
-      destination = PoolSetupViewController(nibName: "PoolSetupViewController", bundle: NSBundle.mainBundle())
+      pushViewController(PoolSetupViewController(nibName: "PoolSetupViewController", bundle: NSBundle.mainBundle()))
+      changeHeaderLabelTo("Pool Setup")
     case NSIndexPath(forRow: 1, inSection: 0):
-      destination = ChemicalsUsedViewController(nibName: "ChemicalsUsedViewController", bundle: NSBundle.mainBundle())
+      pushViewController(ChemicalsUsedViewController(nibName: "ChemicalsUsedViewController", bundle: NSBundle.mainBundle()))
       changeHeaderLabelTo("Chemicals in Use")
     case NSIndexPath(forRow: 2, inSection: 0):
-      destination = DesiredValuesViewController(nibName: "DesiredValuesViewController", bundle: NSBundle.mainBundle())
+      pushViewController(DesiredValuesViewController(nibName: "DesiredValuesViewController", bundle: NSBundle.mainBundle()))
       changeHeaderLabelTo("Target Values")
     case NSIndexPath(forRow: 0, inSection: 1):
-      destination = DisplayOptionsViewController(nibName: "DisplayOptionsViewController", bundle: NSBundle.mainBundle())
+      pushViewController(DisplayOptionsViewController(nibName: "DisplayOptionsViewController", bundle: NSBundle.mainBundle()))
       changeHeaderLabelTo("Display Options")
+    case NSIndexPath(forRow: 0, inSection: 2):
+      pushViewController(TermsOfUseViewController(nibName: "TermsOfUseViewController", bundle: NSBundle.mainBundle()))
+      changeHeaderLabelTo("Terms of Use")
     default:
       return ()
     }
     
-    self.addChildViewController(destination)
-    destination.view.frame = CGRect(x: self.view.bounds.width, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
-    self.view.insertSubview(destination.view, belowSubview: topBar)
-    UIView.animateWithDuration(0.4,
-      delay: 0.0,
-      usingSpringWithDamping: 0.8,
-      initialSpringVelocity: 0.5,
-      options: UIViewAnimationOptions.AllowUserInteraction,
-      animations: { () -> Void in
-        destination.view.frame.origin = CGPoint(x: 0, y: 0)
-        self.backButton.alpha = 1
-      }) { (success) -> Void in
-        return ()
-    }
-    navigationStack.append(destination)
+
   }
   
   func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -203,21 +199,89 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   func getUnitsSwitcherForCell(cell: UITableViewCell) -> UIView {
     
     let unitsView = UIView(frame: CGRect(x: cell.bounds.width/1.5, y: 0, width: cell.bounds.width/1.5, height: cell.bounds.height))
-    let usLabel = UILabel()
-    let metricLabel = UILabel()
+    usLabel = UILabel()
+    metricLabel = UILabel()
+    usLabel.userInteractionEnabled = true
+    metricLabel.userInteractionEnabled = true
     usLabel.text = "US"
     metricLabel.text = "Metric"
     usLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
     metricLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
-    metricLabel.alpha = 0.4
     usLabel.textColor = UIColor.whiteColor()
     metricLabel.textColor = UIColor.whiteColor()
     unitsView.addSubview(usLabel)
     unitsView.addSubview(metricLabel)
-    usLabel.frame = CGRect(x: 0, y: 0, width: usLabel.intrinsicContentSize().width + 32, height: unitsView.bounds.height)
-    metricLabel.frame = CGRect(x: usLabel.frame.maxX, y: 0, width: unitsView.bounds.width / 2, height: unitsView.bounds.height)
+    let seperatorLabel = UILabel()
+    seperatorLabel.text = "|"
+    seperatorLabel.textColor = UIColor.whiteColor()
+    usLabel.frame = CGRect(x: 0, y: 2, width: usLabel.intrinsicContentSize().width + 32, height: unitsView.bounds.height)
+    metricLabel.frame = CGRect(x: usLabel.frame.maxX, y: 2, width: metricLabel.intrinsicContentSize().width, height: unitsView.bounds.height)
+    seperatorLabel.frame = CGRect(x: usLabel.frame.maxX - 16, y: 0, width: metricLabel.intrinsicContentSize().width, height: unitsView.bounds.height)
+    unitsView.addSubview(seperatorLabel)
+    seperatorLabel.alpha = 0.7
+    seperatorLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 20.0)
+    
+    if units == .Gallons {
+      metricLabel.alpha = 0.3
+    } else {
+      usLabel.alpha = 0.3
+    }
+    
+    let metricTapper = UITapGestureRecognizer()
+    metricTapper.addTarget(self, action: "didPressMetric:")
+    metricLabel.addGestureRecognizer(metricTapper)
+    
+    let usTapper = UITapGestureRecognizer()
+    usTapper.addTarget(self, action: "didPressUS:")
+    usLabel.addGestureRecognizer(usTapper)
     
     return unitsView
+  }
+  
+  func didPressMetric(sender: UITapGestureRecognizer) {
+    if units == .Gallons {
+      units = .Liters
+      NSUserDefaults.standardUserDefaults().setInteger(1, forKey: kUserSettingsUnits)
+      UIView.animateWithDuration(0.3, animations: { () -> Void in
+        self.metricLabel.alpha = 1
+        self.usLabel.alpha = 0.3
+      })
+    }
+    
+    
+  }
+  
+  func didPressUS(sender: UITapGestureRecognizer) {
+    if units == .Liters {
+      units = .Gallons
+      NSUserDefaults.standardUserDefaults().setInteger(0, forKey: kUserSettingsUnits)
+      UIView.animateWithDuration(0.3, animations: { () -> Void in
+        self.usLabel.alpha = 1
+        self.metricLabel.alpha = 0.3
+      })
+    }
+    
+  }
+  
+  func pushViewController(viewController: UIViewController) {
+    
+    self.addChildViewController(viewController)
+    viewController.view.frame = CGRect(x: self.view.bounds.width, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+    self.view.insertSubview(viewController.view, belowSubview: topBar)
+    
+    UIView.animateWithDuration(0.4,
+      delay: 0.0,
+      usingSpringWithDamping: 0.8,
+      initialSpringVelocity: 0.5,
+      options: UIViewAnimationOptions.AllowUserInteraction,
+      animations: { () -> Void in
+        viewController.view.frame.origin = CGPoint(x: 0, y: 0)
+        self.backButton.alpha = 1
+      }) { (success) -> Void in
+        return ()
+    }
+    navigationStack.append(viewController)
+    
   }
   
 }
