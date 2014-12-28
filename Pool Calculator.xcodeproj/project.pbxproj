@@ -21,6 +21,7 @@
 		7E5B2AB01A43BDCC00B39BDE /* ReadingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5B2AAF1A43BDCC00B39BDE /* ReadingType.swift */; };
 		7E70A0011A50858900913D4B /* TermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E709FFF1A50858900913D4B /* TermsOfUseViewController.swift */; };
 		7E70A0021A50858900913D4B /* TermsOfUseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E70A0001A50858900913D4B /* TermsOfUseViewController.xib */; };
+		7E70A0041A508E0B00913D4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E70A0031A508E0B00913D4B /* Constants.swift */; };
 		7E9F8A6B1A492576005092B1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F8A691A492576005092B1 /* SettingsViewController.swift */; };
 		7E9F8A6C1A492576005092B1 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F8A6A1A492576005092B1 /* SettingsViewController.xib */; };
 		7E9F8A741A4A26AF005092B1 /* ChemicalsUsedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F8A721A4A26AF005092B1 /* ChemicalsUsedViewController.swift */; };
@@ -73,6 +74,7 @@
 		7E5B2AAF1A43BDCC00B39BDE /* ReadingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingType.swift; sourceTree = "<group>"; };
 		7E709FFF1A50858900913D4B /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewController.swift; sourceTree = "<group>"; };
 		7E70A0001A50858900913D4B /* TermsOfUseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsOfUseViewController.xib; sourceTree = "<group>"; };
+		7E70A0031A508E0B00913D4B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7E9F8A691A492576005092B1 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7E9F8A6A1A492576005092B1 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		7E9F8A721A4A26AF005092B1 /* ChemicalsUsedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemicalsUsedViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		7E37C2D91A43AA7100432E34 /* Pool Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				7E70A0031A508E0B00913D4B /* Constants.swift */,
 				7EDAC4251A4F7F370076E306 /* -- View Controllers -- */,
 				7E5B2AAC1A43B95700B39BDE /* -- Model Classes -- */,
 				7E37C2E81A43AA7100432E34 /* LaunchScreen.xib */,
@@ -391,6 +394,7 @@
 				7E9F8A7E1A4A6018005092B1 /* DesiredValuesViewController.swift in Sources */,
 				7EC797621A441C7600BFCAAD /* HistoryCell.swift in Sources */,
 				7E37C2E01A43AA7100432E34 /* Pool_Calculator.xcdatamodeld in Sources */,
+				7E70A0041A508E0B00913D4B /* Constants.swift in Sources */,
 				7E9F8A881A4B4413005092B1 /* OnboardViewController.swift in Sources */,
 				7E9F8A7A1A4A34D5005092B1 /* DisplayOptionsViewController.swift in Sources */,
 				7E9F8A6B1A492576005092B1 /* SettingsViewController.swift in Sources */,

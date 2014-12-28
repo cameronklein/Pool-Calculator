@@ -6,9 +6,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PoolSetupViewController" customModule="Pool_Calculator" customModuleProvider="target">
             <connections>
+                <outlet property="gallonsLabel" destination="NmR-Yt-NGF" id="47J-xh-WdU"/>
+                <outlet property="litersLabel" destination="eN1-Fz-yd2" id="NYv-gW-gWj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="volumeLabel" destination="1H9-rL-1O3" id="YeD-1f-Nna"/>
-                <outlet property="volumeWrapper" destination="EfO-bc-pzD" id="nma-v2-aau"/>
+                <outlet property="volumeLabel" destination="pFq-0R-rEm" id="66A-qU-pGR"/>
+                <outlet property="volumeWrapper" destination="XaE-WD-ULY" id="Sh7-zc-M5Z"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -22,17 +24,23 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EfO-bc-pzD">
-                    <rect key="frame" x="0.0" y="152" width="600" height="149"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XaE-WD-ULY">
+                    <rect key="frame" x="0.0" y="151" width="600" height="145"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1H9-rL-1O3">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFq-0R-rEm">
                             <rect key="frame" x="209" y="16" width="183" height="82"/>
                             <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="60"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gallons" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjj-01-F6U">
-                            <rect key="frame" x="253" y="98" width="94" height="39"/>
+                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gallons" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NmR-Yt-NGF">
+                            <rect key="frame" x="193" y="98" width="94" height="39"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="28"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" alpha="0.25" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Liters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eN1-Fz-yd2">
+                            <rect key="frame" x="328" y="98" width="65" height="39"/>
                             <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="28"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -40,38 +48,40 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="bjj-01-F6U" firstAttribute="bottom" secondItem="1H9-rL-1O3" secondAttribute="bottom" constant="-13" id="FCU-A8-hAS"/>
-                        <constraint firstItem="1H9-rL-1O3" firstAttribute="top" secondItem="EfO-bc-pzD" secondAttribute="top" constant="16" id="Kpb-hg-NuA"/>
-                        <constraint firstAttribute="bottom" secondItem="bjj-01-F6U" secondAttribute="bottom" constant="8" id="NLY-Gl-RY2"/>
-                        <constraint firstAttribute="bottom" secondItem="1H9-rL-1O3" secondAttribute="bottom" constant="16" id="SV0-AZ-ruO"/>
-                        <constraint firstItem="bjj-01-F6U" firstAttribute="top" secondItem="1H9-rL-1O3" secondAttribute="bottom" id="W9g-Q7-k4t"/>
-                        <constraint firstAttribute="centerX" secondItem="1H9-rL-1O3" secondAttribute="centerX" id="uZO-tT-YZh"/>
-                        <constraint firstAttribute="centerX" secondItem="bjj-01-F6U" secondAttribute="centerX" id="vaC-Ai-gme"/>
-                        <constraint firstItem="bjj-01-F6U" firstAttribute="leading" secondItem="1H9-rL-1O3" secondAttribute="trailing" constant="16" id="xhm-Ia-MA4"/>
+                        <constraint firstItem="NmR-Yt-NGF" firstAttribute="bottom" secondItem="pFq-0R-rEm" secondAttribute="bottom" constant="-13" id="Ca3-Pt-qrw"/>
+                        <constraint firstAttribute="centerX" secondItem="pFq-0R-rEm" secondAttribute="centerX" id="IEu-uH-boO"/>
+                        <constraint firstAttribute="trailing" secondItem="eN1-Fz-yd2" secondAttribute="trailing" constant="48" id="If5-Ao-tmv"/>
+                        <constraint firstItem="NmR-Yt-NGF" firstAttribute="leading" secondItem="pFq-0R-rEm" secondAttribute="trailing" constant="16" id="XYe-rO-FBJ"/>
+                        <constraint firstAttribute="centerX" secondItem="eN1-Fz-yd2" secondAttribute="centerX" constant="-60" id="YqH-Lw-ib6"/>
+                        <constraint firstAttribute="centerX" secondItem="NmR-Yt-NGF" secondAttribute="centerX" constant="60" id="b2a-4W-LWz"/>
+                        <constraint firstItem="NmR-Yt-NGF" firstAttribute="top" secondItem="pFq-0R-rEm" secondAttribute="bottom" id="dtP-zx-mbM"/>
+                        <constraint firstAttribute="bottom" secondItem="eN1-Fz-yd2" secondAttribute="bottom" constant="8" id="g7h-Zs-Z5y"/>
+                        <constraint firstAttribute="centerX" secondItem="NmR-Yt-NGF" secondAttribute="centerX" id="iA0-oE-0Ql"/>
+                        <constraint firstAttribute="bottom" secondItem="NmR-Yt-NGF" secondAttribute="bottom" constant="8" id="kRj-nl-vxA"/>
+                        <constraint firstAttribute="bottom" secondItem="pFq-0R-rEm" secondAttribute="bottom" constant="16" id="mLL-gs-agZ"/>
+                        <constraint firstItem="NmR-Yt-NGF" firstAttribute="leading" secondItem="XaE-WD-ULY" secondAttribute="leading" constant="48" id="svl-yP-pXI"/>
+                        <constraint firstItem="pFq-0R-rEm" firstAttribute="top" secondItem="XaE-WD-ULY" secondAttribute="top" constant="16" id="yaN-NK-vkT"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="SV0-AZ-ruO"/>
-                            <exclude reference="FCU-A8-hAS"/>
-                            <exclude reference="xhm-Ia-MA4"/>
+                            <exclude reference="mLL-gs-agZ"/>
+                            <exclude reference="svl-yP-pXI"/>
+                            <exclude reference="Ca3-Pt-qrw"/>
+                            <exclude reference="iA0-oE-0Ql"/>
+                            <exclude reference="XYe-rO-FBJ"/>
+                            <exclude reference="If5-Ao-tmv"/>
                         </mask>
                     </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="EfO-bc-pzD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0B8-97-gwg"/>
+                <constraint firstAttribute="trailing" secondItem="XaE-WD-ULY" secondAttribute="trailing" id="Dmm-Ap-oME"/>
                 <constraint firstAttribute="centerX" secondItem="5Jk-ZG-sJc" secondAttribute="centerX" id="eJe-5D-c3g"/>
-                <constraint firstItem="EfO-bc-pzD" firstAttribute="top" secondItem="5Jk-ZG-sJc" secondAttribute="bottom" constant="43" id="orc-nV-dX1"/>
+                <constraint firstItem="XaE-WD-ULY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ewe-GB-6jO"/>
                 <constraint firstItem="5Jk-ZG-sJc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="pKC-jd-YVa"/>
-                <constraint firstAttribute="trailing" secondItem="EfO-bc-pzD" secondAttribute="trailing" id="u6P-4y-thc"/>
-                <constraint firstAttribute="centerX" secondItem="EfO-bc-pzD" secondAttribute="centerX" id="zKh-aY-zUb"/>
+                <constraint firstItem="XaE-WD-ULY" firstAttribute="top" secondItem="5Jk-ZG-sJc" secondAttribute="bottom" constant="42" id="uhS-ht-Prq"/>
             </constraints>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="zKh-aY-zUb"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="361" y="318"/>
         </view>
     </objects>

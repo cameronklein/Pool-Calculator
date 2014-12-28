@@ -8,10 +8,6 @@
 
 import UIKit
 
-let kUserSettingsCalculatorMode = "Calculator Mode"
-let kUserSettingsUnits = "Units"
-
-
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   @IBOutlet weak var topBar: UIView!
@@ -27,20 +23,16 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   var metricLabel: UILabel!
   var usLabel: UILabel!
   
+  //MARK: - Lifecycle Methods
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     units = Unit(rawValue: NSUserDefaults.standardUserDefaults().integerForKey(kUserSettingsUnits))!
     calculatorModeSwitch.on = NSUserDefaults.standardUserDefaults().boolForKey(kUserSettingsCalculatorMode)
-    var group1 = ["Pool", "Chemicals", "Desired Values"]
-    var group2 = ["Display Options", "Calculator Only Mode", "Units"]
-    var group3 = ["Terms of Use", "This"]
-    settings = [("Facility Info",group1),("Display",group2),("About",group3)]
+    setupTableViewLabels()
     tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CELL")
     navigationStack = [self]
    
-    
-    setupUnitsSwitcher()
-    
     self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 80.0))
   }
   
@@ -49,17 +41,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     addTopBarShadow()
     
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-  }
   
-  func setupUnitsSwitcher() {
-    unitsSwitcher = UISegmentedControl()
-    unitsSwitcher.insertSegmentWithTitle("US", atIndex: 0, animated: false)
-    unitsSwitcher.insertSegmentWithTitle("Metric", atIndex: 1, animated: false)
-    unitsSwitcher.tintColor = UIColor.whiteColor()
-  }
+  //MARK: - <UITableViewDataSource>
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return settings[section].1.count
@@ -99,6 +82,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     return cell
   }
   
+  //MARK: - <UITableViewDelegate>
+  
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
     switch indexPath {
@@ -121,13 +106,23 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
       return ()
     }
     
-
   }
   
   func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
     if let header = view as? UITableViewHeaderFooterView {
       header.textLabel.textColor = UIColor.whiteColor()
     }
+  }
+  
+  //MARK: - Helper Methods
+  
+  func setupTableViewLabels() {
+    
+    var group1 = ["Pool", "Chemicals", "Desired Values"]
+    var group2 = ["Display Options", "Calculator Only Mode", "Units"]
+    var group3 = ["Terms of Use", "This"]
+    settings = [("Facility Info",group1),("Display",group2),("About",group3)]
+    
   }
   
   func addTopBarShadow() {
@@ -137,50 +132,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     topBar.layer.shadowRadius = 3
   }
 
-  @IBAction func didPressBackButton(sender: AnyObject) {
-    let calculatorModeOn = NSUserDefaults.standardUserDefaults().boolForKey(kUserSettingsCalculatorMode)
-    if let topVC = navigationStack.last {
-      if topVC == self{
-        if let parent = self.parentViewController as? ContainerViewController {
-          parent.switchViewControllerTo(parent.calculatorVC, animated: true)
-        }
-      } else{
-        navigationStack.removeLast()
-        changeHeaderLabelTo("Settings")
-        UIView.animateWithDuration(0.4,
-          delay: 0.0,
-          usingSpringWithDamping: 0.7,
-          initialSpringVelocity: 0.4,
-          options: UIViewAnimationOptions.AllowUserInteraction,
-          animations: { () -> Void in
-            topVC.view.frame.origin = CGPoint(x: self.view.bounds.width, y: 0)
-            if self.navigationStack.last == self && !calculatorModeOn{
-              self.backButton.alpha = 0
-            }
-          }) { (success) -> Void in
-            return ()
-        }
-      }
-    }
-  }
-  
-  @IBAction func didSwitchCalcModeSwitch(sender: UISwitch) {
-    NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: kUserSettingsCalculatorMode)
-    NSUserDefaults.standardUserDefaults().synchronize()
-    if let parent = self.parentViewController as? ContainerViewController {
-      parent.switchToCalculatorOnlyMode(sender.on, animated: true)
-    }
-    makeBackButtonVisable(sender.on)
-  }
-  
-  func changeHeaderLabelTo(newString: String) {
-    UIView.transitionWithView(headeLabel, duration: 0.4, options: UIViewAnimationOptions.TransitionFlipFromTop, animations: { () -> Void in
-      self.headeLabel.text = newString
-    }) { (success) -> Void in
-      return ()
-    }
-  }
-  
   func makeBackButtonVisable(visable: Bool) {
     UIView.animateWithDuration(0.8,
       delay: 0.0,
@@ -247,8 +198,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         self.usLabel.alpha = 0.3
       })
     }
-    
-    
   }
   
   func didPressUS(sender: UITapGestureRecognizer) {
@@ -260,7 +209,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         self.metricLabel.alpha = 0.3
       })
     }
-    
   }
   
   func pushViewController(viewController: UIViewController) {
@@ -282,6 +230,52 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     navigationStack.append(viewController)
     
+  }
+  
+  //MARK: - IBActions
+  
+  @IBAction func didPressBackButton(sender: AnyObject) {
+    let calculatorModeOn = NSUserDefaults.standardUserDefaults().boolForKey(kUserSettingsCalculatorMode)
+    if let topVC = navigationStack.last {
+      if topVC == self{
+        if let parent = self.parentViewController as? ContainerViewController {
+          parent.switchViewControllerTo(parent.calculatorVC, animated: true)
+        }
+      } else{
+        navigationStack.removeLast()
+        changeHeaderLabelTo("Settings")
+        UIView.animateWithDuration(0.4,
+          delay: 0.0,
+          usingSpringWithDamping: 0.7,
+          initialSpringVelocity: 0.4,
+          options: UIViewAnimationOptions.AllowUserInteraction,
+          animations: { () -> Void in
+            topVC.view.frame.origin = CGPoint(x: self.view.bounds.width, y: 0)
+            if self.navigationStack.last == self && !calculatorModeOn{
+              self.backButton.alpha = 0
+            }
+          }) { (success) -> Void in
+            return ()
+        }
+      }
+    }
+  }
+  
+  @IBAction func didSwitchCalcModeSwitch(sender: UISwitch) {
+    NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: kUserSettingsCalculatorMode)
+    NSUserDefaults.standardUserDefaults().synchronize()
+    if let parent = self.parentViewController as? ContainerViewController {
+      parent.switchToCalculatorOnlyMode(sender.on, animated: true)
+    }
+    makeBackButtonVisable(sender.on)
+  }
+  
+  func changeHeaderLabelTo(newString: String) {
+    UIView.transitionWithView(headeLabel, duration: 0.4, options: UIViewAnimationOptions.TransitionFlipFromTop, animations: { () -> Void in
+      self.headeLabel.text = newString
+      }) { (success) -> Void in
+        return ()
+    }
   }
   
 }
