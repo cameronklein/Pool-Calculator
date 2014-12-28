@@ -131,13 +131,8 @@
 		7E37C2D91A43AA7100432E34 /* Pool Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				7E37C2E11A43AA7100432E34 /* ContainerViewController.swift */,
-				7EEB64461A47DFF00063EF4F /* ChemicalCalculator.swift */,
-				7E5B2AAE1A43B97000B39BDE /* -- New Reading -- */,
-				7EC7976A1A4424F100BFCAAD /* -- History -- */,
-				7EEB64451A47CAF30063EF4F /* -- Calculator -- */,
-				7E9F8A6D1A49C8DE005092B1 /* -- Settings -- */,
-				7E5B2AAC1A43B95700B39BDE /* MODEL */,
+				7EDAC4251A4F7F370076E306 /* -- View Controllers -- */,
+				7E5B2AAC1A43B95700B39BDE /* -- Model Classes -- */,
 				7E37C2E81A43AA7100432E34 /* LaunchScreen.xib */,
 				7E37C2DC1A43AA7100432E34 /* AppDelegate.swift */,
 				7E37C2E31A43AA7100432E34 /* Main.storyboard */,
@@ -173,14 +168,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7E5B2AAC1A43B95700B39BDE /* MODEL */ = {
+		7E5B2AAC1A43B95700B39BDE /* -- Model Classes -- */ = {
 			isa = PBXGroup;
 			children = (
+				7EEB64461A47DFF00063EF4F /* ChemicalCalculator.swift */,
 				7EC797681A4421D200BFCAAD /* Reading.swift */,
 				7E9F8A801A4A7DBA005092B1 /* Pool.swift */,
 				7E5B2AAF1A43BDCC00B39BDE /* ReadingType.swift */,
 			);
-			name = MODEL;
+			name = "-- Model Classes --";
 			sourceTree = "<group>";
 		};
 		7E5B2AAD1A43B95C00B39BDE /* ReadingCell */ = {
@@ -236,6 +232,18 @@
 				7EC797611A441C7600BFCAAD /* HistoryCell.xib */,
 			);
 			name = HistoryCell;
+			sourceTree = "<group>";
+		};
+		7EDAC4251A4F7F370076E306 /* -- View Controllers -- */ = {
+			isa = PBXGroup;
+			children = (
+				7E37C2E11A43AA7100432E34 /* ContainerViewController.swift */,
+				7E5B2AAE1A43B97000B39BDE /* -- New Reading -- */,
+				7EC7976A1A4424F100BFCAAD /* -- History -- */,
+				7EEB64451A47CAF30063EF4F /* -- Calculator -- */,
+				7E9F8A6D1A49C8DE005092B1 /* -- Settings -- */,
+			);
+			name = "-- View Controllers --";
 			sourceTree = "<group>";
 		};
 		7EEB64451A47CAF30063EF4F /* -- Calculator -- */ = {

@@ -77,11 +77,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     switch indexPath {
     case NSIndexPath(forRow: 1, inSection: 1):
+      
       cell.accessoryView = calculatorModeSwitch
       calculatorModeSwitch.onTintColor = UIColor(red: 0/256, green: 150/256, blue: 136/256, alpha: 1)
       calculatorModeSwitch.tintColor = topBar.backgroundColor
+      
     case NSIndexPath(forRow: 2, inSection: 1):
-      cell.accessoryView = unitsSwitcher
+      
+      cell.addSubview(getUnitsSwitcherForCell(cell))
+      
     default:
       cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     }
@@ -170,19 +174,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     if let parent = self.parentViewController as? ContainerViewController {
       parent.switchToCalculatorOnlyMode(sender.on, animated: true)
     }
-    UIView.animateWithDuration(0.8,
-      delay: 0.0,
-      options: UIViewAnimationOptions.AllowUserInteraction,
-      animations: { () -> Void in
-        if sender.on {
-          self.backButton.alpha = 1
-        } else {
-          self.backButton.alpha = 0
-        }
-      }) { (success) -> Void in
-        return ()
-    }
-
+    makeBackButtonVisable(sender.on)
   }
   
   func changeHeaderLabelTo(newString: String) {
@@ -191,6 +183,41 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }) { (success) -> Void in
       return ()
     }
+  }
+  
+  func makeBackButtonVisable(visable: Bool) {
+    UIView.animateWithDuration(0.8,
+      delay: 0.0,
+      options: UIViewAnimationOptions.AllowUserInteraction,
+      animations: { () -> Void in
+        if visable {
+          self.backButton.alpha = 1
+        } else {
+          self.backButton.alpha = 0
+        }
+      }) { (success) -> Void in
+        return ()
+    }
+  }
+  
+  func getUnitsSwitcherForCell(cell: UITableViewCell) -> UIView {
+    
+    let unitsView = UIView(frame: CGRect(x: cell.bounds.width/1.5, y: 0, width: cell.bounds.width/1.5, height: cell.bounds.height))
+    let usLabel = UILabel()
+    let metricLabel = UILabel()
+    usLabel.text = "US"
+    metricLabel.text = "Metric"
+    usLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
+    metricLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
+    metricLabel.alpha = 0.4
+    usLabel.textColor = UIColor.whiteColor()
+    metricLabel.textColor = UIColor.whiteColor()
+    unitsView.addSubview(usLabel)
+    unitsView.addSubview(metricLabel)
+    usLabel.frame = CGRect(x: 0, y: 0, width: usLabel.intrinsicContentSize().width + 32, height: unitsView.bounds.height)
+    metricLabel.frame = CGRect(x: usLabel.frame.maxX, y: 0, width: unitsView.bounds.width / 2, height: unitsView.bounds.height)
+    
+    return unitsView
   }
   
 }
