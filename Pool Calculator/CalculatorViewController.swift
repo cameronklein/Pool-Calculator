@@ -76,6 +76,7 @@ class CalculatorViewController: UIViewController {
         switch sender.state {
           
         case .Began:
+          
           if sender.view == currentView {
             oldValue = currentValue
           } else {
@@ -107,6 +108,7 @@ class CalculatorViewController: UIViewController {
           }
           numberLabel.text = String(format: type.stringFormat, Double(newValue))
           resultLabel.text = calculateResult()
+          
         default:
           return ()
         }
@@ -216,7 +218,16 @@ class CalculatorViewController: UIViewController {
     }
     updateCurrentReading()
     updateDesiredReading()
-    resultLabel.text = calculateResult()
+    
+    UIView.transitionWithView(resultLabel,
+      duration: 0.3,
+      options: UIViewAnimationOptions.TransitionFlipFromBottom,
+      animations: { () -> Void in
+        self.resultLabel.text = self.calculateResult()
+      }) { (success) -> Void in
+        return ()
+    }
+    
   }
   
   func addSelectionBarTo(button: UIButton) {

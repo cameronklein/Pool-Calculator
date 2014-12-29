@@ -12,11 +12,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
   @IBOutlet weak var topBar: UIView!
   @IBOutlet weak var tableView: UITableView!
-  @IBOutlet weak var headeLabel: UILabel!
+  @IBOutlet weak var headerLabel: UILabel!
   @IBOutlet weak var backButton: UIButton!
   @IBOutlet weak var calculatorModeSwitch: UISwitch!
   
-  var unitsSwitcher: UISegmentedControl!
   var settings : Array<(String,Array<String>)>!
   var navigationStack : [UIViewController]!
   var units : Unit = .Gallons
@@ -271,8 +270,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   }
   
   func changeHeaderLabelTo(newString: String) {
-    UIView.transitionWithView(headeLabel, duration: 0.4, options: UIViewAnimationOptions.TransitionFlipFromTop, animations: { () -> Void in
-      self.headeLabel.text = newString
+    UIView.transitionWithView(headerLabel, duration: 0.4, options: UIViewAnimationOptions.TransitionFlipFromTop, animations: { () -> Void in
+      self.headerLabel.text = newString
       }) { (success) -> Void in
         return ()
     }

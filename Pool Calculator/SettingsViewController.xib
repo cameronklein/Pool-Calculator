@@ -8,7 +8,7 @@
             <connections>
                 <outlet property="backButton" destination="Cdv-Yp-mWx" id="FJh-4N-aSU"/>
                 <outlet property="calculatorModeSwitch" destination="98F-8n-HvL" id="wyj-0V-swj"/>
-                <outlet property="headeLabel" destination="7uW-Uy-g3w" id="pQ3-NN-VHJ"/>
+                <outlet property="headerLabel" destination="7uW-Uy-g3w" id="Vbv-tn-dDe"/>
                 <outlet property="tableView" destination="2fk-rn-yui" id="skp-IN-HJm"/>
                 <outlet property="topBar" destination="j05-Xd-e0f" id="JIy-Sl-P7d"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
