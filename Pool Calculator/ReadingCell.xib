@@ -21,7 +21,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lde-JO-8yh">
-                        <rect key="frame" x="185" y="32" width="82" height="119"/>
+                        <rect key="frame" x="185" y="28" width="82" height="135"/>
                         <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="60"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -33,7 +33,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ppm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhd-e4-rrQ">
-                        <rect key="frame" x="275" y="83" width="65" height="41"/>
+                        <rect key="frame" x="275" y="87" width="65" height="41"/>
                         <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="30"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -45,12 +45,12 @@
                     <constraint firstItem="BjP-mB-EbD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Hkk-cf-yjJ"/>
                     <constraint firstItem="Hhd-e4-rrQ" firstAttribute="leading" secondItem="Lde-JO-8yh" secondAttribute="trailing" constant="8" id="Jd2-rF-w5h"/>
                     <constraint firstItem="Lde-JO-8yh" firstAttribute="top" secondItem="BjP-mB-EbD" secondAttribute="bottom" id="Lzq-3j-HBy"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Lde-JO-8yh" secondAttribute="bottom" constant="8" id="MeS-MQ-XMA"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Lde-JO-8yh" secondAttribute="bottom" constant="-4" id="MeS-MQ-XMA"/>
                     <constraint firstItem="Hhd-e4-rrQ" firstAttribute="centerY" secondItem="Lde-JO-8yh" secondAttribute="centerY" constant="12" id="Nq8-qV-nWf"/>
                     <constraint firstItem="ypi-8s-9DI" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="O56-9d-HMc"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Hhd-e4-rrQ" secondAttribute="bottom" constant="39" id="Qn4-wI-gH8"/>
                     <constraint firstItem="Hhd-e4-rrQ" firstAttribute="centerY" secondItem="Lde-JO-8yh" secondAttribute="centerY" id="Y6u-mc-Pp3"/>
-                    <constraint firstItem="Lde-JO-8yh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="24" id="Zh2-IY-Bkd"/>
+                    <constraint firstItem="Lde-JO-8yh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="Zh2-IY-Bkd"/>
                     <constraint firstItem="Hhd-e4-rrQ" firstAttribute="baseline" secondItem="Lde-JO-8yh" secondAttribute="baseline" constant="-20" id="aBN-bO-viN"/>
                     <constraint firstAttribute="centerX" secondItem="Lde-JO-8yh" secondAttribute="centerX" id="bVD-de-08x"/>
                     <constraint firstItem="BjP-mB-EbD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="iRf-B8-sLN"/>

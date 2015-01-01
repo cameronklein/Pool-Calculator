@@ -138,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				7E70A0031A508E0B00913D4B /* Constants.swift */,
+				7E9F8A861A4B4413005092B1 /* OnboardViewController.swift */,
+				7E9F8A871A4B4413005092B1 /* OnboardViewController.xib */,
 				7EDAC4251A4F7F370076E306 /* -- View Controllers -- */,
 				7E5B2AAC1A43B95700B39BDE /* -- Model Classes -- */,
 				7E37C2E81A43AA7100432E34 /* LaunchScreen.xib */,
@@ -259,8 +261,6 @@
 			isa = PBXGroup;
 			children = (
 				7EEB64411A47CADC0063EF4F /* CalculatorViewController.swift */,
-				7E9F8A861A4B4413005092B1 /* OnboardViewController.swift */,
-				7E9F8A871A4B4413005092B1 /* OnboardViewController.xib */,
 				7EEB64421A47CADC0063EF4F /* CalculatorViewController.xib */,
 			);
 			name = "-- Calculator --";

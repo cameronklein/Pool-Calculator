@@ -54,19 +54,19 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Value:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FoR-mN-Y6w">
-                    <rect key="frame" x="241" y="108" width="119" height="25"/>
+                    <rect key="frame" x="241" y="128" width="119" height="25"/>
                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desired Value:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayg-SK-WZZ">
-                    <rect key="frame" x="240" y="215" width="121" height="25"/>
+                    <rect key="frame" x="240" y="235" width="121" height="25"/>
                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJw-3l-MnE" userLabel="currentView">
-                    <rect key="frame" x="0.0" y="133" width="600" height="82"/>
+                    <rect key="frame" x="0.0" y="153" width="600" height="82"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="2.5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h78-HU-MQE">
                             <rect key="frame" x="259" y="0.0" width="82" height="82"/>
@@ -83,7 +83,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Av2-LS-oLl" userLabel="desiredView">
-                    <rect key="frame" x="0.0" y="240" width="600" height="82"/>
+                    <rect key="frame" x="0.0" y="260" width="600" height="82"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="2.5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6UF-PM-V9Z">
                             <rect key="frame" x="259" y="0.0" width="82" height="82"/>
@@ -100,23 +100,22 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You might want to add:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJQ-iK-Y5a">
-                    <rect key="frame" x="203" y="330" width="195" height="25"/>
+                    <rect key="frame" x="203" y="350" width="195" height="25"/>
                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSL-gi-rmc">
-                    <rect key="frame" x="16" y="355" width="568" height="33"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSL-gi-rmc">
                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="24"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEs-Rn-LDt">
-                    <rect key="frame" x="0.0" y="60" width="600" height="40"/>
+                    <rect key="frame" x="0.0" y="60" width="600" height="60"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WfK-Ln-WCW">
-                            <rect key="frame" x="8" y="4" width="60" height="33"/>
-                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                            <rect key="frame" x="8" y="8" width="64" height="34"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                             <state key="normal" title="Chlorine">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -125,9 +124,9 @@
                                 <action selector="didPressChemicalButton:" destination="-1" eventType="touchUpInside" id="Pjh-lJ-pIh"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdO-fI-NzJ">
-                            <rect key="frame" x="76" y="4" width="30" height="33"/>
-                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdO-fI-NzJ">
+                            <rect key="frame" x="87" y="4" width="30" height="37"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                             <state key="normal" title="pH">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -136,9 +135,9 @@
                                 <action selector="didPressChemicalButton:" destination="-1" eventType="touchUpInside" id="NlP-c3-rKa"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJO-wZ-Boc">
-                            <rect key="frame" x="114" y="4" width="101" height="33"/>
-                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJO-wZ-Boc">
+                            <rect key="frame" x="125" y="4" width="121" height="37"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                             <state key="normal" title="Total Alkalinity">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -147,9 +146,9 @@
                                 <action selector="didPressChemicalButton:" destination="-1" eventType="touchUpInside" id="tMm-Mq-Htp"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiq-aQ-5r7">
-                            <rect key="frame" x="223" y="4" width="124" height="33"/>
-                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiq-aQ-5r7">
+                            <rect key="frame" x="254" y="4" width="149" height="37"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                             <state key="normal" title="Calcium Hardness">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -158,9 +157,9 @@
                                 <action selector="didPressChemicalButton:" destination="-1" eventType="touchUpInside" id="EKG-45-tZf"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ep1-Gn-qSf">
-                            <rect key="frame" x="355" y="4" width="88" height="33"/>
-                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ep1-Gn-qSf">
+                            <rect key="frame" x="411" y="4" width="105" height="37"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                             <state key="normal" title="Cynuric Acid">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -169,9 +168,9 @@
                                 <action selector="didPressChemicalButton:" destination="-1" eventType="touchUpInside" id="G9z-I9-izV"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aM9-ll-X9K">
-                            <rect key="frame" x="451" y="4" width="41" height="33"/>
-                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aM9-ll-X9K">
+                            <rect key="frame" x="524" y="4" width="49" height="37"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                             <state key="normal" title="Other">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -183,20 +182,20 @@
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="aM9-ll-X9K" secondAttribute="trailing" constant="8" id="2mQ-jc-2Jv"/>
-                        <constraint firstAttribute="height" constant="40" id="4ko-BG-b7q"/>
-                        <constraint firstItem="aM9-ll-X9K" firstAttribute="leading" secondItem="Ep1-Gn-qSf" secondAttribute="trailing" constant="8" id="7Xh-c7-X6u"/>
-                        <constraint firstItem="YJO-wZ-Boc" firstAttribute="top" secondItem="wEs-Rn-LDt" secondAttribute="top" constant="4" id="BQF-pt-77A"/>
-                        <constraint firstItem="WfK-Ln-WCW" firstAttribute="top" secondItem="wEs-Rn-LDt" secondAttribute="top" constant="4" id="GrV-qG-9O5"/>
-                        <constraint firstItem="Ep1-Gn-qSf" firstAttribute="top" secondItem="wEs-Rn-LDt" secondAttribute="top" constant="4" id="QGL-pJ-SFi"/>
-                        <constraint firstItem="yiq-aQ-5r7" firstAttribute="leading" secondItem="YJO-wZ-Boc" secondAttribute="trailing" constant="8" id="Uro-tw-lQu"/>
-                        <constraint firstItem="YJO-wZ-Boc" firstAttribute="leading" secondItem="EdO-fI-NzJ" secondAttribute="trailing" constant="8" id="Xca-XG-dpz"/>
-                        <constraint firstItem="EdO-fI-NzJ" firstAttribute="leading" secondItem="WfK-Ln-WCW" secondAttribute="trailing" constant="8" id="dbP-p6-7dw"/>
-                        <constraint firstItem="EdO-fI-NzJ" firstAttribute="top" secondItem="wEs-Rn-LDt" secondAttribute="top" constant="4" id="gv7-Ij-ejM"/>
-                        <constraint firstItem="yiq-aQ-5r7" firstAttribute="top" secondItem="wEs-Rn-LDt" secondAttribute="top" constant="4" id="hO1-8T-YSO"/>
+                        <constraint firstAttribute="height" constant="60" id="4ko-BG-b7q"/>
+                        <constraint firstItem="aM9-ll-X9K" firstAttribute="leading" secondItem="Ep1-Gn-qSf" secondAttribute="trailing" constant="12" id="7Xh-c7-X6u"/>
+                        <constraint firstItem="YJO-wZ-Boc" firstAttribute="top" secondItem="wEs-Rn-LDt" secondAttribute="top" constant="8" id="BQF-pt-77A"/>
+                        <constraint firstItem="WfK-Ln-WCW" firstAttribute="top" secondItem="wEs-Rn-LDt" secondAttribute="top" constant="8" id="GrV-qG-9O5"/>
+                        <constraint firstItem="Ep1-Gn-qSf" firstAttribute="top" secondItem="wEs-Rn-LDt" secondAttribute="top" constant="8" id="QGL-pJ-SFi"/>
+                        <constraint firstItem="yiq-aQ-5r7" firstAttribute="leading" secondItem="YJO-wZ-Boc" secondAttribute="trailing" constant="12" id="Uro-tw-lQu"/>
+                        <constraint firstItem="YJO-wZ-Boc" firstAttribute="leading" secondItem="EdO-fI-NzJ" secondAttribute="trailing" constant="12" id="Xca-XG-dpz"/>
+                        <constraint firstItem="EdO-fI-NzJ" firstAttribute="leading" secondItem="WfK-Ln-WCW" secondAttribute="trailing" constant="12" id="dbP-p6-7dw"/>
+                        <constraint firstItem="EdO-fI-NzJ" firstAttribute="top" secondItem="wEs-Rn-LDt" secondAttribute="top" constant="8" id="gv7-Ij-ejM"/>
+                        <constraint firstItem="yiq-aQ-5r7" firstAttribute="top" secondItem="wEs-Rn-LDt" secondAttribute="top" constant="8" id="hO1-8T-YSO"/>
                         <constraint firstAttribute="bottom" secondItem="WfK-Ln-WCW" secondAttribute="bottom" constant="3" id="iu5-sn-8Mr"/>
-                        <constraint firstItem="aM9-ll-X9K" firstAttribute="top" secondItem="wEs-Rn-LDt" secondAttribute="top" constant="4" id="nbq-Zg-Idq"/>
+                        <constraint firstItem="aM9-ll-X9K" firstAttribute="top" secondItem="wEs-Rn-LDt" secondAttribute="top" constant="8" id="nbq-Zg-Idq"/>
                         <constraint firstItem="WfK-Ln-WCW" firstAttribute="leading" secondItem="wEs-Rn-LDt" secondAttribute="leading" constant="8" id="rKm-Pd-TtJ"/>
-                        <constraint firstItem="Ep1-Gn-qSf" firstAttribute="leading" secondItem="yiq-aQ-5r7" secondAttribute="trailing" constant="8" id="teJ-Ob-Jwf"/>
+                        <constraint firstItem="Ep1-Gn-qSf" firstAttribute="leading" secondItem="yiq-aQ-5r7" secondAttribute="trailing" constant="12" id="teJ-Ob-Jwf"/>
                     </constraints>
                 </scrollView>
             </subviews>
