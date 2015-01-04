@@ -194,9 +194,9 @@ class CalculatorViewController: UIViewController {
     case "pH":
       return calculator.changePHBy(desiredValue - currentValue)
     case "Total Alkalinity":
-      return calculator.changePHBy(desiredValue - currentValue)
+      return calculator.changeAlkalinityBy(desiredValue - currentValue)
     case "Calcium Hardness":
-      return calculator.changePHBy(desiredValue - currentValue)
+      return calculator.changeHardnessBy(desiredValue - currentValue)
     default:
       return "Oops"
     }
