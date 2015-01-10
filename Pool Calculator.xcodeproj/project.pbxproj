@@ -35,6 +35,7 @@
 		7E9F8A851A4A7E15005092B1 /* PoolSetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F8A831A4A7E15005092B1 /* PoolSetupViewController.xib */; };
 		7E9F8A881A4B4413005092B1 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F8A861A4B4413005092B1 /* OnboardViewController.swift */; };
 		7E9F8A891A4B4413005092B1 /* OnboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F8A871A4B4413005092B1 /* OnboardViewController.xib */; };
+		7EC5CC501A61AA48007E1E7D /* GlobalEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5CC4F1A61AA48007E1E7D /* GlobalEnums.swift */; };
 		7EC7975E1A44110700BFCAAD /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC7975C1A44110700BFCAAD /* HistoryViewController.swift */; };
 		7EC7975F1A44110700BFCAAD /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */; };
 		7EC797621A441C7600BFCAAD /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC797601A441C7600BFCAAD /* HistoryCell.swift */; };
@@ -88,6 +89,7 @@
 		7E9F8A831A4A7E15005092B1 /* PoolSetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PoolSetupViewController.xib; sourceTree = "<group>"; };
 		7E9F8A861A4B4413005092B1 /* OnboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		7E9F8A871A4B4413005092B1 /* OnboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardViewController.xib; sourceTree = "<group>"; };
+		7EC5CC4F1A61AA48007E1E7D /* GlobalEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalEnums.swift; sourceTree = "<group>"; };
 		7EC7975C1A44110700BFCAAD /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
 		7EC797601A441C7600BFCAAD /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				7E70A0031A508E0B00913D4B /* Constants.swift */,
+				7EC5CC4F1A61AA48007E1E7D /* GlobalEnums.swift */,
 				7E9F8A861A4B4413005092B1 /* OnboardViewController.swift */,
 				7E9F8A871A4B4413005092B1 /* OnboardViewController.xib */,
 				7EDAC4251A4F7F370076E306 /* -- View Controllers -- */,
@@ -391,6 +394,7 @@
 				7E70A0011A50858900913D4B /* TermsOfUseViewController.swift in Sources */,
 				7E5B2AB01A43BDCC00B39BDE /* ReadingType.swift in Sources */,
 				7EC7975E1A44110700BFCAAD /* HistoryViewController.swift in Sources */,
+				7EC5CC501A61AA48007E1E7D /* GlobalEnums.swift in Sources */,
 				7E9F8A7E1A4A6018005092B1 /* DesiredValuesViewController.swift in Sources */,
 				7EC797621A441C7600BFCAAD /* HistoryCell.swift in Sources */,
 				7E37C2E01A43AA7100432E34 /* Pool_Calculator.xcdatamodeld in Sources */,

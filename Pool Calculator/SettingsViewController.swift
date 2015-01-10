@@ -18,15 +18,18 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   
   var settings : Array<(String,Array<String>)>!
   var navigationStack : [UIViewController]!
-  var units : Unit = .Gallons
-  var metricLabel: UILabel!
-  var usLabel: UILabel!
+  var volumeUnits : VolumeUnit = .Gallons
+  var weightUnits : WeightUnit = .Pounds
+  var litersLabel = UILabel()
+  var gallonsLabel = UILabel()
+  var poundsLabel = UILabel()
+  var kilogramsLabel = UILabel()
   
   //MARK: - Lifecycle Methods
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    units = Unit(rawValue: NSUserDefaults.standardUserDefaults().integerForKey(kUserSettingsUnits))!
+    volumeUnits = VolumeUnit(rawValue: NSUserDefaults.standardUserDefaults().integerForKey(kUserSettingsVolumeUnits))!
     calculatorModeSwitch.on = NSUserDefaults.standardUserDefaults().boolForKey(kUserSettingsCalculatorMode)
     setupTableViewLabels()
     tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CELL")
@@ -71,8 +74,13 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
       calculatorModeSwitch.tintColor = topBar.backgroundColor
       
     case NSIndexPath(forRow: 2, inSection: 1):
+      let switcher = getVolumeUnitsSwitcherForCell(cell)
+      switcher.frame.origin.x -= 100
+      cell.addSubview(getVolumeUnitsSwitcherForCell(cell))
       
-      cell.addSubview(getUnitsSwitcherForCell(cell))
+    case NSIndexPath(forRow: 3, inSection: 1):
+      
+      cell.addSubview(getWeightUnitsSwitcherForCell(cell))
       
     default:
       cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
@@ -118,7 +126,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   func setupTableViewLabels() {
     
     var group1 = ["Pool", "Chemicals", "Desired Values"]
-    var group2 = ["Display Options", "Calculator Only Mode", "Units"]
+    var group2 = ["Display Options", "Calculator Only Mode", "Volume Units", "Weight Units"]
     var group3 = ["Terms of Use", "This"]
     settings = [("Facility Info",group1),("Display",group2),("About",group3)]
     
@@ -146,66 +154,131 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
   }
   
-  func getUnitsSwitcherForCell(cell: UITableViewCell) -> UIView {
+  func getVolumeUnitsSwitcherForCell(cell: UITableViewCell) -> UIView {
     
-    let unitsView = UIView(frame: CGRect(x: cell.bounds.width/1.5, y: 0, width: cell.bounds.width/1.5, height: cell.bounds.height))
-    usLabel = UILabel()
-    metricLabel = UILabel()
-    usLabel.userInteractionEnabled = true
-    metricLabel.userInteractionEnabled = true
-    usLabel.text = "US"
-    metricLabel.text = "Metric"
-    usLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
-    metricLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
-    usLabel.textColor = UIColor.whiteColor()
-    metricLabel.textColor = UIColor.whiteColor()
-    unitsView.addSubview(usLabel)
-    unitsView.addSubview(metricLabel)
-    let seperatorLabel = UILabel()
+    let unitsView = UIView(frame: CGRect(x: cell.bounds.width/1.7, y: 0, width: cell.bounds.width/1.5, height: cell.bounds.height))
+    var seperatorLabel = UILabel()
+    gallonsLabel.text = "Gallons"
+    litersLabel.text = "Liters"
     seperatorLabel.text = "|"
-    seperatorLabel.textColor = UIColor.whiteColor()
-    usLabel.frame = CGRect(x: 0, y: 2, width: usLabel.intrinsicContentSize().width + 32, height: unitsView.bounds.height)
-    metricLabel.frame = CGRect(x: usLabel.frame.maxX, y: 2, width: metricLabel.intrinsicContentSize().width, height: unitsView.bounds.height)
-    seperatorLabel.frame = CGRect(x: usLabel.frame.maxX - 16, y: 0, width: metricLabel.intrinsicContentSize().width, height: unitsView.bounds.height)
-    unitsView.addSubview(seperatorLabel)
-    seperatorLabel.alpha = 0.7
-    seperatorLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 20.0)
     
-    if units == .Gallons {
-      metricLabel.alpha = 0.3
-    } else {
-      usLabel.alpha = 0.3
+    for label in [gallonsLabel, litersLabel, seperatorLabel] {
+      label.userInteractionEnabled = true
+      label.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
+      label.textColor = UIColor.whiteColor()
+      unitsView.addSubview(label)
     }
     
-    let metricTapper = UITapGestureRecognizer()
-    metricTapper.addTarget(self, action: "didPressMetric:")
-    metricLabel.addGestureRecognizer(metricTapper)
+    seperatorLabel.userInteractionEnabled = false
+    seperatorLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 20.0)
+
+    gallonsLabel.frame = CGRect(x: 0, y: 2, width: gallonsLabel.intrinsicContentSize().width + 32, height: unitsView.bounds.height)
+    litersLabel.frame = CGRect(x: gallonsLabel.frame.maxX, y: 2, width: litersLabel.intrinsicContentSize().width, height: unitsView.bounds.height)
+    seperatorLabel.frame = CGRect(x: gallonsLabel.frame.maxX - 16, y: 0, width: litersLabel.intrinsicContentSize().width, height: unitsView.bounds.height)
+    seperatorLabel.alpha = 0.7
     
-    let usTapper = UITapGestureRecognizer()
-    usTapper.addTarget(self, action: "didPressUS:")
-    usLabel.addGestureRecognizer(usTapper)
+    
+    if volumeUnits == .Gallons {
+      litersLabel.alpha = 0.3
+    } else {
+      gallonsLabel.alpha = 0.3
+    }
+    
+    let litersTapper = UITapGestureRecognizer()
+    litersTapper.addTarget(self, action: "didPressLiters:")
+    litersLabel.addGestureRecognizer(litersTapper)
+    
+    let gallonsTapper = UITapGestureRecognizer()
+    gallonsTapper.addTarget(self, action: "didPressGallons:")
+    gallonsLabel.addGestureRecognizer(gallonsTapper)
     
     return unitsView
   }
   
-  func didPressMetric(sender: UITapGestureRecognizer) {
-    if units == .Gallons {
-      units = .Liters
-      NSUserDefaults.standardUserDefaults().setInteger(1, forKey: kUserSettingsUnits)
+  func getWeightUnitsSwitcherForCell(cell: UITableViewCell) -> UIView {
+    
+    let unitsView = UIView(frame: CGRect(x: cell.bounds.width/1.5, y: 0, width: cell.bounds.width/1.5, height: cell.bounds.height))
+    poundsLabel = UILabel()
+    kilogramsLabel = UILabel()
+    poundsLabel.userInteractionEnabled = true
+    kilogramsLabel.userInteractionEnabled = true
+    poundsLabel.text = "Pounds"
+    kilogramsLabel.text = "Kilograms"
+    poundsLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
+    kilogramsLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
+    poundsLabel.textColor = UIColor.whiteColor()
+    kilogramsLabel.textColor = UIColor.whiteColor()
+    unitsView.addSubview(poundsLabel)
+    unitsView.addSubview(kilogramsLabel)
+    let seperatorLabel = UILabel()
+    seperatorLabel.text = "|"
+    seperatorLabel.textColor = UIColor.whiteColor()
+    poundsLabel.frame = CGRect(x: 0, y: 2, width: poundsLabel.intrinsicContentSize().width + 32, height: unitsView.bounds.height)
+    kilogramsLabel.frame = CGRect(x: poundsLabel.frame.maxX, y: 2, width: kilogramsLabel.intrinsicContentSize().width, height: unitsView.bounds.height)
+    seperatorLabel.frame = CGRect(x: poundsLabel.frame.maxX - 16, y: 0, width: kilogramsLabel.intrinsicContentSize().width, height: unitsView.bounds.height)
+    unitsView.addSubview(seperatorLabel)
+    seperatorLabel.alpha = 0.7
+    seperatorLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 20.0)
+    
+    if weightUnits == .Pounds {
+      kilogramsLabel.alpha = 0.3
+    } else {
+      poundsLabel.alpha = 0.3
+    }
+    
+    let poundsTapper = UITapGestureRecognizer()
+    poundsTapper.addTarget(self, action: "didPressPounds:")
+    poundsLabel.addGestureRecognizer(poundsTapper)
+    
+    let kilogramsTapper = UITapGestureRecognizer()
+    kilogramsTapper.addTarget(self, action: "didPressKilograms:")
+    kilogramsLabel.addGestureRecognizer(kilogramsTapper)
+    
+    return unitsView
+  }
+  
+  func didPressLiters(sender: UITapGestureRecognizer) {
+    if volumeUnits == .Gallons {
+      volumeUnits = .Liters
+      NSUserDefaults.standardUserDefaults().setInteger(1, forKey: kUserSettingsVolumeUnits)
       UIView.animateWithDuration(0.3, animations: { () -> Void in
-        self.metricLabel.alpha = 1
-        self.usLabel.alpha = 0.3
+        self.litersLabel.alpha = 1
+        self.gallonsLabel.alpha = 0.3
       })
     }
   }
   
-  func didPressUS(sender: UITapGestureRecognizer) {
-    if units == .Liters {
-      units = .Gallons
-      NSUserDefaults.standardUserDefaults().setInteger(0, forKey: kUserSettingsUnits)
+  func didPressGallons(sender: UITapGestureRecognizer) {
+    if volumeUnits == .Liters {
+      volumeUnits = .Gallons
+      NSUserDefaults.standardUserDefaults().setInteger(0, forKey: kUserSettingsVolumeUnits)
       UIView.animateWithDuration(0.3, animations: { () -> Void in
-        self.usLabel.alpha = 1
-        self.metricLabel.alpha = 0.3
+        self.gallonsLabel.alpha = 1
+        self.litersLabel.alpha = 0.3
+      })
+    }
+  }
+  
+  // TODO: Implement
+  
+  func didPressKilograms(sender: UITapGestureRecognizer) {
+    if weightUnits == .Pounds {
+      weightUnits = .Kilograms
+      NSUserDefaults.standardUserDefaults().setInteger(1, forKey: kUserSettingsWeightUnits)
+      UIView.animateWithDuration(0.3, animations: { () -> Void in
+        self.kilogramsLabel.alpha = 1
+        self.poundsLabel.alpha = 0.3
+      })
+    }
+  }
+  
+  func didPressPounds(sender: UITapGestureRecognizer) {
+    if weightUnits == .Kilograms {
+      weightUnits = .Pounds
+      NSUserDefaults.standardUserDefaults().setInteger(0, forKey: kUserSettingsWeightUnits)
+      UIView.animateWithDuration(0.3, animations: { () -> Void in
+        self.poundsLabel.alpha = 1
+        self.kilogramsLabel.alpha = 0.3
       })
     }
   }

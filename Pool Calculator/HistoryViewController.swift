@@ -27,14 +27,17 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     super.viewDidLoad()
     setupFetchController()
     tableView.registerNib(UINib(nibName: "HistoryCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "CELL")
+    tableView.registerNib(UINib(nibName: "HistoryCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "TOPCELL")
     dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
     dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
     timeFormatter.dateStyle = NSDateFormatterStyle.NoStyle
     timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-    tableView.rowHeight = 40.0
+    tableView.rowHeight = 30.0
+    
+    setupHeaderView()
 
     self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 80.0))
-
+    
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -59,6 +62,16 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
 
   }
   
+  func setupHeaderView() {
+    
+
+    
+    
+    
+  }
+  
+  // MARK: - TableViewDataSource
+  
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     if let sections = self.fetchController.sections {
       println("\(sections.count) sections")
@@ -72,7 +85,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     if let sections = self.fetchController.sections {
       if let sectionInfo = sections[section] as? NSFetchedResultsSectionInfo {
         println("Number of rows in section \(section): \(sectionInfo.numberOfObjects)")
-        return sectionInfo.numberOfObjects
+        return sectionInfo.numberOfObjects + 1
       }
     }
     return 0
@@ -90,7 +103,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   }
   
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40))
+    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 60))
     let label = UILabel(frame: CGRect(x: 8, y: 0, width: tableView.frame.width, height: 24))
     headerView.addSubview(label)
     
@@ -103,15 +116,57 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     headerView.backgroundColor = UIColor.clearColor()
     label.textColor = UIColor.whiteColor()
-    label.font = UIFont(name: "AvenirNext-DemiBold", size: 18.0)
+    label.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
     
     return headerView
   }
   
+  func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    return UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 20))
+  }
+  
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    switch indexPath.row {
+    case 0:
+      let cell = tableView.dequeueReusableCellWithIdentifier("TOPCELL", forIndexPath: indexPath) as HistoryCell
+      configureUnitsLabelCell(cell)
+      return cell
+    default:
+      let cell = tableView.dequeueReusableCellWithIdentifier("CELL", forIndexPath: indexPath) as HistoryCell
+      configureNormalCell(cell, forObjectAtIndexPath: indexPath)
+      return cell
+    }
+  }
+  
+  func configureUnitsLabelCell(cell: HistoryCell) {
+    for label in cell.contentView.subviews {
+      if let myLabel = label as? UILabel {
+        myLabel.font = UIFont(name: "AvenirNext-Regular", size: 12.0)
+      }
+    }
+    cell.timeLabel.text = ""
+    cell.freeChlorineLabel.text = "Free Chlorine"
+    cell.combinedChlorineLabel.text = "Combined Chlorine"
+    cell.totalChlorineLabel.text = "Total Chlorine"
+    cell.pHLabel.text = "pH"
+    cell.totalAlkalinityLabel.text = "Total Alkalinity"
+    cell.combinedChlorineLabel.text = "Combined Chlorine"
+    cell.selectionStyle = .None
     
-    let cell = tableView.dequeueReusableCellWithIdentifier("CELL") as HistoryCell
-    let reading = self.fetchController.objectAtIndexPath(indexPath) as Reading
+  }
+  
+  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    switch indexPath.row {
+    case 0:
+      return 50
+    default:
+     return 30
+    }
+  }
+  
+  func configureNormalCell(cell: HistoryCell, forObjectAtIndexPath indexPath: NSIndexPath) {
+    let newIndexPath = NSIndexPath(forRow: indexPath.row - 1, inSection: indexPath.section)
+    let reading = self.fetchController.objectAtIndexPath(newIndexPath) as Reading
     
     if let number = reading.freeChlorine? {
       cell.freeChlorineLabel.text = String(format: "%.1f", number.doubleValue)
@@ -135,7 +190,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     cell.timeLabel.text = timeFormatter.stringFromDate(reading.timestamp)
     cell.selectionStyle = .None
     
-    return cell
   }
   
   func setupFetchController() {

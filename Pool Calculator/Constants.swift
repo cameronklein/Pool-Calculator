@@ -9,5 +9,6 @@
 import Foundation
 
 let kUserSettingsCalculatorMode = "Calculator Mode"
-let kUserSettingsUnits = "Units"
+let kUserSettingsVolumeUnits = "Volume Units"
+let kUserSettingsWeightUnits = "Weight Units"
 let kUserSettingsPoolVolumeInGallons = "Pool Volume"

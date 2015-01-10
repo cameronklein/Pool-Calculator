@@ -160,7 +160,7 @@ class ChemicalCalculator {
   }
   
   func formatResult(ounces : Double, chemicalName: String, measurementType: MeasurementType) -> String {
-    let units : Unit = Unit(rawValue: NSUserDefaults.standardUserDefaults().integerForKey(kUserSettingsUnits))!
+    let units : VolumeUnit = VolumeUnit(rawValue: NSUserDefaults.standardUserDefaults().integerForKey(kUserSettingsVolumeUnits))!
     
     switch units {
 

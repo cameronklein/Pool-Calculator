@@ -18,7 +18,7 @@ class PoolSetupViewController: UIViewController {
   var oldValue : Double!
   var currentValue : Double!
   var newValue : Double!
-  var currentUnits : Unit!
+  var currentUnits : VolumeUnit!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -41,9 +41,9 @@ class PoolSetupViewController: UIViewController {
     super.viewWillAppear(animated)
     self.currentValue = NSUserDefaults.standardUserDefaults().doubleForKey(kUserSettingsPoolVolumeInGallons)
     volumeLabel.text = NSNumberFormatter.localizedStringFromNumber(currentValue, numberStyle: NSNumberFormatterStyle.DecimalStyle)
-    currentUnits = Unit(rawValue: NSUserDefaults.standardUserDefaults().integerForKey(kUserSettingsUnits))
+    currentUnits = VolumeUnit(rawValue: NSUserDefaults.standardUserDefaults().integerForKey(kUserSettingsVolumeUnits))
     updateVolumeDisplay()
-    if currentUnits == Unit.Gallons {
+    if currentUnits == VolumeUnit.Gallons {
       switchLabelAlphas(selected: gallonsLabel, unselected: litersLabel, animated: false)
     } else {
       switchLabelAlphas(selected: litersLabel, unselected: gallonsLabel, animated: false)
@@ -95,7 +95,7 @@ class PoolSetupViewController: UIViewController {
   
   func didTapGallons(sender: UITapGestureRecognizer){
     
-    if currentUnits == Unit.Liters {
+    if currentUnits == VolumeUnit.Liters {
       currentUnits = .Gallons
       switchLabelAlphas(selected:gallonsLabel, unselected: litersLabel, animated: true)
       updateVolumeDisplay()

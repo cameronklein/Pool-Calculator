@@ -8,10 +8,6 @@
 
 import UIKit
 
-enum Unit : Int {
-  case Gallons, Liters
-}
-
 class OnboardViewController: UIViewController {
   
   @IBOutlet weak var paragraph1: UILabel!
@@ -37,7 +33,7 @@ class OnboardViewController: UIViewController {
   var currentValue : Double = 90000
   var newValue : Double!
   var notYetSwiped = true
-  var currentUnits: Unit = .Gallons
+  var currentUnits: VolumeUnit = .Gallons
 
   override func viewDidLoad() {
     super.viewDidLoad()
