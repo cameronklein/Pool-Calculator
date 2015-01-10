@@ -174,10 +174,6 @@ class ContainerViewController: UIViewController {
     
   }
   
-  @IBAction func didPressSubmit(sender: AnyObject) {
-    newReadingVC.addReading()
-  }
-  
   func changeHeaderLabelTo(text: String) {
     UIView.transitionWithView(headerLabel,
       duration: 0.5,

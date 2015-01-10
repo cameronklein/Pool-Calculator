@@ -22,6 +22,7 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.registerNib(UINib(nibName: "ReadingCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "CELL");
+    tableView.registerNib(UINib(nibName: "SubmitCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "SUBMIT");
     readings = [nil, nil, nil, nil, nil, nil]
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 60.0
@@ -42,38 +43,48 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
   //MARK: - <UITableViewDataSource>
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 6
+    return 7
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("CELL") as ReadingCell
-    
-    cell.readingType = ReadingType.getType(Chemical(rawValue: indexPath.row)!)
-    cell.title.text = cell.readingType?.name
-    if let readingValue = readings[indexPath.row] {
-      cell.readingValue.text = String(format: cell.readingType!.stringFormat, readingValue)
-      cell.cancelLabel.alpha = 1
-      cell.cancelLabel.transform = CGAffineTransformMakeScale(1.4, 1)
-    } else {
-      cell.readingValue.text = "--"
-      cell.cancelLabel.alpha = 0
-      cell.cancelLabel.transform = CGAffineTransformMakeScale(0.01, 1)
-    }
-  
-    cell.selectionStyle = .None
-    
-    let panner = UIPanGestureRecognizer()
-    panner.addTarget(self, action: "didPanCell:")
-    panner.delegate = self
-    cell.addGestureRecognizer(panner)
-    
-    let tapper = UITapGestureRecognizer()
-    tapper.addTarget(self, action: "didTapCancel:")
-    tapper.delegate = self
-    cell.cancelLabel.addGestureRecognizer(tapper)
-    
-    return cell
 
+    if indexPath.row < 6 {
+      let cell = tableView.dequeueReusableCellWithIdentifier("CELL") as ReadingCell
+      cell.readingType = ReadingType.getType(Chemical(rawValue: indexPath.row)!)
+      cell.title.text = cell.readingType?.name
+      if let readingValue = readings[indexPath.row] {
+        cell.readingValue.text = String(format: cell.readingType!.stringFormat, readingValue)
+        cell.cancelLabel.alpha = 1
+        cell.cancelLabel.transform = CGAffineTransformMakeScale(1.4, 1)
+      } else {
+        cell.readingValue.text = "--"
+        cell.cancelLabel.alpha = 0
+        cell.cancelLabel.transform = CGAffineTransformMakeScale(0.01, 1)
+      }
+    
+      cell.selectionStyle = .None
+      
+      let panner = UIPanGestureRecognizer()
+      panner.addTarget(self, action: "didPanCell:")
+      panner.delegate = self
+      cell.addGestureRecognizer(panner)
+      
+      let tapper = UITapGestureRecognizer()
+      tapper.addTarget(self, action: "didTapCancel:")
+      tapper.delegate = self
+      cell.cancelLabel.addGestureRecognizer(tapper)
+      return cell
+    } else {
+      let cell = tableView.dequeueReusableCellWithIdentifier("SUBMIT") as SubmitCell
+      cell.selectionStyle = .None
+      return cell
+    }
+  }
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    if indexPath.row == 6 {
+      addReading()
+    }
   }
   
   // MARK: - Gesture Recognizer Methods
@@ -81,6 +92,7 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
   func didPanCell(sender: UIPanGestureRecognizer) {
     
     if let cell = sender.view as? ReadingCell {
+      let type = cell.readingType!
       
       switch sender.state {
         
@@ -88,15 +100,15 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
         if let value = readings[tableView.indexPathForCell(cell)!.row] {
           oldValue = value
         } else {
-          oldValue = 0.0
+          oldValue = type.minValue
         }
         
       case .Changed:
-        let type = cell.readingType!
+        
         let translation = sender.translationInView(cell)
         let ratio = translation.x / cell.frame.width
         let delta = type.maxValue - type.minValue
-        newValue = oldValue + type.minValue + Double(ratio) * Double(delta)
+        newValue = oldValue /*+ type.minValue*/ + Double(ratio) * Double(delta)
         
         if type.maxValue == 500 {
           newValue = newValue - newValue % 10
@@ -107,7 +119,7 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
         newValue = max(newValue!, type.minValue)
         
         if Double(newValue) > type.maxValue {
-          newValue = type.maxValue + 0.0001
+          newValue = type.maxValue
           isTooHigh = true
         }
         
@@ -121,9 +133,13 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
           delay: 0.0,
           options: UIViewAnimationOptions.AllowUserInteraction,
           animations: { () -> Void in
-          cell.cancelLabel.alpha = 1
-          cell.cancelLabel.transform = CGAffineTransformMakeScale(1.4, 1)
-          cell.unitsLabel.alpha = 1
+            cell.cancelLabel.alpha = 1
+            cell.cancelLabel.transform = CGAffineTransformMakeScale(1.4, 1)
+            if cell.readingType!.name != "pH" {
+              cell.unitsLabel.alpha = 1
+              
+            }
+            
         }, completion: { (success) -> Void in
           return ()
         })

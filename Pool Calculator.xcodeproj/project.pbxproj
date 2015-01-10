@@ -36,6 +36,8 @@
 		7E9F8A881A4B4413005092B1 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F8A861A4B4413005092B1 /* OnboardViewController.swift */; };
 		7E9F8A891A4B4413005092B1 /* OnboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F8A871A4B4413005092B1 /* OnboardViewController.xib */; };
 		7EC5CC501A61AA48007E1E7D /* GlobalEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5CC4F1A61AA48007E1E7D /* GlobalEnums.swift */; };
+		7EC5CC531A61C1B1007E1E7D /* SubmitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5CC511A61C1B0007E1E7D /* SubmitCell.swift */; };
+		7EC5CC541A61C1B1007E1E7D /* SubmitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC5CC521A61C1B1007E1E7D /* SubmitCell.xib */; };
 		7EC7975E1A44110700BFCAAD /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC7975C1A44110700BFCAAD /* HistoryViewController.swift */; };
 		7EC7975F1A44110700BFCAAD /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */; };
 		7EC797621A441C7600BFCAAD /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC797601A441C7600BFCAAD /* HistoryCell.swift */; };
@@ -90,6 +92,8 @@
 		7E9F8A861A4B4413005092B1 /* OnboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		7E9F8A871A4B4413005092B1 /* OnboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardViewController.xib; sourceTree = "<group>"; };
 		7EC5CC4F1A61AA48007E1E7D /* GlobalEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalEnums.swift; sourceTree = "<group>"; };
+		7EC5CC511A61C1B0007E1E7D /* SubmitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitCell.swift; sourceTree = "<group>"; };
+		7EC5CC521A61C1B1007E1E7D /* SubmitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubmitCell.xib; sourceTree = "<group>"; };
 		7EC7975C1A44110700BFCAAD /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		7EC7975D1A44110700BFCAAD /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
 		7EC797601A441C7600BFCAAD /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 			isa = PBXGroup;
 			children = (
 				7E5B2AA41A43B2DE00B39BDE /* NewReadingViewController.swift */,
+				7EC5CC511A61C1B0007E1E7D /* SubmitCell.swift */,
+				7EC5CC521A61C1B1007E1E7D /* SubmitCell.xib */,
 				7E5B2AA51A43B2DE00B39BDE /* NewReadingViewController.xib */,
 				7E5B2AAD1A43B95C00B39BDE /* ReadingCell */,
 			);
@@ -353,6 +359,7 @@
 				7E5B2AA71A43B2DE00B39BDE /* NewReadingViewController.xib in Resources */,
 				7E9F8A6C1A492576005092B1 /* SettingsViewController.xib in Resources */,
 				7E9F8A891A4B4413005092B1 /* OnboardViewController.xib in Resources */,
+				7EC5CC541A61C1B1007E1E7D /* SubmitCell.xib in Resources */,
 				7E70A0021A50858900913D4B /* TermsOfUseViewController.xib in Resources */,
 				7EC797631A441C7600BFCAAD /* HistoryCell.xib in Resources */,
 				7E9F8A751A4A26AF005092B1 /* ChemicalsUsedViewController.xib in Resources */,
@@ -399,6 +406,7 @@
 				7EC797621A441C7600BFCAAD /* HistoryCell.swift in Sources */,
 				7E37C2E01A43AA7100432E34 /* Pool_Calculator.xcdatamodeld in Sources */,
 				7E70A0041A508E0B00913D4B /* Constants.swift in Sources */,
+				7EC5CC531A61C1B1007E1E7D /* SubmitCell.swift in Sources */,
 				7E9F8A881A4B4413005092B1 /* OnboardViewController.swift in Sources */,
 				7E9F8A7A1A4A34D5005092B1 /* DisplayOptionsViewController.swift in Sources */,
 				7E9F8A6B1A492576005092B1 /* SettingsViewController.swift in Sources */,

@@ -170,21 +170,33 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     if let number = reading.freeChlorine? {
       cell.freeChlorineLabel.text = String(format: "%.1f", number.doubleValue)
+    } else {
+      cell.freeChlorineLabel.text = "--"
     }
     if let number = reading.combinedChlorine? {
       cell.combinedChlorineLabel.text = String(format: "%.1f", number.doubleValue)
+    } else {
+      cell.combinedChlorineLabel.text = "--"
     }
     if let number = reading.totalChlorine? {
       cell.totalChlorineLabel.text = String(format: "%.1f", number.doubleValue)
+    } else {
+      cell.totalChlorineLabel.text = "--"
     }
     if let number = reading.pH? {
       cell.pHLabel.text = String(format: "%.1f", number.doubleValue)
+    } else {
+      cell.pHLabel.text = "--"
     }
     if let number = reading.totalAlkalinity? {
       cell.totalAlkalinityLabel.text = String(number.integerValue)
+    } else {
+      cell.totalAlkalinityLabel.text = "--"
     }
     if let number = reading.calciumHardness? {
       cell.calciumHardnessLabel.text = String(number.integerValue)
+    } else {
+      cell.calciumHardnessLabel.text = "--"
     }
     
     cell.timeLabel.text = timeFormatter.stringFromDate(reading.timestamp)
