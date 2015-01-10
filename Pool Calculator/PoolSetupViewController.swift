@@ -127,7 +127,7 @@ class PoolSetupViewController: UIViewController {
     
     if currentUnits == .Liters {
       
-      volumeLabel.text = NSNumberFormatter.localizedStringFromNumber(currentValue*4, numberStyle: NSNumberFormatterStyle.DecimalStyle)
+      volumeLabel.text = NSNumberFormatter.localizedStringFromNumber(currentValue * 3.78541, numberStyle: NSNumberFormatterStyle.DecimalStyle)
       
     } else {
       

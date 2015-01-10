@@ -24,6 +24,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   var gallonsLabel = UILabel()
   var poundsLabel = UILabel()
   var kilogramsLabel = UILabel()
+  var separatorOne = UILabel()
+  var separatorTwo = UILabel()
   
   //MARK: - Lifecycle Methods
   
@@ -156,28 +158,44 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   
   func getVolumeUnitsSwitcherForCell(cell: UITableViewCell) -> UIView {
     
-    let unitsView = UIView(frame: CGRect(x: cell.bounds.width/1.7, y: 0, width: cell.bounds.width/1.5, height: cell.bounds.height))
-    var seperatorLabel = UILabel()
+    let unitsView = UIView(frame: CGRect(x: cell.bounds.width / 2, y: 0, width: cell.bounds.width / 2, height: cell.bounds.height))
     gallonsLabel.text = "Gallons"
     litersLabel.text = "Liters"
-    seperatorLabel.text = "|"
+    separatorOne.text = "|"
     
-    for label in [gallonsLabel, litersLabel, seperatorLabel] {
+    for label in [gallonsLabel, litersLabel, separatorOne] {
       label.userInteractionEnabled = true
       label.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
       label.textColor = UIColor.whiteColor()
       unitsView.addSubview(label)
     }
     
-    seperatorLabel.userInteractionEnabled = false
-    seperatorLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 20.0)
+    separatorOne.userInteractionEnabled = false
+    separatorOne.font = UIFont(name: "AvenirNext-DemiBold", size: 20.0)
+    
+    litersLabel.frame = CGRect(
+      x: unitsView.bounds.width - litersLabel.intrinsicContentSize().width - 16,
+      y: 2,
+      width: litersLabel.intrinsicContentSize().width,
+      height: unitsView.bounds.height
+    )
+    
+    separatorOne.frame = CGRect(
+      x: litersLabel.frame.origin.x - 16 - separatorOne.intrinsicContentSize().width,
+      y: 0,
+      width: separatorOne.intrinsicContentSize().width,
+      height: unitsView.bounds.height
+    )
+    
+    gallonsLabel.frame = CGRect(
+      x: separatorOne.frame.origin.x - 16 - gallonsLabel.intrinsicContentSize().width,
+      y: 2,
+      width: gallonsLabel.intrinsicContentSize().width,
+      height: unitsView.bounds.height
+    )
 
-    gallonsLabel.frame = CGRect(x: 0, y: 2, width: gallonsLabel.intrinsicContentSize().width + 32, height: unitsView.bounds.height)
-    litersLabel.frame = CGRect(x: gallonsLabel.frame.maxX, y: 2, width: litersLabel.intrinsicContentSize().width, height: unitsView.bounds.height)
-    seperatorLabel.frame = CGRect(x: gallonsLabel.frame.maxX - 16, y: 0, width: litersLabel.intrinsicContentSize().width, height: unitsView.bounds.height)
-    seperatorLabel.alpha = 0.7
-    
-    
+    separatorOne.alpha = 0.7
+
     if volumeUnits == .Gallons {
       litersLabel.alpha = 0.3
     } else {
@@ -197,28 +215,43 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   
   func getWeightUnitsSwitcherForCell(cell: UITableViewCell) -> UIView {
     
-    let unitsView = UIView(frame: CGRect(x: cell.bounds.width/1.5, y: 0, width: cell.bounds.width/1.5, height: cell.bounds.height))
-    poundsLabel = UILabel()
-    kilogramsLabel = UILabel()
-    poundsLabel.userInteractionEnabled = true
-    kilogramsLabel.userInteractionEnabled = true
-    poundsLabel.text = "Pounds"
-    kilogramsLabel.text = "Kilograms"
-    poundsLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
-    kilogramsLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
-    poundsLabel.textColor = UIColor.whiteColor()
-    kilogramsLabel.textColor = UIColor.whiteColor()
-    unitsView.addSubview(poundsLabel)
-    unitsView.addSubview(kilogramsLabel)
-    let seperatorLabel = UILabel()
-    seperatorLabel.text = "|"
-    seperatorLabel.textColor = UIColor.whiteColor()
-    poundsLabel.frame = CGRect(x: 0, y: 2, width: poundsLabel.intrinsicContentSize().width + 32, height: unitsView.bounds.height)
-    kilogramsLabel.frame = CGRect(x: poundsLabel.frame.maxX, y: 2, width: kilogramsLabel.intrinsicContentSize().width, height: unitsView.bounds.height)
-    seperatorLabel.frame = CGRect(x: poundsLabel.frame.maxX - 16, y: 0, width: kilogramsLabel.intrinsicContentSize().width, height: unitsView.bounds.height)
-    unitsView.addSubview(seperatorLabel)
-    seperatorLabel.alpha = 0.7
-    seperatorLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 20.0)
+    let unitsView = UIView(frame: CGRect(x: cell.bounds.width / 2, y: 0, width: cell.bounds.width / 2, height: cell.bounds.height))
+    poundsLabel.text = "Ounces"
+    kilogramsLabel.text = "Grams"
+    separatorTwo.text = "|"
+    
+    for label in [poundsLabel, kilogramsLabel, separatorTwo] {
+      label.userInteractionEnabled = true
+      label.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
+      label.textColor = UIColor.whiteColor()
+      unitsView.addSubview(label)
+    }
+    
+    separatorTwo.userInteractionEnabled = false
+    separatorTwo.font = UIFont(name: "AvenirNext-DemiBold", size: 20.0)
+    
+    kilogramsLabel.frame = CGRect(
+      x: litersLabel.center.x - kilogramsLabel.intrinsicContentSize().width / 2,
+      y: 2,
+      width: kilogramsLabel.intrinsicContentSize().width,
+      height: unitsView.bounds.height
+    )
+    
+    separatorTwo.frame = CGRect(
+      x: litersLabel.frame.origin.x - 16 - separatorTwo.intrinsicContentSize().width,
+      y: 0,
+      width: separatorOne.intrinsicContentSize().width,
+      height: unitsView.bounds.height
+    )
+    
+    poundsLabel.frame = CGRect(
+      x: gallonsLabel.center.x - poundsLabel.intrinsicContentSize().width / 2,
+      y: 2,
+      width: poundsLabel.intrinsicContentSize().width,
+      height: unitsView.bounds.height
+    )
+    
+    separatorTwo.alpha = 0.7
     
     if weightUnits == .Pounds {
       kilogramsLabel.alpha = 0.3
@@ -258,8 +291,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
       })
     }
   }
-  
-  // TODO: Implement
   
   func didPressKilograms(sender: UITapGestureRecognizer) {
     if weightUnits == .Pounds {

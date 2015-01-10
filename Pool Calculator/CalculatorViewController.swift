@@ -35,6 +35,7 @@ class CalculatorViewController: UIViewController {
   var oldValue: Double!
   var newValue: Double!
   var selectionBar : UIView?
+  var lastButton : UIButton!
   
   var context : NSManagedObjectContext!
   
@@ -42,7 +43,8 @@ class CalculatorViewController: UIViewController {
     super.viewDidLoad()
     let appDel = UIApplication.sharedApplication().delegate as AppDelegate
     context = appDel.managedObjectContext
-    addSelectionBarTo(chlorineButton)
+    lastButton = chlorineButton
+    addSelectionBarTo(chlorineButton, animated: false)
     
     let tapper = UITapGestureRecognizer()
     tapper.addTarget(self, action: "didTapSettings:")
@@ -203,7 +205,7 @@ class CalculatorViewController: UIViewController {
   }
   
   @IBAction func didPressChemicalButton(sender: UIButton) {
-    addSelectionBarTo(sender)
+    addSelectionBarTo(sender, animated: true)
     switch sender {
     case chlorineButton:
       type = ReadingType.getType(Chemical.FreeChlorine)
@@ -230,7 +232,7 @@ class CalculatorViewController: UIViewController {
     
   }
   
-  func addSelectionBarTo(button: UIButton) {
+  func addSelectionBarTo(button: UIButton, animated: Bool) {
     if selectionBar == nil {
       selectionBar = UIView()
       let barX = button.frame.origin.x
@@ -247,14 +249,17 @@ class CalculatorViewController: UIViewController {
     let barWidth = button.frame.width
     let barHeight : CGFloat = 2
     
-    UIView.animateWithDuration(0.3,
+    UIView.animateWithDuration(animated ? 0.3 : 0.0,
       delay: 0.0,
       usingSpringWithDamping: 0.7,
       initialSpringVelocity: 0.4,
       options: .AllowUserInteraction,
       animations: { () -> Void in
       self.selectionBar!.frame = CGRect(x: barX, y: barY, width: barWidth, height: barHeight)
+        self.lastButton.setTitleColor(UIColor.lightTextColor(), forState: UIControlState.Normal)
+        button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
     }) { (success) -> Void in
+      self.lastButton = button
       return ()
     }
   }

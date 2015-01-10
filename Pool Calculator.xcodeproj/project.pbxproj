@@ -143,15 +143,13 @@
 		7E37C2D91A43AA7100432E34 /* Pool Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				7E70A0031A508E0B00913D4B /* Constants.swift */,
-				7EC5CC4F1A61AA48007E1E7D /* GlobalEnums.swift */,
-				7E9F8A861A4B4413005092B1 /* OnboardViewController.swift */,
-				7E9F8A871A4B4413005092B1 /* OnboardViewController.xib */,
 				7EDAC4251A4F7F370076E306 /* -- View Controllers -- */,
 				7E5B2AAC1A43B95700B39BDE /* -- Model Classes -- */,
-				7E37C2E81A43AA7100432E34 /* LaunchScreen.xib */,
 				7E37C2DC1A43AA7100432E34 /* AppDelegate.swift */,
+				7E70A0031A508E0B00913D4B /* Constants.swift */,
+				7EC5CC4F1A61AA48007E1E7D /* GlobalEnums.swift */,
 				7E37C2E31A43AA7100432E34 /* Main.storyboard */,
+				7E37C2E81A43AA7100432E34 /* LaunchScreen.xib */,
 				7E37C2DE1A43AA7100432E34 /* Pool_Calculator.xcdatamodeld */,
 				7E37C2E61A43AA7100432E34 /* Images.xcassets */,
 				7E37C2DA1A43AA7100432E34 /* Supporting Files */,
@@ -208,12 +206,29 @@
 			isa = PBXGroup;
 			children = (
 				7E5B2AA41A43B2DE00B39BDE /* NewReadingViewController.swift */,
-				7EC5CC511A61C1B0007E1E7D /* SubmitCell.swift */,
-				7EC5CC521A61C1B1007E1E7D /* SubmitCell.xib */,
 				7E5B2AA51A43B2DE00B39BDE /* NewReadingViewController.xib */,
+				7E9413161A61D0C0003A44B4 /* SubmitCell */,
 				7E5B2AAD1A43B95C00B39BDE /* ReadingCell */,
 			);
 			name = "-- New Reading --";
+			sourceTree = "<group>";
+		};
+		7E9413161A61D0C0003A44B4 /* SubmitCell */ = {
+			isa = PBXGroup;
+			children = (
+				7EC5CC511A61C1B0007E1E7D /* SubmitCell.swift */,
+				7EC5CC521A61C1B1007E1E7D /* SubmitCell.xib */,
+			);
+			name = SubmitCell;
+			sourceTree = "<group>";
+		};
+		7E9413171A61D0DF003A44B4 /* -- Onboard -- */ = {
+			isa = PBXGroup;
+			children = (
+				7E9F8A861A4B4413005092B1 /* OnboardViewController.swift */,
+				7E9F8A871A4B4413005092B1 /* OnboardViewController.xib */,
+			);
+			name = "-- Onboard --";
 			sourceTree = "<group>";
 		};
 		7E9F8A6D1A49C8DE005092B1 /* -- Settings -- */ = {
@@ -262,6 +277,7 @@
 				7EC7976A1A4424F100BFCAAD /* -- History -- */,
 				7EEB64451A47CAF30063EF4F /* -- Calculator -- */,
 				7E9F8A6D1A49C8DE005092B1 /* -- Settings -- */,
+				7E9413171A61D0DF003A44B4 /* -- Onboard -- */,
 			);
 			name = "-- View Controllers --";
 			sourceTree = "<group>";

@@ -204,6 +204,10 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
     context?.save(&error)
     if error != nil {
       println(error?.localizedDescription)
+    } else {
+      if let parent = self.parentViewController as? ContainerViewController {
+        parent.switchViewControllerTo(parent.historyVC, animated: true)
+      }
     }
 
   }
