@@ -11,10 +11,10 @@ import UIKit
 class ContainerViewController: UIViewController {
   
   @IBOutlet weak var bottomBar: UIView!
-  @IBOutlet weak var buttonOne: UIView!
-  @IBOutlet weak var buttonTwo: UIView!
-  @IBOutlet weak var buttonThree: UIView!
-  @IBOutlet weak var buttonFour: UIView!
+  @IBOutlet weak var buttonOne: TabBarButton!
+  @IBOutlet weak var buttonTwo: TabBarButton!
+  @IBOutlet weak var buttonThree: TabBarButton!
+  @IBOutlet weak var buttonFour: TabBarButton!
   @IBOutlet weak var headerLabel: UILabel!
   
   @IBOutlet weak var buttonTwoConstraint: NSLayoutConstraint!
@@ -26,6 +26,8 @@ class ContainerViewController: UIViewController {
   var historyVC : HistoryViewController!
   var calculatorVC : CalculatorViewController!
   var settingsVC : SettingsViewController!
+  
+  var animationDuration = 0.3
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -62,16 +64,23 @@ class ContainerViewController: UIViewController {
   }
   
   func setupButtons() {
-    let buttons = [buttonOne, buttonTwo, buttonThree, buttonFour]
+    let buttons : [TabBarButton] = [buttonOne, buttonTwo, buttonThree, buttonFour]
     for button in buttons {
+      button.color = button.backgroundColor!
+      button.backgroundColor = UIColor.clearColor()
+      button.clipsToBounds = false
+      button.layer.masksToBounds = false
       button.layer.cornerRadius = button.frame.height/2
       button.layer.shadowColor = UIColor.blackColor().CGColor
       button.layer.shadowOffset = CGSize(width: 0, height: 3)
       button.layer.shadowOpacity = 0.5
       button.layer.shadowRadius = 3
+      
       let tapper = UITapGestureRecognizer()
       tapper.addTarget(self, action: "didTapButton:")
       button.addGestureRecognizer(tapper)
+      
+      //button.setNeedsDisplay()
     }
   }
 
@@ -79,15 +88,80 @@ class ContainerViewController: UIViewController {
     switch sender.view!{
     case buttonOne:
       switchViewControllerTo(newReadingVC, animated: true)
+      setButtonToActive(buttonOne)
+      setButtonToInactive(buttonTwo)
+      setButtonToInactive(buttonThree)
+      setButtonToInactive(buttonFour)
     case buttonTwo:
       switchViewControllerTo(historyVC, animated: true)
+      setButtonToInactive(buttonOne)
+      setButtonToActive(buttonTwo)
+      setButtonToInactive(buttonThree)
+      setButtonToInactive(buttonFour)
     case buttonThree:
       switchViewControllerTo(calculatorVC, animated: true)
+      setButtonToInactive(buttonOne)
+      setButtonToInactive(buttonTwo)
+      setButtonToActive(buttonThree)
+      setButtonToInactive(buttonFour)
     case buttonFour:
       switchViewControllerTo(settingsVC, animated: true)
+      setButtonToInactive(buttonOne)
+      setButtonToInactive(buttonTwo)
+      setButtonToInactive(buttonThree)
+      setButtonToActive(buttonFour)
     default:
     println("This should not happen.")
     }
+  }
+  
+  func setButtonToActive(button: TabBarButton) {
+    
+    button.layer.shadowOpacity = 0
+    let animation = CABasicAnimation(keyPath: "shadowOpacity")
+    animation.fromValue = 0.5
+    animation.toValue = 0.0
+    animation.duration = animationDuration
+    button.layer.addAnimation(animation, forKey: "shadowOpacity")
+    
+    button.layer.shadowOffset = CGSizeZero
+    let animation2 = CABasicAnimation(keyPath: "shadowOffset.height")
+    animation2.fromValue = 3.0
+    animation2.toValue = 0.0
+    animation2.duration = animationDuration
+    button.layer.addAnimation(animation2, forKey: "shadowOffset.height")
+    
+    UIView.animateWithDuration(animationDuration, animations: { () -> Void in
+      button.transform = CGAffineTransformMakeTranslation(0, 8)
+      self.bottomBar.backgroundColor = button.color
+      }, completion: { (success) -> Void in
+        return ()
+    })
+
+  }
+  
+  func setButtonToInactive(button: UIView) {
+    
+    button.layer.shadowOpacity = 0.5
+    let animation = CABasicAnimation(keyPath: "shadowOpacity")
+    animation.fromValue = 0.0
+    animation.toValue = 0.5
+    animation.duration = animationDuration
+    button.layer.addAnimation(animation, forKey: "shadowOpacity")
+    
+    button.layer.shadowOffset = CGSize(width: 0, height: 3)
+    let animation2 = CABasicAnimation(keyPath: "shadowOffset.height")
+    animation2.fromValue = 0.0
+    animation2.toValue = 3.0
+    animation2.duration = animationDuration
+    button.layer.addAnimation(animation2, forKey: "shadowOffset.height")
+    
+    UIView.animateWithDuration(animationDuration, animations: { () -> Void in
+      button.transform = CGAffineTransformIdentity
+      }, completion: { (success) -> Void in
+        return ()
+    })
+    
   }
   
   func switchViewControllerTo(destination: UIViewController, animated: Bool) {

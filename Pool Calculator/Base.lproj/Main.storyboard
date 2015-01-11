@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C94b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14C94b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6246"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -20,26 +20,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fuf-mP-8hi" userLabel="Bottom Bar">
                                 <rect key="frame" x="0.0" y="556" width="600" height="54"/>
                                 <subviews>
-                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6k-nM-hh4">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="54"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hoL-ay-gQn">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="54"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <subviews>
-                                                <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GIY-jm-lhh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6uH-ta-ji6">
-                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    </view>
-                                                    <vibrancyEffect>
-                                                        <blurEffect style="light"/>
-                                                    </vibrancyEffect>
-                                                </visualEffectView>
-                                            </subviews>
-                                        </view>
-                                        <blurEffect style="extraLight"/>
-                                    </visualEffectView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="New Reading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrK-aP-Mx6">
                                         <rect key="frame" x="13" y="27" width="56" height="13"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
@@ -65,21 +45,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="NSG-sH-Ty4" secondAttribute="bottom" constant="14" id="5mK-aN-wff"/>
                                     <constraint firstAttribute="bottom" secondItem="Wdi-Y8-6lP" secondAttribute="bottom" constant="14" id="KMh-We-YHF"/>
                                     <constraint firstAttribute="bottom" secondItem="SrK-aP-Mx6" secondAttribute="bottom" constant="14" id="LfQ-RV-zD7"/>
-                                    <constraint firstAttribute="centerX" secondItem="o6k-nM-hh4" secondAttribute="centerX" id="QSE-uI-79J"/>
-                                    <constraint firstAttribute="trailing" secondItem="o6k-nM-hh4" secondAttribute="trailing" id="VqX-MS-8eS"/>
                                     <constraint firstAttribute="bottom" secondItem="5Kq-7f-w7l" secondAttribute="bottom" constant="14" id="ajV-iU-q7P"/>
-                                    <constraint firstItem="o6k-nM-hh4" firstAttribute="top" secondItem="Fuf-mP-8hi" secondAttribute="top" id="cA4-CM-97d"/>
-                                    <constraint firstItem="o6k-nM-hh4" firstAttribute="leading" secondItem="Fuf-mP-8hi" secondAttribute="leading" id="hVl-89-kJ1"/>
                                     <constraint firstAttribute="height" constant="54" id="iJd-QM-XHv"/>
-                                    <constraint firstAttribute="bottom" secondItem="o6k-nM-hh4" secondAttribute="bottom" id="rby-ih-S4p"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEx-F8-Q7z" userLabel="Button One">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEx-F8-Q7z" userLabel="Button One" customClass="TabBarButton" customModule="Pool_Calculator" customModuleProvider="target">
                                 <rect key="frame" x="16" y="526" width="50" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0w7-gd-z4x">
@@ -89,7 +64,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.58823529409999997" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="780-iW-hpd"/>
                                     <constraint firstAttribute="centerY" secondItem="0w7-gd-z4x" secondAttribute="centerY" id="aZy-o6-sFU"/>
@@ -97,7 +72,7 @@
                                     <constraint firstAttribute="centerX" secondItem="0w7-gd-z4x" secondAttribute="centerX" id="vga-HL-6y8"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBH-B4-gBj" userLabel="Button Three">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBH-B4-gBj" userLabel="Button Three" customClass="TabBarButton" customModule="Pool_Calculator" customModuleProvider="target">
                                 <rect key="frame" x="444" y="526" width="50" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vvl-Yn-gwa">
@@ -115,7 +90,7 @@
                                     <constraint firstAttribute="height" constant="50" id="aga-XV-afG"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rqg-LH-5Aw" userLabel="Button Four">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rqg-LH-5Aw" userLabel="Button Four" customClass="TabBarButton" customModule="Pool_Calculator" customModuleProvider="target">
                                 <rect key="frame" x="534" y="526" width="50" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ga-uo-kcU">
@@ -133,7 +108,7 @@
                                     <constraint firstAttribute="width" constant="50" id="s9x-ob-XT7"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFV-I4-UL4" userLabel="Button Two">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFV-I4-UL4" userLabel="Button Two" customClass="TabBarButton" customModule="Pool_Calculator" customModuleProvider="target">
                                 <rect key="frame" x="106" y="526" width="50" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="H" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tud-5i-IDz">
