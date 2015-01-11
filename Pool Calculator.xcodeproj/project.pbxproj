@@ -44,6 +44,8 @@
 		7EC797621A441C7600BFCAAD /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC797601A441C7600BFCAAD /* HistoryCell.swift */; };
 		7EC797631A441C7600BFCAAD /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC797611A441C7600BFCAAD /* HistoryCell.xib */; };
 		7EC797691A4421D200BFCAAD /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC797681A4421D200BFCAAD /* Reading.swift */; };
+		7EDE101B1A623E020085C42C /* CalculatorTableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDE101A1A623E020085C42C /* CalculatorTableRowController.swift */; };
+		7EDE10221A623F410085C42C /* CalculatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDE10211A623F410085C42C /* CalculatorController.swift */; };
 		7EEB64431A47CADC0063EF4F /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB64411A47CADC0063EF4F /* CalculatorViewController.swift */; };
 		7EEB64441A47CADC0063EF4F /* CalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EEB64421A47CADC0063EF4F /* CalculatorViewController.xib */; };
 		7EEB64471A47DFF00063EF4F /* ChemicalCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB64461A47DFF00063EF4F /* ChemicalCalculator.swift */; };
@@ -180,6 +182,8 @@
 		7EC797601A441C7600BFCAAD /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		7EC797611A441C7600BFCAAD /* HistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
 		7EC797681A4421D200BFCAAD /* Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
+		7EDE101A1A623E020085C42C /* CalculatorTableRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorTableRowController.swift; path = "../Pool Calculator WatchKit App/CalculatorTableRowController.swift"; sourceTree = "<group>"; };
+		7EDE10211A623F410085C42C /* CalculatorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorController.swift; sourceTree = "<group>"; };
 		7EEB64411A47CADC0063EF4F /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		7EEB64421A47CADC0063EF4F /* CalculatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalculatorViewController.xib; sourceTree = "<group>"; };
 		7EEB64461A47DFF00063EF4F /* ChemicalCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemicalCalculator.swift; sourceTree = "<group>"; };
@@ -432,6 +436,8 @@
 				7EF329BB1A6215DB0013AEFD /* InterfaceController.swift */,
 				7EF329BD1A6215DB0013AEFD /* NotificationController.swift */,
 				7EF329BF1A6215DB0013AEFD /* GlanceController.swift */,
+				7EDE10211A623F410085C42C /* CalculatorController.swift */,
+				7EDE101A1A623E020085C42C /* CalculatorTableRowController.swift */,
 				7EF329C11A6215DB0013AEFD /* Images.xcassets */,
 				7EF329B81A6215DB0013AEFD /* Supporting Files */,
 			);
@@ -802,7 +808,9 @@
 				7EF329BE1A6215DB0013AEFD /* NotificationController.swift in Sources */,
 				7EF329BC1A6215DB0013AEFD /* InterfaceController.swift in Sources */,
 				7EF329DB1A621B5A0013AEFD /* Reading.swift in Sources */,
+				7EDE10221A623F410085C42C /* CalculatorController.swift in Sources */,
 				7EF329C01A6215DB0013AEFD /* GlanceController.swift in Sources */,
+				7EDE101B1A623E020085C42C /* CalculatorTableRowController.swift in Sources */,
 				7EF32A061A6222110013AEFD /* DataAccess.swift in Sources */,
 				7EF32A2C1A6228C40013AEFD /* Pool_Calculator.xcdatamodeld in Sources */,
 			);
@@ -1220,6 +1228,7 @@
 				7EF329D71A6215DB0013AEFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7EF329D91A6215DB0013AEFD /* Build configuration list for PBXNativeTarget "Pool Calculator WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -1228,6 +1237,7 @@
 				7EF329D51A6215DB0013AEFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7EF329FC1A621E290013AEFD /* Build configuration list for PBXNativeTarget "ReadingSyncKit" */ = {
 			isa = XCConfigurationList;
@@ -1236,6 +1246,7 @@
 				7EF329FE1A621E290013AEFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7EF32A001A621E290013AEFD /* Build configuration list for PBXNativeTarget "ReadingSyncKitTests" */ = {
 			isa = XCConfigurationList;
@@ -1244,6 +1255,7 @@
 				7EF32A021A621E290013AEFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

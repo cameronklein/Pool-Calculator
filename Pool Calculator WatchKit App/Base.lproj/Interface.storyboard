@@ -5,22 +5,136 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3735"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Home-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Pool_Calculator_WatchKit_App" customModuleProvider="target"/>
+                <controller identifier="Home" animationDuration="1" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Pool_Calculator_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label width="136" alignment="left" text="Pool Calculator" textAlignment="left" id="4QC-Hd-0rN">
+                            <fontDescription key="font" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                        </label>
+                        <button width="1" widthAdjustment="1" alignment="left" title="New Reading" id="c8L-ki-ouE">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.58823529409999997" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="6Kj-ld-K26" kind="modal" id="dzA-SF-Pvx"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="History" id="ydT-Eg-PbF">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.13725490200000001" green="0.43137254899999999" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="pbo-aK-Qt4" kind="push" id="RCm-Sz-Bub"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Calculator" id="L8w-L7-n1E">
+                            <color key="backgroundColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="pHc-Q3-a5N" kind="modal" id="BLt-pm-c9k"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
             </objects>
             <point key="canvasLocation" x="235" y="347"/>
+        </scene>
+        <!--Back-->
+        <scene sceneID="AvL-Kb-5mM">
+            <objects>
+                <controller title="Back" id="pbo-aK-Qt4"/>
+            </objects>
+            <point key="canvasLocation" x="684" y="380"/>
+        </scene>
+        <!--Back-->
+        <scene sceneID="8GM-HV-Aoq">
+            <objects>
+                <controller title="Back" id="pHc-Q3-a5N" customClass="CalculatorController" customModule="Pool_Calculator_WatchKit_Extension">
+                    <items>
+                        <label width="136" alignment="left" text="Select Type" textAlignment="center" numberOfLines="2" id="hHw-rD-PBS">
+                            <fontDescription key="font" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                        </label>
+                        <table alignment="left" id="wpl-Bb-4k0">
+                            <items>
+                                <tableRow identifier="Cell" id="XGa-It-v9m" customClass="CalculatorTableRowController" customModule="Pool_Calculator_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="ZRL-Kg-eoE">
+                                        <items>
+                                            <label width="136" alignment="left" verticalAlignment="center" text="Chlorine" textAlignment="center" id="fdS-ML-GDQ"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="title" destination="fdS-ML-GDQ" id="CBM-KN-32r"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="wpl-Bb-4k0" id="PwE-OD-YcX"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="544" y="627"/>
+        </scene>
+        <!--Cancel-->
+        <scene sceneID="6uz-JT-Gxy">
+            <objects>
+                <controller title="Cancel" id="6Kj-ld-K26">
+                    <items>
+                        <label width="136" alignment="left" text="Free Chlorine" textAlignment="center" numberOfLines="2" id="zTM-ob-bul">
+                            <fontDescription key="font" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
+                        </label>
+                        <group width="1" alignment="left" verticalAlignment="bottom" id="Kz1-Du-skb">
+                            <items>
+                                <button width="0.5" alignment="left" title="Down" id="hay-Yr-OiX"/>
+                                <button width="0.5" alignment="right" verticalAlignment="bottom" title="Up" id="d0k-bm-mG8"/>
+                            </items>
+                        </group>
+                        <label width="136" height="43" alignment="left" text="0.0" textAlignment="center" id="R5R-Wb-qdx">
+                            <fontDescription key="font" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                        </label>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Submit" id="gfP-K6-9w8"/>
+                    </items>
+                    <color key="backgroundColor" red="0.13725490200000001" green="0.43137254899999999" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <segue destination="vwn-Zf-tOq" kind="relationship" relationship="nextPage" id="sNk-0f-Fto"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="544" y="105"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="Hoi-IO-wqQ">
+            <objects>
+                <controller id="vwn-Zf-tOq">
+                    <items>
+                        <label width="136" alignment="left" text="Combined CL" textAlignment="center" numberOfLines="2" id="kby-IV-6vg">
+                            <fontDescription key="font" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
+                        </label>
+                        <label width="136" height="43" alignment="left" text="0.0" textAlignment="center" id="nZw-9O-axc">
+                            <fontDescription key="font" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                        </label>
+                        <group width="1" alignment="left" verticalAlignment="bottom" id="l1J-iw-UlR">
+                            <items>
+                                <button width="0.5" alignment="left" title="Down" id="C8h-RT-Bgl"/>
+                                <button width="0.5" alignment="right" verticalAlignment="bottom" title="Up" id="GKF-ZR-u7r"/>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Submit" id="XkB-z6-uVL"/>
+                    </items>
+                    <color key="backgroundColor" red="0.90196078430000004" green="0.68235294120000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="743" y="105"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="BOz-TT-tkC">
             <objects>
                 <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController" customModule="Pool_Calculator_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <group alignment="left" layout="vertical" id="t8f-Gd-c4y">
+                        <group alignment="left" layout="vertical" spacing="0.0" id="t8f-Gd-c4y">
                             <items>
                                 <label alignment="left" verticalAlignment="bottom" text="TIME" id="MzE-b3-2gg"/>
-                                <label alignment="left" verticalAlignment="center" text="Last Reading" id="KB0-bU-wee">
+                                <label alignment="left" text="Last Reading" id="KB0-bU-wee">
                                     <fontDescription key="font" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                 </label>
                             </items>
