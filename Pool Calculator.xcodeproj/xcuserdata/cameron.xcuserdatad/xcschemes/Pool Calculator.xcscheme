@@ -34,6 +34,34 @@
                ReferencedContainer = "container:Pool Calculator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7EF329EC1A621E290013AEFD"
+               BuildableName = "ReadingSyncKitTests.xctest"
+               BlueprintName = "ReadingSyncKitTests"
+               ReferencedContainer = "container:Pool Calculator.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7EF32A151A62252C0013AEFD"
+               BuildableName = "DataSyncKitTests.xctest"
+               BlueprintName = "DataSyncKitTests"
+               ReferencedContainer = "container:Pool Calculator.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,6 +77,26 @@
                BlueprintIdentifier = "7E37C2EE1A43AA7100432E34"
                BuildableName = "Pool CalculatorTests.xctest"
                BlueprintName = "Pool CalculatorTests"
+               ReferencedContainer = "container:Pool Calculator.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7EF329EC1A621E290013AEFD"
+               BuildableName = "ReadingSyncKitTests.xctest"
+               BlueprintName = "ReadingSyncKitTests"
+               ReferencedContainer = "container:Pool Calculator.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7EF32A151A62252C0013AEFD"
+               BuildableName = "DataSyncKitTests.xctest"
+               BlueprintName = "DataSyncKitTests"
                ReferencedContainer = "container:Pool Calculator.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -72,7 +120,8 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7E37C2D61A43AA7100432E34"
@@ -90,7 +139,8 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7E37C2D61A43AA7100432E34"

@@ -4,10 +4,30 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DataSyncKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Pool Calculator WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Pool Calculator.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>ReadingSyncKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>WatchKit - Glance.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -18,6 +38,31 @@
 			<true/>
 		</dict>
 		<key>7E37C2EE1A43AA7100432E34</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7EF329C41A6215DB0013AEFD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7EF329E21A621E280013AEFD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7EF329EC1A621E290013AEFD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7EF32A0B1A62252C0013AEFD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7EF32A151A62252C0013AEFD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

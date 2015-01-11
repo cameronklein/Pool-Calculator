@@ -47,6 +47,25 @@
 		7EEB64431A47CADC0063EF4F /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB64411A47CADC0063EF4F /* CalculatorViewController.swift */; };
 		7EEB64441A47CADC0063EF4F /* CalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EEB64421A47CADC0063EF4F /* CalculatorViewController.xib */; };
 		7EEB64471A47DFF00063EF4F /* ChemicalCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB64461A47DFF00063EF4F /* ChemicalCalculator.swift */; };
+		7EF329BC1A6215DB0013AEFD /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF329BB1A6215DB0013AEFD /* InterfaceController.swift */; };
+		7EF329BE1A6215DB0013AEFD /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF329BD1A6215DB0013AEFD /* NotificationController.swift */; };
+		7EF329C01A6215DB0013AEFD /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF329BF1A6215DB0013AEFD /* GlanceController.swift */; };
+		7EF329C21A6215DB0013AEFD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EF329C11A6215DB0013AEFD /* Images.xcassets */; };
+		7EF329C61A6215DB0013AEFD /* Pool Calculator WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 7EF329C51A6215DB0013AEFD /* Pool Calculator WatchKit App.app */; };
+		7EF329CE1A6215DB0013AEFD /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EF329CC1A6215DB0013AEFD /* Interface.storyboard */; };
+		7EF329D01A6215DB0013AEFD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EF329CF1A6215DB0013AEFD /* Images.xcassets */; };
+		7EF329D31A6215DB0013AEFD /* Pool Calculator WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7EF329B61A6215DB0013AEFD /* Pool Calculator WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7EF329DB1A621B5A0013AEFD /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC797681A4421D200BFCAAD /* Reading.swift */; };
+		7EF329E81A621E290013AEFD /* ReadingSyncKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF329E71A621E290013AEFD /* ReadingSyncKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EF329EE1A621E290013AEFD /* ReadingSyncKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF329E31A621E280013AEFD /* ReadingSyncKit.framework */; };
+		7EF329F71A621E290013AEFD /* ReadingSyncKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF329F61A621E290013AEFD /* ReadingSyncKitTests.swift */; };
+		7EF329FA1A621E290013AEFD /* ReadingSyncKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF329E31A621E280013AEFD /* ReadingSyncKit.framework */; };
+		7EF329FB1A621E290013AEFD /* ReadingSyncKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF329E31A621E280013AEFD /* ReadingSyncKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7EF32A041A621E700013AEFD /* DataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF32A031A621E700013AEFD /* DataAccess.swift */; };
+		7EF32A051A621FBC0013AEFD /* DataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF32A031A621E700013AEFD /* DataAccess.swift */; };
+		7EF32A061A6222110013AEFD /* DataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF32A031A621E700013AEFD /* DataAccess.swift */; };
+		7EF32A2B1A6228C20013AEFD /* Pool_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E37C2DE1A43AA7100432E34 /* Pool_Calculator.xcdatamodeld */; };
+		7EF32A2C1A6228C40013AEFD /* Pool_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E37C2DE1A43AA7100432E34 /* Pool_Calculator.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +76,67 @@
 			remoteGlobalIDString = 7E37C2D61A43AA7100432E34;
 			remoteInfo = "Pool Calculator";
 		};
+		7EF329C71A6215DB0013AEFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E37C2CF1A43AA7100432E34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EF329C41A6215DB0013AEFD;
+			remoteInfo = "Pool Calculator WatchKit App";
+		};
+		7EF329D11A6215DB0013AEFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E37C2CF1A43AA7100432E34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EF329B51A6215DB0013AEFD;
+			remoteInfo = "Pool Calculator WatchKit Extension";
+		};
+		7EF329EF1A621E290013AEFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E37C2CF1A43AA7100432E34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EF329E21A621E280013AEFD;
+			remoteInfo = ReadingSyncKit;
+		};
+		7EF329F11A621E290013AEFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E37C2CF1A43AA7100432E34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E37C2D61A43AA7100432E34;
+			remoteInfo = "Pool Calculator";
+		};
+		7EF329F81A621E290013AEFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E37C2CF1A43AA7100432E34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EF329E21A621E280013AEFD;
+			remoteInfo = ReadingSyncKit;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7EF329DA1A6215DB0013AEFD /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7EF329D31A6215DB0013AEFD /* Pool Calculator WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF329FF1A621E290013AEFD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7EF329FB1A621E290013AEFD /* ReadingSyncKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7E37C2D71A43AA7100432E34 /* Pool Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pool Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +183,26 @@
 		7EEB64411A47CADC0063EF4F /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		7EEB64421A47CADC0063EF4F /* CalculatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalculatorViewController.xib; sourceTree = "<group>"; };
 		7EEB64461A47DFF00063EF4F /* ChemicalCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemicalCalculator.swift; sourceTree = "<group>"; };
+		7EF329B61A6215DB0013AEFD /* Pool Calculator WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Pool Calculator WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EF329B91A6215DB0013AEFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EF329BA1A6215DB0013AEFD /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		7EF329BB1A6215DB0013AEFD /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		7EF329BD1A6215DB0013AEFD /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		7EF329BF1A6215DB0013AEFD /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		7EF329C11A6215DB0013AEFD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7EF329C51A6215DB0013AEFD /* Pool Calculator WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pool Calculator WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EF329CB1A6215DB0013AEFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EF329CD1A6215DB0013AEFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		7EF329CF1A6215DB0013AEFD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7EF329DC1A621D570013AEFD /* Pool Calculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Pool Calculator.entitlements"; sourceTree = "<group>"; };
+		7EF329DD1A621D700013AEFD /* Pool Calculator WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Pool Calculator WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		7EF329E31A621E280013AEFD /* ReadingSyncKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReadingSyncKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EF329E61A621E290013AEFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EF329E71A621E290013AEFD /* ReadingSyncKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReadingSyncKit.h; sourceTree = "<group>"; };
+		7EF329ED1A621E290013AEFD /* ReadingSyncKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingSyncKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EF329F51A621E290013AEFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EF329F61A621E290013AEFD /* ReadingSyncKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingSyncKitTests.swift; sourceTree = "<group>"; };
+		7EF32A031A621E700013AEFD /* DataAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataAccess.swift; path = ../DataAccess.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +210,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EF329FA1A621E290013AEFD /* ReadingSyncKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +218,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF329B31A6215DB0013AEFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF329DF1A621E280013AEFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF329EA1A621E290013AEFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EF329EE1A621E290013AEFD /* ReadingSyncKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +251,10 @@
 			children = (
 				7E37C2D91A43AA7100432E34 /* Pool Calculator */,
 				7E37C2F21A43AA7100432E34 /* Pool CalculatorTests */,
+				7EF329B71A6215DB0013AEFD /* Pool Calculator WatchKit Extension */,
+				7EF329C91A6215DB0013AEFD /* Pool Calculator WatchKit App */,
+				7EF329E41A621E290013AEFD /* ReadingSyncKit */,
+				7EF329F31A621E290013AEFD /* ReadingSyncKitTests */,
 				7E37C2D81A43AA7100432E34 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -138,6 +264,10 @@
 			children = (
 				7E37C2D71A43AA7100432E34 /* Pool Calculator.app */,
 				7E37C2EF1A43AA7100432E34 /* Pool CalculatorTests.xctest */,
+				7EF329B61A6215DB0013AEFD /* Pool Calculator WatchKit Extension.appex */,
+				7EF329C51A6215DB0013AEFD /* Pool Calculator WatchKit App.app */,
+				7EF329E31A621E280013AEFD /* ReadingSyncKit.framework */,
+				7EF329ED1A621E290013AEFD /* ReadingSyncKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,6 +275,7 @@
 		7E37C2D91A43AA7100432E34 /* Pool Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				7EF329DC1A621D570013AEFD /* Pool Calculator.entitlements */,
 				7E57EBA31A61EDAB003807DB /* TabBarButton.swift */,
 				7EDAC4251A4F7F370076E306 /* -- View Controllers -- */,
 				7E5B2AAC1A43B95700B39BDE /* -- Model Classes -- */,
@@ -294,7 +425,93 @@
 			name = "-- Calculator --";
 			sourceTree = "<group>";
 		};
+		7EF329B71A6215DB0013AEFD /* Pool Calculator WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7EF329DD1A621D700013AEFD /* Pool Calculator WatchKit Extension.entitlements */,
+				7EF329BB1A6215DB0013AEFD /* InterfaceController.swift */,
+				7EF329BD1A6215DB0013AEFD /* NotificationController.swift */,
+				7EF329BF1A6215DB0013AEFD /* GlanceController.swift */,
+				7EF329C11A6215DB0013AEFD /* Images.xcassets */,
+				7EF329B81A6215DB0013AEFD /* Supporting Files */,
+			);
+			path = "Pool Calculator WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		7EF329B81A6215DB0013AEFD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7EF329B91A6215DB0013AEFD /* Info.plist */,
+				7EF329BA1A6215DB0013AEFD /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7EF329C91A6215DB0013AEFD /* Pool Calculator WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				7EF329CC1A6215DB0013AEFD /* Interface.storyboard */,
+				7EF329CF1A6215DB0013AEFD /* Images.xcassets */,
+				7EF329CA1A6215DB0013AEFD /* Supporting Files */,
+			);
+			path = "Pool Calculator WatchKit App";
+			sourceTree = "<group>";
+		};
+		7EF329CA1A6215DB0013AEFD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7EF329CB1A6215DB0013AEFD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7EF329E41A621E290013AEFD /* ReadingSyncKit */ = {
+			isa = PBXGroup;
+			children = (
+				7EF329E71A621E290013AEFD /* ReadingSyncKit.h */,
+				7EF32A031A621E700013AEFD /* DataAccess.swift */,
+				7EF329E51A621E290013AEFD /* Supporting Files */,
+			);
+			path = ReadingSyncKit;
+			sourceTree = "<group>";
+		};
+		7EF329E51A621E290013AEFD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7EF329E61A621E290013AEFD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7EF329F31A621E290013AEFD /* ReadingSyncKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				7EF329F61A621E290013AEFD /* ReadingSyncKitTests.swift */,
+				7EF329F41A621E290013AEFD /* Supporting Files */,
+			);
+			path = ReadingSyncKitTests;
+			sourceTree = "<group>";
+		};
+		7EF329F41A621E290013AEFD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7EF329F51A621E290013AEFD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7EF329E01A621E280013AEFD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EF329E81A621E290013AEFD /* ReadingSyncKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		7E37C2D61A43AA7100432E34 /* Pool Calculator */ = {
@@ -304,10 +521,14 @@
 				7E37C2D31A43AA7100432E34 /* Sources */,
 				7E37C2D41A43AA7100432E34 /* Frameworks */,
 				7E37C2D51A43AA7100432E34 /* Resources */,
+				7EF329DA1A6215DB0013AEFD /* Embed App Extensions */,
+				7EF329FF1A621E290013AEFD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7EF329D21A6215DB0013AEFD /* PBXTargetDependency */,
+				7EF329F91A621E290013AEFD /* PBXTargetDependency */,
 			);
 			name = "Pool Calculator";
 			productName = "Pool Calculator";
@@ -332,6 +553,76 @@
 			productReference = 7E37C2EF1A43AA7100432E34 /* Pool CalculatorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		7EF329B51A6215DB0013AEFD /* Pool Calculator WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EF329D91A6215DB0013AEFD /* Build configuration list for PBXNativeTarget "Pool Calculator WatchKit Extension" */;
+			buildPhases = (
+				7EF329B21A6215DB0013AEFD /* Sources */,
+				7EF329B31A6215DB0013AEFD /* Frameworks */,
+				7EF329B41A6215DB0013AEFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7EF329C81A6215DB0013AEFD /* PBXTargetDependency */,
+			);
+			name = "Pool Calculator WatchKit Extension";
+			productName = "Pool Calculator WatchKit Extension";
+			productReference = 7EF329B61A6215DB0013AEFD /* Pool Calculator WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		7EF329C41A6215DB0013AEFD /* Pool Calculator WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EF329D81A6215DB0013AEFD /* Build configuration list for PBXNativeTarget "Pool Calculator WatchKit App" */;
+			buildPhases = (
+				7EF329C31A6215DB0013AEFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pool Calculator WatchKit App";
+			productName = "Pool Calculator WatchKit App";
+			productReference = 7EF329C51A6215DB0013AEFD /* Pool Calculator WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
+		7EF329E21A621E280013AEFD /* ReadingSyncKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EF329FC1A621E290013AEFD /* Build configuration list for PBXNativeTarget "ReadingSyncKit" */;
+			buildPhases = (
+				7EF329DE1A621E280013AEFD /* Sources */,
+				7EF329DF1A621E280013AEFD /* Frameworks */,
+				7EF329E01A621E280013AEFD /* Headers */,
+				7EF329E11A621E280013AEFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReadingSyncKit;
+			productName = ReadingSyncKit;
+			productReference = 7EF329E31A621E280013AEFD /* ReadingSyncKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7EF329EC1A621E290013AEFD /* ReadingSyncKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EF32A001A621E290013AEFD /* Build configuration list for PBXNativeTarget "ReadingSyncKitTests" */;
+			buildPhases = (
+				7EF329E91A621E290013AEFD /* Sources */,
+				7EF329EA1A621E290013AEFD /* Frameworks */,
+				7EF329EB1A621E290013AEFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7EF329F01A621E290013AEFD /* PBXTargetDependency */,
+				7EF329F21A621E290013AEFD /* PBXTargetDependency */,
+			);
+			name = ReadingSyncKitTests;
+			productName = ReadingSyncKitTests;
+			productReference = 7EF329ED1A621E290013AEFD /* ReadingSyncKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -344,9 +635,34 @@
 					7E37C2D61A43AA7100432E34 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 6X3539QT5M;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					7E37C2EE1A43AA7100432E34 = {
 						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 7E37C2D61A43AA7100432E34;
+					};
+					7EF329B51A6215DB0013AEFD = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 6X3539QT5M;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					7EF329C41A6215DB0013AEFD = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					7EF329E21A621E280013AEFD = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 6X3539QT5M;
+					};
+					7EF329EC1A621E290013AEFD = {
+						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 7E37C2D61A43AA7100432E34;
 					};
 				};
@@ -366,6 +682,10 @@
 			targets = (
 				7E37C2D61A43AA7100432E34 /* Pool Calculator */,
 				7E37C2EE1A43AA7100432E34 /* Pool CalculatorTests */,
+				7EF329B51A6215DB0013AEFD /* Pool Calculator WatchKit Extension */,
+				7EF329C41A6215DB0013AEFD /* Pool Calculator WatchKit App */,
+				7EF329E21A621E280013AEFD /* ReadingSyncKit */,
+				7EF329EC1A621E290013AEFD /* ReadingSyncKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -401,6 +721,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7EF329B41A6215DB0013AEFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EF329C61A6215DB0013AEFD /* Pool Calculator WatchKit App.app in Resources */,
+				7EF329C21A6215DB0013AEFD /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF329C31A6215DB0013AEFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EF329CE1A6215DB0013AEFD /* Interface.storyboard in Resources */,
+				7EF329D01A6215DB0013AEFD /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF329E11A621E280013AEFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF329EB1A621E290013AEFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -415,6 +767,7 @@
 				7E5B2AAA1A43B6E600B39BDE /* ReadingCell.swift in Sources */,
 				7EC797691A4421D200BFCAAD /* Reading.swift in Sources */,
 				7E37C2E21A43AA7100432E34 /* ContainerViewController.swift in Sources */,
+				7EF32A041A621E700013AEFD /* DataAccess.swift in Sources */,
 				7E37C2DD1A43AA7100432E34 /* AppDelegate.swift in Sources */,
 				7E9F8A841A4A7E15005092B1 /* PoolSetupViewController.swift in Sources */,
 				7EEB64471A47DFF00063EF4F /* ChemicalCalculator.swift in Sources */,
@@ -442,6 +795,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7EF329B21A6215DB0013AEFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EF329BE1A6215DB0013AEFD /* NotificationController.swift in Sources */,
+				7EF329BC1A6215DB0013AEFD /* InterfaceController.swift in Sources */,
+				7EF329DB1A621B5A0013AEFD /* Reading.swift in Sources */,
+				7EF329C01A6215DB0013AEFD /* GlanceController.swift in Sources */,
+				7EF32A061A6222110013AEFD /* DataAccess.swift in Sources */,
+				7EF32A2C1A6228C40013AEFD /* Pool_Calculator.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF329DE1A621E280013AEFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EF32A051A621FBC0013AEFD /* DataAccess.swift in Sources */,
+				7EF32A2B1A6228C20013AEFD /* Pool_Calculator.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF329E91A621E290013AEFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EF329F71A621E290013AEFD /* ReadingSyncKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -449,6 +832,31 @@
 			isa = PBXTargetDependency;
 			target = 7E37C2D61A43AA7100432E34 /* Pool Calculator */;
 			targetProxy = 7E37C2F01A43AA7100432E34 /* PBXContainerItemProxy */;
+		};
+		7EF329C81A6215DB0013AEFD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7EF329C41A6215DB0013AEFD /* Pool Calculator WatchKit App */;
+			targetProxy = 7EF329C71A6215DB0013AEFD /* PBXContainerItemProxy */;
+		};
+		7EF329D21A6215DB0013AEFD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7EF329B51A6215DB0013AEFD /* Pool Calculator WatchKit Extension */;
+			targetProxy = 7EF329D11A6215DB0013AEFD /* PBXContainerItemProxy */;
+		};
+		7EF329F01A621E290013AEFD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7EF329E21A621E280013AEFD /* ReadingSyncKit */;
+			targetProxy = 7EF329EF1A621E290013AEFD /* PBXContainerItemProxy */;
+		};
+		7EF329F21A621E290013AEFD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E37C2D61A43AA7100432E34 /* Pool Calculator */;
+			targetProxy = 7EF329F11A621E290013AEFD /* PBXContainerItemProxy */;
+		};
+		7EF329F91A621E290013AEFD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7EF329E21A621E280013AEFD /* ReadingSyncKit */;
+			targetProxy = 7EF329F81A621E290013AEFD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -467,6 +875,14 @@
 				7E37C2E91A43AA7100432E34 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		7EF329CC1A6215DB0013AEFD /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7EF329CD1A6215DB0013AEFD /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -555,8 +971,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Pool Calculator/Pool Calculator.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Pool Calculator/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -568,8 +986,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Pool Calculator/Pool Calculator.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Pool Calculator/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -611,6 +1031,158 @@
 			};
 			name = Release;
 		};
+		7EF329D41A6215DB0013AEFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Pool Calculator WatchKit Extension/Pool Calculator WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Pool Calculator WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7EF329D51A6215DB0013AEFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Pool Calculator WatchKit Extension/Pool Calculator WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				INFOPLIST_FILE = "Pool Calculator WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		7EF329D61A6215DB0013AEFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = Pool_Calculator_WatchKit_Extension;
+				INFOPLIST_FILE = "Pool Calculator WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		7EF329D71A6215DB0013AEFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				COPY_PHASE_STRIP = NO;
+				IBSC_MODULE = Pool_Calculator_WatchKit_Extension;
+				INFOPLIST_FILE = "Pool Calculator WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
+		7EF329FD1A621E290013AEFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ReadingSyncKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7EF329FE1A621E290013AEFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ReadingSyncKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7EF32A011A621E290013AEFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ReadingSyncKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pool Calculator.app/Pool Calculator";
+			};
+			name = Debug;
+		};
+		7EF32A021A621E290013AEFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ReadingSyncKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pool Calculator.app/Pool Calculator";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -640,6 +1212,38 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		7EF329D81A6215DB0013AEFD /* Build configuration list for PBXNativeTarget "Pool Calculator WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF329D61A6215DB0013AEFD /* Debug */,
+				7EF329D71A6215DB0013AEFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7EF329D91A6215DB0013AEFD /* Build configuration list for PBXNativeTarget "Pool Calculator WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF329D41A6215DB0013AEFD /* Debug */,
+				7EF329D51A6215DB0013AEFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7EF329FC1A621E290013AEFD /* Build configuration list for PBXNativeTarget "ReadingSyncKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF329FD1A621E290013AEFD /* Debug */,
+				7EF329FE1A621E290013AEFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7EF32A001A621E290013AEFD /* Build configuration list for PBXNativeTarget "ReadingSyncKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF32A011A621E290013AEFD /* Debug */,
+				7EF32A021A621E290013AEFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
