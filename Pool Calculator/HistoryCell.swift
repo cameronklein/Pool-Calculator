@@ -18,7 +18,7 @@ class HistoryCell: UITableViewCell {
   @IBOutlet weak var calciumHardnessLabel: UILabel!
   @IBOutlet weak var timeLabel: UILabel!
   @IBOutlet weak var widthConstraint: NSLayoutConstraint!
-  
+  @IBOutlet weak var leftCircleView: TableLeftCircleView!
 
   override func awakeFromNib() {
     super.awakeFromNib()

@@ -14,7 +14,6 @@ class TabBarButton: UIView {
   var color : UIColor!
 
   override func drawRect(rect: CGRect) {
-    println("Draw Rect Called!")
     let shapeLayer = CAShapeLayer()
     var path : UIBezierPath!
     

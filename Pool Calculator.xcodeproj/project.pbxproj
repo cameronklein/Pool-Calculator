@@ -49,6 +49,7 @@
 		7EEB64431A47CADC0063EF4F /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB64411A47CADC0063EF4F /* CalculatorViewController.swift */; };
 		7EEB64441A47CADC0063EF4F /* CalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EEB64421A47CADC0063EF4F /* CalculatorViewController.xib */; };
 		7EEB64471A47DFF00063EF4F /* ChemicalCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB64461A47DFF00063EF4F /* ChemicalCalculator.swift */; };
+		7EECE8D41A64AB9E000C6D47 /* TableLeftCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EECE8D31A64AB9E000C6D47 /* TableLeftCircleView.swift */; };
 		7EF329BC1A6215DB0013AEFD /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF329BB1A6215DB0013AEFD /* InterfaceController.swift */; };
 		7EF329BE1A6215DB0013AEFD /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF329BD1A6215DB0013AEFD /* NotificationController.swift */; };
 		7EF329C01A6215DB0013AEFD /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF329BF1A6215DB0013AEFD /* GlanceController.swift */; };
@@ -187,6 +188,7 @@
 		7EEB64411A47CADC0063EF4F /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		7EEB64421A47CADC0063EF4F /* CalculatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalculatorViewController.xib; sourceTree = "<group>"; };
 		7EEB64461A47DFF00063EF4F /* ChemicalCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemicalCalculator.swift; sourceTree = "<group>"; };
+		7EECE8D31A64AB9E000C6D47 /* TableLeftCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableLeftCircleView.swift; sourceTree = "<group>"; };
 		7EF329B61A6215DB0013AEFD /* Pool Calculator WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Pool Calculator WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF329B91A6215DB0013AEFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EF329BA1A6215DB0013AEFD /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 			children = (
 				7EC797601A441C7600BFCAAD /* HistoryCell.swift */,
 				7EC797611A441C7600BFCAAD /* HistoryCell.xib */,
+				7EECE8D31A64AB9E000C6D47 /* TableLeftCircleView.swift */,
 			);
 			name = HistoryCell;
 			sourceTree = "<group>";
@@ -783,6 +786,7 @@
 				7EC5CC501A61AA48007E1E7D /* GlobalEnums.swift in Sources */,
 				7E9F8A7E1A4A6018005092B1 /* DesiredValuesViewController.swift in Sources */,
 				7EC797621A441C7600BFCAAD /* HistoryCell.swift in Sources */,
+				7EECE8D41A64AB9E000C6D47 /* TableLeftCircleView.swift in Sources */,
 				7E37C2E01A43AA7100432E34 /* Pool_Calculator.xcdatamodeld in Sources */,
 				7E70A0041A508E0B00913D4B /* Constants.swift in Sources */,
 				7EC5CC531A61C1B1007E1E7D /* SubmitCell.swift in Sources */,

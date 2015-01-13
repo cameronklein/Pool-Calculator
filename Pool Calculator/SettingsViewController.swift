@@ -63,7 +63,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("CELL", forIndexPath: indexPath) as UITableViewCell
     cell.textLabel?.text = settings[indexPath.section].1[indexPath.row]
-    cell.textLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 18.0)
+    cell.textLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
     cell.textLabel?.textColor = UIColor.whiteColor()
     cell.backgroundColor = UIColor.clearColor()
     cell.selectionStyle = .None

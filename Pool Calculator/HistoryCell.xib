@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C94b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6724" systemVersion="14C94b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6246"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -77,6 +77,13 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naZ-d7-3c1" customClass="TableLeftCircleView" customModule="Pool_Calculator" customModuleProvider="target">
+                        <rect key="frame" x="25" y="0.0" width="11" height="123"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="11" id="7Bb-lL-G1N"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
@@ -84,23 +91,33 @@
                     <constraint firstItem="S7b-Ea-UF7" firstAttribute="leading" secondItem="e8M-xL-uDb" secondAttribute="trailing" constant="24" id="9sV-au-qoh"/>
                     <constraint firstAttribute="centerY" secondItem="eAr-wB-C3Z" secondAttribute="centerY" id="AFZ-rX-wzD"/>
                     <constraint firstItem="X1f-zn-tM2" firstAttribute="leading" secondItem="Xmf-0P-bOC" secondAttribute="trailing" constant="24" id="ETk-Tm-7cL"/>
+                    <constraint firstItem="naZ-d7-3c1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="IQC-A3-HPx"/>
+                    <constraint firstAttribute="bottom" secondItem="naZ-d7-3c1" secondAttribute="bottom" id="IRZ-eD-HRJ"/>
                     <constraint firstAttribute="centerY" secondItem="pJ1-kD-spo" secondAttribute="centerY" id="OrL-At-Rra"/>
                     <constraint firstAttribute="centerY" secondItem="X1f-zn-tM2" secondAttribute="centerY" id="P9v-EW-vmc"/>
                     <constraint firstAttribute="centerY" secondItem="e8M-xL-uDb" secondAttribute="centerY" id="T38-Up-B19"/>
                     <constraint firstAttribute="centerY" secondItem="Xmf-0P-bOC" secondAttribute="centerY" id="Xlv-QL-Ie9"/>
                     <constraint firstItem="Xmf-0P-bOC" firstAttribute="leading" secondItem="RhY-HG-hE6" secondAttribute="trailing" constant="24" id="aUq-Rz-8eT"/>
                     <constraint firstItem="e8M-xL-uDb" firstAttribute="leading" secondItem="eAr-wB-C3Z" secondAttribute="trailing" constant="24" id="dWv-bK-oOz"/>
+                    <constraint firstItem="naZ-d7-3c1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="eFV-VX-UAL"/>
                     <constraint firstAttribute="centerY" secondItem="RhY-HG-hE6" secondAttribute="centerY" id="fUc-pf-ewe"/>
                     <constraint firstItem="eAr-wB-C3Z" firstAttribute="leading" secondItem="pJ1-kD-spo" secondAttribute="trailing" constant="24" id="kXG-Ep-6mm"/>
+                    <constraint firstItem="RhY-HG-hE6" firstAttribute="leading" secondItem="naZ-d7-3c1" secondAttribute="trailing" constant="-12" id="rww-K5-SjV"/>
                     <constraint firstItem="RhY-HG-hE6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="vXs-uq-B0F"/>
                     <constraint firstAttribute="centerY" secondItem="S7b-Ea-UF7" secondAttribute="centerY" id="wSi-wY-8ZC"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="IQC-A3-HPx"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="calciumHardnessLabel" destination="S7b-Ea-UF7" id="6bb-Og-e3v"/>
                 <outlet property="combinedChlorineLabel" destination="X1f-zn-tM2" id="Cbd-YW-YzZ"/>
                 <outlet property="freeChlorineLabel" destination="Xmf-0P-bOC" id="tcl-6g-jZn"/>
+                <outlet property="leftCircleView" destination="naZ-d7-3c1" id="Xsj-WQ-0wP"/>
                 <outlet property="pHLabel" destination="e8M-xL-uDb" id="bD1-y3-ATB"/>
                 <outlet property="timeLabel" destination="RhY-HG-hE6" id="ziy-Uy-9Qt"/>
                 <outlet property="totalAlkalinityLabel" destination="eAr-wB-C3Z" id="jTs-sM-WMm"/>

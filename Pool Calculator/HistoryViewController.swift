@@ -144,6 +144,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         myLabel.font = UIFont(name: "AvenirNext-Regular", size: 12.0)
       }
     }
+    cell.leftCircleView.isTop = true
     cell.timeLabel.text = ""
     cell.freeChlorineLabel.text = "Free Chlorine"
     cell.combinedChlorineLabel.text = "Combined Chlorine"
@@ -201,6 +202,14 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     cell.timeLabel.text = timeFormatter.stringFromDate(reading.timestamp)
     cell.selectionStyle = .None
+    
+    if let sections = self.fetchController.sections {
+      if let sectionInfo = sections[indexPath.section] as? NSFetchedResultsSectionInfo {
+        if indexPath.row == sectionInfo.numberOfObjects {
+          cell.leftCircleView.isBottom = true
+        }
+      }
+    }
     
   }
   

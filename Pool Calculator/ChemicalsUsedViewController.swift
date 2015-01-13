@@ -51,7 +51,7 @@ class ChemicalsUsedViewController: UIViewController, UITableViewDelegate, UITabl
     let cell = tableView.dequeueReusableCellWithIdentifier("CELL", forIndexPath: indexPath) as UITableViewCell
     let title = settings[indexPath.section].1[indexPath.row]
     cell.textLabel?.text = title
-    cell.textLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 18.0)
+    cell.textLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
     cell.textLabel?.textColor = UIColor.whiteColor()
     cell.backgroundColor = UIColor.clearColor()
     cell.selectionStyle = .None
