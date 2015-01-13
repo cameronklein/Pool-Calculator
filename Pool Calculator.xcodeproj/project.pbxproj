@@ -14,6 +14,7 @@
 		7E37C2E71A43AA7100432E34 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E37C2E61A43AA7100432E34 /* Images.xcassets */; };
 		7E37C2EA1A43AA7100432E34 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37C2E81A43AA7100432E34 /* LaunchScreen.xib */; };
 		7E37C2F61A43AA7100432E34 /* Pool_CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37C2F51A43AA7100432E34 /* Pool_CalculatorTests.swift */; };
+		7E4E27571A659C5200F43515 /* SelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4E27561A659C5200F43515 /* SelectorView.swift */; };
 		7E57EBA41A61EDAB003807DB /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E57EBA31A61EDAB003807DB /* TabBarButton.swift */; };
 		7E5B2AA61A43B2DE00B39BDE /* NewReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5B2AA41A43B2DE00B39BDE /* NewReadingViewController.swift */; };
 		7E5B2AA71A43B2DE00B39BDE /* NewReadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E5B2AA51A43B2DE00B39BDE /* NewReadingViewController.xib */; };
@@ -153,6 +154,7 @@
 		7E37C2EF1A43AA7100432E34 /* Pool CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pool CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E37C2F41A43AA7100432E34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E37C2F51A43AA7100432E34 /* Pool_CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pool_CalculatorTests.swift; sourceTree = "<group>"; };
+		7E4E27561A659C5200F43515 /* SelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorView.swift; sourceTree = "<group>"; };
 		7E57EBA31A61EDAB003807DB /* TabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		7E5B2AA41A43B2DE00B39BDE /* NewReadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReadingViewController.swift; sourceTree = "<group>"; };
 		7E5B2AA51A43B2DE00B39BDE /* NewReadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewReadingViewController.xib; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				7EF329DC1A621D570013AEFD /* Pool Calculator.entitlements */,
+				7E4E27561A659C5200F43515 /* SelectorView.swift */,
 				7E57EBA31A61EDAB003807DB /* TabBarButton.swift */,
 				7EDAC4251A4F7F370076E306 /* -- View Controllers -- */,
 				7E5B2AAC1A43B95700B39BDE /* -- Model Classes -- */,
@@ -776,6 +779,7 @@
 				7E5B2AAA1A43B6E600B39BDE /* ReadingCell.swift in Sources */,
 				7EC797691A4421D200BFCAAD /* Reading.swift in Sources */,
 				7E37C2E21A43AA7100432E34 /* ContainerViewController.swift in Sources */,
+				7E4E27571A659C5200F43515 /* SelectorView.swift in Sources */,
 				7EF32A041A621E700013AEFD /* DataAccess.swift in Sources */,
 				7E37C2DD1A43AA7100432E34 /* AppDelegate.swift in Sources */,
 				7E9F8A841A4A7E15005092B1 /* PoolSetupViewController.swift in Sources */,

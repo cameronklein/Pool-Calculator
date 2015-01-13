@@ -15,17 +15,27 @@ class ContainerViewController: UIViewController {
   @IBOutlet weak var buttonTwo: TabBarButton!
   @IBOutlet weak var buttonThree: TabBarButton!
   @IBOutlet weak var buttonFour: TabBarButton!
-  @IBOutlet weak var headerLabel: UILabel!
   
-  @IBOutlet weak var buttonTwoConstraint: NSLayoutConstraint!
-  @IBOutlet weak var buttonOneConstraint: NSLayoutConstraint!
-  @IBOutlet weak var buttonThreeConstraint: NSLayoutConstraint!
-  @IBOutlet weak var buttonFourConstraint: NSLayoutConstraint!
+  @IBOutlet var selectorOne: SelectorView!
+  @IBOutlet var selectorTwo: SelectorView!
+  @IBOutlet var selectorThree: SelectorView!
+  @IBOutlet var selectorFour: SelectorView!
+  
+  @IBOutlet weak var buttonLabelOne: UILabel!
+  @IBOutlet weak var buttonLabelTwo: UILabel!
+  @IBOutlet weak var buttonLabelThree: UILabel!
+  @IBOutlet weak var buttonLabelFour: UILabel!
+  
   var currentViewController : UIViewController!
   var newReadingVC : NewReadingViewController!
   var historyVC : HistoryViewController!
   var calculatorVC : CalculatorViewController!
   var settingsVC : SettingsViewController!
+  
+  let colorOne = UIColor(red: 0, green: 121/256, blue: 107/256, alpha: 1)
+  let colorTwo = UIColor(red: 0, green: 151/256, blue: 167/256, alpha: 1)
+  let colorThree = UIColor(red: 123/256, green: 31/256, blue: 162/256, alpha: 1)
+  let colorFour = UIColor(red: 56/256, green: 142/256, blue: 60/256, alpha: 1)
   
   var animationDuration = 0.3
   
@@ -33,6 +43,9 @@ class ContainerViewController: UIViewController {
     super.viewDidLoad()
     setupViewControllers()
     setupButtons()
+    bottomBar.clipsToBounds = true
+    setButtonToActive(selectorOne, animated: false)
+    
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -55,12 +68,16 @@ class ContainerViewController: UIViewController {
     
     newReadingVC = NewReadingViewController(nibName: "NewReadingViewController", bundle: NSBundle.mainBundle())
     newReadingVC.view.frame = vcFrame
+    selectorOne.color = newReadingVC.topBar.backgroundColor
     historyVC = HistoryViewController(nibName: "HistoryViewController", bundle: NSBundle.mainBundle())
     historyVC.view.frame = vcFrame
+    selectorTwo.color = historyVC.topBar.backgroundColor
     calculatorVC = CalculatorViewController(nibName: "CalculatorViewController", bundle: NSBundle.mainBundle())
     calculatorVC.view.frame = vcFrame
+    selectorThree.color = calculatorVC.topBar.backgroundColor
     settingsVC = SettingsViewController(nibName: "SettingsViewController", bundle: NSBundle.mainBundle())
     settingsVC.view.frame = vcFrame
+    selectorFour.color = settingsVC.topBar.backgroundColor
   }
   
   func setupButtons() {
@@ -88,76 +105,122 @@ class ContainerViewController: UIViewController {
     switch sender.view!{
     case buttonOne:
       switchViewControllerTo(newReadingVC, animated: true)
-      setButtonToActive(buttonOne)
-      setButtonToInactive(buttonTwo)
-      setButtonToInactive(buttonThree)
-      setButtonToInactive(buttonFour)
+      setButtonToActive(selectorOne, animated: true)
+      setButtonToInactive(selectorTwo)
+      setButtonToInactive(selectorThree)
+      setButtonToInactive(selectorFour)
     case buttonTwo:
       switchViewControllerTo(historyVC, animated: true)
-      setButtonToInactive(buttonOne)
-      setButtonToActive(buttonTwo)
-      setButtonToInactive(buttonThree)
-      setButtonToInactive(buttonFour)
+      setButtonToInactive(selectorOne)
+      setButtonToActive(selectorTwo, animated: true)
+      setButtonToInactive(selectorThree)
+      setButtonToInactive(selectorFour)
     case buttonThree:
       switchViewControllerTo(calculatorVC, animated: true)
-      setButtonToInactive(buttonOne)
-      setButtonToInactive(buttonTwo)
-      setButtonToActive(buttonThree)
-      setButtonToInactive(buttonFour)
+      setButtonToInactive(selectorOne)
+      setButtonToInactive(selectorTwo)
+      setButtonToActive(selectorThree, animated: true)
+      setButtonToInactive(selectorFour)
     case buttonFour:
       switchViewControllerTo(settingsVC, animated: true)
-      setButtonToInactive(buttonOne)
-      setButtonToInactive(buttonTwo)
-      setButtonToInactive(buttonThree)
-      setButtonToActive(buttonFour)
+      setButtonToInactive(selectorOne)
+      setButtonToInactive(selectorTwo)
+      setButtonToInactive(selectorThree)
+      setButtonToActive(selectorFour, animated: true)
     default:
     println("This should not happen.")
     }
   }
   
-  func setButtonToActive(button: TabBarButton) {
+  func setButtonToActive(selector: SelectorView, animated: Bool) {
+    var label : UILabel!
+    if selector == selectorOne {
+      label = buttonLabelOne
+    }
+    if selector == selectorTwo {
+      label = buttonLabelTwo
+    }
+    if selector == selectorThree {
+      label = buttonLabelThree
+    }
+    if selector == selectorFour {
+      label = buttonLabelFour
+    }
     
-    button.layer.shadowOpacity = 0
-    let animation = CABasicAnimation(keyPath: "shadowOpacity")
-    animation.fromValue = 0.5
-    animation.toValue = 0.0
-    animation.duration = animationDuration
-    button.layer.addAnimation(animation, forKey: "shadowOpacity")
-    
-    button.layer.shadowOffset = CGSizeZero
-    let animation2 = CABasicAnimation(keyPath: "shadowOffset.height")
-    animation2.fromValue = 3.0
-    animation2.toValue = 0.0
-    animation2.duration = animationDuration
-    button.layer.addAnimation(animation2, forKey: "shadowOffset.height")
-    
-    UIView.animateWithDuration(animationDuration, animations: { () -> Void in
-      button.transform = CGAffineTransformMakeTranslation(0, 8)
-      self.bottomBar.backgroundColor = button.color
-      }, completion: { (success) -> Void in
-        return ()
-    })
-
-  }
-  
-  func setButtonToInactive(button: UIView) {
-    
-    button.layer.shadowOpacity = 0.5
+    label.layer.shadowOpacity = 0.5
     let animation = CABasicAnimation(keyPath: "shadowOpacity")
     animation.fromValue = 0.0
-    animation.toValue = 0.5
+    animation.toValue = 0.7
     animation.duration = animationDuration
-    button.layer.addAnimation(animation, forKey: "shadowOpacity")
+    label.layer.addAnimation(animation, forKey: "shadowOpacity")
     
-    button.layer.shadowOffset = CGSize(width: 0, height: 3)
+    label.layer.shadowOffset = CGSize(width: 0, height: 3)
     let animation2 = CABasicAnimation(keyPath: "shadowOffset.height")
     animation2.fromValue = 0.0
     animation2.toValue = 3.0
     animation2.duration = animationDuration
-    button.layer.addAnimation(animation2, forKey: "shadowOffset.height")
+    label.layer.addAnimation(animation2, forKey: "shadowOffset.height")
+    
+    let colorView = UIView()
+    colorView.backgroundColor = selector.color
+    
+    bottomBar.addSubview(colorView)
+    bottomBar.sendSubviewToBack(colorView)
+    colorView.frame = CGRect(origin: bottomBar.convertPoint(selector.center, fromView: self.view), size: CGSize(width: 1, height: 1))
     
     UIView.animateWithDuration(animationDuration, animations: { () -> Void in
-      button.transform = CGAffineTransformIdentity
+      selector.transform = CGAffineTransformMakeTranslation(0, -20)
+      let labelTransform = CGAffineTransformMakeTranslation(0, -5)
+      label.transform = CGAffineTransformScale(labelTransform, 1.3, 1.3)
+      }, completion: { (success) -> Void in
+        return ()
+    })
+    
+    UIView.animateWithDuration(animationDuration * 2, animations: { () -> Void in
+      colorView.transform = CGAffineTransformMakeScale(1000, 1000)
+      }, completion: { (success) -> Void in
+        self.bottomBar.backgroundColor = selector.color
+        colorView.removeFromSuperview()
+        return ()
+    })
+
+
+  }
+  
+  func setButtonToInactive(selector: SelectorView) {
+    var label : UILabel!
+    
+    if selector == selectorOne {
+      label = buttonLabelOne
+    }
+    if selector == selectorTwo {
+      label = buttonLabelTwo
+    }
+    if selector == selectorThree {
+      label = buttonLabelThree
+    }
+    if selector == selectorFour {
+      label = buttonLabelFour
+    }
+    
+    label.layer.shadowOpacity = 0
+    let animation = CABasicAnimation(keyPath: "shadowOpacity")
+    animation.fromValue = 0.7
+    animation.toValue = 0.0
+    animation.duration = animationDuration
+    label.layer.addAnimation(animation, forKey: "shadowOpacity")
+    
+    label.layer.shadowOffset = CGSizeZero
+    let animation2 = CABasicAnimation(keyPath: "shadowOffset.height")
+    animation2.fromValue = 3.0
+    animation2.toValue = 0.0
+    animation2.duration = animationDuration
+    label.layer.addAnimation(animation2, forKey: "shadowOffset.height")
+
+    
+    UIView.animateWithDuration(animationDuration, animations: { () -> Void in
+      selector.transform = CGAffineTransformIdentity
+      label.transform = CGAffineTransformIdentity
       }, completion: { (success) -> Void in
         return ()
     })
@@ -169,7 +232,7 @@ class ContainerViewController: UIViewController {
       let previousViewController = currentViewController
       self.addChildViewController(destination)
       destination.view.alpha = 0
-      self.view.insertSubview(destination.view, belowSubview: bottomBar)
+      self.view.insertSubview(destination.view, belowSubview: selectorOne)
       UIView.animateWithDuration(animated ? 0.1 : 0.0,
         animations: { () -> Void in
         destination.view.alpha = 1
@@ -245,18 +308,6 @@ class ContainerViewController: UIViewController {
       }, completion: nil)
     }
     
-    
-  }
-  
-  func changeHeaderLabelTo(text: String) {
-    UIView.transitionWithView(headerLabel,
-      duration: 0.5,
-      options: .TransitionFlipFromBottom,
-      animations: { () -> Void in
-      self.headerLabel.text = text
-    }) { (success) -> Void in
-      return ()
-    }
     
   }
   
