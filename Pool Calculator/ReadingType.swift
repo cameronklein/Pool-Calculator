@@ -9,7 +9,7 @@
 import Foundation
 
 enum Chemical : Int {
-  case FreeChlorine, CombinedChlorine, TotalChlorine, pH, TotalAlk, Hardness
+  case FreeChlorine, CombinedChlorine, TotalChlorine, pH, TotalAlk, Hardness, Stablizer
 }
 
 struct ReadingType {
@@ -33,6 +33,8 @@ struct ReadingType {
       return ReadingType(name: "Total Alkalinity", minValue: 0, maxValue: 500, stringFormat: "%.0f")
     case .Hardness:
       return ReadingType(name: "Calcium Hardness", minValue: 0, maxValue: 500, stringFormat: "%.0f")
+    case .Stablizer:
+    return ReadingType(name: "Cynuric Acid", minValue: 0, maxValue: 200, stringFormat: "%.0f")
     }
   }
   

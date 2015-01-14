@@ -199,6 +199,8 @@ class CalculatorViewController: UIViewController {
       return calculator.changeAlkalinityBy(desiredValue - currentValue)
     case "Calcium Hardness":
       return calculator.changeHardnessBy(desiredValue - currentValue)
+    case "Cynuric Acid":
+      return calculator.changeCynuricAcidBy(desiredValue - currentValue)
     default:
       return "Oops"
     }
@@ -215,6 +217,8 @@ class CalculatorViewController: UIViewController {
       type = ReadingType.getType(Chemical.TotalAlk)
     case calciumHardnessButton:
       type = ReadingType.getType(Chemical.Hardness)
+    case cynuricAcidButton:
+      type = ReadingType.getType(Chemical.Stablizer)
     default:
       return ()
     }

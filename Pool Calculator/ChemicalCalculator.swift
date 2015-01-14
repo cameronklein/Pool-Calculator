@@ -9,7 +9,7 @@
 import Foundation
 
 enum CalculatorReadingType: Int {
-  case Chlorine, PH, Alkalinity, Hardness
+  case Chlorine, PH, Alkalinity, Hardness, Stablizer
 }
 
 enum MeasurementType: Int {
@@ -99,6 +99,17 @@ class ChemicalCalculator {
     }
   }
   
+  func changeCynuricAcidBy(amount: Double) -> String {
+    if amount > 0 {
+      return raiseCynuricAcidBy(amount)
+    } else if amount < 0 {
+      return lowerCynuricAcidBy(-amount)
+    } else {
+      return "Nothing"
+    }
+    
+  }
+  
   func raiseChlorineBy(amount : Double) -> String {
     
     let gallonsMultiplier = poolGallons / 10000
@@ -158,6 +169,21 @@ class ChemicalCalculator {
     return "Partially replace pool water with softer water."
     
   }
+  
+  func raiseCynuricAcidBy(amount: Double) -> String {
+    
+    let gallonsMultiplier = poolGallons / 10000
+    let result = amount * cynuricAcid * gallonsMultiplier
+    return formatResult(result, chemicalName: "Stablizer", measurementType: .Weight)
+    
+  }
+  
+  func lowerCynuricAcidBy(amount: Double) -> String {
+    
+    return "Partially replace pool water with new water."
+    
+  }
+  
   
   func formatResult(ounces : Double, chemicalName: String, measurementType: MeasurementType) -> String {
     let units : VolumeUnit = VolumeUnit(rawValue: NSUserDefaults.standardUserDefaults().integerForKey(kUserSettingsVolumeUnits))!
