@@ -125,8 +125,10 @@ class OnboardViewController: UIViewController {
   func updateVolumeDisplay() {
     
     if currentUnits == .Liters {
+      var value = currentValue * 3.78541
+      value = value - (value % 1000)
       
-      volumeLabel.text = NSNumberFormatter.localizedStringFromNumber(currentValue*4, numberStyle: NSNumberFormatterStyle.DecimalStyle)
+      volumeLabel.text = NSNumberFormatter.localizedStringFromNumber(value, numberStyle: NSNumberFormatterStyle.DecimalStyle)
       
     } else {
       

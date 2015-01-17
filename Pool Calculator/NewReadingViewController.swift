@@ -207,6 +207,8 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
     } else {
       if let parent = self.parentViewController as? ContainerViewController {
         parent.switchViewControllerTo(parent.historyVC, animated: true)
+        parent.setButtonToInactive(parent.selectorOne)
+        parent.setButtonToActive(parent.selectorTwo, animated: true)
       }
     }
 
