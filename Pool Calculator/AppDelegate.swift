@@ -23,20 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
     let userDefaults = NSUserDefaults.standardUserDefaults()
-    if userDefaults.valueForKey("First Launch") == nil {
-      println("First Launch!")
-      userDefaults.setBool(true, forKey: "First Launch")
+    if userDefaults.valueForKey("OnboardComplete") == nil {
       userDefaults.setBool(false, forKey: kUserSettingsCalculatorMode)
       userDefaults.setDouble(2.0, forKey: kFreeChlorineDesiredValue)
       userDefaults.setDouble(7.4, forKey: kPHDesiredValue)
       userDefaults.setDouble(100, forKey: kTotalAlkalinityDesiredValue)
       userDefaults.setDouble(200, forKey: kCalciumHardnessDesiredValue)
       userDefaults.setDouble(50000, forKey: kUserSettingsPoolVolumeInGallons)
+      self.window?.rootViewController = OnboardViewController(nibName: "OnboardViewController", bundle: NSBundle.mainBundle())
     }
-    
-    //self.window?.rootViewController = OnboardViewController(nibName: "OnboardViewController", bundle: NSBundle.mainBundle())
-    
-    
+
     return true
   }
 

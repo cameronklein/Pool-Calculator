@@ -300,6 +300,7 @@ class OnboardViewController: UIViewController {
   }
   
   func addChemicalsUsedViewController() {
+    
     let chemVC = ChemicalsUsedViewController(nibName: "ChemicalsUsedViewController", bundle: NSBundle.mainBundle())
     self.addChildViewController(chemVC)
     let origin = CGPoint(x: 0, y: self.helpButton.frame.origin.y)
@@ -323,13 +324,13 @@ class OnboardViewController: UIViewController {
   }
   
   @IBAction func didPressDone(sender: AnyObject) {
+    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "OnboardComplete")
     let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
     let containerVC = storyboard.instantiateInitialViewController() as ContainerViewController
     self.presentViewController(containerVC, animated: true) { () -> Void in
       let appDel = UIApplication.sharedApplication().delegate as AppDelegate
       appDel.window?.rootViewController = containerVC
     }
-
   }
   
 }

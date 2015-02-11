@@ -4,6 +4,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="fontawesome-webfont.ttf">
+            <string>FontAwesome</string>
+            <string>FontAwesome</string>
+            <string>FontAwesome</string>
+            <string>FontAwesome</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Container View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -98,27 +106,27 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbz-iK-sYP">
-                                <rect key="frame" x="64" y="548" width="22" height="44"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbz-iK-sYP" userLabel="Flask Icon">
+                                <rect key="frame" x="67" y="561" width="17" height="19"/>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="H" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oG6-jv-514">
-                                <rect key="frame" x="216" y="555" width="19" height="33"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oG6-jv-514" userLabel="Clock Icon">
+                                <rect key="frame" x="218" y="561" width="16" height="19"/>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrD-or-2gm">
-                                <rect key="frame" x="367" y="555" width="17" height="33"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrD-or-2gm" userLabel="Calculator Icon">
+                                <rect key="frame" x="364" y="561" width="23" height="19"/>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZV6-QT-5lz">
-                                <rect key="frame" x="518" y="555" width="15" height="33"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZV6-QT-5lz" userLabel="Gears Icon">
+                                <rect key="frame" x="515" y="560" width="22" height="20"/>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -151,7 +159,7 @@
                             <constraint firstItem="RCP-LI-ALs" firstAttribute="leading" secondItem="QqP-gS-gip" secondAttribute="trailing" id="IoY-V0-g3f"/>
                             <constraint firstItem="5Kq-7f-w7l" firstAttribute="centerX" secondItem="ntE-Za-TeL" secondAttribute="centerX" id="LEu-jP-bFn"/>
                             <constraint firstItem="I3R-GM-xno" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MrM-0x-h5m"/>
-                            <constraint firstItem="Wdi-Y8-6lP" firstAttribute="top" secondItem="xrD-or-2gm" secondAttribute="bottom" constant="-4" id="O1w-bL-jxP"/>
+                            <constraint firstItem="Wdi-Y8-6lP" firstAttribute="top" secondItem="xrD-or-2gm" secondAttribute="bottom" constant="4" id="O1w-bL-jxP"/>
                             <constraint firstItem="5Kq-7f-w7l" firstAttribute="centerX" secondItem="ZV6-QT-5lz" secondAttribute="centerX" id="Oi7-gz-UbO"/>
                             <constraint firstItem="RCP-LI-ALs" firstAttribute="leading" secondItem="Ec5-7H-EbN" secondAttribute="trailing" constant="-19" id="Oqu-ji-ny7"/>
                             <constraint firstItem="QqP-gS-gip" firstAttribute="bottom" secondItem="I3R-GM-xno" secondAttribute="bottom" id="P3n-ft-Z0t"/>
@@ -159,11 +167,11 @@
                             <constraint firstItem="GnV-r7-t3y" firstAttribute="top" secondItem="QqP-gS-gip" secondAttribute="top" id="SLe-vJ-NeS"/>
                             <constraint firstItem="RCP-LI-ALs" firstAttribute="width" secondItem="QqP-gS-gip" secondAttribute="width" id="UEs-DF-8Po"/>
                             <constraint firstItem="QqP-gS-gip" firstAttribute="height" secondItem="I3R-GM-xno" secondAttribute="height" id="UIE-D4-bFf"/>
-                            <constraint firstItem="5Kq-7f-w7l" firstAttribute="top" secondItem="ZV6-QT-5lz" secondAttribute="bottom" constant="-4" id="XHo-9N-MQR"/>
+                            <constraint firstItem="5Kq-7f-w7l" firstAttribute="top" secondItem="ZV6-QT-5lz" secondAttribute="bottom" constant="4" id="XHo-9N-MQR"/>
                             <constraint firstAttribute="trailing" secondItem="Fuf-mP-8hi" secondAttribute="trailing" id="ZNh-gW-XZ2"/>
                             <constraint firstItem="bya-ft-0iK" firstAttribute="top" secondItem="Fuf-mP-8hi" secondAttribute="top" id="cGd-pM-xNz"/>
                             <constraint firstItem="RCP-LI-ALs" firstAttribute="bottom" secondItem="ntE-Za-TeL" secondAttribute="bottom" id="cNY-Bi-KmY"/>
-                            <constraint firstItem="NSG-sH-Ty4" firstAttribute="top" secondItem="oG6-jv-514" secondAttribute="bottom" constant="-4" id="cyl-Jk-qrn"/>
+                            <constraint firstItem="NSG-sH-Ty4" firstAttribute="top" secondItem="oG6-jv-514" secondAttribute="bottom" constant="4" id="cyl-Jk-qrn"/>
                             <constraint firstAttribute="bottom" secondItem="Fuf-mP-8hi" secondAttribute="bottom" constant="-10" id="dl8-GU-cOg"/>
                             <constraint firstItem="Wdi-Y8-6lP" firstAttribute="centerX" secondItem="RCP-LI-ALs" secondAttribute="centerX" id="eun-3H-AFC"/>
                             <constraint firstItem="Ec5-7H-EbN" firstAttribute="centerX" secondItem="RCP-LI-ALs" secondAttribute="centerX" id="hQ1-5j-LGK"/>
@@ -171,7 +179,7 @@
                             <constraint firstItem="oG6-jv-514" firstAttribute="centerX" secondItem="NSG-sH-Ty4" secondAttribute="centerX" id="kzT-8T-W3z"/>
                             <constraint firstItem="xrD-or-2gm" firstAttribute="centerX" secondItem="Wdi-Y8-6lP" secondAttribute="centerX" id="mbH-dU-Uhs"/>
                             <constraint firstItem="QqP-gS-gip" firstAttribute="width" secondItem="I3R-GM-xno" secondAttribute="width" id="meG-XU-6RU"/>
-                            <constraint firstItem="SrK-aP-Mx6" firstAttribute="top" secondItem="Qbz-iK-sYP" secondAttribute="bottom" constant="-8" id="nBU-1A-7ea"/>
+                            <constraint firstItem="SrK-aP-Mx6" firstAttribute="top" secondItem="Qbz-iK-sYP" secondAttribute="bottom" constant="4" id="nBU-1A-7ea"/>
                             <constraint firstItem="RCP-LI-ALs" firstAttribute="bottom" secondItem="QqP-gS-gip" secondAttribute="bottom" id="oKh-6y-mBb"/>
                             <constraint firstItem="SrK-aP-Mx6" firstAttribute="centerX" secondItem="I3R-GM-xno" secondAttribute="centerX" id="p13-W7-lDf"/>
                             <constraint firstItem="RCP-LI-ALs" firstAttribute="width" secondItem="ntE-Za-TeL" secondAttribute="width" id="p4b-6I-SrZ"/>

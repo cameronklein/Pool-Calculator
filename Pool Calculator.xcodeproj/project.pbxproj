@@ -24,6 +24,7 @@
 		7E70A0011A50858900913D4B /* TermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E709FFF1A50858900913D4B /* TermsOfUseViewController.swift */; };
 		7E70A0021A50858900913D4B /* TermsOfUseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E70A0001A50858900913D4B /* TermsOfUseViewController.xib */; };
 		7E70A0041A508E0B00913D4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E70A0031A508E0B00913D4B /* Constants.swift */; };
+		7E73F9E41A8BDD8E00B5C1B8 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E73F9E31A8BDD8E00B5C1B8 /* fontawesome-webfont.ttf */; };
 		7E88C5241A8AF955002FBEE8 /* CKExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E88C5231A8AF955002FBEE8 /* CKExtensions.swift */; };
 		7E9F8A6B1A492576005092B1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F8A691A492576005092B1 /* SettingsViewController.swift */; };
 		7E9F8A6C1A492576005092B1 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F8A6A1A492576005092B1 /* SettingsViewController.xib */; };
@@ -165,6 +166,7 @@
 		7E709FFF1A50858900913D4B /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewController.swift; sourceTree = "<group>"; };
 		7E70A0001A50858900913D4B /* TermsOfUseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsOfUseViewController.xib; sourceTree = "<group>"; };
 		7E70A0031A508E0B00913D4B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7E73F9E31A8BDD8E00B5C1B8 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		7E88C5231A8AF955002FBEE8 /* CKExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKExtensions.swift; sourceTree = "<group>"; };
 		7E9F8A691A492576005092B1 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7E9F8A6A1A492576005092B1 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 		7E37C2DA1A43AA7100432E34 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7E73F9E31A8BDD8E00B5C1B8 /* fontawesome-webfont.ttf */,
 				7E37C2DB1A43AA7100432E34 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -713,6 +716,7 @@
 				7E5B2AA71A43B2DE00B39BDE /* NewReadingViewController.xib in Resources */,
 				7E9F8A6C1A492576005092B1 /* SettingsViewController.xib in Resources */,
 				7E9F8A891A4B4413005092B1 /* OnboardViewController.xib in Resources */,
+				7E73F9E41A8BDD8E00B5C1B8 /* fontawesome-webfont.ttf in Resources */,
 				7EC5CC541A61C1B1007E1E7D /* SubmitCell.xib in Resources */,
 				7E70A0021A50858900913D4B /* TermsOfUseViewController.xib in Resources */,
 				7EC797631A441C7600BFCAAD /* HistoryCell.xib in Resources */,
