@@ -39,6 +39,8 @@ class CalculatorViewController: UIViewController {
   
   var context : NSManagedObjectContext!
   
+  // MARK: - UIViewController Lifecycle Methods
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     let appDel = UIApplication.sharedApplication().delegate as AppDelegate
@@ -70,6 +72,8 @@ class CalculatorViewController: UIViewController {
       settingsButton.alpha = 0
     }
   }
+  
+  // MARK: - Helper Methods
   
   func didPanNumber(sender: UIPanGestureRecognizer) {
     if let view = sender.view? {

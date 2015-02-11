@@ -11,6 +11,7 @@ import UIKit
 class ContainerViewController: UIViewController {
   
   @IBOutlet weak var bottomBar: UIView!
+  
   @IBOutlet weak var buttonOne: TabBarButton!
   @IBOutlet weak var buttonTwo: TabBarButton!
   @IBOutlet weak var buttonThree: TabBarButton!
@@ -247,6 +248,7 @@ class ContainerViewController: UIViewController {
   }
   
   func switchToCalculatorOnlyMode(wantsCalcMode: Bool, animated: Bool){
+    
     if wantsCalcMode {
       UIView.animateWithDuration(animated ? 0.5 : 0.0,
         delay: 0.0,
@@ -254,8 +256,10 @@ class ContainerViewController: UIViewController {
         initialSpringVelocity: 0.4,
         options: nil,
         animations: { () -> Void in
-          self.buttonTwo.transform = CGAffineTransformMakeTranslation(-200, 0)
-          self.buttonThree.transform = CGAffineTransformMakeTranslation(200, 0)
+          self.selectorTwo.transform = CGAffineTransformMakeTranslation(-200, 0)
+          self.buttonLabelTwo.transform = CGAffineTransformMakeTranslation(-200, 0)
+          self.selectorThree.transform = CGAffineTransformMakeTranslation(200, 0)
+          self.buttonLabelThree.transform = CGAffineTransformMakeTranslation(200, 0)
       }, completion: nil)
       UIView.animateWithDuration(animated ? 0.5 : 0.0,
         delay: animated ? 0.2 : 0.0,
@@ -263,8 +267,10 @@ class ContainerViewController: UIViewController {
         initialSpringVelocity: 0.4,
         options: nil,
         animations: { () -> Void in
-          self.buttonOne.transform = CGAffineTransformMakeTranslation(-100, 0)
-          self.buttonFour.transform = CGAffineTransformMakeTranslation(100, 0)
+          self.selectorOne.transform = CGAffineTransformMakeTranslation(-100, 0)
+          self.buttonLabelOne.transform = CGAffineTransformMakeTranslation(-100, 0)
+          self.selectorFour.transform = CGAffineTransformMakeTranslation(100, 0)
+          self.buttonLabelFour.transform = CGAffineTransformMakeTranslation(100, 0)
       }, completion: nil)
       UIView.animateWithDuration(animated ? 0.7 : 0.0,
         delay: animated ? 0.4 : 0.0,
@@ -275,8 +281,6 @@ class ContainerViewController: UIViewController {
           self.bottomBar.transform = CGAffineTransformMakeTranslation(0, self.bottomBar.frame.height)
       },completion: nil)
       
-
-  
     } else {
       UIView.animateWithDuration(animated ? 0.5 : 0.0,
         delay: 0.0,
@@ -293,8 +297,10 @@ class ContainerViewController: UIViewController {
             initialSpringVelocity: 0.4,
             options: nil,
             animations: { () -> Void in
-              self.buttonOne.transform = CGAffineTransformIdentity
-              self.buttonFour.transform = CGAffineTransformIdentity
+              self.selectorOne.transform = CGAffineTransformIdentity
+              self.buttonLabelOne.transform = CGAffineTransformIdentity
+              self.selectorFour.transform = CGAffineTransformIdentity
+              self.buttonLabelFour.transform = CGAffineTransformIdentity
         }, completion: nil)
       
       UIView.animateWithDuration(animated ? 0.7 : 0.0,
@@ -303,11 +309,15 @@ class ContainerViewController: UIViewController {
         initialSpringVelocity: 0.4,
         options: nil,
         animations: { () -> Void in
-          self.buttonTwo.transform = CGAffineTransformIdentity
-          self.buttonThree.transform = CGAffineTransformIdentity
-      }, completion: nil)
+          self.selectorTwo.transform = CGAffineTransformIdentity
+          self.buttonLabelTwo.transform = CGAffineTransformIdentity
+          self.selectorThree.transform = CGAffineTransformIdentity
+          self.buttonLabelThree.transform = CGAffineTransformIdentity
+        }) { (success) -> Void in
+          self.setButtonToActive(self.selectorFour, animated: true)
+      }
+
     }
-    
     
   }
   

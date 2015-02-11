@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhY-HG-hE6">
-                        <rect key="frame" x="24" y="52" width="70" height="20"/>
+                        <rect key="frame" x="16" y="52" width="70" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="guR-AF-dBD"/>
                         </constraints>
@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xmf-0P-bOC" userLabel="Free Chlorine">
-                        <rect key="frame" x="118" y="52" width="60" height="20"/>
+                        <rect key="frame" x="110" y="52" width="60" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="6Zt-bS-0Sz"/>
                         </constraints>
@@ -33,7 +33,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1f-zn-tM2" userLabel="Combined Chlorine">
-                        <rect key="frame" x="202" y="52" width="60" height="20"/>
+                        <rect key="frame" x="186" y="52" width="60" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="ZVC-ZY-IbR"/>
                         </constraints>
@@ -41,8 +41,8 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJ1-kD-spo" userLabel="Total Chlorine">
-                        <rect key="frame" x="286" y="52" width="60" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJ1-kD-spo" userLabel="pH">
+                        <rect key="frame" x="258" y="52" width="60" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="CAM-jd-NEZ"/>
                         </constraints>
@@ -51,7 +51,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAr-wB-C3Z" userLabel="Total Alkalinity">
-                        <rect key="frame" x="370" y="52" width="60" height="20"/>
+                        <rect key="frame" x="334" y="52" width="60" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="fPX-Qz-uBL"/>
                         </constraints>
@@ -59,8 +59,8 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8M-xL-uDb" userLabel="pH">
-                        <rect key="frame" x="454" y="52" width="60" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8M-xL-uDb" userLabel="Total Chlorine">
+                        <rect key="frame" x="418" y="52" width="60" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="Yra-Ih-dAx"/>
                         </constraints>
@@ -69,7 +69,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7b-Ea-UF7" userLabel="Hardness">
-                        <rect key="frame" x="538" y="52" width="60" height="20"/>
+                        <rect key="frame" x="502" y="52" width="60" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="ETS-Ht-P32"/>
                         </constraints>
@@ -78,7 +78,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naZ-d7-3c1" customClass="TableLeftCircleView" customModule="Pool_Calculator" customModuleProvider="target">
-                        <rect key="frame" x="25" y="0.0" width="11" height="123"/>
+                        <rect key="frame" x="17" y="0.0" width="11" height="123"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="11" id="7Bb-lL-G1N"/>
@@ -87,10 +87,10 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="pJ1-kD-spo" firstAttribute="leading" secondItem="X1f-zn-tM2" secondAttribute="trailing" constant="24" id="99v-wG-qty"/>
+                    <constraint firstItem="pJ1-kD-spo" firstAttribute="leading" secondItem="X1f-zn-tM2" secondAttribute="trailing" constant="12" id="99v-wG-qty"/>
                     <constraint firstItem="S7b-Ea-UF7" firstAttribute="leading" secondItem="e8M-xL-uDb" secondAttribute="trailing" constant="24" id="9sV-au-qoh"/>
                     <constraint firstAttribute="centerY" secondItem="eAr-wB-C3Z" secondAttribute="centerY" id="AFZ-rX-wzD"/>
-                    <constraint firstItem="X1f-zn-tM2" firstAttribute="leading" secondItem="Xmf-0P-bOC" secondAttribute="trailing" constant="24" id="ETk-Tm-7cL"/>
+                    <constraint firstItem="X1f-zn-tM2" firstAttribute="leading" secondItem="Xmf-0P-bOC" secondAttribute="trailing" constant="16" id="ETk-Tm-7cL"/>
                     <constraint firstItem="naZ-d7-3c1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="IQC-A3-HPx"/>
                     <constraint firstAttribute="bottom" secondItem="naZ-d7-3c1" secondAttribute="bottom" id="IRZ-eD-HRJ"/>
                     <constraint firstAttribute="centerY" secondItem="pJ1-kD-spo" secondAttribute="centerY" id="OrL-At-Rra"/>
@@ -101,9 +101,9 @@
                     <constraint firstItem="e8M-xL-uDb" firstAttribute="leading" secondItem="eAr-wB-C3Z" secondAttribute="trailing" constant="24" id="dWv-bK-oOz"/>
                     <constraint firstItem="naZ-d7-3c1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="eFV-VX-UAL"/>
                     <constraint firstAttribute="centerY" secondItem="RhY-HG-hE6" secondAttribute="centerY" id="fUc-pf-ewe"/>
-                    <constraint firstItem="eAr-wB-C3Z" firstAttribute="leading" secondItem="pJ1-kD-spo" secondAttribute="trailing" constant="24" id="kXG-Ep-6mm"/>
+                    <constraint firstItem="eAr-wB-C3Z" firstAttribute="leading" secondItem="pJ1-kD-spo" secondAttribute="trailing" constant="16" id="kXG-Ep-6mm"/>
                     <constraint firstItem="RhY-HG-hE6" firstAttribute="leading" secondItem="naZ-d7-3c1" secondAttribute="trailing" constant="-12" id="rww-K5-SjV"/>
-                    <constraint firstItem="RhY-HG-hE6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="vXs-uq-B0F"/>
+                    <constraint firstItem="RhY-HG-hE6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="vXs-uq-B0F"/>
                     <constraint firstAttribute="centerY" secondItem="S7b-Ea-UF7" secondAttribute="centerY" id="wSi-wY-8ZC"/>
                 </constraints>
                 <variation key="default">
@@ -118,10 +118,10 @@
                 <outlet property="combinedChlorineLabel" destination="X1f-zn-tM2" id="Cbd-YW-YzZ"/>
                 <outlet property="freeChlorineLabel" destination="Xmf-0P-bOC" id="tcl-6g-jZn"/>
                 <outlet property="leftCircleView" destination="naZ-d7-3c1" id="Xsj-WQ-0wP"/>
-                <outlet property="pHLabel" destination="e8M-xL-uDb" id="bD1-y3-ATB"/>
+                <outlet property="pHLabel" destination="pJ1-kD-spo" id="gzy-sp-LJu"/>
                 <outlet property="timeLabel" destination="RhY-HG-hE6" id="ziy-Uy-9Qt"/>
                 <outlet property="totalAlkalinityLabel" destination="eAr-wB-C3Z" id="jTs-sM-WMm"/>
-                <outlet property="totalChlorineLabel" destination="pJ1-kD-spo" id="ieO-sa-IHf"/>
+                <outlet property="totalChlorineLabel" destination="e8M-xL-uDb" id="Dhz-g1-P0M"/>
             </connections>
             <point key="canvasLocation" x="233" y="293"/>
         </tableViewCell>

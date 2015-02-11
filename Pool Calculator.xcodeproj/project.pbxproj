@@ -24,6 +24,7 @@
 		7E70A0011A50858900913D4B /* TermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E709FFF1A50858900913D4B /* TermsOfUseViewController.swift */; };
 		7E70A0021A50858900913D4B /* TermsOfUseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E70A0001A50858900913D4B /* TermsOfUseViewController.xib */; };
 		7E70A0041A508E0B00913D4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E70A0031A508E0B00913D4B /* Constants.swift */; };
+		7E88C5241A8AF955002FBEE8 /* CKExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E88C5231A8AF955002FBEE8 /* CKExtensions.swift */; };
 		7E9F8A6B1A492576005092B1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F8A691A492576005092B1 /* SettingsViewController.swift */; };
 		7E9F8A6C1A492576005092B1 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F8A6A1A492576005092B1 /* SettingsViewController.xib */; };
 		7E9F8A741A4A26AF005092B1 /* ChemicalsUsedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F8A721A4A26AF005092B1 /* ChemicalsUsedViewController.swift */; };
@@ -164,6 +165,7 @@
 		7E709FFF1A50858900913D4B /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewController.swift; sourceTree = "<group>"; };
 		7E70A0001A50858900913D4B /* TermsOfUseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsOfUseViewController.xib; sourceTree = "<group>"; };
 		7E70A0031A508E0B00913D4B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7E88C5231A8AF955002FBEE8 /* CKExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKExtensions.swift; sourceTree = "<group>"; };
 		7E9F8A691A492576005092B1 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7E9F8A6A1A492576005092B1 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		7E9F8A721A4A26AF005092B1 /* ChemicalsUsedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChemicalsUsedViewController.swift; sourceTree = "<group>"; };
@@ -283,14 +285,15 @@
 		7E37C2D91A43AA7100432E34 /* Pool Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				7E88C5231A8AF955002FBEE8 /* CKExtensions.swift */,
 				7EF329DC1A621D570013AEFD /* Pool Calculator.entitlements */,
-				7E4E27561A659C5200F43515 /* SelectorView.swift */,
-				7E57EBA31A61EDAB003807DB /* TabBarButton.swift */,
 				7EDAC4251A4F7F370076E306 /* -- View Controllers -- */,
 				7E5B2AAC1A43B95700B39BDE /* -- Model Classes -- */,
 				7E37C2DC1A43AA7100432E34 /* AppDelegate.swift */,
 				7E70A0031A508E0B00913D4B /* Constants.swift */,
 				7EC5CC4F1A61AA48007E1E7D /* GlobalEnums.swift */,
+				7E4E27561A659C5200F43515 /* SelectorView.swift */,
+				7E57EBA31A61EDAB003807DB /* TabBarButton.swift */,
 				7E37C2E31A43AA7100432E34 /* Main.storyboard */,
 				7E37C2E81A43AA7100432E34 /* LaunchScreen.xib */,
 				7E37C2DE1A43AA7100432E34 /* Pool_Calculator.xcdatamodeld */,
@@ -379,15 +382,15 @@
 			children = (
 				7E9F8A691A492576005092B1 /* SettingsViewController.swift */,
 				7E709FFF1A50858900913D4B /* TermsOfUseViewController.swift */,
+				7E9F8A721A4A26AF005092B1 /* ChemicalsUsedViewController.swift */,
+				7E9F8A781A4A34D5005092B1 /* DisplayOptionsViewController.swift */,
+				7E9F8A7C1A4A6018005092B1 /* DesiredValuesViewController.swift */,
+				7E9F8A821A4A7E15005092B1 /* PoolSetupViewController.swift */,
 				7E70A0001A50858900913D4B /* TermsOfUseViewController.xib */,
 				7E9F8A6A1A492576005092B1 /* SettingsViewController.xib */,
-				7E9F8A721A4A26AF005092B1 /* ChemicalsUsedViewController.swift */,
 				7E9F8A731A4A26AF005092B1 /* ChemicalsUsedViewController.xib */,
-				7E9F8A781A4A34D5005092B1 /* DisplayOptionsViewController.swift */,
 				7E9F8A791A4A34D5005092B1 /* DisplayOptionsViewController.xib */,
-				7E9F8A7C1A4A6018005092B1 /* DesiredValuesViewController.swift */,
 				7E9F8A7D1A4A6018005092B1 /* DesiredValuesViewController.xib */,
-				7E9F8A821A4A7E15005092B1 /* PoolSetupViewController.swift */,
 				7E9F8A831A4A7E15005092B1 /* PoolSetupViewController.xib */,
 			);
 			name = "-- Settings --";
@@ -407,8 +410,8 @@
 			isa = PBXGroup;
 			children = (
 				7EC797601A441C7600BFCAAD /* HistoryCell.swift */,
-				7EC797611A441C7600BFCAAD /* HistoryCell.xib */,
 				7EECE8D31A64AB9E000C6D47 /* TableLeftCircleView.swift */,
+				7EC797611A441C7600BFCAAD /* HistoryCell.xib */,
 			);
 			name = HistoryCell;
 			sourceTree = "<group>";
@@ -796,6 +799,7 @@
 				7EC5CC531A61C1B1007E1E7D /* SubmitCell.swift in Sources */,
 				7E9F8A881A4B4413005092B1 /* OnboardViewController.swift in Sources */,
 				7E9F8A7A1A4A34D5005092B1 /* DisplayOptionsViewController.swift in Sources */,
+				7E88C5241A8AF955002FBEE8 /* CKExtensions.swift in Sources */,
 				7E9F8A6B1A492576005092B1 /* SettingsViewController.swift in Sources */,
 				7E9F8A811A4A7DBA005092B1 /* Pool.swift in Sources */,
 			);

@@ -69,18 +69,18 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     cell.selectionStyle = .None
     
     switch indexPath {
-    case NSIndexPath(forRow: 1, inSection: 1):
+    case NSIndexPath(forRow: 0, inSection: 1):
       
       cell.accessoryView = calculatorModeSwitch
       calculatorModeSwitch.onTintColor = UIColor(red: 0/256, green: 150/256, blue: 136/256, alpha: 1)
       calculatorModeSwitch.tintColor = topBar.backgroundColor
       
-    case NSIndexPath(forRow: 2, inSection: 1):
+    case NSIndexPath(forRow: 1, inSection: 1):
       let switcher = getVolumeUnitsSwitcherForCell(cell)
       switcher.frame.origin.x -= 100
       cell.addSubview(getVolumeUnitsSwitcherForCell(cell))
       
-    case NSIndexPath(forRow: 3, inSection: 1):
+    case NSIndexPath(forRow: 2, inSection: 1):
       
       cell.addSubview(getWeightUnitsSwitcherForCell(cell))
       
@@ -105,9 +105,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     case NSIndexPath(forRow: 2, inSection: 0):
       pushViewController(DesiredValuesViewController(nibName: "DesiredValuesViewController", bundle: NSBundle.mainBundle()))
       changeHeaderLabelTo("Target Values")
-    case NSIndexPath(forRow: 0, inSection: 1):
+    /*case NSIndexPath(forRow: 0, inSection: 1):
       pushViewController(DisplayOptionsViewController(nibName: "DisplayOptionsViewController", bundle: NSBundle.mainBundle()))
       changeHeaderLabelTo("Display Options")
+    */
     case NSIndexPath(forRow: 0, inSection: 2):
       pushViewController(TermsOfUseViewController(nibName: "TermsOfUseViewController", bundle: NSBundle.mainBundle()))
       changeHeaderLabelTo("Terms of Use")
@@ -128,17 +129,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   func setupTableViewLabels() {
     
     var group1 = ["Pool", "Chemicals", "Desired Values"]
-    var group2 = ["Display Options", "Calculator Only Mode", "Volume Units", "Weight Units"]
-    var group3 = ["Terms of Use", "This"]
+    var group2 = [/*"Display Options",*/ "Calculator Only Mode", "Volume Units", "Weight Units"]
+    var group3 = ["Terms of Use"]
     settings = [("Facility Info",group1),("Display",group2),("About",group3)]
     
   }
   
   func addTopBarShadow() {
-    topBar.layer.shadowColor = UIColor.blackColor().CGColor
-    topBar.layer.shadowOffset = CGSize(width: 0, height: 3)
-    topBar.layer.shadowOpacity = 0.5
-    topBar.layer.shadowRadius = 3
+    topBar.addShadowWithOpacity(0.5, radius: 3, xOffset: 0, yOffset: 3)
   }
 
   func makeBackButtonVisable(visable: Bool) {

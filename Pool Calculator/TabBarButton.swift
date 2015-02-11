@@ -26,17 +26,7 @@ class TabBarButton: UIView {
       path.addLineToPoint(CGPoint(x: rect.minX, y: rect.maxY / 1.5))
       path.addLineToPoint(CGPoint(x: rect.maxX / 2, y: rect.minY))
       
-      //      path.addQuadCurveToPoint(CGPoint(x: rect.maxX, y: rect.maxY / 2), controlPoint: CGPoint(x: rect.maxX, y: rect.minY))
-      //      path.addQuadCurveToPoint(CGPoint(x: rect.maxX * 2, y: rect.maxY), controlPoint: CGPoint(x: rect.maxX, y: rect.maxY))
-      //      path.addLineToPoint(CGPoint(x: -rect.minX, y: rect.maxY * 1.5))
-      
     } else {
-      
-//      path = UIBezierPath(
-//        roundedRect: rect,
-//        byRoundingCorners: UIRectCorner.AllCorners,
-//        cornerRadii: CGSize(width: rect.width, height: rect.height)
-//      )
       
       path = UIBezierPath()
       

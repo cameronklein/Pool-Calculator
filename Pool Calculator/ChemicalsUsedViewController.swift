@@ -19,7 +19,7 @@ class ChemicalsUsedViewController: UIViewController, UITableViewDelegate, UITabl
     super.viewDidLoad()
     var group1 = ("Chlorine Products", ["Chlorine Gas", "Sodium Hypochlorite"])
     var group2 = ("pH / Total Alkalinity", ["Sodium Bicarbonate", "Soda Ash", "Muriatic Acid", "Sodium Bisulfate"])
-    var group3 = ("Calcium Hardness", ["Calcium Chloride 100%", "Calcium Chloride 77%"])
+    var group3 = ("Calcium", ["Calcium Chloride 100%", "Calcium Chloride 77%"])
     var group4 = ("Other",["Cynuric Acid","Sodium Thiosulfate"])
     settings = [group1, group2, group3, group4]
     tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CELL")

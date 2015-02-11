@@ -48,7 +48,7 @@ class DataAccess: NSObject {
     var failureReason = "There was an error creating or loading the application's saved data."
     if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil, error: &error) == nil {
       coordinator = nil
-      // Report any error we got.
+      // Report any error we got. 
       let dict = NSMutableDictionary()
       dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
       dict[NSLocalizedFailureReasonErrorKey] = failureReason

@@ -23,6 +23,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   var dateFormatter = NSDateFormatter()
   var timeFormatter = NSDateFormatter()
   
+  // MARK: - UIViewController Lifecycle Methods
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupFetchController()
@@ -33,8 +35,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     timeFormatter.dateStyle = NSDateFormatterStyle.NoStyle
     timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
     tableView.rowHeight = 30.0
-    
-    setupHeaderView()
 
     self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 80.0))
     
@@ -62,14 +62,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
 
   }
   
-  func setupHeaderView() {
-    
-
-    
-    
-    
-  }
-  
   // MARK: - TableViewDataSource
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -92,6 +84,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   }
   
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    
     if let sections = self.fetchController.sections {
       if let sectionInfo = sections[section] as? NSFetchedResultsSectionInfo {
         if let reading = sectionInfo.objects.first as? Reading {
@@ -99,10 +92,12 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         }
       }
     }
+    
     return nil
   }
   
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    
     let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 60))
     let label = UILabel(frame: CGRect(x: 8, y: 0, width: tableView.frame.width, height: 24))
     headerView.addSubview(label)
@@ -114,6 +109,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         }
       }
     }
+    
     headerView.backgroundColor = UIColor.clearColor()
     label.textColor = UIColor.whiteColor()
     label.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
@@ -138,6 +134,57 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
   }
   
+  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    switch indexPath.row {
+    case 0:
+      return 50
+    default:
+     return 30
+    }
+  }
+  
+  // MARK: - NSFetchResultsControllerDelegate
+  
+  func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    println("Did Change Object Called")
+    switch type {
+    case .Delete:
+      tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
+    case .Insert:
+      if let thisPath = indexPath {
+        println("Found index path")
+        tableView.insertRowsAtIndexPaths([thisPath], withRowAnimation: .Automatic)
+      } else if let thisOtherPath = newIndexPath {
+        if let oldReading = fetchController.objectAtIndexPath(thisOtherPath) as? Reading {
+          if let newReading = anObject as? Reading {
+            if newReading.timestamp != oldReading.timestamp {
+              println("Found new index path: \(thisOtherPath.section),\(thisOtherPath.row)")
+              tableView.insertRowsAtIndexPaths([thisOtherPath], withRowAnimation: .Automatic)
+            } else {
+              tableView.reloadData()
+            }
+          }
+        }
+      }
+    default:
+      return ()
+    }
+  }
+  
+  func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+    switch type {
+    case .Delete:
+      tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
+    case .Insert:
+      tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
+    default:
+      println("Doing nothing!")
+    }
+    
+  }
+
+  // MARK: - Helper Methods
+  
   func configureUnitsLabelCell(cell: HistoryCell) {
     for label in cell.contentView.subviews {
       if let myLabel = label as? UILabel {
@@ -154,15 +201,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     cell.combinedChlorineLabel.text = "Combined Chlorine"
     cell.selectionStyle = .None
     
-  }
-  
-  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    switch indexPath.row {
-    case 0:
-      return 50
-    default:
-     return 30
-    }
   }
   
   func configureNormalCell(cell: HistoryCell, forObjectAtIndexPath indexPath: NSIndexPath) {
@@ -216,6 +254,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   }
   
   func setupFetchController() {
+    
     let appDel = UIApplication.sharedApplication().delegate as AppDelegate
     context = appDel.managedObjectContext
     
@@ -223,6 +262,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "day", ascending: false), NSSortDescriptor(key: "timestamp", ascending: true)]
     self.fetchController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: "day", cacheName: "Readings")
     fetchController.delegate = self
+    
     var error : NSError?
     fetchController.performFetch(&error)
     
@@ -233,43 +273,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
   }
   
-  func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-    println("Did Change Object Called")
-    switch type {
-    case .Delete:
-      tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
-    case .Insert:
-        if let thisPath = indexPath {
-          println("Found index path")
-          tableView.insertRowsAtIndexPaths([thisPath], withRowAnimation: .Automatic)
-        } else if let thisOtherPath = newIndexPath {
-          if let oldReading = fetchController.objectAtIndexPath(thisOtherPath) as? Reading {
-            if let newReading = anObject as? Reading {
-              if newReading.timestamp != oldReading.timestamp {
-                println("Found new index path: \(thisOtherPath.section),\(thisOtherPath.row)")
-                tableView.insertRowsAtIndexPaths([thisOtherPath], withRowAnimation: .Automatic)
-              } else {
-                tableView.reloadData()
-              }
-            }
-          }
-        }
-    default:
-      return ()
-    }
-  }
-  
-  func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
-    switch type {
-    case .Delete:
-      tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
-    case .Insert:
-      tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
-    default:
-      println("Doing nothing!")
-    }
-
-  }
 
   deinit {
     NSNotificationCenter.defaultCenter().removeObserver(self)

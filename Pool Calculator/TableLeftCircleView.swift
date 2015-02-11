@@ -33,14 +33,14 @@ class TableLeftCircleView: UIView {
       
       
       let path2 = UIBezierPath()
-      if !isTop {
-        path2.moveToPoint(CGPoint(x: lineX, y: 0))
-        path2.addLineToPoint(CGPoint(x: lineX, y: circleOriginY))
-      }
-      if !isBottom {
-        path2.moveToPoint(CGPoint(x: lineX, y: circleOriginY + circleDiameter))
-        path2.addLineToPoint(CGPoint(x: lineX, y: rect.height))
-      }
+//      if !isTop {
+//        path2.moveToPoint(CGPoint(x: lineX, y: 0))
+//        path2.addLineToPoint(CGPoint(x: lineX, y: circleOriginY))
+//      }
+//      if !isBottom {
+//        path2.moveToPoint(CGPoint(x: lineX, y: circleOriginY + circleDiameter))
+//        path2.addLineToPoint(CGPoint(x: lineX, y: rect.height))
+//      }
       
       
       CGContextSetStrokeColorWithColor(context, UIColor.whiteColor().CGColor)

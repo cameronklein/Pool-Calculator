@@ -152,7 +152,7 @@ class ChemicalCalculator {
   
   func lowerAlkalinityBy(amount : Double) -> String {
     
-    return "Adjust pH between 7.0 and 7.2, then aerate to increase pH while keeping total alkalinity down."
+    return "Adjust pH between 7.0 and 7.2, then aerate pool."
     
   }
   
