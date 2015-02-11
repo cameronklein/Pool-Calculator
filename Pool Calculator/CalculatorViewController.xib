@@ -269,6 +269,8 @@
                     <exclude reference="63o-e7-7oR"/>
                     <exclude reference="8NP-Ud-QUm"/>
                     <exclude reference="xh4-5T-bSS"/>
+                    <exclude reference="8Iu-b0-tZS"/>
+                    <exclude reference="yKr-sR-iR3"/>
                     <exclude reference="wz4-md-lwe"/>
                     <exclude reference="a9F-nm-KsK"/>
                     <exclude reference="4vx-df-dI7"/>
@@ -276,8 +278,6 @@
                     <exclude reference="LiC-Wu-nCr"/>
                     <exclude reference="rot-26-PX1"/>
                     <exclude reference="szb-PA-BgB"/>
-                    <exclude reference="8Iu-b0-tZS"/>
-                    <exclude reference="yKr-sR-iR3"/>
                     <exclude reference="fUR-dx-FBP"/>
                     <exclude reference="gPf-ZA-RIF"/>
                 </mask>
@@ -287,16 +287,16 @@
                     <include reference="63o-e7-7oR"/>
                     <include reference="8NP-Ud-QUm"/>
                     <include reference="xh4-5T-bSS"/>
-                    <exclude reference="wz4-md-lwe"/>
-                    <exclude reference="q9N-93-N8W"/>
-                    <include reference="a9F-nm-KsK"/>
-                    <exclude reference="s7j-iJ-KSS"/>
-                    <exclude reference="Rcf-ga-dr9"/>
-                    <exclude reference="dN6-Us-Y4d"/>
-                    <include reference="szb-PA-BgB"/>
                     <exclude reference="gOe-fn-6OH"/>
                     <exclude reference="x9P-bI-5Y5"/>
                     <include reference="yKr-sR-iR3"/>
+                    <exclude reference="wz4-md-lwe"/>
+                    <include reference="a9F-nm-KsK"/>
+                    <exclude reference="s7j-iJ-KSS"/>
+                    <exclude reference="dN6-Us-Y4d"/>
+                    <include reference="szb-PA-BgB"/>
+                    <exclude reference="q9N-93-N8W"/>
+                    <exclude reference="Rcf-ga-dr9"/>
                     <exclude reference="RmD-Me-dAt"/>
                     <include reference="fUR-dx-FBP"/>
                     <include reference="gPf-ZA-RIF"/>
@@ -305,7 +305,8 @@
             </variation>
             <variation key="heightClass=compact-widthClass=compact">
                 <mask key="constraints">
-                    <exclude reference="3bZ-LY-BcJ"/>
+                    <include reference="8Iu-b0-tZS"/>
+                    <exclude reference="yKr-sR-iR3"/>
                     <include reference="4vx-df-dI7"/>
                     <exclude reference="7AX-fb-T90"/>
                     <include reference="JbY-07-dH3"/>
@@ -313,8 +314,7 @@
                     <include reference="rot-26-PX1"/>
                     <exclude reference="szb-PA-BgB"/>
                     <exclude reference="uj1-Oe-qVN"/>
-                    <include reference="8Iu-b0-tZS"/>
-                    <exclude reference="yKr-sR-iR3"/>
+                    <exclude reference="3bZ-LY-BcJ"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="340" y="330"/>

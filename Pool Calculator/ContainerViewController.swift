@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum ButtonSize: Int {
+  case Small, Medium, Large
+}
+
 class ContainerViewController: UIViewController {
   
   @IBOutlet weak var bottomBar: UIView!
@@ -27,6 +31,16 @@ class ContainerViewController: UIViewController {
   @IBOutlet weak var buttonLabelThree: UILabel!
   @IBOutlet weak var buttonLabelFour: UILabel!
   
+  @IBOutlet weak var subLabelOne: UILabel!
+  @IBOutlet weak var subLabelTwo: UILabel!
+  @IBOutlet weak var subLabelThree: UILabel!
+  @IBOutlet weak var subLabelFour: UILabel!
+  
+  @IBOutlet weak var buttonOneVerticalConstraint: NSLayoutConstraint!
+  @IBOutlet weak var buttonTwoVerticalConstraint: NSLayoutConstraint!
+  @IBOutlet weak var buttonThreeVerticalConstraint: NSLayoutConstraint!
+  @IBOutlet weak var buttonFourVerticalConstraint: NSLayoutConstraint!
+
   var currentViewController : UIViewController!
   var newReadingVC : NewReadingViewController!
   var historyVC : HistoryViewController!
@@ -46,6 +60,8 @@ class ContainerViewController: UIViewController {
     setupButtons()
     bottomBar.clipsToBounds = true
     setButtonToActive(selectorOne, animated: false)
+    
+  
     
   }
   
@@ -82,24 +98,68 @@ class ContainerViewController: UIViewController {
   }
   
   func setupButtons() {
+    
+    let buttonSize = getButtonSize()
     let buttons : [TabBarButton] = [buttonOne, buttonTwo, buttonThree, buttonFour]
+    
     for button in buttons {
+      
       button.color = button.backgroundColor!
       button.backgroundColor = UIColor.clearColor()
-      button.clipsToBounds = false
       button.layer.masksToBounds = false
       button.layer.cornerRadius = button.frame.height/2
-      button.layer.shadowColor = UIColor.blackColor().CGColor
-      button.layer.shadowOffset = CGSize(width: 0, height: 3)
-      button.layer.shadowOpacity = 0.5
-      button.layer.shadowRadius = 3
+      button.addShadowWithOpacity(0.5, radius: 3, xOffset: 0, yOffset: 3)
       
       let tapper = UITapGestureRecognizer()
       tapper.addTarget(self, action: "didTapButton:")
       button.addGestureRecognizer(tapper)
-      
-      //button.setNeedsDisplay()
     }
+    
+    let icons = [buttonLabelOne, buttonLabelTwo, buttonLabelThree, buttonLabelFour]
+    let constraints = [buttonOneVerticalConstraint, buttonTwoVerticalConstraint, buttonThreeVerticalConstraint, buttonFourVerticalConstraint]
+    let labels = [subLabelOne, subLabelTwo, subLabelThree, subLabelFour]
+    
+    switch buttonSize {
+    case .Small:
+      break
+    case .Medium:
+      for icon in icons {
+        icon.font = UIFont(name: "FontAwesome", size: 22)
+      }
+      for constraint in constraints {
+        constraint.constant = 4
+      }
+      for label in labels {
+        label.font = UIFont(name: "AvenirNext-Regular", size: 8)
+      }
+    case .Large:
+      for icon in icons {
+        icon.font = UIFont(name: "FontAwesome", size: 28)
+      }
+      for constraint in constraints {
+        constraint.constant = -8
+      }
+      for label in labels {
+        label.alpha = 0
+      }
+    }
+
+  }
+  
+  func getButtonSize() -> ButtonSize {
+    let timesLaunched = NSUserDefaults.standardUserDefaults().integerForKey("TimesLaunched")
+    let firstLaunchDate = NSUserDefaults.standardUserDefaults().objectForKey("FirstLaunchDate") as NSDate
+    let timeElapsed = firstLaunchDate.timeIntervalSinceNow
+    let daysSinceLaunch = timeElapsed * -1 / 60 / 60 / 24
+
+    if daysSinceLaunch > 13 && timesLaunched > 23 {
+      return .Large
+    } else if daysSinceLaunch > 6 && timesLaunched > 11 {
+      return .Medium
+    } else {
+      return .Small
+    }
+    
   }
 
   func didTapButton(sender: UITapGestureRecognizer) {

@@ -325,6 +325,7 @@ class OnboardViewController: UIViewController {
   
   @IBAction func didPressDone(sender: AnyObject) {
     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "OnboardComplete")
+    NSUserDefaults.standardUserDefaults().synchronize()
     let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
     let containerVC = storyboard.instantiateInitialViewController() as ContainerViewController
     self.presentViewController(containerVC, animated: true) { () -> Void in

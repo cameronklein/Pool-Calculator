@@ -24,13 +24,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let userDefaults = NSUserDefaults.standardUserDefaults()
     if userDefaults.valueForKey("OnboardComplete") == nil {
+      userDefaults.setObject(NSDate(), forKey: "FirstLaunchDate")
+      userDefaults.setInteger(1, forKey: "TimesLaunched")
       userDefaults.setBool(false, forKey: kUserSettingsCalculatorMode)
       userDefaults.setDouble(2.0, forKey: kFreeChlorineDesiredValue)
       userDefaults.setDouble(7.4, forKey: kPHDesiredValue)
       userDefaults.setDouble(100, forKey: kTotalAlkalinityDesiredValue)
       userDefaults.setDouble(200, forKey: kCalciumHardnessDesiredValue)
       userDefaults.setDouble(50000, forKey: kUserSettingsPoolVolumeInGallons)
+      userDefaults.synchronize()
       self.window?.rootViewController = OnboardViewController(nibName: "OnboardViewController", bundle: NSBundle.mainBundle())
+    } else {
+      let timesLaunched = userDefaults.integerForKey("TimesLaunched")
+      userDefaults.setInteger(timesLaunched + 1, forKey: "TimesLaunched")
+      userDefaults.synchronize()
+      println((timesLaunched + 1).description)
     }
 
     return true
