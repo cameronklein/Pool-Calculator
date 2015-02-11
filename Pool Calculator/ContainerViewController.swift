@@ -184,8 +184,6 @@ class ContainerViewController: UIViewController {
         colorView.removeFromSuperview()
         return ()
     })
-
-
   }
   
   func setButtonToInactive(selector: SelectorView) {
@@ -233,6 +231,7 @@ class ContainerViewController: UIViewController {
       let previousViewController = currentViewController
       self.addChildViewController(destination)
       destination.view.alpha = 0
+      destination.view.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height)
       self.view.insertSubview(destination.view, belowSubview: selectorOne)
       UIView.animateWithDuration(animated ? 0.1 : 0.0,
         animations: { () -> Void in

@@ -73,6 +73,11 @@ class CalculatorViewController: UIViewController {
     }
   }
   
+  override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    //self.didPressChemicalButton(chlorineButton)
+  }
+
+  
   // MARK: - Helper Methods
   
   func didPanNumber(sender: UIPanGestureRecognizer) {
