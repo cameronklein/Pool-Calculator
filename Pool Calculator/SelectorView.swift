@@ -11,11 +11,9 @@ import UIKit
 class SelectorView: UIView {
 
   var color : UIColor!
-  
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
+
     override func drawRect(rect: CGRect) {
-      println("Draw Rect Called")
+      
       let path = UIBezierPath()
       
       path.moveToPoint(CGPoint(x: rect.maxX / 2, y: rect.minY))

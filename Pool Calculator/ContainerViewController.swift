@@ -61,8 +61,6 @@ class ContainerViewController: UIViewController {
     bottomBar.clipsToBounds = true
     setButtonToActive(selectorOne, animated: false)
     
-  
-    
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -151,7 +149,7 @@ class ContainerViewController: UIViewController {
     let firstLaunchDate = NSUserDefaults.standardUserDefaults().objectForKey("FirstLaunchDate") as NSDate
     let timeElapsed = firstLaunchDate.timeIntervalSinceNow
     let daysSinceLaunch = timeElapsed * -1 / 60 / 60 / 24
-
+    
     if daysSinceLaunch > 13 && timesLaunched > 23 {
       return .Large
     } else if daysSinceLaunch > 6 && timesLaunched > 11 {

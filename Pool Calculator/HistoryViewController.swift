@@ -17,6 +17,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var graphHeight: NSLayoutConstraint!
   @IBOutlet weak var tableHeaderHeight: NSLayoutConstraint!
+  @IBOutlet weak var emptyCaseView: UIView!
   
   var context : NSManagedObjectContext!
   var fetchController : NSFetchedResultsController!
@@ -35,25 +36,19 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     timeFormatter.dateStyle = NSDateFormatterStyle.NoStyle
     timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
     tableView.rowHeight = 30.0
+    topBar.addShadowWithOpacity(0.5, radius: 3, xOffset: 0, yOffset: 3)
 
     self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 80.0))
     
   }
   
   override func viewWillAppear(animated: Bool) {
-    topBar.layer.shadowColor = UIColor.blackColor().CGColor
-    topBar.layer.shadowOffset = CGSize(width: 0, height: 3)
-    topBar.layer.shadowOpacity = 0.5
-    topBar.layer.shadowRadius = 3
+    checkEmptyCase()
     graphHeight.constant = 0
     tableHeaderHeight.constant = 0
     var dummyView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 40.0))
     self.tableView.tableHeaderView = dummyView;
     self.tableView.contentInset = UIEdgeInsetsMake(-40.0, 0, 0, 0);
-
-  }
-  
-  override func viewWillDisappear(animated: Bool) {
     
   }
 
@@ -66,7 +61,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     if let sections = self.fetchController.sections {
-      println("\(sections.count) sections")
       return sections.count
     }
     return 0
@@ -76,7 +70,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let sections = self.fetchController.sections {
       if let sectionInfo = sections[section] as? NSFetchedResultsSectionInfo {
-        println("Number of rows in section \(section): \(sectionInfo.numberOfObjects)")
         return sectionInfo.numberOfObjects + 1
       }
     }
@@ -146,19 +139,16 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   // MARK: - NSFetchResultsControllerDelegate
   
   func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-    println("Did Change Object Called")
     switch type {
     case .Delete:
       tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
     case .Insert:
       if let thisPath = indexPath {
-        println("Found index path")
         tableView.insertRowsAtIndexPaths([thisPath], withRowAnimation: .Automatic)
       } else if let thisOtherPath = newIndexPath {
         if let oldReading = fetchController.objectAtIndexPath(thisOtherPath) as? Reading {
           if let newReading = anObject as? Reading {
             if newReading.timestamp != oldReading.timestamp {
-              println("Found new index path: \(thisOtherPath.section),\(thisOtherPath.row)")
               tableView.insertRowsAtIndexPaths([thisOtherPath], withRowAnimation: .Automatic)
             } else {
               tableView.reloadData()
@@ -270,6 +260,14 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     if error != nil {
       println(error?.localizedDescription)
+    }
+  }
+  
+  func checkEmptyCase() {
+    if fetchController.fetchedObjects?.count == 0 {
+      self.emptyCaseView.alpha = 1
+    } else {
+      self.emptyCaseView.alpha = 0
     }
   }
   

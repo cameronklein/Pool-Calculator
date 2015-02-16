@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C94b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6724" systemVersion="14C94b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6246"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryViewController" customModule="Pool_Calculator" customModuleProvider="target">
             <connections>
+                <outlet property="emptyCaseView" destination="2dv-ua-lqm" id="wnh-cb-cxc"/>
                 <outlet property="graphHeight" destination="VpX-mJ-8lQ" id="DsF-S6-uQV"/>
                 <outlet property="tableHeaderHeight" destination="fuf-6W-H21" id="Z8Y-Up-9Y1"/>
                 <outlet property="tableView" destination="dbc-GQ-lH5" id="lJz-iZ-epQ"/>
@@ -21,6 +22,33 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yRa-b1-2oY">
                     <rect key="frame" x="0.0" y="60" width="600" height="540"/>
                     <subviews>
+                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dv-ua-lqm" userLabel="Empty Case View">
+                            <rect key="frame" x="16" y="16" width="568" height="508"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No readings yet." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4v-Gp-0CH">
+                                    <rect key="frame" x="16" y="16" width="536" height="25"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2OL-ET-YEV">
+                                    <rect key="frame" x="16" y="57" width="536" height="44"/>
+                                    <string key="text">Record some readings and they'll appear here. If you don't want logging capability, you can turn on calculator-only mode in the settings.</string>
+                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="F4v-Gp-0CH" firstAttribute="top" secondItem="2dv-ua-lqm" secondAttribute="top" constant="16" id="Afx-oj-VEw"/>
+                                <constraint firstAttribute="trailing" secondItem="2OL-ET-YEV" secondAttribute="trailing" constant="16" id="LZP-QE-h4a"/>
+                                <constraint firstItem="2OL-ET-YEV" firstAttribute="top" secondItem="F4v-Gp-0CH" secondAttribute="bottom" constant="16" id="Qvx-FT-850"/>
+                                <constraint firstItem="2OL-ET-YEV" firstAttribute="leading" secondItem="2dv-ua-lqm" secondAttribute="leading" constant="16" id="SI4-7z-GRF"/>
+                                <constraint firstAttribute="trailing" secondItem="F4v-Gp-0CH" secondAttribute="trailing" constant="16" id="zOE-Es-FhK"/>
+                                <constraint firstItem="F4v-Gp-0CH" firstAttribute="leading" secondItem="2dv-ua-lqm" secondAttribute="leading" constant="16" id="zfN-17-azR"/>
+                            </constraints>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgm-Hs-AwD" userLabel="Table Header">
                             <rect key="frame" x="0.0" y="216" width="600" height="44"/>
                             <subviews>
@@ -94,12 +122,19 @@ Cl2</string>
                     <constraints>
                         <constraint firstItem="fgm-Hs-AwD" firstAttribute="top" secondItem="Yya-wg-1Hy" secondAttribute="bottom" id="4c2-Az-wGh"/>
                         <constraint firstItem="dbc-GQ-lH5" firstAttribute="leading" secondItem="yRa-b1-2oY" secondAttribute="leading" id="5E4-ed-hYE"/>
+                        <constraint firstItem="2dv-ua-lqm" firstAttribute="top" secondItem="yRa-b1-2oY" secondAttribute="top" constant="16" id="5qH-Kk-JdQ"/>
+                        <constraint firstItem="2dv-ua-lqm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yRa-b1-2oY" secondAttribute="leading" constant="16" id="AVI-Hm-JOW"/>
                         <constraint firstItem="dbc-GQ-lH5" firstAttribute="top" secondItem="Yya-wg-1Hy" secondAttribute="bottom" id="C5J-Pt-kCa"/>
+                        <constraint firstAttribute="bottom" secondItem="2dv-ua-lqm" secondAttribute="bottom" constant="16" id="DX7-T8-rr2"/>
                         <constraint firstItem="Yya-wg-1Hy" firstAttribute="top" secondItem="yRa-b1-2oY" secondAttribute="top" constant="16" id="EIl-aJ-fgO"/>
                         <constraint firstAttribute="trailing" secondItem="fgm-Hs-AwD" secondAttribute="trailing" id="LaI-sV-H4R"/>
                         <constraint firstAttribute="bottom" secondItem="dbc-GQ-lH5" secondAttribute="bottom" id="Nhn-zP-aii"/>
+                        <constraint firstItem="2dv-ua-lqm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="yRa-b1-2oY" secondAttribute="top" constant="16" id="Och-gH-414"/>
                         <constraint firstItem="dbc-GQ-lH5" firstAttribute="top" secondItem="fgm-Hs-AwD" secondAttribute="bottom" id="TBW-xf-blb"/>
+                        <constraint firstAttribute="trailing" secondItem="2dv-ua-lqm" secondAttribute="trailing" constant="16" id="cuo-Uv-oHi"/>
+                        <constraint firstItem="2dv-ua-lqm" firstAttribute="leading" secondItem="yRa-b1-2oY" secondAttribute="leading" constant="16" id="gWP-vS-7fT"/>
                         <constraint firstItem="fgm-Hs-AwD" firstAttribute="leading" secondItem="yRa-b1-2oY" secondAttribute="leading" id="hb1-bD-LZm"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2dv-ua-lqm" secondAttribute="trailing" constant="16" id="lBg-up-gkC"/>
                         <constraint firstAttribute="trailing" secondItem="dbc-GQ-lH5" secondAttribute="trailing" id="lsa-y5-qms"/>
                         <constraint firstItem="Yya-wg-1Hy" firstAttribute="leading" secondItem="yRa-b1-2oY" secondAttribute="leading" constant="16" id="zEc-2e-S7K"/>
                         <constraint firstAttribute="trailing" secondItem="Yya-wg-1Hy" secondAttribute="trailing" constant="16" id="zNn-50-lSM"/>
