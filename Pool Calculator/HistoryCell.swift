@@ -19,6 +19,12 @@ class HistoryCell: UITableViewCell {
   @IBOutlet weak var timeLabel: UILabel!
   @IBOutlet weak var widthConstraint: NSLayoutConstraint!
   @IBOutlet weak var leftCircleView: TableLeftCircleView!
+  
+  @IBOutlet weak var horizontalConstraintOne: NSLayoutConstraint!
+  @IBOutlet weak var horizontalConstraintTwo: NSLayoutConstraint!
+  @IBOutlet weak var horizontalConstraintThree: NSLayoutConstraint!
+  @IBOutlet weak var horizontalConstraintFour: NSLayoutConstraint!
+  @IBOutlet weak var horizontalConstraintFive: NSLayoutConstraint!
 
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -28,7 +34,37 @@ class HistoryCell: UITableViewCell {
   override func setSelected(selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
 
+  }
+  
+  func setHorizontalConstraintsForScreenWidth(width: CGFloat) {
+    
+    switch width {
+    case 320:
+      setHorizontalConstraintsWithConstant(14)
+    case 375:
+      setHorizontalConstraintsWithConstant(32)
+    case 414:
+      setHorizontalConstraintsWithConstant(36)
+    case 480:
+      setHorizontalConstraintsWithConstant(0)
+    case 568:
+      setHorizontalConstraintsWithConstant(16)
+    case 667:
+      setHorizontalConstraintsWithConstant(34)
+    case 736:
+      setHorizontalConstraintsWithConstant(32)
+    default:
+      setHorizontalConstraintsWithConstant(32)
+    }
 
+  }
+  
+  func setHorizontalConstraintsWithConstant(constant: CGFloat) {
+    for constraint in [horizontalConstraintOne, horizontalConstraintTwo, horizontalConstraintThree, horizontalConstraintFour, horizontalConstraintFive] {
+      
+      constraint.constant = constant
+      
+    }
   }
     
 }

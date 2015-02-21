@@ -57,6 +57,16 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
 
   }
   
+  override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    
+    for object in tableView.visibleCells() {
+      if let cell = object as? HistoryCell {
+        cell.setHorizontalConstraintsForScreenWidth(size.width)
+      }
+    }
+  
+  }
+  
   // MARK: - TableViewDataSource
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -183,13 +193,14 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     cell.leftCircleView.isHeader = true
     cell.timeLabel.text = ""
-    cell.freeChlorineLabel.text = "Free Chlorine"
-    cell.combinedChlorineLabel.text = "Combined Chlorine"
-    cell.totalChlorineLabel.text = "Total Chlorine"
+    cell.freeChlorineLabel.text = "Free\nChlorine"
+    cell.combinedChlorineLabel.text = "Combined\nChlorine"
+    cell.totalChlorineLabel.text = "Total\nChlorine"
     cell.pHLabel.text = "pH"
-    cell.totalAlkalinityLabel.text = "Total Alkalinity"
-    cell.combinedChlorineLabel.text = "Combined Chlorine"
+    cell.totalAlkalinityLabel.text = "Total\nAlkalinity"
+    cell.calciumHardnessLabel.text = "Calcium\nHardness"
     cell.selectionStyle = .None
+    cell.setHorizontalConstraintsForScreenWidth(UIScreen.mainScreen().bounds.width)
     
   }
   
@@ -230,6 +241,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     cell.timeLabel.text = timeFormatter.stringFromDate(reading.timestamp)
     cell.selectionStyle = .None
+    cell.setHorizontalConstraintsForScreenWidth(UIScreen.mainScreen().bounds.width)
     
     if indexPath.row == 1 {
       cell.leftCircleView.isTop = true
@@ -240,7 +252,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         }
       }
     }
-    
   }
   
   func setupFetchController() {
@@ -270,7 +281,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
       self.emptyCaseView.alpha = 0
     }
   }
-  
 
   deinit {
     NSNotificationCenter.defaultCenter().removeObserver(self)

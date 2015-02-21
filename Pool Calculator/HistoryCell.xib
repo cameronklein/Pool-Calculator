@@ -117,6 +117,11 @@
                 <outlet property="calciumHardnessLabel" destination="S7b-Ea-UF7" id="6bb-Og-e3v"/>
                 <outlet property="combinedChlorineLabel" destination="X1f-zn-tM2" id="Cbd-YW-YzZ"/>
                 <outlet property="freeChlorineLabel" destination="Xmf-0P-bOC" id="tcl-6g-jZn"/>
+                <outlet property="horizontalConstraintFive" destination="9sV-au-qoh" id="Vwi-53-tAQ"/>
+                <outlet property="horizontalConstraintFour" destination="dWv-bK-oOz" id="uPw-sp-czN"/>
+                <outlet property="horizontalConstraintOne" destination="ETk-Tm-7cL" id="uoF-VT-agB"/>
+                <outlet property="horizontalConstraintThree" destination="kXG-Ep-6mm" id="7vI-Ms-Va7"/>
+                <outlet property="horizontalConstraintTwo" destination="99v-wG-qty" id="LQt-63-72L"/>
                 <outlet property="leftCircleView" destination="naZ-d7-3c1" id="Xsj-WQ-0wP"/>
                 <outlet property="pHLabel" destination="pJ1-kD-spo" id="gzy-sp-LJu"/>
                 <outlet property="timeLabel" destination="RhY-HG-hE6" id="ziy-Uy-9Qt"/>
