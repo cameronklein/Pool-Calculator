@@ -44,7 +44,7 @@ class HistoryCell: UITableViewCell {
     case 375:
       setHorizontalConstraintsWithConstant(32)
     case 414:
-      setHorizontalConstraintsWithConstant(36)
+      setHorizontalConstraintsWithConstant(50)
     case 480:
       setHorizontalConstraintsWithConstant(0)
     case 568:
@@ -52,7 +52,7 @@ class HistoryCell: UITableViewCell {
     case 667:
       setHorizontalConstraintsWithConstant(34)
     case 736:
-      setHorizontalConstraintsWithConstant(32)
+      setHorizontalConstraintsWithConstant(46)
     default:
       setHorizontalConstraintsWithConstant(32)
     }

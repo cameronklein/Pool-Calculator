@@ -14,8 +14,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var headerLabel: UILabel!
   @IBOutlet weak var backButton: UIButton!
-  @IBOutlet weak var calculatorModeSwitch: UISwitch!
   
+  var calculatorModeSwitch : UISwitch!
   var settings : Array<(String,Array<String>)>!
   var navigationStack : [UIViewController]!
   var volumeUnits : VolumeUnit = .Gallons
@@ -31,9 +31,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    volumeUnits = VolumeUnit(rawValue: NSUserDefaults.standardUserDefaults().integerForKey(kUserSettingsVolumeUnits))!
-    calculatorModeSwitch.on = NSUserDefaults.standardUserDefaults().boolForKey(kUserSettingsCalculatorMode)
+    setupCalculatorModeSwitch()
     setupTableViewLabels()
+    
+    volumeUnits = VolumeUnit(rawValue: NSUserDefaults.standardUserDefaults().integerForKey(kUserSettingsVolumeUnits))!
     tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CELL")
     navigationStack = [self]
    
@@ -61,6 +62,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    
     let cell = tableView.dequeueReusableCellWithIdentifier("CELL", forIndexPath: indexPath) as UITableViewCell
     cell.textLabel?.text = settings[indexPath.section].1[indexPath.row]
     cell.textLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
@@ -133,6 +135,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     var group3 = ["Terms of Use"]
     settings = [("Facility Info",group1),("Display",group2),("About",group3)]
     
+  }
+  
+  func setupCalculatorModeSwitch() {
+    calculatorModeSwitch = UISwitch()
+    calculatorModeSwitch.on = NSUserDefaults.standardUserDefaults().boolForKey(kUserSettingsCalculatorMode)
+    calculatorModeSwitch.addTarget(self, action: "didSwitchCalcModeSwitch:", forControlEvents: UIControlEvents.ValueChanged)
   }
   
   func addTopBarShadow() {
@@ -362,7 +370,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
   }
   
-  @IBAction func didSwitchCalcModeSwitch(sender: UISwitch) {
+  func didSwitchCalcModeSwitch(sender: UISwitch) {
     NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: kUserSettingsCalculatorMode)
     NSUserDefaults.standardUserDefaults().synchronize()
     if let parent = self.parentViewController as? ContainerViewController {
