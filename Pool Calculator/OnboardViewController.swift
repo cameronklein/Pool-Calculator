@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OnboardViewController: UIViewController {
+class OnboardViewController: UIViewController, UITextFieldDelegate {
   
   @IBOutlet weak var paragraph1: UILabel!
   @IBOutlet weak var paragraph2: UILabel!
@@ -17,7 +17,7 @@ class OnboardViewController: UIViewController {
   @IBOutlet weak var paragraph5: UILabel!
   @IBOutlet weak var paragraph6: UILabel!
   @IBOutlet weak var volumeWrapper: UIView!
-  @IBOutlet weak var volumeLabel: UILabel!
+  @IBOutlet weak var volumeLabel: UITextField!
   @IBOutlet weak var gallonsLabel: UILabel!
   @IBOutlet weak var litersLabel: UILabel!
   
@@ -37,6 +37,8 @@ class OnboardViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    self.volumeLabel.delegate = self
 
     let panner = UIPanGestureRecognizer()
     panner.addTarget(self, action: "didPanNumber:")
@@ -318,8 +320,6 @@ class OnboardViewController: UIViewController {
       }) { (success) -> Void in
         return ()
     }
-    
-    
   }
   
   @IBAction func didPressDone(sender: AnyObject) {
@@ -330,6 +330,45 @@ class OnboardViewController: UIViewController {
     self.presentViewController(containerVC, animated: true) { () -> Void in
       let appDel = UIApplication.sharedApplication().delegate as AppDelegate
       appDel.window?.rootViewController = containerVC
+    }
+  }
+  
+  @IBAction func didPressKeyboardButton(sender: AnyObject) {
+    toggleKeyboard()
+  }
+  
+  func toggleKeyboard() {
+    if volumeLabel.isFirstResponder() {
+      let f = NSNumberFormatter()
+      f.numberStyle = NSNumberFormatterStyle.DecimalStyle
+      let number = f.numberFromString(volumeLabel.text)
+      volumeLabel.text = NSNumberFormatter.localizedStringFromNumber(number!, numberStyle: NSNumberFormatterStyle.DecimalStyle)
+      volumeLabel.userInteractionEnabled = false
+      volumeLabel.resignFirstResponder()
+      currentValue = number!.doubleValue
+      NSUserDefaults.standardUserDefaults().setDouble(currentValue, forKey: kUserSettingsPoolVolumeInGallons)
+      NSUserDefaults.standardUserDefaults().synchronize()
+      
+    } else {
+      
+      stripPunctuationFromVolumeLabel()
+      volumeLabel.userInteractionEnabled = true
+      volumeLabel.becomeFirstResponder()
+      
+    }
+    
+  }
+  
+  func stripPunctuationFromVolumeLabel(){
+    let components = volumeLabel.text.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet) as NSArray
+    volumeLabel.text = components.componentsJoinedByString("")
+  }
+  
+  func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    if countElements(textField.text + string) > 8 {
+      return false
+    } else {
+      return true
     }
   }
   

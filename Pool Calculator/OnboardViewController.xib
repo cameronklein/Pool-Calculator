@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6724" systemVersion="14C94b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6246"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="fontawesome-webfont.ttf">
+            <string>FontAwesome</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnboardViewController" customModule="Pool_Calculator" customModuleProvider="target">
             <connections>
@@ -18,7 +23,7 @@
                 <outlet property="paragraph6" destination="UhE-kh-4ot" id="y7M-QR-tJC"/>
                 <outlet property="swipeViewConstrainst" destination="DDS-qy-Nfs" id="rDe-Ts-kDz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="volumeLabel" destination="3Ls-SN-YyS" id="d2H-FX-pJp"/>
+                <outlet property="volumeLabel" destination="vmt-B6-wis" id="iRR-H8-zLZ"/>
                 <outlet property="volumeWrapper" destination="gO2-e7-053" id="JWG-wL-jCP"/>
             </connections>
         </placeholder>
@@ -48,12 +53,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gO2-e7-053">
                     <rect key="frame" x="0.0" y="168" width="600" height="145"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ls-SN-YyS">
-                            <rect key="frame" x="209" y="16" width="183" height="82"/>
-                            <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="60"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gallons" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5l4-nX-9vb">
                             <rect key="frame" x="193" y="98" width="94" height="39"/>
                             <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="28"/>
@@ -66,31 +65,53 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46Z-EZ-2AB">
+                            <rect key="frame" x="425" y="102" width="30" height="32"/>
+                            <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="20"/>
+                            <state key="normal" title="">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="didPressKeyboardButton:" destination="-1" eventType="touchUpInside" id="3a5-RI-Zng"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="90,000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vmt-B6-wis" userLabel="Text Field">
+                            <rect key="frame" x="48" y="16" width="504" height="82"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="82" id="87x-w9-47p"/>
+                            </constraints>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="60"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="5iQ-Fu-VlJ" secondAttribute="bottom" constant="8" id="1El-JD-RbE"/>
                         <constraint firstAttribute="bottom" secondItem="5l4-nX-9vb" secondAttribute="bottom" constant="8" id="5nD-Xc-G5F"/>
+                        <constraint firstItem="vmt-B6-wis" firstAttribute="top" secondItem="gO2-e7-053" secondAttribute="top" constant="16" id="6Nb-Om-ErI"/>
                         <constraint firstAttribute="trailing" secondItem="5iQ-Fu-VlJ" secondAttribute="trailing" constant="48" id="6bd-7A-h2y"/>
-                        <constraint firstItem="3Ls-SN-YyS" firstAttribute="top" secondItem="gO2-e7-053" secondAttribute="top" constant="16" id="9AQ-1Y-qBB"/>
-                        <constraint firstItem="5l4-nX-9vb" firstAttribute="top" secondItem="3Ls-SN-YyS" secondAttribute="bottom" id="Aho-Kp-vGh"/>
+                        <constraint firstItem="46Z-EZ-2AB" firstAttribute="centerY" secondItem="5iQ-Fu-VlJ" secondAttribute="centerY" id="9Wa-bj-jFR"/>
+                        <constraint firstItem="46Z-EZ-2AB" firstAttribute="leading" secondItem="5iQ-Fu-VlJ" secondAttribute="trailing" constant="32" id="EZv-u4-gev"/>
+                        <constraint firstItem="5l4-nX-9vb" firstAttribute="top" secondItem="vmt-B6-wis" secondAttribute="bottom" id="FD2-BD-HvB"/>
                         <constraint firstItem="5l4-nX-9vb" firstAttribute="leading" secondItem="gO2-e7-053" secondAttribute="leading" constant="48" id="Vqn-68-uE2"/>
-                        <constraint firstItem="5l4-nX-9vb" firstAttribute="bottom" secondItem="3Ls-SN-YyS" secondAttribute="bottom" constant="-13" id="aJb-OA-hFK"/>
                         <constraint firstAttribute="centerX" secondItem="5l4-nX-9vb" secondAttribute="centerX" id="beC-5J-bHS"/>
-                        <constraint firstAttribute="centerX" secondItem="3Ls-SN-YyS" secondAttribute="centerX" id="i6W-jw-IFt"/>
-                        <constraint firstAttribute="bottom" secondItem="3Ls-SN-YyS" secondAttribute="bottom" constant="16" id="kwV-m3-ynO"/>
-                        <constraint firstItem="5l4-nX-9vb" firstAttribute="leading" secondItem="3Ls-SN-YyS" secondAttribute="trailing" constant="16" id="lLF-LA-JWd"/>
+                        <constraint firstItem="vmt-B6-wis" firstAttribute="leading" secondItem="gO2-e7-053" secondAttribute="leading" constant="48" id="dky-27-y6y"/>
+                        <constraint firstAttribute="centerY" secondItem="vmt-B6-wis" secondAttribute="centerY" id="eo8-r0-VeC"/>
+                        <constraint firstAttribute="trailing" secondItem="46Z-EZ-2AB" secondAttribute="trailing" constant="48" id="fdR-up-haP"/>
+                        <constraint firstAttribute="trailing" secondItem="vmt-B6-wis" secondAttribute="trailing" constant="48" id="nrc-qu-h9q"/>
                         <constraint firstAttribute="centerX" secondItem="5iQ-Fu-VlJ" secondAttribute="centerX" constant="-60" id="rSy-uz-0Ud"/>
                         <constraint firstAttribute="centerX" secondItem="5l4-nX-9vb" secondAttribute="centerX" constant="60" id="wOW-M6-i2Y"/>
+                        <constraint firstAttribute="centerX" secondItem="vmt-B6-wis" secondAttribute="centerX" id="z7y-jU-Fdg"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="kwV-m3-ynO"/>
+                            <exclude reference="eo8-r0-VeC"/>
                             <exclude reference="Vqn-68-uE2"/>
-                            <exclude reference="aJb-OA-hFK"/>
                             <exclude reference="beC-5J-bHS"/>
-                            <exclude reference="lLF-LA-JWd"/>
                             <exclude reference="6bd-7A-h2y"/>
+                            <exclude reference="fdR-up-haP"/>
                         </mask>
                     </variation>
                 </view>
@@ -126,10 +147,10 @@
                         <action selector="didPressHelp:" destination="-1" eventType="touchUpInside" id="TfX-TS-EnX"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5h-AP-SB9">
-                    <rect key="frame" x="174" y="552" width="253" height="36"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5h-AP-SB9">
+                    <rect key="frame" x="197" y="552" width="208" height="36"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                    <state key="normal" title="Done! Take me to the calculator!">
+                    <state key="normal" title="Done! Take me to the app!">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
