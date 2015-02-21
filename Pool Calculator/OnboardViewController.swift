@@ -248,7 +248,6 @@ class OnboardViewController: UIViewController {
   }
   
   @IBAction func didPressConfirm(sender: AnyObject) {
-    println("Did press confirm!")
     
     swipeViewConstrainst.priority = 500
     
@@ -296,7 +295,7 @@ class OnboardViewController: UIViewController {
   }
   
   @IBAction func didPressHelp(sender: AnyObject) {
-    println("Did press help!")
+    
   }
   
   func addChemicalsUsedViewController() {

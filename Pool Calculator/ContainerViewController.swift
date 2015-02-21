@@ -187,7 +187,7 @@ class ContainerViewController: UIViewController {
       setButtonToInactive(selectorThree)
       setButtonToActive(selectorFour, animated: true)
     default:
-    println("This should not happen.")
+      break
     }
   }
   

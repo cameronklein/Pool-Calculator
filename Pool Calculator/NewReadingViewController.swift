@@ -15,6 +15,7 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var topBar: UIView!
+  
   var readings = [Double?]()
   var oldValue : Double!
   var newValue : Double!
@@ -49,42 +50,63 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
     if indexPath.row < 6 {
-      let cell = tableView.dequeueReusableCellWithIdentifier("CELL") as ReadingCell
-      cell.readingType = ReadingType.getType(Chemical(rawValue: indexPath.row)!)
-      cell.title.text = cell.readingType?.name
-      if let readingValue = readings[indexPath.row] {
-        cell.readingValue.text = String(format: cell.readingType!.stringFormat, readingValue)
-        cell.cancelLabel.alpha = 1
-        cell.cancelLabel.transform = CGAffineTransformMakeScale(1.4, 1)
-      } else {
-        cell.readingValue.text = "--"
-        cell.cancelLabel.alpha = 0
-        cell.cancelLabel.transform = CGAffineTransformMakeScale(0.01, 1)
-      }
-    
-      cell.selectionStyle = .None
-      
-      let panner = UIPanGestureRecognizer()
-      panner.addTarget(self, action: "didPanCell:")
-      panner.delegate = self
-      cell.addGestureRecognizer(panner)
-      
-      let tapper = UITapGestureRecognizer()
-      tapper.addTarget(self, action: "didTapCancel:")
-      tapper.delegate = self
-      cell.cancelLabel.addGestureRecognizer(tapper)
-      return cell
+      return getReadingCellForIndexPath(indexPath)
     } else {
-      let cell = tableView.dequeueReusableCellWithIdentifier("SUBMIT") as SubmitCell
-      cell.selectionStyle = .None
-      return cell
+      return getSubmitCell()
     }
+    
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     if indexPath.row == 6 {
       addReading()
     }
+  }
+  
+  // MARK: - Cell Setup Methods
+  
+  func getSubmitCell() -> SubmitCell {
+    
+    let cell = tableView.dequeueReusableCellWithIdentifier("SUBMIT") as SubmitCell
+    cell.selectionStyle = .None
+    return cell
+
+  }
+  
+  func getReadingCellForIndexPath(indexPath: NSIndexPath) -> ReadingCell {
+    
+    let cell = tableView.dequeueReusableCellWithIdentifier("CELL") as ReadingCell
+    cell.readingType = ReadingType.getType(Chemical(rawValue: indexPath.row)!)
+    cell.title.text = cell.readingType?.name
+    
+    if let readingValue = readings[indexPath.row] {
+      cell.readingValue.text = String(format: cell.readingType!.stringFormat, readingValue)
+      cell.cancelLabel.alpha = 1
+      cell.cancelLabel.transform = CGAffineTransformMakeScale(1.4, 1)
+      if cell.readingType!.name != "pH" {
+        cell.unitsLabel.alpha = 1
+      }
+    } else {
+      cell.readingValue.text = "--"
+      cell.cancelLabel.alpha = 0
+      cell.cancelLabel.transform = CGAffineTransformMakeScale(0.01, 1)
+      cell.unitsLabel.alpha = 0
+    }
+    
+    cell.selectionStyle = .None
+    
+    let panner = UIPanGestureRecognizer()
+    panner.addTarget(self, action: "didPanCell:")
+    panner.delegate = self
+    cell.addGestureRecognizer(panner)
+    
+    let tapper = UITapGestureRecognizer()
+    tapper.addTarget(self, action: "didTapCancel:")
+    tapper.delegate = self
+    cell.cancelLabel.addGestureRecognizer(tapper)
+    
+    return cell
+
   }
   
   // MARK: - Gesture Recognizer Methods
@@ -158,13 +180,13 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
       readings[tableView.indexPathForCell(cell)!.row] = nil
       cell.unitsLabel.alpha = 0
       cell.readingValue.text = "--"
-      UIView.animateWithDuration(0.4, delay: 0.0, options: .AllowUserInteraction, animations: { () -> Void in
-        sender.view?.alpha = 0
-        sender.view?.transform = CGAffineTransformMakeScale(0.01, 1)
-        
-      }, completion: { (success) -> Void in
-        return ()
-      })
+      UIView.animateWithDuration(0.4,
+        delay: 0.0,
+        options: .AllowUserInteraction,
+        animations: { () -> Void in
+          sender.view?.alpha = 0
+          sender.view?.transform = CGAffineTransformMakeScale(0.01, 1)
+        }, completion: nil)
     }
     
   }
@@ -172,36 +194,36 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
   // MARK: - <UIGestureRecognizerDelegate>
   
   func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-      if let panner = gestureRecognizer as? UIPanGestureRecognizer {
-        let velocity = panner.velocityInView(panner.view!)
-        return abs(velocity.y) < abs(velocity.x)
-      }
+    
+    if let panner = gestureRecognizer as? UIPanGestureRecognizer {
+      let velocity = panner.velocityInView(panner.view!)
+      return abs(velocity.y) < abs(velocity.x)
+    }
+    
     return true
+    
   }
 
   // MARK: - Helper Methods
   
   func addReading(){
-    let appDel = UIApplication.sharedApplication().delegate as AppDelegate
-    let context = appDel.managedObjectContext
+    
+    let context = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+    
     let reading = NSEntityDescription.insertNewObjectForEntityForName("Reading", inManagedObjectContext: context!) as Reading
-
+    
     reading.freeChlorine = readings[0]
     reading.combinedChlorine = readings[1]
     reading.totalChlorine = readings[2]
     reading.pH = readings[3]
     reading.totalAlkalinity = readings[4]
     reading.calciumHardness = readings[5]
+    reading.timestamp = NSDate()
+    reading.day = getOrdinalDay()
 
-    var date = NSDate()
-    //date = date.dateByAddingTimeInterval(60*60*24)
-    reading.timestamp = date
-    let calendar = NSCalendar.currentCalendar()
-    let offset = NSTimeZone.systemTimeZone().secondsFromGMTForDate(date)
-    let dateForDay = date.dateByAddingTimeInterval(Double(offset))
-    reading.day = calendar.ordinalityOfUnit(NSCalendarUnit.CalendarUnitDay, inUnit: NSCalendarUnit.CalendarUnitEra, forDate: dateForDay)
     var error : NSError?
     context?.save(&error)
+    
     if error != nil {
       println(error?.localizedDescription)
     } else {
@@ -211,7 +233,22 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
         parent.setButtonToActive(parent.selectorTwo, animated: true)
       }
     }
-
+    clearReadings()
+  }
+  
+  func clearReadings() {
+    readings = [nil, nil, nil, nil, nil, nil];
+    
+  }
+  
+  func getOrdinalDay() -> NSNumber {
+    
+    var date = NSDate()
+    let calendar = NSCalendar.currentCalendar()
+    let offset = NSTimeZone.systemTimeZone().secondsFromGMTForDate(date)
+    let dateForDay = date.dateByAddingTimeInterval(Double(offset))
+    return calendar.ordinalityOfUnit(NSCalendarUnit.CalendarUnitDay, inUnit: NSCalendarUnit.CalendarUnitEra, forDate: dateForDay)
+    
   }
   
 }

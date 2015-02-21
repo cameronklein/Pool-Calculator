@@ -36,6 +36,7 @@ class CalculatorViewController: UIViewController {
   var newValue: Double!
   var selectionBar : UIView?
   var lastButton : UIButton!
+  var currentButton : UIButton!
   
   var context : NSManagedObjectContext!
   
@@ -45,7 +46,6 @@ class CalculatorViewController: UIViewController {
     super.viewDidLoad()
     let appDel = UIApplication.sharedApplication().delegate as AppDelegate
     context = appDel.managedObjectContext
-    lastButton = chlorineButton
     addSelectionBarTo(chlorineButton, animated: false)
     
     let tapper = UITapGestureRecognizer()
@@ -73,10 +73,9 @@ class CalculatorViewController: UIViewController {
     }
   }
   
-  override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-    //self.didPressChemicalButton(chlorineButton)
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
   }
-
   
   // MARK: - Helper Methods
   
@@ -248,10 +247,6 @@ class CalculatorViewController: UIViewController {
   func addSelectionBarTo(button: UIButton, animated: Bool) {
     if selectionBar == nil {
       selectionBar = UIView()
-      let barX = button.frame.origin.x
-      let barY = button.frame.origin.y + button.frame.height - 6
-      let barWidth = button.frame.width
-      let barHeight : CGFloat = 2
       selectionBar!.backgroundColor = UIColor.whiteColor()
       topScrollView.addSubview(selectionBar!)
       selectionBar!.layer.cornerRadius = 2
@@ -268,11 +263,13 @@ class CalculatorViewController: UIViewController {
       initialSpringVelocity: 0.4,
       options: .AllowUserInteraction,
       animations: { () -> Void in
-      self.selectionBar!.frame = CGRect(x: barX, y: barY, width: barWidth, height: barHeight)
-        self.lastButton.setTitleColor(UIColor.lightTextColor(), forState: UIControlState.Normal)
+        self.selectionBar!.frame = CGRect(x: barX, y: barY, width: barWidth, height: barHeight)
+        if self.currentButton != nil {
+          self.currentButton.setTitleColor(UIColor.lightTextColor(), forState: UIControlState.Normal)
+        }
         button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
     }) { (success) -> Void in
-      self.lastButton = button
+      self.currentButton = button
       return ()
     }
   }

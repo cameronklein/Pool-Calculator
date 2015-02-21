@@ -38,7 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       let timesLaunched = userDefaults.integerForKey("TimesLaunched")
       userDefaults.setInteger(timesLaunched + 1, forKey: "TimesLaunched")
       userDefaults.synchronize()
-      println((timesLaunched + 1).description)
     }
 
     return true

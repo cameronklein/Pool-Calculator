@@ -58,7 +58,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   }
   
   override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-    
+    super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
     for object in tableView.visibleCells() {
       if let cell = object as? HistoryCell {
         cell.setHorizontalConstraintsForScreenWidth(size.width)
@@ -178,7 +178,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     case .Insert:
       tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
     default:
-      println("Doing nothing!")
+      break
     }
     
   }
