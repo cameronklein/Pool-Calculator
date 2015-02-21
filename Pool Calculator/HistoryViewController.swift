@@ -261,7 +261,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var fetchRequest = NSFetchRequest(entityName: "Reading")
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "day", ascending: false), NSSortDescriptor(key: "timestamp", ascending: true)]
-    self.fetchController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: "day", cacheName: "Readings")
+    self.fetchController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: "day", cacheName: nil)
     fetchController.delegate = self
     
     var error : NSError?

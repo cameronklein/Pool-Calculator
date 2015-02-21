@@ -10,14 +10,14 @@
             <objects>
                 <controller identifier="Home" animationDuration="1" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Pool_Calculator_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label width="136" alignment="left" text="Pool Calculator" textAlignment="left" id="4QC-Hd-0rN">
+                        <label width="136" alignment="left" text="Pool Operator" textAlignment="center" id="4QC-Hd-0rN">
                             <fontDescription key="font" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                         </label>
                         <button width="1" widthAdjustment="1" alignment="left" title="New Reading" id="c8L-ki-ouE">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="backgroundColor" red="0.0" green="0.58823529409999997" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="6Kj-ld-K26" kind="modal" id="dzA-SF-Pvx"/>
+                                <segue destination="f3h-Ei-d2Y" kind="push" id="ZQZ-ew-RvY"/>
                             </connections>
                         </button>
                         <button width="1" alignment="left" title="History" id="ydT-Eg-PbF">
@@ -73,58 +73,202 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="544" y="627"/>
+            <point key="canvasLocation" x="397" y="701"/>
         </scene>
-        <!--Cancel-->
-        <scene sceneID="6uz-JT-Gxy">
+        <!--New Reading Controller-->
+        <scene sceneID="71S-cj-el8">
             <objects>
-                <controller title="Cancel" id="6Kj-ld-K26">
+                <controller id="f3h-Ei-d2Y" customClass="NewReadingController" customModule="Pool_Calculator_WatchKit_Extension">
                     <items>
-                        <label width="136" alignment="left" text="Free Chlorine" textAlignment="center" numberOfLines="2" id="zTM-ob-bul">
-                            <fontDescription key="font" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
-                        </label>
-                        <group width="1" alignment="left" verticalAlignment="bottom" id="Kz1-Du-skb">
+                        <group width="1" height="100" alignment="left" layout="vertical" id="mkQ-ov-154">
                             <items>
-                                <button width="0.5" alignment="left" title="Down" id="hay-Yr-OiX"/>
-                                <button width="0.5" alignment="right" verticalAlignment="bottom" title="Up" id="d0k-bm-mG8"/>
+                                <label height="0.20000000000000015" alignment="center" text="Free Chlorine" minimumScaleFactor="0.50000000000000011" id="KO8-NT-vga"/>
+                                <group width="1" height="0.80000000000000004" alignment="center" verticalAlignment="bottom" id="UeU-wR-bK2">
+                                    <items>
+                                        <group width="0.50000000000000011" height="1" alignment="left" id="lek-9J-j5c">
+                                            <items>
+                                                <label alignment="center" verticalAlignment="center" text="--" id="ghA-gF-xe0"/>
+                                            </items>
+                                        </group>
+                                        <group width="0.50000000000000011" height="1" alignment="right" layout="vertical" id="Lpq-df-yFb">
+                                            <items>
+                                                <button width="1" height="0.50000000000000011" alignment="left" title="+" id="Q9O-st-3cd">
+                                                    <connections>
+                                                        <action selector="didPressFreeChlorineUp" destination="f3h-Ei-d2Y" id="2oV-bg-lGS"/>
+                                                    </connections>
+                                                </button>
+                                                <button width="1" height="0.50000000000000011" alignment="left" title="-" id="pS2-ON-uSo">
+                                                    <connections>
+                                                        <action selector="didPressFreeChlorineDown" destination="f3h-Ei-d2Y" id="6bA-Dn-lKb"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
                             </items>
                         </group>
-                        <label width="136" height="43" alignment="left" text="0.0" textAlignment="center" id="R5R-Wb-qdx">
-                            <fontDescription key="font" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
-                        </label>
-                        <button width="1" alignment="left" verticalAlignment="bottom" title="Submit" id="gfP-K6-9w8"/>
+                        <group width="1" height="100" alignment="left" layout="vertical" id="gnK-GZ-sNF">
+                            <items>
+                                <label height="0.20000000000000015" alignment="center" text="Combined Chlorine" minimumScaleFactor="0.50000000000000011" id="Ya0-up-Ode"/>
+                                <group width="1" height="0.80000000000000004" alignment="center" verticalAlignment="bottom" id="lrQ-eZ-Lad">
+                                    <items>
+                                        <group width="0.50000000000000011" height="1" alignment="left" id="Udf-4s-32L">
+                                            <items>
+                                                <label alignment="center" verticalAlignment="center" text="--" id="rVr-a0-Qo3"/>
+                                            </items>
+                                        </group>
+                                        <group width="0.50000000000000011" height="1" alignment="right" layout="vertical" id="tqs-LQ-NMA">
+                                            <items>
+                                                <button width="1" height="0.50000000000000011" alignment="left" title="+" id="h1U-pY-kJr">
+                                                    <connections>
+                                                        <action selector="didPressCombinedUp" destination="f3h-Ei-d2Y" id="vOd-1L-fbK"/>
+                                                    </connections>
+                                                </button>
+                                                <button width="1" height="0.50000000000000011" alignment="left" title="-" id="DEZ-GH-Dwz">
+                                                    <connections>
+                                                        <action selector="didPressCombinedDown" destination="f3h-Ei-d2Y" id="25P-VE-BTO"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <group width="1" height="100" alignment="left" layout="vertical" id="Zce-Q2-XxQ">
+                            <items>
+                                <label height="0.20000000000000015" alignment="center" text="Total Chlorine" minimumScaleFactor="0.50000000000000011" id="aGs-3Z-gbk"/>
+                                <group width="1" height="0.80000000000000004" alignment="center" verticalAlignment="bottom" id="uTY-ct-DAu">
+                                    <items>
+                                        <group width="0.50000000000000011" height="1" alignment="left" id="pMs-Wn-Tol">
+                                            <items>
+                                                <label alignment="center" verticalAlignment="center" text="--" id="yKf-ll-Z64"/>
+                                            </items>
+                                        </group>
+                                        <group width="0.50000000000000011" height="1" alignment="right" layout="vertical" id="Srj-Bf-D9u">
+                                            <items>
+                                                <button width="1" height="0.50000000000000011" alignment="left" title="+" id="M2G-x4-iLD">
+                                                    <connections>
+                                                        <action selector="didPressTotalUp" destination="f3h-Ei-d2Y" id="eHW-ET-MjB"/>
+                                                    </connections>
+                                                </button>
+                                                <button width="1" height="0.50000000000000011" alignment="left" title="-" id="OrI-uN-9nX">
+                                                    <connections>
+                                                        <action selector="didPressTotalDown" destination="f3h-Ei-d2Y" id="u3h-LF-aqa"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <group width="1" height="100" alignment="left" layout="vertical" id="fjV-w1-umx">
+                            <items>
+                                <label height="0.20000000000000015" alignment="center" text="pH" id="CHv-im-Tij"/>
+                                <group width="1" height="0.80000000000000004" alignment="center" verticalAlignment="bottom" id="Rkj-rr-BsU">
+                                    <items>
+                                        <group width="0.50000000000000011" height="1" alignment="left" id="ON0-4d-xt3">
+                                            <items>
+                                                <label alignment="center" verticalAlignment="center" text="--" id="3U4-Uv-WRN"/>
+                                            </items>
+                                        </group>
+                                        <group width="0.50000000000000011" height="1" alignment="right" layout="vertical" id="Hsh-du-0OI">
+                                            <items>
+                                                <button width="1" height="0.50000000000000011" alignment="left" title="+" id="rvi-lH-8uZ">
+                                                    <connections>
+                                                        <action selector="didPressphUp" destination="f3h-Ei-d2Y" id="KXz-wt-96Z"/>
+                                                    </connections>
+                                                </button>
+                                                <button width="1" height="0.50000000000000011" alignment="left" title="-" id="9JZ-Mp-ehb">
+                                                    <connections>
+                                                        <action selector="didPressphDown" destination="f3h-Ei-d2Y" id="fXd-jK-J4t"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <group width="1" height="100" alignment="left" layout="vertical" id="Iip-1g-qvh">
+                            <items>
+                                <label height="0.20000000000000015" alignment="center" text="Total Alkalinity" minimumScaleFactor="0.50000000000000011" id="MBV-ar-XbE"/>
+                                <group width="1" height="0.80000000000000004" alignment="center" verticalAlignment="bottom" id="6O1-qo-hAS">
+                                    <items>
+                                        <group width="0.50000000000000011" height="1" alignment="left" id="Y9G-k0-bqH">
+                                            <items>
+                                                <label alignment="center" verticalAlignment="center" text="--" id="K8B-kT-HZJ"/>
+                                            </items>
+                                        </group>
+                                        <group width="0.50000000000000011" height="1" alignment="right" layout="vertical" id="VfQ-03-iUh">
+                                            <items>
+                                                <button width="1" height="0.50000000000000011" alignment="left" title="+" id="40U-6Y-mEu">
+                                                    <connections>
+                                                        <action selector="didPressAlkalinityUp" destination="f3h-Ei-d2Y" id="dxt-Wh-vn7"/>
+                                                    </connections>
+                                                </button>
+                                                <button width="1" height="0.50000000000000011" alignment="left" title="-" id="Cfr-3l-bCS">
+                                                    <connections>
+                                                        <action selector="didPressAlkalinityDown" destination="f3h-Ei-d2Y" id="rhC-sP-Vff"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <group width="1" height="100" alignment="left" layout="vertical" id="IW3-7J-L9N">
+                            <items>
+                                <label height="0.20000000000000015" alignment="center" text="Calcium Hardness" minimumScaleFactor="0.50000000000000011" id="Pfx-LJ-xIA"/>
+                                <group width="1" height="0.80000000000000004" alignment="center" verticalAlignment="bottom" id="YB7-UG-2sv">
+                                    <items>
+                                        <group width="0.50000000000000011" height="1" alignment="left" id="pCR-0N-VU6">
+                                            <items>
+                                                <label alignment="center" verticalAlignment="center" text="--" id="z2A-kr-olD"/>
+                                            </items>
+                                        </group>
+                                        <group width="0.50000000000000011" height="1" alignment="right" layout="vertical" id="naZ-Fu-dIn">
+                                            <items>
+                                                <button width="1" height="0.50000000000000011" alignment="left" title="+" id="MlN-RK-hd3">
+                                                    <connections>
+                                                        <action selector="didPressCalciumUp" destination="f3h-Ei-d2Y" id="fFN-5j-8Oe"/>
+                                                    </connections>
+                                                </button>
+                                                <button width="1" height="0.50000000000000011" alignment="left" title="-" id="htc-HG-KsJ">
+                                                    <connections>
+                                                        <action selector="didPressCalciumDown" destination="f3h-Ei-d2Y" id="dTr-TH-6r9"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <group width="1" height="50" alignment="left" layout="vertical" id="xAQ-On-x28">
+                            <items>
+                                <button width="1" alignment="left" title="Submit" id="0pX-4t-TxB">
+                                    <connections>
+                                        <action selector="didPressSubmit" destination="f3h-Ei-d2Y" id="9c8-tK-RZI"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
                     </items>
-                    <color key="backgroundColor" red="0.13725490200000001" green="0.43137254899999999" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
-                        <segue destination="vwn-Zf-tOq" kind="relationship" relationship="nextPage" id="sNk-0f-Fto"/>
+                        <outlet property="calciumHardnessValue" destination="z2A-kr-olD" id="0Lu-XJ-4Cj"/>
+                        <outlet property="combinedChlorineValue" destination="rVr-a0-Qo3" id="6Cg-3t-fx6"/>
+                        <outlet property="freeChlorineValue" destination="ghA-gF-xe0" id="8nL-RS-0q4"/>
+                        <outlet property="phLabel" destination="3U4-Uv-WRN" id="FW8-Dt-Mbs"/>
+                        <outlet property="totalAlkalinityLabel" destination="K8B-kT-HZJ" id="3wh-MZ-5Af"/>
+                        <outlet property="totalChlorineLabel" destination="yKf-ll-Z64" id="lkd-xY-GYh"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="544" y="105"/>
-        </scene>
-        <!--Interface Controller-->
-        <scene sceneID="Hoi-IO-wqQ">
-            <objects>
-                <controller id="vwn-Zf-tOq">
-                    <items>
-                        <label width="136" alignment="left" text="Combined CL" textAlignment="center" numberOfLines="2" id="kby-IV-6vg">
-                            <fontDescription key="font" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
-                        </label>
-                        <label width="136" height="43" alignment="left" text="0.0" textAlignment="center" id="nZw-9O-axc">
-                            <fontDescription key="font" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
-                        </label>
-                        <group width="1" alignment="left" verticalAlignment="bottom" id="l1J-iw-UlR">
-                            <items>
-                                <button width="0.5" alignment="left" title="Down" id="C8h-RT-Bgl"/>
-                                <button width="0.5" alignment="right" verticalAlignment="bottom" title="Up" id="GKF-ZR-u7r"/>
-                            </items>
-                        </group>
-                        <button width="1" alignment="left" verticalAlignment="bottom" title="Submit" id="XkB-z6-uVL"/>
-                    </items>
-                    <color key="backgroundColor" red="0.90196078430000004" green="0.68235294120000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="743" y="105"/>
+            <point key="canvasLocation" x="509" y="160"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="BOz-TT-tkC">
