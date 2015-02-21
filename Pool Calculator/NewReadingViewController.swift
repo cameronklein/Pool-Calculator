@@ -234,10 +234,11 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
       }
     }
     clearReadings()
+    tableView.reloadData()
   }
   
   func clearReadings() {
-    readings = [nil, nil, nil, nil, nil, nil];
+    readings = [nil, nil, nil, nil, nil, nil]
     
   }
   
