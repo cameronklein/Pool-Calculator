@@ -16,11 +16,11 @@ class GlanceController: WKInterfaceController {
   @IBOutlet weak var time: WKInterfaceLabel!
   @IBOutlet weak var firstReading: WKInterfaceLabel!
   @IBOutlet weak var secondReading: WKInterfaceLabel!
-  @IBOutlet weak var thirdReading: WKInterfaceLabel!
   
   var dataAccess = DataAccess.singleton
   var context : NSManagedObjectContext!
   var timeFormatter = NSDateFormatter()
+  var dateFormatter = NSDateFormatter()
   
 
   override func awakeWithContext(context: AnyObject?) {
@@ -29,34 +29,31 @@ class GlanceController: WKInterfaceController {
     timeFormatter.dateStyle = NSDateFormatterStyle.NoStyle
     timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
     
+    dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+    dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+    
     if let reading = getLastReading() {
       
-      time.setText(timeFormatter.stringFromDate(reading.timestamp))
+      time.setText(getRelativeDayWithReading(reading) + timeFormatter.stringFromDate(reading.timestamp))
+      
       if let number = reading.freeChlorine? {
-        firstReading.setText("Free Chlorine: " + String(format: "%.1f", number.doubleValue))
+        firstReading.setText(String(format: "%.1f", number.doubleValue))
       } else {
         firstReading.setText("--")
       }
-      if let number = reading.combinedChlorine? {
-        secondReading.setText("Combined Chlorine: " + String(format: "%.1f", number.doubleValue))
+      if let number = reading.pH? {
+        secondReading.setText(String(format: "%.1f", number.doubleValue))
       } else {
         secondReading.setText("--")
-      }
-      if let number = reading.pH? {
-        thirdReading.setText("pH: " + String(format: "%.1f", number.doubleValue))
-      } else {
-        thirdReading.setText("--")
       }
     }
   }
 
   override func willActivate() {
-      // This method is called when watch view controller is about to be visible to user
       super.willActivate()
   }
 
   override func didDeactivate() {
-      // This method is called when watch view controller is no longer visible
       super.didDeactivate()
   }
   
@@ -77,6 +74,33 @@ class GlanceController: WKInterfaceController {
       }
     }
     return nil
+  }
+  
+  func getOrdinalDay() -> NSNumber {
+    
+    var date = NSDate()
+    let calendar = NSCalendar.currentCalendar()
+    let offset = NSTimeZone.systemTimeZone().secondsFromGMTForDate(date)
+    let dateForDay = date.dateByAddingTimeInterval(Double(offset))
+    return calendar.ordinalityOfUnit(NSCalendarUnit.CalendarUnitDay, inUnit: NSCalendarUnit.CalendarUnitEra, forDate: dateForDay)
+    
+  }
+  
+  func getRelativeDayWithReading(reading: Reading) -> NSString {
+    
+    let todayOrdinal = getOrdinalDay()
+    let readingOrdinal = reading.day
+    let relativeOrdinal = todayOrdinal.integerValue - readingOrdinal.integerValue
+    
+    switch relativeOrdinal {
+    case 0:
+      return "Today @ "
+    case -1:
+      return "Yesterday @ "
+    default:
+      return dateFormatter.stringFromDate(reading.timestamp)
+    }
+    
   }
 
 }
