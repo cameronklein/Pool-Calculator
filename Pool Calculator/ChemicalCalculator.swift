@@ -38,7 +38,7 @@ class ChemicalCalculator {
   let sodiumSesquicarbonate = 2.0
   
   //Raise pH
-  let sodaAshForPH = 6.56
+  let sodaAshForPH = 65.6
   
   // Lower pH
   let muriaticAcidForPH = 3.9
@@ -113,8 +113,8 @@ class ChemicalCalculator {
   func raiseChlorineBy(amount : Double) -> String {
     
     let gallonsMultiplier = poolGallons / 10000
-    let result = amount * calciumHypochlorite * gallonsMultiplier
-    return formatResult(result, chemicalName: "Calcium Hypochlorite", measurementType: .Volume)
+    let result = amount * sodiumHypochlorite * gallonsMultiplier
+    return formatResult(result, chemicalName: "12% Sodium Hypochlorite", measurementType: .Volume)
     
   }
   
@@ -160,7 +160,7 @@ class ChemicalCalculator {
     
     let gallonsMultiplier = poolGallons 	/ 10000
     let result = amount * calciumChloride100 * gallonsMultiplier
-    return formatResult(result, chemicalName: "Calcium Chloride", measurementType: .Weight)
+    return formatResult(result, chemicalName: " 100% Calcium Chloride", measurementType: .Weight)
     
   }
   
@@ -184,13 +184,51 @@ class ChemicalCalculator {
     
   }
   
-  
   func formatResult(ounces : Double, chemicalName: String, measurementType: MeasurementType) -> String {
+    switch measurementType {
+    case .Volume:
+      return formatResultForVolumeWithOunces(ounces, andChemical: chemicalName)
+    case .Weight:
+      return formatResultForWeightWithOunces(ounces, andChemical: chemicalName)
+    }
+  }
+  
+  func formatResultForVolumeWithOunces(ounces: Double, andChemical chemicalName: String) -> String {
     let units : VolumeUnit = VolumeUnit(rawValue: NSUserDefaults.standardUserDefaults().integerForKey(kUserSettingsVolumeUnits))!
     
     switch units {
-
+      
     case .Gallons:
+      
+      if ounces < 128 {
+        return String(format: "%.0f", ounces) + " oz of\n \(chemicalName)"
+      } else {
+        let gallons = ounces / 128
+        if gallons < 10 {
+          return String(format: "%.1f", gallons) + " gallons of\n \(chemicalName)"
+        } else {
+          return String(format: "%.0f", round(gallons)) + " gallons of\n \(chemicalName)"
+        }
+      }
+      
+    case .Liters:
+      let liters = ounces / 33.814
+      
+      if liters < 20 {
+        return String(format: "%.1f", liters) + " liters of\n \(chemicalName)"
+      } else {
+        return String(format: "%.0f", round(liters)) + " liters of\n \(chemicalName)"
+      }
+    }
+    
+  }
+  
+  func formatResultForWeightWithOunces(ounces: Double, andChemical chemicalName: String) -> String {
+    let units : WeightUnit = WeightUnit(rawValue: NSUserDefaults.standardUserDefaults().integerForKey(kUserSettingsWeightUnits))!
+    
+    switch units {
+      
+    case .Pounds:
       
       if ounces < 16 {
         return String(format: "%.0f", ounces) + " oz of\n \(chemicalName)"
@@ -203,7 +241,7 @@ class ChemicalCalculator {
         }
       }
       
-    case .Liters:
+    case .Kilograms:
       let grams = ounces * 28.3495231
       
       if grams < 500 {
@@ -212,5 +250,9 @@ class ChemicalCalculator {
         return String(format: "%.1f", grams / 1000) + " kg of\n \(chemicalName)"
       }
     }
+    
   }
+  
+  
+  
 }

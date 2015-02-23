@@ -278,9 +278,11 @@
                         <group alignment="left" layout="vertical" spacing="0.0" id="t8f-Gd-c4y">
                             <items>
                                 <label alignment="left" verticalAlignment="center" text="TIME" id="MzE-b3-2gg">
+                                    <color key="textColor" red="0.24779999999999999" green="0.77674399999999999" blue="0.26786199999999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                 </label>
                                 <label alignment="left" text="Last Reading" id="KB0-bU-wee">
+                                    <color key="textColor" red="0.28627450980000002" green="0.65098039220000004" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                 </label>
                             </items>
@@ -288,9 +290,11 @@
                         <group alignment="left" layout="vertical" id="uCw-4Q-Ouw">
                             <items>
                                 <label alignment="center" text="Free Chlorine" textAlignment="left" id="eit-h5-mk3">
+                                    <color key="textColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
                                 </label>
                                 <label alignment="center" text="3.0" textAlignment="left" id="Hzu-ZT-6hT">
+                                    <color key="textColor" red="0.28332604900000002" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                 </label>
                                 <separator alignment="left" id="E5j-BT-dVp">
@@ -300,9 +304,11 @@
                                     <color key="color" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </separator>
                                 <label alignment="center" text="pH" textAlignment="center" id="UGe-xb-8Ms">
+                                    <color key="textColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                 </label>
                                 <label alignment="center" text="7.4" textAlignment="center" id="kQG-ch-Rzz">
+                                    <color key="textColor" red="0.28332604900000002" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                 </label>
                             </items>

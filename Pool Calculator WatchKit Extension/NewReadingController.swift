@@ -173,7 +173,7 @@ class NewReadingController: WKInterfaceController {
     if error != nil {
       println(error?.localizedDescription)
     } else {
-      // handle success
+      popToRootController()
     }
     //clearReadings()
 
