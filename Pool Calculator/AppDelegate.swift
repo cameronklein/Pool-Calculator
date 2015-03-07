@@ -40,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       userDefaults.synchronize()
     }
 
+    self.window?.rootViewController = PoolDrawingViewController(nibName: "PoolDrawingViewController", bundle: NSBundle.mainBundle())
+    
     return true
   }
 

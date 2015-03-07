@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6724" systemVersion="14C94b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PoolDrawingViewController" customModule="Pool_Calculator" customModuleProvider="target">
+            <connections>
+                <outlet property="drawingView" destination="if5-ql-ggR" id="07t-8L-F3T"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Ok! Draw your pool." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPf-qr-B0S">
+                    <rect key="frame" x="16" y="48" width="343" height="24"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="if5-ql-ggR" userLabel="Drawing Area" customClass="DrawingView" customModule="Pool_Calculator" customModuleProvider="target">
+                    <rect key="frame" x="8" y="80" width="359" height="359"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="if5-ql-ggR" secondAttribute="height" id="cTw-yE-VxD"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.27058823529999998" green="0.35294117650000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="if5-ql-ggR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="4yj-Xb-0Rl"/>
+                <constraint firstItem="dPf-qr-B0S" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="CLr-LZ-lTa"/>
+                <constraint firstItem="dPf-qr-B0S" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="48" id="Fww-Pi-ZgW"/>
+                <constraint firstAttribute="trailing" secondItem="dPf-qr-B0S" secondAttribute="trailing" constant="16" id="aTh-ef-Mro"/>
+                <constraint firstItem="if5-ql-ggR" firstAttribute="top" secondItem="dPf-qr-B0S" secondAttribute="bottom" constant="8" id="fjV-Yl-jLS"/>
+                <constraint firstAttribute="bottom" secondItem="if5-ql-ggR" secondAttribute="bottom" constant="8" id="qPT-kM-ucL"/>
+                <constraint firstAttribute="trailing" secondItem="if5-ql-ggR" secondAttribute="trailing" constant="8" id="wi6-yL-WoW"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="qPT-kM-ucL"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

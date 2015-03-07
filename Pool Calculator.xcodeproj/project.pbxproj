@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E159CA31AAADA0C00FB30CA /* PoolDrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E159CA11AAADA0C00FB30CA /* PoolDrawingViewController.swift */; };
+		7E159CA41AAADA0C00FB30CA /* PoolDrawingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E159CA21AAADA0C00FB30CA /* PoolDrawingViewController.xib */; };
+		7E159CA61AAADC1700FB30CA /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E159CA51AAADC1700FB30CA /* DrawingView.swift */; };
 		7E37C2DD1A43AA7100432E34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37C2DC1A43AA7100432E34 /* AppDelegate.swift */; };
 		7E37C2E01A43AA7100432E34 /* Pool_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E37C2DE1A43AA7100432E34 /* Pool_Calculator.xcdatamodeld */; };
 		7E37C2E21A43AA7100432E34 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37C2E11A43AA7100432E34 /* ContainerViewController.swift */; };
@@ -147,6 +150,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7E159CA11AAADA0C00FB30CA /* PoolDrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoolDrawingViewController.swift; sourceTree = "<group>"; };
+		7E159CA21AAADA0C00FB30CA /* PoolDrawingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PoolDrawingViewController.xib; sourceTree = "<group>"; };
+		7E159CA51AAADC1700FB30CA /* DrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 		7E37C2D71A43AA7100432E34 /* Pool Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pool Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E37C2DB1A43AA7100432E34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E37C2DC1A43AA7100432E34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -380,6 +386,9 @@
 			children = (
 				7E9F8A861A4B4413005092B1 /* OnboardViewController.swift */,
 				7E9F8A871A4B4413005092B1 /* OnboardViewController.xib */,
+				7E159CA11AAADA0C00FB30CA /* PoolDrawingViewController.swift */,
+				7E159CA21AAADA0C00FB30CA /* PoolDrawingViewController.xib */,
+				7E159CA51AAADC1700FB30CA /* DrawingView.swift */,
 			);
 			name = "-- Onboard --";
 			sourceTree = "<group>";
@@ -732,6 +741,7 @@
 				7E37C2EA1A43AA7100432E34 /* LaunchScreen.xib in Resources */,
 				7E37C2E71A43AA7100432E34 /* Images.xcassets in Resources */,
 				7E9F8A7B1A4A34D5005092B1 /* DisplayOptionsViewController.xib in Resources */,
+				7E159CA41AAADA0C00FB30CA /* PoolDrawingViewController.xib in Resources */,
 				7E5B2AAB1A43B6E600B39BDE /* ReadingCell.xib in Resources */,
 				7EEB64441A47CADC0063EF4F /* CalculatorViewController.xib in Resources */,
 				7EC7975F1A44110700BFCAAD /* HistoryViewController.xib in Resources */,
@@ -789,9 +799,11 @@
 				7E9F8A741A4A26AF005092B1 /* ChemicalsUsedViewController.swift in Sources */,
 				7E57EBA41A61EDAB003807DB /* TabBarButton.swift in Sources */,
 				7E5B2AA61A43B2DE00B39BDE /* NewReadingViewController.swift in Sources */,
+				7E159CA61AAADC1700FB30CA /* DrawingView.swift in Sources */,
 				7E5B2AAA1A43B6E600B39BDE /* ReadingCell.swift in Sources */,
 				7EC797691A4421D200BFCAAD /* Reading.swift in Sources */,
 				7E37C2E21A43AA7100432E34 /* ContainerViewController.swift in Sources */,
+				7E159CA31AAADA0C00FB30CA /* PoolDrawingViewController.swift in Sources */,
 				7E4E27571A659C5200F43515 /* SelectorView.swift in Sources */,
 				7EF32A041A621E700013AEFD /* DataAccess.swift in Sources */,
 				7E37C2DD1A43AA7100432E34 /* AppDelegate.swift in Sources */,
@@ -1003,6 +1015,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Pool Calculator/Pool Calculator.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1011,6 +1024,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -1018,6 +1032,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Pool Calculator/Pool Calculator.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
