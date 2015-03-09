@@ -3,11 +3,20 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PoolDrawingViewController" customModule="Pool_Calculator" customModuleProvider="target">
             <connections>
+                <outlet property="circleView" destination="8kI-aA-01D" id="7yC-rQ-M5K"/>
+                <outlet property="circleWrapper" destination="1Oo-DS-TmX" id="0XH-4y-xs3"/>
                 <outlet property="drawingView" destination="if5-ql-ggR" id="07t-8L-F3T"/>
+                <outlet property="ellipseView" destination="8C9-WT-dz8" id="Fv9-kn-0Hk"/>
+                <outlet property="ellipseWrapper" destination="Wo0-0s-TbL" id="sPx-uX-OJa"/>
+                <outlet property="oblongView" destination="ljW-tt-rWX" id="qTi-8f-dMc"/>
+                <outlet property="oblongWrapper" destination="BbL-G1-E0H" id="77b-Cx-RHU"/>
+                <outlet property="rectangleWrapper" destination="WA6-UN-YTB" id="k4X-TU-Oly"/>
+                <outlet property="squareView" destination="G6e-Hy-El7" id="LUJ-Tv-Kbd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Ok! Draw your pool." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPf-qr-B0S">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="What shape is your pool?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPf-qr-B0S">
                     <rect key="frame" x="16" y="48" width="343" height="24"/>
                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -24,9 +33,143 @@
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="if5-ql-ggR" userLabel="Drawing Area" customClass="DrawingView" customModule="Pool_Calculator" customModuleProvider="target">
                     <rect key="frame" x="8" y="80" width="359" height="359"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WA6-UN-YTB" userLabel="Square Pool">
+                            <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Rectangle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SP-o6-6Ov">
+                                    <rect key="frame" x="8" y="148" width="164" height="24"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G6e-Hy-El7" customClass="PoolShapeView" customModule="Pool_Calculator" customModuleProvider="target">
+                                    <rect key="frame" x="24" y="8" width="132" height="132"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="G6e-Hy-El7" secondAttribute="height" id="WGv-ca-Iyb"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="9SP-o6-6Ov" secondAttribute="trailing" constant="8" id="8cJ-ea-9gE"/>
+                                <constraint firstItem="9SP-o6-6Ov" firstAttribute="leading" secondItem="WA6-UN-YTB" secondAttribute="leading" constant="8" id="Osp-HR-53p"/>
+                                <constraint firstItem="9SP-o6-6Ov" firstAttribute="top" secondItem="G6e-Hy-El7" secondAttribute="bottom" constant="8" id="PHy-Pd-ABd"/>
+                                <constraint firstItem="G6e-Hy-El7" firstAttribute="top" secondItem="WA6-UN-YTB" secondAttribute="top" constant="8" id="dkM-ij-P05"/>
+                                <constraint firstAttribute="bottom" secondItem="9SP-o6-6Ov" secondAttribute="bottom" constant="8" id="sUY-w9-wU9"/>
+                                <constraint firstAttribute="centerX" secondItem="G6e-Hy-El7" secondAttribute="centerX" id="zrO-AQ-9af"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Oo-DS-TmX" userLabel="Circular Pool">
+                            <rect key="frame" x="180" y="0.0" width="179" height="180"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Circle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIU-jG-Xyl">
+                                    <rect key="frame" x="8" y="148" width="163" height="24"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8kI-aA-01D" customClass="PoolShapeView" customModule="Pool_Calculator" customModuleProvider="target">
+                                    <rect key="frame" x="24" y="8" width="132" height="132"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="8kI-aA-01D" secondAttribute="height" id="IdL-Uo-ave"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="zIU-jG-Xyl" secondAttribute="trailing" constant="8" id="1Ql-ce-gHJ"/>
+                                <constraint firstAttribute="bottom" secondItem="zIU-jG-Xyl" secondAttribute="bottom" constant="8" id="44X-72-Kso"/>
+                                <constraint firstAttribute="centerX" secondItem="8kI-aA-01D" secondAttribute="centerX" id="9hC-Bj-JNX"/>
+                                <constraint firstItem="zIU-jG-Xyl" firstAttribute="top" secondItem="8kI-aA-01D" secondAttribute="bottom" constant="8" id="Ilg-iF-2o4"/>
+                                <constraint firstItem="8kI-aA-01D" firstAttribute="top" secondItem="1Oo-DS-TmX" secondAttribute="top" constant="8" id="VCy-MV-POT"/>
+                                <constraint firstItem="zIU-jG-Xyl" firstAttribute="leading" secondItem="1Oo-DS-TmX" secondAttribute="leading" constant="8" id="zhx-Dh-jri"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BbL-G1-E0H" userLabel="Oblong Pool">
+                            <rect key="frame" x="0.0" y="180" width="180" height="179"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Ellipse" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lH-jd-lor">
+                                    <rect key="frame" x="8" y="147" width="164" height="24"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8C9-WT-dz8" customClass="PoolShapeView" customModule="Pool_Calculator" customModuleProvider="target">
+                                    <rect key="frame" x="24" y="8" width="132" height="131"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="8C9-WT-dz8" secondAttribute="height" id="17Z-OS-Quz"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="2lH-jd-lor" secondAttribute="trailing" constant="8" id="4H5-g0-fWQ"/>
+                                <constraint firstItem="2lH-jd-lor" firstAttribute="leading" secondItem="BbL-G1-E0H" secondAttribute="leading" constant="8" id="4QE-OU-Dae"/>
+                                <constraint firstAttribute="centerX" secondItem="8C9-WT-dz8" secondAttribute="centerX" id="6g2-fB-isy"/>
+                                <constraint firstAttribute="bottom" secondItem="2lH-jd-lor" secondAttribute="bottom" constant="8" id="Xdj-p6-09j"/>
+                                <constraint firstItem="8C9-WT-dz8" firstAttribute="top" secondItem="BbL-G1-E0H" secondAttribute="top" constant="8" id="ify-PE-QoV"/>
+                                <constraint firstItem="2lH-jd-lor" firstAttribute="top" secondItem="8C9-WT-dz8" secondAttribute="bottom" constant="8" id="iqS-NA-daG"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wo0-0s-TbL" userLabel="Ellipse Pool">
+                            <rect key="frame" x="180" y="180" width="179" height="179"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Oblong" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGu-1Y-xd4">
+                                    <rect key="frame" x="8" y="147" width="163" height="24"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ljW-tt-rWX" customClass="PoolShapeView" customModule="Pool_Calculator" customModuleProvider="target">
+                                    <rect key="frame" x="23" y="8" width="132" height="131"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="ljW-tt-rWX" secondAttribute="height" id="2wE-u2-CEy"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="SGu-1Y-xd4" firstAttribute="leading" secondItem="Wo0-0s-TbL" secondAttribute="leading" constant="8" id="8mk-zq-byk"/>
+                                <constraint firstAttribute="bottom" secondItem="SGu-1Y-xd4" secondAttribute="bottom" constant="8" id="9uq-iQ-Iox"/>
+                                <constraint firstAttribute="centerX" secondItem="ljW-tt-rWX" secondAttribute="centerX" id="CEA-k4-ZyP"/>
+                                <constraint firstItem="ljW-tt-rWX" firstAttribute="top" secondItem="Wo0-0s-TbL" secondAttribute="top" constant="8" id="lg3-gV-8Ip"/>
+                                <constraint firstItem="SGu-1Y-xd4" firstAttribute="top" secondItem="ljW-tt-rWX" secondAttribute="bottom" constant="8" id="vQa-g7-q3q"/>
+                                <constraint firstAttribute="trailing" secondItem="SGu-1Y-xd4" secondAttribute="trailing" constant="8" id="z7r-LM-odO"/>
+                            </constraints>
+                        </view>
+                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="height" secondItem="Wo0-0s-TbL" secondAttribute="height" priority="750" id="0R2-dJ-IhD"/>
+                        <constraint firstAttribute="width" secondItem="Wo0-0s-TbL" secondAttribute="width" multiplier="2" priority="999" id="3Ca-GY-zcL"/>
+                        <constraint firstAttribute="width" secondItem="BbL-G1-E0H" secondAttribute="width" multiplier="2" priority="999" id="4YL-q3-dHB"/>
+                        <constraint firstAttribute="height" secondItem="Wo0-0s-TbL" secondAttribute="height" multiplier="2" priority="999" id="7Bd-hS-sbZ"/>
+                        <constraint firstAttribute="width" secondItem="Wo0-0s-TbL" secondAttribute="width" priority="750" id="CTj-Yw-4Md"/>
+                        <constraint firstAttribute="trailing" secondItem="Wo0-0s-TbL" secondAttribute="trailing" id="CvA-AJ-TWQ"/>
+                        <constraint firstItem="WA6-UN-YTB" firstAttribute="top" secondItem="if5-ql-ggR" secondAttribute="top" id="G8a-np-4gb"/>
+                        <constraint firstAttribute="width" secondItem="1Oo-DS-TmX" secondAttribute="width" multiplier="2" priority="999" id="NYo-vx-GqJ"/>
+                        <constraint firstAttribute="trailing" secondItem="1Oo-DS-TmX" secondAttribute="trailing" id="Q2t-BG-87z"/>
+                        <constraint firstAttribute="height" secondItem="1Oo-DS-TmX" secondAttribute="height" multiplier="2" priority="999" id="QAI-yx-pjQ"/>
+                        <constraint firstAttribute="width" secondItem="BbL-G1-E0H" secondAttribute="width" priority="750" id="Ufy-Zi-EGa"/>
+                        <constraint firstAttribute="width" secondItem="WA6-UN-YTB" secondAttribute="width" priority="750" id="V50-Ha-x8E"/>
+                        <constraint firstAttribute="height" secondItem="WA6-UN-YTB" secondAttribute="height" priority="750" id="W5p-Yt-v7z"/>
+                        <constraint firstItem="1Oo-DS-TmX" firstAttribute="top" secondItem="if5-ql-ggR" secondAttribute="top" id="WTF-wC-eN4"/>
+                        <constraint firstAttribute="height" secondItem="WA6-UN-YTB" secondAttribute="height" multiplier="2" priority="999" id="WbK-7n-Ddf"/>
                         <constraint firstAttribute="width" secondItem="if5-ql-ggR" secondAttribute="height" id="cTw-yE-VxD"/>
+                        <constraint firstAttribute="bottom" secondItem="BbL-G1-E0H" secondAttribute="bottom" id="crQ-yl-hOy"/>
+                        <constraint firstAttribute="height" secondItem="BbL-G1-E0H" secondAttribute="height" multiplier="2" priority="999" id="d3O-fM-efM"/>
+                        <constraint firstItem="1Oo-DS-TmX" firstAttribute="height" secondItem="if5-ql-ggR" secondAttribute="height" priority="750" id="dRD-Ce-mDz"/>
+                        <constraint firstItem="WA6-UN-YTB" firstAttribute="leading" secondItem="if5-ql-ggR" secondAttribute="leading" id="lgN-yr-GEr"/>
+                        <constraint firstItem="1Oo-DS-TmX" firstAttribute="width" secondItem="if5-ql-ggR" secondAttribute="width" priority="750" id="t9V-F3-S2g"/>
+                        <constraint firstAttribute="height" secondItem="BbL-G1-E0H" secondAttribute="height" priority="750" id="tNF-Op-Nwz"/>
+                        <constraint firstAttribute="width" secondItem="WA6-UN-YTB" secondAttribute="width" multiplier="2" priority="999" id="wZc-EF-MET"/>
+                        <constraint firstItem="BbL-G1-E0H" firstAttribute="leading" secondItem="if5-ql-ggR" secondAttribute="leading" id="wlb-cy-hzy"/>
+                        <constraint firstAttribute="bottom" secondItem="Wo0-0s-TbL" secondAttribute="bottom" id="ycX-ZV-D6d"/>
                     </constraints>
                 </view>
             </subviews>

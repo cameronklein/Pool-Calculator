@@ -77,6 +77,7 @@
 		7EF32A061A6222110013AEFD /* DataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF32A031A621E700013AEFD /* DataAccess.swift */; };
 		7EF32A2B1A6228C20013AEFD /* Pool_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E37C2DE1A43AA7100432E34 /* Pool_Calculator.xcdatamodeld */; };
 		7EF32A2C1A6228C40013AEFD /* Pool_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E37C2DE1A43AA7100432E34 /* Pool_Calculator.xcdatamodeld */; };
+		7EF96ED81AAE293000FFF0F0 /* PoolShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF96ED71AAE293000FFF0F0 /* PoolShapeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -225,6 +226,7 @@
 		7EF329F51A621E290013AEFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EF329F61A621E290013AEFD /* ReadingSyncKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingSyncKitTests.swift; sourceTree = "<group>"; };
 		7EF32A031A621E700013AEFD /* DataAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataAccess.swift; path = ../DataAccess.swift; sourceTree = "<group>"; };
+		7EF96ED71AAE293000FFF0F0 /* PoolShapeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoolShapeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,6 +390,7 @@
 				7E9F8A871A4B4413005092B1 /* OnboardViewController.xib */,
 				7E159CA11AAADA0C00FB30CA /* PoolDrawingViewController.swift */,
 				7E159CA21AAADA0C00FB30CA /* PoolDrawingViewController.xib */,
+				7EF96ED71AAE293000FFF0F0 /* PoolShapeView.swift */,
 				7E159CA51AAADC1700FB30CA /* DrawingView.swift */,
 			);
 			name = "-- Onboard --";
@@ -801,6 +804,7 @@
 				7E5B2AA61A43B2DE00B39BDE /* NewReadingViewController.swift in Sources */,
 				7E159CA61AAADC1700FB30CA /* DrawingView.swift in Sources */,
 				7E5B2AAA1A43B6E600B39BDE /* ReadingCell.swift in Sources */,
+				7EF96ED81AAE293000FFF0F0 /* PoolShapeView.swift in Sources */,
 				7EC797691A4421D200BFCAAD /* Reading.swift in Sources */,
 				7E37C2E21A43AA7100432E34 /* ContainerViewController.swift in Sources */,
 				7E159CA31AAADA0C00FB30CA /* PoolDrawingViewController.swift in Sources */,
