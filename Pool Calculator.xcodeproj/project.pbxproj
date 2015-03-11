@@ -78,6 +78,7 @@
 		7EF32A2B1A6228C20013AEFD /* Pool_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E37C2DE1A43AA7100432E34 /* Pool_Calculator.xcdatamodeld */; };
 		7EF32A2C1A6228C40013AEFD /* Pool_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E37C2DE1A43AA7100432E34 /* Pool_Calculator.xcdatamodeld */; };
 		7EF96ED81AAE293000FFF0F0 /* PoolShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF96ED71AAE293000FFF0F0 /* PoolShapeView.swift */; };
+		7EF96EDA1AAE9EB200FFF0F0 /* MeasurementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF96ED91AAE9EB200FFF0F0 /* MeasurementsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +228,7 @@
 		7EF329F61A621E290013AEFD /* ReadingSyncKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingSyncKitTests.swift; sourceTree = "<group>"; };
 		7EF32A031A621E700013AEFD /* DataAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataAccess.swift; path = ../DataAccess.swift; sourceTree = "<group>"; };
 		7EF96ED71AAE293000FFF0F0 /* PoolShapeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoolShapeView.swift; sourceTree = "<group>"; };
+		7EF96ED91AAE9EB200FFF0F0 /* MeasurementsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,6 +393,7 @@
 				7E159CA11AAADA0C00FB30CA /* PoolDrawingViewController.swift */,
 				7E159CA21AAADA0C00FB30CA /* PoolDrawingViewController.xib */,
 				7EF96ED71AAE293000FFF0F0 /* PoolShapeView.swift */,
+				7EF96ED91AAE9EB200FFF0F0 /* MeasurementsView.swift */,
 				7E159CA51AAADC1700FB30CA /* DrawingView.swift */,
 			);
 			name = "-- Onboard --";
@@ -811,6 +814,7 @@
 				7E4E27571A659C5200F43515 /* SelectorView.swift in Sources */,
 				7EF32A041A621E700013AEFD /* DataAccess.swift in Sources */,
 				7E37C2DD1A43AA7100432E34 /* AppDelegate.swift in Sources */,
+				7EF96EDA1AAE9EB200FFF0F0 /* MeasurementsView.swift in Sources */,
 				7E9F8A841A4A7E15005092B1 /* PoolSetupViewController.swift in Sources */,
 				7EEB64471A47DFF00063EF4F /* ChemicalCalculator.swift in Sources */,
 				7E70A0011A50858900913D4B /* TermsOfUseViewController.swift in Sources */,
