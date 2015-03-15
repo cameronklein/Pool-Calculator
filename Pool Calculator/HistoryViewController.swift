@@ -41,7 +41,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 80.0))
     
   }
-  
+
   override func viewWillAppear(animated: Bool) {
     checkEmptyCase()
     graphHeight.constant = 0

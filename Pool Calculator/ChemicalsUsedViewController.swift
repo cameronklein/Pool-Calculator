@@ -8,20 +8,26 @@
 
 import UIKit
 
+struct ChemicalGroup {
+  var title : String
+  var chemicals : [String]!
+  
+  init(title: String) {
+    self.title = title
+  }
+}
+
 class ChemicalsUsedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
   
-  var settings : Array<(String,Array<String>)>!
+  var settings : [ChemicalGroup]!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    var group1 = ("Chlorine Products", ["Chlorine Gas", "Sodium Hypochlorite"])
-    var group2 = ("pH / Total Alkalinity", ["Sodium Bicarbonate", "Soda Ash", "Muriatic Acid", "Sodium Bisulfate"])
-    var group3 = ("Calcium", ["Calcium Chloride 100%", "Calcium Chloride 77%"])
-    var group4 = ("Other",["Cynuric Acid","Sodium Thiosulfate"])
-    settings = [group1, group2, group3, group4]
+    setupSettings()
+    
     tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CELL")
 
     self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 80.0))
@@ -35,8 +41,35 @@ class ChemicalsUsedViewController: UIViewController, UITableViewDelegate, UITabl
     super.didReceiveMemoryWarning()
   }
   
+  func setupSettings() {
+    
+    var group1 = ChemicalGroup(title: "Raise Chlorine")
+    group1.chemicals = ["Sodium Hypochlorite 13%", "Calcium Hypochlorite 67%", "Dichlor 56%", "Dichlor 62%", "Trichlor"]
+    
+    var group2 = ChemicalGroup(title: "Lower Chlorine")
+    group2.chemicals = ["Sodium Thiosulfate", "Sodium Sulfite"]
+    
+    var group3 = ChemicalGroup(title: "Raise pH")
+    group3.chemicals = [ "Soda Ash"]
+    
+    var group4 = ChemicalGroup(title: "Lower pH")
+    group4.chemicals = ["Muriatic Acic", "Dry Acid"]
+    
+    var group5 = ChemicalGroup(title: "Raise Alkalinity")
+    group5.chemicals = ["Sodium Bicarbonate", "Sodium Bisulfate"]
+    
+    var group6 = ChemicalGroup(title: "Raise Calcium Hardness")
+    group6.chemicals = ["Calcium Chloride 100%", "Calcium Chloride 77%"]
+    
+    var group7 = ChemicalGroup(title: "Other")
+    group7.chemicals = ["Cynuric Acid","Sodium Thiosulfate"]
+    
+    settings = [group1, group2, group3, group4, group5, group6, group7]
+    
+  }
+  
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return settings[section].1.count
+    return settings[section].chemicals.count
   }
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -44,12 +77,12 @@ class ChemicalsUsedViewController: UIViewController, UITableViewDelegate, UITabl
   }
   
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return settings[section].0
+    return settings[section].title
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("CELL", forIndexPath: indexPath) as UITableViewCell
-    let title = settings[indexPath.section].1[indexPath.row]
+    let title = settings[indexPath.section].chemicals[indexPath.row]
     cell.textLabel?.text = title
     cell.textLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 16.0)
     cell.textLabel?.textColor = UIColor.whiteColor()

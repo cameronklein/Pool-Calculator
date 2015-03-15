@@ -16,9 +16,10 @@ class Reading: NSManagedObject {
   @NSManaged var combinedChlorine: NSNumber?
   @NSManaged var totalChlorine: NSNumber?
   @NSManaged var pH: NSNumber?
-  @NSManaged var timestamp: NSDate
   @NSManaged var totalAlkalinity: NSNumber?
   @NSManaged var calciumHardness: NSNumber?
+  
+  @NSManaged var timestamp: NSDate
   @NSManaged var day : NSNumber
   
 }

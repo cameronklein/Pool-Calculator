@@ -113,8 +113,26 @@ class ChemicalCalculator {
   func raiseChlorineBy(amount : Double) -> String {
     
     let gallonsMultiplier = poolGallons / 10000
-    let result = amount * sodiumHypochlorite * gallonsMultiplier
-    return formatResult(result, chemicalName: "12% Sodium Hypochlorite", measurementType: .Volume)
+    
+    if NSUserDefaults.standardUserDefaults().boolForKey("Sodium Hypochlorite 13%") {
+      let result = amount * sodiumHypochlorite * gallonsMultiplier
+      return formatResult(result, chemicalName: "13% Sodium Hypochlorite", measurementType: .Volume)
+    } else if NSUserDefaults.standardUserDefaults().boolForKey("Calcium Hypochlorite 67%") {
+      let result = amount * calciumHypochlorite * gallonsMultiplier
+      return formatResult(result, chemicalName: "67% Sodium Hypochlorite", measurementType: .Volume)
+    } else if NSUserDefaults.standardUserDefaults().boolForKey("Dichlor 56%") {
+      let result = amount * dichlor56 * gallonsMultiplier
+      return formatResult(result, chemicalName: "Dichlor 56%", measurementType: .Volume)
+    } else if NSUserDefaults.standardUserDefaults().boolForKey("Dichlor 62%") {
+      let result = amount * dichlor62 * gallonsMultiplier
+      return formatResult(result, chemicalName: "Dichlor 62%", measurementType: .Volume)
+    } else if NSUserDefaults.standardUserDefaults().boolForKey("Trichlor") {
+      let result = amount * trichlor * gallonsMultiplier
+      return formatResult(result, chemicalName: "Trichlor", measurementType: .Volume)
+    } else {
+      let result = amount * sodiumHypochlorite * gallonsMultiplier
+      return formatResult(result, chemicalName: "13% Sodium Hypochlorite", measurementType: .Volume)
+    }
     
   }
   
@@ -137,8 +155,17 @@ class ChemicalCalculator {
   func lowerPHBy(amount : Double) -> String {
     
     let gallonsMultiplier = poolGallons / 10000
-    let result = amount * muriaticAcidForPH * gallonsMultiplier
-    return formatResult(result, chemicalName: "Muriatic Acid", measurementType: .Volume)
+    
+    if NSUserDefaults.standardUserDefaults().boolForKey("Muriatic Acid") {
+      let result = amount * muriaticAcidForPH * gallonsMultiplier
+      return formatResult(result, chemicalName: "Muriatic Acid", measurementType: .Volume)
+    } else if NSUserDefaults.standardUserDefaults().boolForKey("Dry Acid"){
+      let result = amount * muriaticAcidForPH * gallonsMultiplier
+      return formatResult(result, chemicalName: "Dry Acid", measurementType: .Volume)
+    } else {
+      let result = amount * muriaticAcidForPH * gallonsMultiplier
+      return formatResult(result, chemicalName: "Muriatic Acid", measurementType: .Volume)
+    }
     
   }
   
@@ -158,9 +185,18 @@ class ChemicalCalculator {
   
   func raiseHardnessBy(amount : Double) -> String {
     
-    let gallonsMultiplier = poolGallons 	/ 10000
-    let result = amount * calciumChloride100 * gallonsMultiplier
-    return formatResult(result, chemicalName: " 100% Calcium Chloride", measurementType: .Weight)
+    let gallonsMultiplier = poolGallons / 10000
+    
+    if NSUserDefaults.standardUserDefaults().boolForKey("Calcium Chloride 100%") {
+      let result = amount * calciumChloride100 * gallonsMultiplier
+      return formatResult(result, chemicalName: "100% Calcium Chloride", measurementType: .Weight)
+    } else if NSUserDefaults.standardUserDefaults().boolForKey("Calcium Chloride 77%"){
+      let result = amount * muriaticAcidForPH * gallonsMultiplier
+      return formatResult(result, chemicalName: "77% Calcium Chloride", measurementType: .Weight)
+    } else {
+      let result = amount * calciumChloride100 * gallonsMultiplier
+      return formatResult(result, chemicalName: "100% Calcium Chloride", measurementType: .Weight)
+    }
     
   }
   
