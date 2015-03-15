@@ -51,6 +51,10 @@ class OnboardViewController: UIViewController, UITextFieldDelegate {
     let literTapper = UITapGestureRecognizer()
     literTapper.addTarget(self, action: "didTapLiters:")
     litersLabel.addGestureRecognizer(literTapper)
+    
+    let viewTapper = UITapGestureRecognizer()
+    viewTapper.addTarget(self, action: "didTapBackground:")
+    self.view.addGestureRecognizer(viewTapper)
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -106,7 +110,7 @@ class OnboardViewController: UIViewController, UITextFieldDelegate {
         
         currentValue = newValue
         
-        updateVolumeDisplay()
+        updateVolumeDisplayWithRounding(true)
         
         if notYetSwiped {
           notYetSwiped = false
@@ -124,12 +128,14 @@ class OnboardViewController: UIViewController, UITextFieldDelegate {
     }
   }
   
-  func updateVolumeDisplay() {
+  func updateVolumeDisplayWithRounding(rounding: Bool) {
     
     if currentUnits == .Liters {
-      var value = currentValue * 3.78541
-      value = value - (value % 1000)
-      
+      var value = currentValue * 3.785411784
+      if rounding {
+        value = value - (value % 1000)
+      }
+      value = round(value)
       volumeLabel.text = NSNumberFormatter.localizedStringFromNumber(value, numberStyle: NSNumberFormatterStyle.DecimalStyle)
       
     } else {
@@ -144,7 +150,7 @@ class OnboardViewController: UIViewController, UITextFieldDelegate {
     if currentUnits == .Liters {
       currentUnits = .Gallons
       switchLabelAlphas(selected:gallonsLabel, unselected: litersLabel)
-      updateVolumeDisplay()
+      updateVolumeDisplayWithRounding(true)
     }
     
   }
@@ -154,7 +160,7 @@ class OnboardViewController: UIViewController, UITextFieldDelegate {
     if currentUnits == .Gallons {
       currentUnits = .Liters
       switchLabelAlphas(selected:litersLabel, unselected: gallonsLabel)
-      updateVolumeDisplay()
+      updateVolumeDisplayWithRounding(true)
     }
     
   }
@@ -334,10 +340,20 @@ class OnboardViewController: UIViewController, UITextFieldDelegate {
   }
   
   @IBAction func didPressKeyboardButton(sender: AnyObject) {
-    toggleKeyboard()
+    if volumeLabel.isFirstResponder() {
+      hideKeyboard()
+    } else {
+      showKeyboard()
+    }
   }
   
-  func toggleKeyboard() {
+  func showKeyboard() {
+    stripPunctuationFromVolumeLabel()
+    volumeLabel.userInteractionEnabled = true
+    volumeLabel.becomeFirstResponder()
+  }
+  
+  func hideKeyboard() {
     if volumeLabel.isFirstResponder() {
       let f = NSNumberFormatter()
       f.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -345,18 +361,19 @@ class OnboardViewController: UIViewController, UITextFieldDelegate {
       volumeLabel.text = NSNumberFormatter.localizedStringFromNumber(number!, numberStyle: NSNumberFormatterStyle.DecimalStyle)
       volumeLabel.userInteractionEnabled = false
       volumeLabel.resignFirstResponder()
-      currentValue = number!.doubleValue
+      if currentUnits == .Liters {
+        currentValue = round(number!.doubleValue / 3.785411784)
+      } else {
+        currentValue = number!.doubleValue
+      }
+      updateVolumeDisplayWithRounding(false)
       NSUserDefaults.standardUserDefaults().setDouble(currentValue, forKey: kUserSettingsPoolVolumeInGallons)
       NSUserDefaults.standardUserDefaults().synchronize()
-      
-    } else {
-      
-      stripPunctuationFromVolumeLabel()
-      volumeLabel.userInteractionEnabled = true
-      volumeLabel.becomeFirstResponder()
-      
     }
-    
+  }
+  
+  func didTapBackground(sender: UITapGestureRecognizer) {
+    hideKeyboard()
   }
   
   func stripPunctuationFromVolumeLabel(){

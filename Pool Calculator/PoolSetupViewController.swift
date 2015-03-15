@@ -126,7 +126,7 @@ class PoolSetupViewController: UIViewController {
   func updateVolumeDisplay() {
     
     if currentUnits == .Liters {
-      var value = currentValue * 3.78541
+      var value = currentValue * 3.785411784
       value = value - (value % 1000)
       
       volumeLabel.text = NSNumberFormatter.localizedStringFromNumber(value, numberStyle: NSNumberFormatterStyle.DecimalStyle)
