@@ -160,32 +160,29 @@ class ChemicalCalculator {
   
   func lowerPHBy(amount : Double, beginningPH: Double) -> String {
     let gallonsMultiplier = poolGallons / 10000
-    setupMacid()
     
+    setupMacid()
     var tempPH = beginningPH
     var result = 0.0
-    
     while tempPH > beginningPH - amount + 0.05 {
       let lookupValue = NSString(format: "%0.1f", tempPH)
       result += macid[lookupValue]!
       tempPH -= 0.1
     }
+ 
+    if NSUserDefaults.standardUserDefaults().boolForKey("Muriatic Acid") {
+
+      return formatResult(result * 10, chemicalName: "Muriatic Acid", measurementType: .Volume)
+      
+    } else if NSUserDefaults.standardUserDefaults().boolForKey("Dry Acid"){
+
+      return formatResult(result * 12.5, chemicalName: "Dry Acid", measurementType: .Weight)
+      
+    } else {
+
+      return formatResult(result * 10, chemicalName: "Muriatic Acid", measurementType: .Volume)
+    }
     
-    return formatResult(result * 10, chemicalName: "Muriatic Acid", measurementType: .Volume)
-    
-    
-    
-    
-//    if NSUserDefaults.standardUserDefaults().boolForKey("Muriatic Acid") {
-//      let result = amount * muriaticAcidForPH * gallonsMultiplier
-//      return formatResult(result, chemicalName: "Muriatic Acid", measurementType: .Volume)
-//    } else if NSUserDefaults.standardUserDefaults().boolForKey("Dry Acid"){
-//      let result = amount * muriaticAcidForPH * gallonsMultiplier
-//      return formatResult(result, chemicalName: "Dry Acid", measurementType: .Volume)
-//    } else {
-//      let result = amount * muriaticAcidForPH * gallonsMultiplier
-//      return formatResult(result, chemicalName: "Muriatic Acid", measurementType: .Volume)
-//    }
   }
   
   func raiseAlkalinityBy(amount : Double) -> String {

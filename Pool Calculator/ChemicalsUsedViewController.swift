@@ -62,7 +62,7 @@ class ChemicalsUsedViewController: UIViewController, UITableViewDelegate, UITabl
     group6.chemicals = ["Calcium Chloride 100%", "Calcium Chloride 77%"]
     
     var group7 = ChemicalGroup(title: "Other")
-    group7.chemicals = ["Cynuric Acid","Sodium Thiosulfate"]
+    group7.chemicals = ["Cynuric Acid"]
     
     settings = [group1, group2, group3, group4, group5, group6, group7]
     
@@ -90,10 +90,10 @@ class ChemicalsUsedViewController: UIViewController, UITableViewDelegate, UITabl
     cell.selectionStyle = .None
     
     let chemSwitch = UISwitch()
-    chemSwitch.addTarget(self, action: "didFlipSwitch:", forControlEvents: .ValueChanged)
+    chemSwitch.addTarget(self, action: "didFlipSwitch:", forControlEvents: UIControlEvents.ValueChanged)
     cell.accessoryView = chemSwitch
     chemSwitch.on = NSUserDefaults.standardUserDefaults().boolForKey(title)
-
+    
     return cell
   }
   
@@ -103,8 +103,29 @@ class ChemicalsUsedViewController: UIViewController, UITableViewDelegate, UITabl
     }
   }
   
-  @IBAction func didFlipSwitch(sender: UISwitch) {
+  func didFlipSwitch(sender: UISwitch) {
     if let cell = sender.superview as? UITableViewCell {
+      if sender.on {
+        if let indexPath = tableView.indexPathForCell(cell) {
+          let rows = tableView.numberOfRowsInSection(indexPath.section)
+          for var i = 0; i < rows; i++ {
+            if i != indexPath.row {
+              let newIndexPath = NSIndexPath(forRow: i, inSection: indexPath.section)
+              let newCell = tableView.cellForRowAtIndexPath(newIndexPath)
+              if let mySwitch = newCell!.accessoryView as? UISwitch {
+                println("Setting \(newIndexPath) to false")
+                mySwitch.setOn(false, animated: true)
+                if let label = newCell!.textLabel {
+                  if let chemicalName = label.text {
+                    NSUserDefaults.standardUserDefaults().setBool(false, forKey: chemicalName)
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
       if let label = cell.textLabel {
         if let chemicalName = label.text {
           NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: chemicalName)
