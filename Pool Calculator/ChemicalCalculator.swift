@@ -18,10 +18,16 @@ enum MeasurementType: Int {
 
 class ChemicalCalculator {
   
+  init() {
+    
+  }
+  
   var poolGallons : Double {
     return NSUserDefaults.standardUserDefaults().doubleForKey(kUserSettingsPoolVolumeInGallons)
   }
   //Constants are amount in oz required to treat 10,000 gallons and raise by 1ppm
+  
+  var macid : [String:Double]!
   
   //Raise chlorine
   let chlorineGas : Double = 1.3
@@ -41,7 +47,7 @@ class ChemicalCalculator {
   let sodaAshForPH = 65.6
   
   // Lower pH
-  let muriaticAcidForPH = 3.9
+  let muriaticAcidForPH = 45.0
   
   //Lower TA
   let muriaticAcidForTA = 2.6
@@ -69,11 +75,11 @@ class ChemicalCalculator {
     }
   }
   
-  func changePHBy(amount: Double) -> String {
+  func changePHBy(amount: Double, startingPH: Double) -> String {
     if amount > 0 {
       return raisePHBy(amount)
     } else if amount < 0 {
-      return lowerPHBy(-amount)
+      return lowerPHBy(-amount, beginningPH: startingPH)
     } else {
       return "Nothing"
     }
@@ -152,21 +158,34 @@ class ChemicalCalculator {
 
   }
   
-  func lowerPHBy(amount : Double) -> String {
-    
+  func lowerPHBy(amount : Double, beginningPH: Double) -> String {
     let gallonsMultiplier = poolGallons / 10000
+    setupMacid()
     
-    if NSUserDefaults.standardUserDefaults().boolForKey("Muriatic Acid") {
-      let result = amount * muriaticAcidForPH * gallonsMultiplier
-      return formatResult(result, chemicalName: "Muriatic Acid", measurementType: .Volume)
-    } else if NSUserDefaults.standardUserDefaults().boolForKey("Dry Acid"){
-      let result = amount * muriaticAcidForPH * gallonsMultiplier
-      return formatResult(result, chemicalName: "Dry Acid", measurementType: .Volume)
-    } else {
-      let result = amount * muriaticAcidForPH * gallonsMultiplier
-      return formatResult(result, chemicalName: "Muriatic Acid", measurementType: .Volume)
+    var tempPH = beginningPH
+    var result = 0.0
+    
+    while tempPH > beginningPH - amount + 0.05 {
+      let lookupValue = NSString(format: "%0.1f", tempPH)
+      result += macid[lookupValue]!
+      tempPH -= 0.1
     }
     
+    return formatResult(result * 10, chemicalName: "Muriatic Acid", measurementType: .Volume)
+    
+    
+    
+    
+//    if NSUserDefaults.standardUserDefaults().boolForKey("Muriatic Acid") {
+//      let result = amount * muriaticAcidForPH * gallonsMultiplier
+//      return formatResult(result, chemicalName: "Muriatic Acid", measurementType: .Volume)
+//    } else if NSUserDefaults.standardUserDefaults().boolForKey("Dry Acid"){
+//      let result = amount * muriaticAcidForPH * gallonsMultiplier
+//      return formatResult(result, chemicalName: "Dry Acid", measurementType: .Volume)
+//    } else {
+//      let result = amount * muriaticAcidForPH * gallonsMultiplier
+//      return formatResult(result, chemicalName: "Muriatic Acid", measurementType: .Volume)
+//    }
   }
   
   func raiseAlkalinityBy(amount : Double) -> String {
@@ -288,6 +307,44 @@ class ChemicalCalculator {
     }
     
   }
+  
+  func setupMacid() {
+    
+    macid = [String:Double]()
+    macid["6.1"] = 32.1
+    macid["6.2"] = 29.0
+    macid["6.3"] = 26.0
+    macid["6.4"] = 23.2
+    macid["6.5"] = 20.6
+    macid["6.6"] = 18.2
+    macid["6.7"] = 16.0
+    macid["6.8"] = 14.0
+    macid["6.9"] = 12.2
+    macid["7.0"] = 10.5
+    macid["7.1"] = 9.0
+    macid["7.2"] = 7.6
+    macid["7.3"] = 6.5
+    macid["7.4"] = 5.4
+    macid["7.5"] = 4.6
+    macid["7.6"] = 3.8
+    macid["7.7"] = 3.2
+    macid["7.8"] = 2.7
+    macid["7.9"] = 2.4
+    macid["8.0"] = 2.2
+    macid["8.1"] = 2.11
+    macid["8.2"] = 2.13
+    macid["8.3"] = 2.26
+    macid["8.4"] = 2.49
+    macid["8.5"] = 2.83
+    macid["8.6"] = 3.26
+    macid["8.7"] = 3.78
+    macid["8.8"] = 4.39
+    macid["8.9"] = 5.07
+    macid["9.0"] = 5.84
+
+  }
+  
+  
   
   
   

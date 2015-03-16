@@ -202,7 +202,7 @@ class CalculatorViewController: UIViewController {
     case "Free Chlorine":
       return calculator.changeChlorineBy(desiredValue - currentValue)
     case "pH":
-      return calculator.changePHBy(desiredValue - currentValue)
+      return calculator.changePHBy(desiredValue - currentValue, startingPH: currentValue)
     case "Total Alkalinity":
       return calculator.changeAlkalinityBy(desiredValue - currentValue)
     case "Calcium Hardness":
