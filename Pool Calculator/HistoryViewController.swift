@@ -10,8 +10,6 @@ import UIKit
 import CoreData
 
 class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
-
-  var headerText = "History"
   
   @IBOutlet weak var topBar: UIView!
   @IBOutlet weak var tableView: UITableView!
@@ -26,6 +24,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   
   // MARK: - UIViewController Lifecycle Methods
   
+  /*
+    Register nibs, setup date formatter, setup tableview row height
+  */
   override func viewDidLoad() {
     super.viewDidLoad()
     setupFetchController()
@@ -69,6 +70,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
   
   // MARK: - TableViewDataSource
   
+  /*
+    Returns number of sections, or zero if none
+  */
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     if let sections = self.fetchController.sections {
       return sections.count
@@ -76,7 +80,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     return 0
   }
   
-  
+  /*
+    Returns number of objects in section, plus one to account for header label cell
+  */
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let sections = self.fetchController.sections {
       if let sectionInfo = sections[section] as? NSFetchedResultsSectionInfo {
@@ -86,6 +92,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     return 0
   }
   
+  /*
+    Returns date in string format
+  */
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     
     if let sections = self.fetchController.sections {
@@ -99,6 +108,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     return nil
   }
   
+  /*
+    Returns view encapsulating date label
+  */
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     
     let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 60))
@@ -120,10 +132,16 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     return headerView
   }
   
+  /*
+    Returns small, empty view
+  */
   func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
     return UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 20))
   }
   
+  /*
+    Returns either normal reading cell or cell with labels as first cell of section
+  */
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     switch indexPath.row {
     case 0:
@@ -137,6 +155,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
   }
   
+  /*
+    Returns 50 for top cell, 30 for all others
+  */
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     switch indexPath.row {
     case 0:

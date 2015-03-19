@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "0620"
+   version = "2.0">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7EF329C41A6215DB0013AEFD"
+               BuildableName = "Pool Calculator WatchKit App.app"
+               BlueprintName = "Pool Calculator WatchKit App"
+               ReferencedContainer = "container:Pool Calculator.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7E37C2D61A43AA7100432E34"
+               BuildableName = "Pool Calculator.app"
+               BlueprintName = "Pool Calculator"
+               ReferencedContainer = "container:Pool Calculator.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7EF329B51A6215DB0013AEFD"
+               BuildableName = "Pool Calculator WatchKit Extension.appex"
+               BlueprintName = "Pool Calculator WatchKit Extension"
+               ReferencedContainer = "container:Pool Calculator.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7EF329EC1A621E290013AEFD"
+               BuildableName = "ReadingSyncKitTests.xctest"
+               BlueprintName = "ReadingSyncKitTests"
+               ReferencedContainer = "container:Pool Calculator.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7EF32A151A62252C0013AEFD"
+               BuildableName = "DataSyncKitTests.xctest"
+               BlueprintName = "DataSyncKitTests"
+               ReferencedContainer = "container:Pool Calculator.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      buildConfiguration = "Debug">
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7EF329EC1A621E290013AEFD"
+               BuildableName = "ReadingSyncKitTests.xctest"
+               BlueprintName = "ReadingSyncKitTests"
+               ReferencedContainer = "container:Pool Calculator.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7EF32A151A62252C0013AEFD"
+               BuildableName = "DataSyncKitTests.xctest"
+               BlueprintName = "DataSyncKitTests"
+               ReferencedContainer = "container:Pool Calculator.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "7EF329C41A6215DB0013AEFD"
+            BuildableName = "Pool Calculator WatchKit App.app"
+            BlueprintName = "Pool Calculator WatchKit App"
+            ReferencedContainer = "container:Pool Calculator.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+   </TestAction>
+   <LaunchAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Debug"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      allowLocationSimulation = "YES"
+      launchAutomaticallySubstyle = "4"
+      notificationPayloadFile = "Pool Calculator WatchKit Extension/PushNotificationPayload.apns">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard"
+         launchOptions = "4"
+         RemotePath = "/Pool Calculator">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "7EF329C41A6215DB0013AEFD"
+            BuildableName = "Pool Calculator WatchKit App.app"
+            BlueprintName = "Pool Calculator WatchKit App"
+            ReferencedContainer = "container:Pool Calculator.xcodeproj">
+         </BuildableReference>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "7EF329C41A6215DB0013AEFD"
+            BuildableName = "Pool Calculator WatchKit App.app"
+            BlueprintName = "Pool Calculator WatchKit App"
+            ReferencedContainer = "container:Pool Calculator.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
+   </LaunchAction>
+   <ProfileAction
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Release"
+      debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "7EF329C41A6215DB0013AEFD"
+            BuildableName = "Pool Calculator WatchKit App.app"
+            BlueprintName = "Pool Calculator WatchKit App"
+            ReferencedContainer = "container:Pool Calculator.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard"
+         RemotePath = "/Pool Calculator">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "7EF329C41A6215DB0013AEFD"
+            BuildableName = "Pool Calculator WatchKit App.app"
+            BlueprintName = "Pool Calculator WatchKit App"
+            ReferencedContainer = "container:Pool Calculator.xcodeproj">
+         </BuildableReference>
+      </RemoteRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>

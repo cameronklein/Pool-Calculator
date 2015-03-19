@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>675B847B-6C30-4F94-A0CC-7D64A80DEFD5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Pool Calculator</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FD71CA1369B1F0EC2480C0D9F9446CB52E32332E</key>
+		<string>https://github.com/cameronklein/Pool-Calculator.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Pool Calculator.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FD71CA1369B1F0EC2480C0D9F9446CB52E32332E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cameronklein/Pool-Calculator.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FD71CA1369B1F0EC2480C0D9F9446CB52E32332E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FD71CA1369B1F0EC2480C0D9F9446CB52E32332E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Pool%20Calculator</string>
+		</dict>
+	</array>
+</dict>
+</plist>

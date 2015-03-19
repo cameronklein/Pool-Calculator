@@ -52,6 +52,8 @@
 		7EC797691A4421D200BFCAAD /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC797681A4421D200BFCAAD /* Reading.swift */; };
 		7EC944281A99173D0094C657 /* ReadingRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC944271A99173D0094C657 /* ReadingRowController.swift */; };
 		7EC9442A1A991B420094C657 /* NewReadingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC944291A991B420094C657 /* NewReadingController.swift */; };
+		7ECACCD61ABA6D8E001907FE /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECACCD51ABA6D8E001907FE /* Secrets.swift */; };
+		7ECACCDC1ABA7215001907FE /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECACCDB1ABA7215001907FE /* NetworkController.swift */; };
 		7EDE101B1A623E020085C42C /* CalculatorTableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDE101A1A623E020085C42C /* CalculatorTableRowController.swift */; };
 		7EDE10221A623F410085C42C /* CalculatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDE10211A623F410085C42C /* CalculatorController.swift */; };
 		7EEB64431A47CADC0063EF4F /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB64411A47CADC0063EF4F /* CalculatorViewController.swift */; };
@@ -127,6 +129,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		7ECACCEE1ABA74AC001907FE /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7EF329DA1A6215DB0013AEFD /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -201,6 +213,8 @@
 		7EC797681A4421D200BFCAAD /* Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
 		7EC944271A99173D0094C657 /* ReadingRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingRowController.swift; sourceTree = "<group>"; };
 		7EC944291A991B420094C657 /* NewReadingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReadingController.swift; sourceTree = "<group>"; };
+		7ECACCD51ABA6D8E001907FE /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		7ECACCDB1ABA7215001907FE /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkController.swift; path = ../NetworkController.swift; sourceTree = "<group>"; };
 		7EDE101A1A623E020085C42C /* CalculatorTableRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorTableRowController.swift; path = "../Pool Calculator WatchKit App/CalculatorTableRowController.swift"; sourceTree = "<group>"; };
 		7EDE10211A623F410085C42C /* CalculatorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorController.swift; sourceTree = "<group>"; };
 		7EEB64411A47CADC0063EF4F /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +289,7 @@
 		7E37C2CE1A43AA7100432E34 = {
 			isa = PBXGroup;
 			children = (
+				7ECACCD51ABA6D8E001907FE /* Secrets.swift */,
 				7E37C2D91A43AA7100432E34 /* Pool Calculator */,
 				7E37C2F21A43AA7100432E34 /* Pool CalculatorTests */,
 				7EF329B71A6215DB0013AEFD /* Pool Calculator WatchKit Extension */,
@@ -305,6 +320,7 @@
 				7EF329DC1A621D570013AEFD /* Pool Calculator.entitlements */,
 				7EDAC4251A4F7F370076E306 /* -- View Controllers -- */,
 				7E5B2AAC1A43B95700B39BDE /* -- Model Classes -- */,
+				7ECACCDB1ABA7215001907FE /* NetworkController.swift */,
 				7E37C2DC1A43AA7100432E34 /* AppDelegate.swift */,
 				7E70A0031A508E0B00913D4B /* Constants.swift */,
 				7EC5CC4F1A61AA48007E1E7D /* GlobalEnums.swift */,
@@ -562,6 +578,7 @@
 				7E37C2D51A43AA7100432E34 /* Resources */,
 				7EF329DA1A6215DB0013AEFD /* Embed App Extensions */,
 				7EF329FF1A621E290013AEFD /* Embed Frameworks */,
+				7ECACCEE1ABA74AC001907FE /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -802,6 +819,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EEB64431A47CADC0063EF4F /* CalculatorViewController.swift in Sources */,
+				7ECACCD61ABA6D8E001907FE /* Secrets.swift in Sources */,
 				7E9F8A741A4A26AF005092B1 /* ChemicalsUsedViewController.swift in Sources */,
 				7E57EBA41A61EDAB003807DB /* TabBarButton.swift in Sources */,
 				7E5B2AA61A43B2DE00B39BDE /* NewReadingViewController.swift in Sources */,
@@ -820,6 +838,7 @@
 				7E70A0011A50858900913D4B /* TermsOfUseViewController.swift in Sources */,
 				7E5B2AB01A43BDCC00B39BDE /* ReadingType.swift in Sources */,
 				7EC7975E1A44110700BFCAAD /* HistoryViewController.swift in Sources */,
+				7ECACCDC1ABA7215001907FE /* NetworkController.swift in Sources */,
 				7EC5CC501A61AA48007E1E7D /* GlobalEnums.swift in Sources */,
 				7E9F8A7E1A4A6018005092B1 /* DesiredValuesViewController.swift in Sources */,
 				7EC797621A441C7600BFCAAD /* HistoryCell.swift in Sources */,

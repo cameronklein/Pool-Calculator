@@ -39,6 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       userDefaults.setInteger(timesLaunched + 1, forKey: "TimesLaunched")
       userDefaults.synchronize()
     }
+    
+    NetworkController.getToken("Cameron", password: "monkeyfarts")
 
     //self.window?.rootViewController = PoolDrawingViewController(nibName: "PoolDrawingViewController", bundle: NSBundle.mainBundle())
     
