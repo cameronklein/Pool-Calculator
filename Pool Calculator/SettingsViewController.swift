@@ -45,6 +45,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     super.viewWillAppear(animated)
     addTopBarShadow()
     
+    if NSUserDefaults.standardUserDefaults().boolForKey(kUserSettingsCalculatorMode){
+      backButton.alpha = 1
+    } else {
+      backButton.alpha = 0
+    }
+    
   }
   
   //MARK: - <UITableViewDataSource>

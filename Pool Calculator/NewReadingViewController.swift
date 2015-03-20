@@ -220,8 +220,6 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
     reading.calciumHardness = readings[5]
     reading.timestamp = NSDate()
     reading.day = getOrdinalDay()
-    
-    NetworkController.postReading(reading)
 
     var error : NSError?
     context?.save(&error)

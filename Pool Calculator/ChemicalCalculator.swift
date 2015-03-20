@@ -16,6 +16,11 @@ enum MeasurementType: Int {
   case Weight, Volume
 }
 
+struct CalculatorResponse {
+  var title : String
+  var body : String
+}
+
 class ChemicalCalculator {
   
   init() {
@@ -28,6 +33,10 @@ class ChemicalCalculator {
   //Constants are amount in oz required to treat 10,000 gallons and raise by 1ppm
   
   var macid : [String:Double]!
+  
+  var allGoodResponse : CalculatorResponse {
+    return CalculatorResponse(title: "All good!", body: "")
+  }
   
   //Raise chlorine
   let chlorineGas : Double = 1.3
@@ -65,100 +74,113 @@ class ChemicalCalculator {
   
   
   
-  func changeChlorineBy(amount: Double) -> String {
+  func changeChlorineBy(amount: Double) -> CalculatorResponse {
     if amount > 0 {
       return raiseChlorineBy(amount)
     } else if amount < 0 {
       return lowerChlorineBy(-amount)
     } else {
-      return "Nothing"
+      return allGoodResponse
     }
   }
   
-  func changePHBy(amount: Double, startingPH: Double) -> String {
+  func changePHBy(amount: Double, startingPH: Double) -> CalculatorResponse {
     if amount > 0 {
       return raisePHBy(amount)
     } else if amount < 0 {
       return lowerPHBy(-amount, beginningPH: startingPH)
     } else {
-      return "Nothing"
+      return allGoodResponse
     }
   }
   
-  func changeAlkalinityBy(amount: Double) -> String {
+  func changeAlkalinityBy(amount: Double) -> CalculatorResponse {
     if amount > 0 {
       return raiseAlkalinityBy(amount)
     } else if amount < 0 {
       return lowerAlkalinityBy(-amount)
     } else {
-      return "Nothing"
+      return allGoodResponse
     }
   }
   
-  func changeHardnessBy(amount: Double) -> String {
+  func changeHardnessBy(amount: Double) -> CalculatorResponse {
     if amount > 0 {
       return raiseHardnessBy(amount)
     } else if amount < 0 {
       return lowerHardnessBy(-amount)
     } else {
-      return "Nothing"
+      return allGoodResponse
     }
   }
   
-  func changeCynuricAcidBy(amount: Double) -> String {
+  func changeCynuricAcidBy(amount: Double) -> CalculatorResponse {
     if amount > 0 {
       return raiseCynuricAcidBy(amount)
     } else if amount < 0 {
       return lowerCynuricAcidBy(-amount)
     } else {
-      return "Nothing"
+      return allGoodResponse
     }
     
   }
   
-  func raiseChlorineBy(amount : Double) -> String {
+  func raiseChlorineBy(amount : Double) -> CalculatorResponse {
     
     let gallonsMultiplier = poolGallons / 10000
+    var response = CalculatorResponse(title: "You might want to add:", body: "")
     
     if NSUserDefaults.standardUserDefaults().boolForKey("Sodium Hypochlorite 13%") {
       let result = amount * sodiumHypochlorite * gallonsMultiplier
-      return formatResult(result, chemicalName: "13% Sodium Hypochlorite", measurementType: .Volume)
+      response.body = formatResult(result, chemicalName: "13% Sodium Hypochlorite", measurementType: .Volume)
     } else if NSUserDefaults.standardUserDefaults().boolForKey("Calcium Hypochlorite 67%") {
       let result = amount * calciumHypochlorite * gallonsMultiplier
-      return formatResult(result, chemicalName: "67% Sodium Hypochlorite", measurementType: .Volume)
+      response.body = formatResult(result, chemicalName: "67% Calcium Hypochlorite", measurementType: .Volume)
     } else if NSUserDefaults.standardUserDefaults().boolForKey("Dichlor 56%") {
       let result = amount * dichlor56 * gallonsMultiplier
-      return formatResult(result, chemicalName: "Dichlor 56%", measurementType: .Volume)
+      response.body = formatResult(result, chemicalName: "Dichlor 56%", measurementType: .Volume)
     } else if NSUserDefaults.standardUserDefaults().boolForKey("Dichlor 62%") {
       let result = amount * dichlor62 * gallonsMultiplier
-      return formatResult(result, chemicalName: "Dichlor 62%", measurementType: .Volume)
+      response.body = formatResult(result, chemicalName: "Dichlor 62%", measurementType: .Volume)
     } else if NSUserDefaults.standardUserDefaults().boolForKey("Trichlor") {
       let result = amount * trichlor * gallonsMultiplier
-      return formatResult(result, chemicalName: "Trichlor", measurementType: .Volume)
+      response.body = formatResult(result, chemicalName: "Trichlor", measurementType: .Volume)
     } else {
       let result = amount * sodiumHypochlorite * gallonsMultiplier
-      return formatResult(result, chemicalName: "13% Sodium Hypochlorite", measurementType: .Volume)
+      response.body = formatResult(result, chemicalName: "13% Sodium Hypochlorite", measurementType: .Volume)
     }
+    
+    return response
     
   }
   
-  func lowerChlorineBy(amount : Double) -> String {
+  func lowerChlorineBy(amount : Double) -> CalculatorResponse {
+    
+    var response = CalculatorResponse(title: "You might want to add:", body: "")
     
     let gallonsMultiplier = poolGallons / 10000
     let result = amount * sodiumThio * gallonsMultiplier
-    return formatResult(result, chemicalName: "Sodium Thiosulfate", measurementType: .Weight)
+    response.body = formatResult(result, chemicalName: "Sodium Thiosulfate", measurementType: .Weight)
     
+    return response
   }
   
-  func raisePHBy(amount : Double) -> String {
+  func raisePHBy(amount : Double) -> CalculatorResponse {
+    
+    var response = CalculatorResponse(title: "You might want to add:", body: "")
     
     let gallonsMultiplier = poolGallons / 10000
     let result = amount * sodaAshForPH * gallonsMultiplier
-    return formatResult(result, chemicalName: "Soda Ash", measurementType: .Weight)
+    response.body = formatResult(result, chemicalName: "Soda Ash", measurementType: .Weight)
+    
+    return response
 
   }
   
-  func lowerPHBy(amount : Double, beginningPH: Double) -> String {
+  func lowerPHBy(amount : Double, beginningPH: Double) -> CalculatorResponse {
+    
+    var response = CalculatorResponse(title: "You might want to add:", body: "")
+    
     let gallonsMultiplier = poolGallons / 10000
     
     setupMacid()
@@ -172,68 +194,82 @@ class ChemicalCalculator {
  
     if NSUserDefaults.standardUserDefaults().boolForKey("Muriatic Acid") {
 
-      return formatResult(result * 10, chemicalName: "Muriatic Acid", measurementType: .Volume)
+      response.body = formatResult(result * 10, chemicalName: "Muriatic Acid", measurementType: .Volume)
       
     } else if NSUserDefaults.standardUserDefaults().boolForKey("Dry Acid"){
 
-      return formatResult(result * 12.5, chemicalName: "Dry Acid", measurementType: .Weight)
+      response.body = formatResult(result * 12.5, chemicalName: "Dry Acid", measurementType: .Weight)
       
     } else {
 
-      return formatResult(result * 10, chemicalName: "Muriatic Acid", measurementType: .Volume)
+      response.body = formatResult(result * 10, chemicalName: "Muriatic Acid", measurementType: .Volume)
     }
+    
+    return response
     
   }
   
-  func raiseAlkalinityBy(amount : Double) -> String {
+  func raiseAlkalinityBy(amount : Double) -> CalculatorResponse {
+    
+    var response = CalculatorResponse(title: "You might want to add:", body: "")
     
     let gallonsMultiplier = poolGallons / 10000
     let result = amount * sodiumBiCarb * gallonsMultiplier
-    return formatResult(result, chemicalName: "Sodium Bicarbonate", measurementType: .Weight)
+    response.body = formatResult(result, chemicalName: "Sodium Bicarbonate", measurementType: .Weight)
+    
+    return response
     
   }
   
-  func lowerAlkalinityBy(amount : Double) -> String {
+  func lowerAlkalinityBy(amount : Double) -> CalculatorResponse {
     
-    return "Adjust pH between 7.0 and 7.2, then aerate pool."
+    return CalculatorResponse(title: "You might want to:", body: "Adjust pH between 7.0 and 7.2, then aerate pool.")
     
   }
   
-  func raiseHardnessBy(amount : Double) -> String {
+  func raiseHardnessBy(amount : Double) -> CalculatorResponse {
+    
+    var response = CalculatorResponse(title: "You might want to add:", body: "")
     
     let gallonsMultiplier = poolGallons / 10000
     
     if NSUserDefaults.standardUserDefaults().boolForKey("Calcium Chloride 100%") {
       let result = amount * calciumChloride100 * gallonsMultiplier
-      return formatResult(result, chemicalName: "100% Calcium Chloride", measurementType: .Weight)
+      response.body = formatResult(result, chemicalName: "100% Calcium Chloride", measurementType: .Weight)
     } else if NSUserDefaults.standardUserDefaults().boolForKey("Calcium Chloride 77%"){
       let result = amount * muriaticAcidForPH * gallonsMultiplier
-      return formatResult(result, chemicalName: "77% Calcium Chloride", measurementType: .Weight)
+      response.body = formatResult(result, chemicalName: "77% Calcium Chloride", measurementType: .Weight)
     } else {
       let result = amount * calciumChloride100 * gallonsMultiplier
-      return formatResult(result, chemicalName: "100% Calcium Chloride", measurementType: .Weight)
+      response.body = formatResult(result, chemicalName: "100% Calcium Chloride", measurementType: .Weight)
     }
     
-  }
-  
-  func lowerHardnessBy(amount : Double) -> String {
-    
-    return "Partially replace pool water with softer water."
+    return response
     
   }
   
-  func raiseCynuricAcidBy(amount: Double) -> String {
+  func lowerHardnessBy(amount : Double) -> CalculatorResponse {
+    
+    return CalculatorResponse(title: "You might want to:", body: "Partially replace pool water with softer water.")
+    
+  }
+  
+  func raiseCynuricAcidBy(amount: Double) -> CalculatorResponse {
+    
+    var response = CalculatorResponse(title: "You might want to add:", body: "")
     
     let gallonsMultiplier = poolGallons / 10000
     let result = amount * cynuricAcid * gallonsMultiplier
-    return formatResult(result, chemicalName: "Stablizer", measurementType: .Weight)
+    response.body = formatResult(result, chemicalName: "Stablizer", measurementType: .Weight)
+    
+    return response
     
   }
   
-  func lowerCynuricAcidBy(amount: Double) -> String {
+  func lowerCynuricAcidBy(amount: Double) -> CalculatorResponse {
     
-    return "Partially replace pool water with new water."
-    
+    return CalculatorResponse(title: "You might want to:", body: "Partially replace pool water with new water.")
+  
   }
   
   func formatResult(ounces : Double, chemicalName: String, measurementType: MeasurementType) -> String {
@@ -340,9 +376,5 @@ class ChemicalCalculator {
     macid["9.0"] = 5.84
 
   }
-  
-  
-  
-  
   
 }

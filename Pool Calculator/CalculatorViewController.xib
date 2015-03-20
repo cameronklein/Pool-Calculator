@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6724" systemVersion="14C94b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C94b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="fontawesome-webfont.ttf">
+            <string>FontAwesome</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalculatorViewController" customModule="Pool_Calculator" customModuleProvider="target">
             <connections>
@@ -15,6 +20,7 @@
                 <outlet property="desiredView" destination="Av2-LS-oLl" id="bbz-aQ-tat"/>
                 <outlet property="pHButton" destination="EdO-fI-NzJ" id="8yI-l4-duo"/>
                 <outlet property="resultLabel" destination="OSL-gi-rmc" id="QB8-ui-Faf"/>
+                <outlet property="resultTitleLabel" destination="AJQ-iK-Y5a" id="JgT-eW-p41"/>
                 <outlet property="settingsButton" destination="lIN-Di-0ks" id="d1H-pl-MUL"/>
                 <outlet property="topBar" destination="2Za-Ys-bE6" id="k2x-mn-wDK"/>
                 <outlet property="topScrollView" destination="wEs-Rn-LDt" id="tPa-oJ-UDo"/>
@@ -36,9 +42,9 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIN-Di-0ks">
-                            <rect key="frame" x="521" y="28" width="63" height="24"/>
-                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                        <label opaque="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIN-Di-0ks">
+                            <rect key="frame" x="562" y="28" width="22" height="20"/>
+                            <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -46,7 +52,7 @@
                     <color key="backgroundColor" red="0.4823529411764706" green="0.12156862745098039" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="lIN-Di-0ks" secondAttribute="trailing" constant="16" id="Joa-DM-OQL"/>
-                        <constraint firstAttribute="bottom" secondItem="lIN-Di-0ks" secondAttribute="bottom" constant="8" id="kRY-rs-beg"/>
+                        <constraint firstAttribute="bottom" secondItem="lIN-Di-0ks" secondAttribute="bottom" constant="12" id="kRY-rs-beg"/>
                         <constraint firstAttribute="bottom" secondItem="YLu-VX-pjR" secondAttribute="bottom" constant="8" id="obg-FV-XC0"/>
                         <constraint firstAttribute="height" constant="60" id="s69-Q1-pgQ"/>
                         <constraint firstAttribute="centerX" secondItem="YLu-VX-pjR" secondAttribute="centerX" id="zc0-UL-fhY"/>

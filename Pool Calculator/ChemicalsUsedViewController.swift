@@ -46,25 +46,16 @@ class ChemicalsUsedViewController: UIViewController, UITableViewDelegate, UITabl
     var group1 = ChemicalGroup(title: "Raise Chlorine")
     group1.chemicals = ["Sodium Hypochlorite 13%", "Calcium Hypochlorite 67%", "Dichlor 56%", "Dichlor 62%", "Trichlor"]
     
-    var group2 = ChemicalGroup(title: "Lower Chlorine")
-    group2.chemicals = ["Sodium Thiosulfate", "Sodium Sulfite"]
+    var group2 = ChemicalGroup(title: "Lower pH")
+    group2.chemicals = ["Muriatic Acic", "Dry Acid"]
     
-    var group3 = ChemicalGroup(title: "Raise pH")
-    group3.chemicals = [ "Soda Ash"]
+    var group3 = ChemicalGroup(title: "Raise Alkalinity")
+    group3.chemicals = ["Sodium Bicarbonate", "Sodium Bisulfate"]
     
-    var group4 = ChemicalGroup(title: "Lower pH")
-    group4.chemicals = ["Muriatic Acic", "Dry Acid"]
+    var group4 = ChemicalGroup(title: "Raise Calcium Hardness")
+    group4.chemicals = ["Calcium Chloride 100%", "Calcium Chloride 77%"]
     
-    var group5 = ChemicalGroup(title: "Raise Alkalinity")
-    group5.chemicals = ["Sodium Bicarbonate", "Sodium Bisulfate"]
-    
-    var group6 = ChemicalGroup(title: "Raise Calcium Hardness")
-    group6.chemicals = ["Calcium Chloride 100%", "Calcium Chloride 77%"]
-    
-    var group7 = ChemicalGroup(title: "Other")
-    group7.chemicals = ["Cynuric Acid"]
-    
-    settings = [group1, group2, group3, group4, group5, group6, group7]
+    settings = [group1, group2, group3, group4]
     
   }
   

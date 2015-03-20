@@ -25,6 +25,7 @@ class CalculatorViewController: UIViewController {
   @IBOutlet weak var cynuricAcidButton: UIButton!
   @IBOutlet weak var otherButton: UIButton!
   @IBOutlet weak var topScrollView: UIScrollView!
+  @IBOutlet weak var resultTitleLabel: UILabel!
   
   var calculator = ChemicalCalculator()
   var type : ReadingType = ReadingType.getType(.FreeChlorine)
@@ -58,7 +59,9 @@ class CalculatorViewController: UIViewController {
     addTopBarShadow()
     if getLastReading() {
       updateCurrentReading()
-      resultLabel.text = calculateResult()
+      let response = calculateResult()
+      resultTitleLabel.text = response?.title
+      resultLabel.text = response?.body
     }
     for view in [currentView, desiredView] {
       let panner = UIPanGestureRecognizer()
@@ -117,7 +120,9 @@ class CalculatorViewController: UIViewController {
             desiredValue = newValue
           }
           numberLabel.text = String(format: type.stringFormat, Double(newValue))
-          resultLabel.text = calculateResult()
+          let response = calculateResult()
+          resultTitleLabel.text = response?.title
+          resultLabel.text = response?.body
           
         default:
           return ()
@@ -197,7 +202,7 @@ class CalculatorViewController: UIViewController {
     return lastReading != nil
   }
   
-  func calculateResult() -> String? {
+  func calculateResult() -> CalculatorResponse? {
     switch type.name {
     case "Free Chlorine":
       return calculator.changeChlorineBy(desiredValue - currentValue)
@@ -210,7 +215,7 @@ class CalculatorViewController: UIViewController {
     case "Cynuric Acid":
       return calculator.changeCynuricAcidBy(desiredValue - currentValue)
     default:
-      return "Oops"
+      return CalculatorResponse(title: "", body: "")
     }
   }
   
@@ -237,7 +242,9 @@ class CalculatorViewController: UIViewController {
       duration: 0.3,
       options: UIViewAnimationOptions.TransitionFlipFromBottom,
       animations: { () -> Void in
-        self.resultLabel.text = self.calculateResult()
+        let response = self.calculateResult()
+        self.resultTitleLabel.text = response?.title
+        self.resultLabel.text = response?.body
       }) { (success) -> Void in
         return ()
     }
