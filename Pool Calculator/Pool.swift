@@ -15,9 +15,11 @@ enum PoolType : Int {
 
 class Pool: NSManagedObject {
 
-    @NSManaged var gallons: NSNumber
-    @NSManaged var type: NSNumber
-    @NSManaged var latitude: NSNumber?
-    @NSManaged var longitude: NSNumber?
+  @NSManaged var owner: NSString?
+  @NSManaged var name : NSString?
+  @NSManaged var gallons: NSNumber
+  @NSManaged var type: NSNumber
+  @NSManaged var latitude: NSNumber?
+  @NSManaged var longitude: NSNumber?
 
 }

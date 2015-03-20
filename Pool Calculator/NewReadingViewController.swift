@@ -132,23 +132,10 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
         let delta = type.maxValue - type.minValue
         newValue = oldValue /*+ type.minValue*/ + Double(ratio) * Double(delta)
         
+        updateChemicalLabelForCell(cell, forReadingType: type, toValue: newValue)
+        
         if type.maxValue == 500 {
           newValue = newValue - newValue % 10
-        }
-        
-        var isTooHigh = false
-        
-        newValue = max(newValue!, type.minValue)
-        
-        if Double(newValue) > type.maxValue {
-          newValue = type.maxValue
-          isTooHigh = true
-        }
-        
-        cell.readingValue.text = String(format: type.stringFormat, Double(newValue))
-
-        if isTooHigh {
-          cell.readingValue.text! = cell.readingValue.text! + "+"
         }
         
         UIView.animateWithDuration(0.4,
@@ -159,12 +146,10 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.cancelLabel.transform = CGAffineTransformMakeScale(1.4, 1)
             if cell.readingType!.name != "pH" {
               cell.unitsLabel.alpha = 1
-              
             }
             
-        }, completion: { (success) -> Void in
-          return ()
-        })
+        }, completion: nil)
+        
         
       case .Ended:
         readings[tableView.indexPathForCell(cell)!.row] = newValue
@@ -250,6 +235,25 @@ class NewReadingViewController: UIViewController, UITableViewDelegate, UITableVi
     let dateForDay = date.dateByAddingTimeInterval(Double(offset))
     return calendar.ordinalityOfUnit(NSCalendarUnit.CalendarUnitDay, inUnit: NSCalendarUnit.CalendarUnitEra, forDate: dateForDay)
     
+  }
+  
+  func updateChemicalLabelForCell(cell: ReadingCell, forReadingType type: ReadingType, toValue value: Double) {
+    
+    var isTooHigh = false
+    
+    newValue = max(newValue!, type.minValue)
+    
+    if Double(newValue) > type.maxValue {
+      newValue = type.maxValue
+      isTooHigh = true
+    }
+    
+    cell.readingValue.text = String(format: type.stringFormat, Double(newValue))
+    
+    if isTooHigh {
+      cell.readingValue.text! = cell.readingValue.text! + "+"
+    }
+
   }
   
 }
