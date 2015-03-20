@@ -128,16 +128,17 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAO-fs-llO">
-                    <rect key="frame" x="368" y="425" width="64" height="36"/>
-                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                    <rect key="frame" x="265" y="425" width="71" height="37"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
                     <state key="normal" title="Confirm">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="didPressConfirm:" destination="-1" eventType="touchUpInside" id="AVy-3e-8Qi"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahu-95-CBC">
+                <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahu-95-CBC">
                     <rect key="frame" x="149" y="425" width="103" height="36"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                     <state key="normal" title="I don't know!">
@@ -148,9 +149,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5h-AP-SB9">
-                    <rect key="frame" x="197" y="552" width="208" height="36"/>
-                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                    <state key="normal" title="Done! Take me to the app!">
+                    <rect key="frame" x="274" y="551" width="54" height="37"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
+                    <state key="normal" title="Done!">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -168,7 +170,7 @@
                 <constraint firstItem="gO2-e7-053" firstAttribute="leading" secondItem="QMx-3T-qSf" secondAttribute="trailing" constant="-560" id="Jf3-9i-vcD"/>
                 <constraint firstItem="QMx-3T-qSf" firstAttribute="top" secondItem="IEC-GJ-z0U" secondAttribute="bottom" constant="32" id="KuK-Y4-U5K"/>
                 <constraint firstAttribute="centerX" secondItem="Ahu-95-CBC" secondAttribute="centerX" constant="100" id="OHE-Of-akN"/>
-                <constraint firstAttribute="centerX" secondItem="KAO-fs-llO" secondAttribute="centerX" constant="-100" id="Qfy-al-Jdz"/>
+                <constraint firstAttribute="centerX" secondItem="KAO-fs-llO" secondAttribute="centerX" id="Qfy-al-Jdz"/>
                 <constraint firstItem="IEC-GJ-z0U" firstAttribute="top" secondItem="gTS-qq-2nF" secondAttribute="bottom" constant="16" id="RdD-xr-dc8"/>
                 <constraint firstItem="Ahu-95-CBC" firstAttribute="top" secondItem="UhE-kh-4ot" secondAttribute="bottom" constant="32" id="S1Y-Ld-Pve"/>
                 <constraint firstAttribute="bottom" secondItem="q5h-AP-SB9" secondAttribute="bottom" constant="12" id="Tzs-RX-4zf"/>

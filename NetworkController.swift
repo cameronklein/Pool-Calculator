@@ -11,6 +11,10 @@ import Alamofire
 
 class NetworkController: NSObject {
   
+  class func getReadingsForPool(pool: Pool) {
+    
+  }
+  
   class func postReading(reading: Reading) {
     
     var token = NSUserDefaults.standardUserDefaults().objectForKey("token") as String
